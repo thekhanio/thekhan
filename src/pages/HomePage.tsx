@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "framer-motion";
 import { Logo } from "@/components/Logo";
@@ -10,7 +11,7 @@ import { AnimatedUnderline } from "@/components/ui/animated-underline";
 import { SpotlightGlow } from "@/components/ui/spotlight-glow";
 import {
   IconAlertTriangle,
-  IconPlugOff,
+  IconEye,
   IconClock,
   IconHammer,
   IconSettings,
@@ -24,13 +25,6 @@ import {
   IconMapPinFilled,
   IconMenu2,
   IconX,
-  IconWorldWww,
-  IconRobot,
-  IconSearch,
-  IconTargetArrow,
-  IconSocial,
-  IconPalette,
-  IconDatabase,
 } from "@tabler/icons-react";
 
 const premierSites = [
@@ -41,21 +35,6 @@ const premierSites = [
   { name: "Premier Seasonal Services", logo: "/portfolio/premier-plowing-logo.png", url: "https://plowingfrompremier.com", label: "Snow Removal" },
 ];
 
-function SpotlightCard({ icon, title, desc, index }: { icon: React.ReactNode; title: string; desc: string; index: number }) {
-  return (
-    <ScrollReveal direction="up" delay={index * 0.08}>
-      <SpotlightGlow tilt className="h-full">
-        <div className="p-7 md:p-8 flex flex-col h-full">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#2563eb]/15 to-[#06b6d4]/15 border border-[#2563eb]/20 flex items-center justify-center mb-5 group-hover:border-[#06b6d4]/40 group-hover:from-[#2563eb]/25 group-hover:to-[#06b6d4]/25 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
-            <div className="text-[#06b6d4] group-hover:text-[#38bdf8] transition-colors duration-500">{icon}</div>
-          </div>
-          <h3 className="text-lg font-semibold text-white mb-2" style={{ fontFamily: "'Cinzel', serif" }}>{title}</h3>
-          <p className="text-[#a3a3a3] text-sm leading-relaxed">{desc}</p>
-        </div>
-      </SpotlightGlow>
-    </ScrollReveal>
-  );
-}
 
 export default function HomePage() {
   const [mounted, setMounted] = useState(false);
@@ -81,74 +60,99 @@ export default function HomePage() {
         <meta property="og:url" content="https://thekhan.io/" />
         <meta property="og:image" content="https://thekhan.io/og-image.jpg" />
         <meta property="og:type" content="website" />
+        <meta name="geo.region" content="US-IL" />
+        <meta name="geo.placename" content="Deerfield" />
+        <meta name="geo.position" content="42.1711;-87.8445" />
+        <meta name="ICBML" content="42.1711, -87.8445" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="TheKhan | Custom Websites, AI Systems, Software & Marketing" />
+        <meta name="twitter:description" content="Custom websites, software, AI systems, and marketing — built by a real team from real code. No templates, no platforms, no lock-in." />
+        <meta name="twitter:image" content="https://thekhan.io/og-image.jpg" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": "https://thekhan.io/#organization",
+              "name": "TheKhan",
+              "url": "https://thekhan.io",
+              "logo": "https://thekhan.io/logo.png",
+              "email": "hello@thekhan.io",
+              "telephone": "(847) 220-8550",
+              "sameAs": [
+                "https://www.linkedin.com/company/thekhanio",
+                "https://www.instagram.com/thekhanio",
+                "https://www.facebook.com/profile.php?id=61584909881446"
+              ]
+            },
+            {
+              "@type": "ProfessionalService",
+              "@id": "https://thekhan.io/#localbusiness",
+              "name": "TheKhan",
+              "url": "https://thekhan.io",
+              "logo": "https://thekhan.io/logo.png",
+              "image": "https://thekhan.io/og-image.jpg",
+              "email": "hello@thekhan.io",
+              "telephone": "(847) 220-8550",
+              "description": "Custom websites, software, AI systems, and marketing for growing businesses",
+              "priceRange": "$$",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "655 Deerfield Rd, Suite 100, Unit 404",
+                "addressLocality": "Deerfield",
+                "addressRegion": "IL",
+                "postalCode": "60015",
+                "addressCountry": "US"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 42.1711,
+                "longitude": -87.8445
+              },
+              "areaServed": {
+                "@type": "GeoCircle",
+                "geoMidpoint": {
+                  "@type": "GeoCoordinates",
+                  "latitude": 42.1711,
+                  "longitude": -87.8445
+                },
+                "geoRadius": "50mi",
+                "name": "Chicago metropolitan area"
+              },
+              "sameAs": [
+                "https://www.linkedin.com/company/thekhanio",
+                "https://www.instagram.com/thekhanio",
+                "https://www.facebook.com/profile.php?id=61584909881446"
+              ]
+            }
+          ]
+        })}</script>
       </Helmet>
 
       <BackgroundPaths />
 
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-[100] bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-white/[0.05]" style={{ position: 'fixed' }}>
-        <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 md:py-4 flex items-center justify-center md:justify-between relative">
+        <div className="max-w-7xl mx-auto px-4 lg:px-6 py-4 lg:py-4 flex items-center justify-center lg:justify-between relative">
           <a href="#" className="flex flex-col cursor-pointer overflow-visible" onClick={(e) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}>
-            <div className="scale-[0.85] md:scale-100 origin-center">
-              <div className="inline-flex flex-col overflow-visible">
-                <div className="relative inline-flex items-center overflow-visible" style={{ height: 44 }}>
-                  {/* TK monogram */}
-                  <img src="/portfolio/logo-white-tk.png" alt="" style={{ height: 38, width: 'auto', marginTop: 8 }} />
-
-                  {/* Animated vertical divider line */}
-                  <div className="relative self-stretch mx-[10px] -my-[4px] overflow-hidden rounded-full" style={{ width: 3 }}>
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#2563eb]/40 to-transparent" />
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-b from-transparent via-[#2563eb] to-transparent"
-                      initial={{ y: "-100%" }}
-                      animate={{ y: "100%" }}
-                      transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                    />
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-b from-transparent via-[#06b6d4] to-transparent"
-                      initial={{ y: "-100%" }}
-                      animate={{ y: "100%" }}
-                      transition={{ duration: 2, repeat: Infinity, ease: "linear", delay: 0.3 }}
-                    />
-                  </div>
-
-                  {/* THE KHAN text */}
-                  <img src="/portfolio/logo-white-text.png" alt="TheKhan" style={{ height: 44, width: 'auto', marginLeft: 4 }} />
-
-                  {/* Horizontal underline — flowing sweep */}
-                  <div className="absolute bottom-[-14px] left-0 right-0 h-[2px] z-10 overflow-hidden rounded-full">
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#2563eb]/30 to-transparent" />
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-[#2563eb] to-transparent"
-                      initial={{ x: "-100%" }}
-                      animate={{ x: "100%" }}
-                      transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
-                    />
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-[#06b6d4]/70 to-transparent"
-                      initial={{ x: "-100%" }}
-                      animate={{ x: "100%" }}
-                      transition={{ duration: 2.5, repeat: Infinity, ease: "linear", delay: 0.3 }}
-                    />
-                  </div>
-                </div>
-              </div>
+            <div className="scale-[0.85] lg:scale-100 origin-center">
+              <Logo variant="white" size="sm" type="full" />
             </div>
           </a>
 
-          <div className="hidden md:flex items-center gap-12">
+          <div className="hidden lg:flex items-center gap-12">
             <a href="#services" className="nav-link text-[#d4d4d4] text-base tracking-wide">Services</a>
             <a href="#work" className="nav-link text-[#d4d4d4] text-base tracking-wide">Portfolio</a>
-            <a href="#about" className="nav-link text-[#d4d4d4] text-base tracking-wide">About</a>
+            <Link to="/contractors" className="nav-link text-[#d4d4d4] text-base tracking-wide">For Contractors</Link>
             <a href="#contact" className="nav-button-premium px-7 py-3 bg-gradient-to-r from-[#2563eb] to-[#06b6d4] text-white rounded-full text-base font-medium tracking-wide">
               Let&apos;s Talk
             </a>
           </div>
 
-          <button className="md:hidden absolute right-4 p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle menu">
+          <button className="lg:hidden absolute right-4 p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle menu">
             {mobileMenuOpen ? (
               <IconX className="w-6 h-6 text-[#06b6d4]" />
             ) : (
@@ -164,12 +168,12 @@ export default function HomePage() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-white/[0.05] overflow-hidden"
+              className="lg:hidden bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-white/[0.05] overflow-hidden"
             >
               <div className="px-4 py-5 flex flex-col items-center gap-3">
                 <a href="#services" onClick={handleNavClick} className="nav-link text-[#d4d4d4] text-base py-2">Services</a>
                 <a href="#work" onClick={handleNavClick} className="nav-link text-[#d4d4d4] text-base py-2">Portfolio</a>
-                <a href="#about" onClick={handleNavClick} className="nav-link text-[#d4d4d4] text-base py-2">About</a>
+                <Link to="/contractors" onClick={handleNavClick} className="nav-link text-[#d4d4d4] text-base py-2">For Contractors</Link>
                 <a href="#contact" onClick={handleNavClick} className="nav-button-premium px-6 py-3 bg-gradient-to-r from-[#2563eb] to-[#06b6d4] text-white rounded-full text-base font-medium text-center mt-2">
                   Let&apos;s Talk
                 </a>
@@ -180,29 +184,16 @@ export default function HomePage() {
       </nav>
 
       {/* ==================== HERO ==================== */}
-      <section className="relative z-10 min-h-screen flex items-center overflow-hidden pt-0 md:pt-16">
+      <section className="relative z-10 min-h-[75vh] flex items-center overflow-hidden pt-0 md:pt-16">
         <div className="max-w-4xl mx-auto px-6 w-full text-center">
-          <div className={`mb-6 md:mb-8 transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <span className="text-xs md:text-base font-medium tracking-[0.15em] md:tracking-[0.3em] uppercase text-[#2563eb]">
-              Websites · Software · AI · Marketing
-            </span>
-          </div>
-
-          <div className={`flex justify-center items-center mb-6 md:mb-8 transition-all duration-700 delay-75 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className="scale-[0.8] sm:scale-90 md:scale-100 lg:scale-[1.15] origin-center">
-              <Logo variant="white" size="lg" type="short" />
-            </div>
-          </div>
-
           <h1
-            className={`text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white leading-[1.15] mb-5 md:mb-7 tracking-[0.08em] md:tracking-[0.12em] text-center md:whitespace-nowrap md:-translate-x-[65px] transition-all duration-700 delay-150 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-            style={{ fontFamily: "'Cinzel', serif" }}
+            className={`text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.15] mb-3 md:mb-4 text-center transition-all duration-700 delay-150 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           >
-            <span className="text-gradient">What happens when<br className="md:hidden" /> they Google<br className="md:hidden" /> your business?</span>
+            <span className="text-gradient">You Never Showed Up. Your Competitor Did.</span>
           </h1>
 
-          <p className={`text-sm md:text-lg text-[#a3a3a3] mb-8 md:mb-10 max-w-2xl mx-auto text-center transition-all duration-700 delay-200 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            We build custom websites, software, and marketing that make sure they find you first. No templates. No freelancers. A real team.
+          <p className={`text-lg sm:text-xl md:text-2xl text-[#a3a3a3] mb-8 md:mb-10 max-w-2xl mx-auto text-center transition-all duration-700 delay-200 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            They searched for exactly what you do. You&apos;re great at it — people just can&apos;t find you yet.
           </p>
 
           <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-700 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
@@ -231,8 +222,8 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <ScrollReveal direction="up">
-              <h2 className="text-2xl md:text-4xl font-semibold text-white mb-4 tracking-[0.15em] uppercase" style={{ fontFamily: "'Cinzel', serif" }}>
-                You already know the problem.
+              <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
+                You&apos;re Losing Business and You Don&apos;t Even Know It.
               </h2>
               <AnimatedUnderline className="w-48 md:w-64 mx-auto mt-6" />
             </ScrollReveal>
@@ -246,7 +237,7 @@ export default function HomePage() {
                     <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#2563eb]/15 to-[#06b6d4]/15 flex items-center justify-center mb-6 border border-[#2563eb]/30 group-hover:border-[#06b6d4]/40 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
                       {point.icon}
                     </div>
-                    <h3 className="text-white font-semibold text-xl mb-3" style={{ fontFamily: "'Cinzel', serif" }}>
+                    <h3 className="text-white font-bold text-xl mb-3">
                       {point.title}
                     </h3>
                     <p className="text-[#a3a3a3] text-base leading-relaxed">
@@ -260,7 +251,7 @@ export default function HomePage() {
 
           <ScrollReveal direction="up" delay={0.3}>
             <p className="text-center text-lg md:text-xl text-white mt-16 max-w-xl mx-auto leading-relaxed">
-              One team that builds it, runs it, and grows it — so you can focus on what you actually do.
+              This doesn&apos;t fix itself. And it&apos;s costing you more than you think.
             </p>
           </ScrollReveal>
         </div>
@@ -272,10 +263,10 @@ export default function HomePage() {
           <div className="text-center mb-16">
             <ScrollReveal direction="up">
               <h2 className="text-2xl md:text-4xl font-semibold text-white mb-4 tracking-[0.15em] uppercase" style={{ fontFamily: "'Cinzel', serif" }}>
-                What we do.
+                Here&apos;s what changes.
               </h2>
               <p className="text-[#a3a3a3] text-lg">
-                Three pillars. One team.
+                We handle three things. Each one builds on the last.
               </p>
               <AnimatedUnderline className="w-48 md:w-64 mx-auto mt-6" />
             </ScrollReveal>
@@ -311,6 +302,22 @@ export default function HomePage() {
               </ScrollReveal>
             ))}
           </div>
+
+          <ScrollReveal direction="up" delay={0.3}>
+            <div className="text-center mt-8 space-y-5">
+              <p className="text-[#a3a3a3] text-sm">One team. Three things. Everything connected.</p>
+              <Link to="/services">
+                <MovingBorderButton
+                  borderRadius="9999px"
+                  containerClassName="h-12 w-full sm:w-56 shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] transition-all duration-200 ease-out clickable-hover active:scale-[0.98]"
+                  className="text-sm px-6 tracking-wide"
+                  duration={3000}
+                >
+                  See the Full Breakdown
+                </MovingBorderButton>
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -323,7 +330,7 @@ export default function HomePage() {
                 Choose your path.
               </h2>
               <p className="text-[#a3a3a3] text-lg">
-                Project or partnership. Your call.
+                Two ways to work with us.
               </p>
               <AnimatedUnderline className="w-48 md:w-64 mx-auto mt-6" />
             </ScrollReveal>
@@ -335,14 +342,13 @@ export default function HomePage() {
                 <div className="p-7 md:p-8 flex flex-col h-full">
                   <span className="text-[#2563eb] text-xs font-semibold tracking-[0.2em] uppercase mb-4">One-time</span>
                   <h3 className="text-xl md:text-2xl font-semibold text-white mb-3" style={{ fontFamily: "'Cinzel', serif" }}>The Project</h3>
-                  <p className="text-[#d4d4d4] text-base leading-relaxed mb-5">Need a website, software, or a one-time build? We design it, build it, and hand it over. You own everything — code, assets, logins.</p>
+                  <p className="text-[#d4d4d4] text-base leading-relaxed mb-5">We build it. You own it. Done.</p>
                   <ul className="space-y-2.5 mb-6 flex-1">
-                    <li className="flex items-start gap-2.5 text-[#a3a3a3] text-sm"><span className="text-[#2563eb] mt-0.5 flex-shrink-0">&rarr;</span>Custom websites & software</li>
-                    <li className="flex items-start gap-2.5 text-[#a3a3a3] text-sm"><span className="text-[#2563eb] mt-0.5 flex-shrink-0">&rarr;</span>AI systems & chatbots</li>
-                    <li className="flex items-start gap-2.5 text-[#a3a3a3] text-sm"><span className="text-[#2563eb] mt-0.5 flex-shrink-0">&rarr;</span>CRM & business systems</li>
-                    <li className="flex items-start gap-2.5 text-[#a3a3a3] text-sm"><span className="text-[#2563eb] mt-0.5 flex-shrink-0">&rarr;</span>Branding & logo design</li>
+                    <li className="flex items-start gap-2.5 text-[#a3a3a3] text-sm"><span className="text-[#2563eb] mt-0.5 flex-shrink-0">&rarr;</span>Clear scope, clear timeline, clear price</li>
+                    <li className="flex items-start gap-2.5 text-[#a3a3a3] text-sm"><span className="text-[#2563eb] mt-0.5 flex-shrink-0">&rarr;</span>You get the code, the assets, and every login</li>
+                    <li className="flex items-start gap-2.5 text-[#a3a3a3] text-sm"><span className="text-[#2563eb] mt-0.5 flex-shrink-0">&rarr;</span>Bring in any developer after — no lock-in</li>
                   </ul>
-                  <p className="text-white/80 font-medium text-sm pt-4 border-t border-white/[0.06]">Always available · Scoped to your needs</p>
+                  <p className="text-white/80 font-medium text-sm pt-4 border-t border-white/[0.06]">Always open — no waitlist.</p>
                 </div>
               </SpotlightGlow>
             </ScrollReveal>
@@ -351,12 +357,11 @@ export default function HomePage() {
                 <div className="p-7 md:p-8 flex flex-col h-full relative">
                   <span className="text-[#06b6d4] text-xs font-semibold tracking-[0.2em] uppercase mb-4">Ongoing</span>
                   <h3 className="text-xl md:text-2xl font-semibold text-white mb-3" style={{ fontFamily: "'Cinzel', serif" }}>The Partnership</h3>
-                  <p className="text-[#d4d4d4] text-base leading-relaxed mb-5">Want more than a build? We become your digital team — websites, software, marketing, and AI managed month to month. No contracts.</p>
+                  <p className="text-[#d4d4d4] text-base leading-relaxed mb-5">We become your digital team. Everything managed, month to month. No contracts.</p>
                   <ul className="space-y-2.5 mb-6 flex-1">
-                    <li className="flex items-start gap-2.5 text-[#a3a3a3] text-sm"><span className="text-[#2563eb] mt-0.5 flex-shrink-0">&rarr;</span>Everything in The Project, plus:</li>
-                    <li className="flex items-start gap-2.5 text-[#a3a3a3] text-sm"><span className="text-[#2563eb] mt-0.5 flex-shrink-0">&rarr;</span>Ongoing management, updates & support</li>
-                    <li className="flex items-start gap-2.5 text-[#a3a3a3] text-sm"><span className="text-[#2563eb] mt-0.5 flex-shrink-0">&rarr;</span>SEO, Google Ads & marketing</li>
-                    <li className="flex items-start gap-2.5 text-[#a3a3a3] text-sm"><span className="text-[#2563eb] mt-0.5 flex-shrink-0">&rarr;</span>Custom software, AI tools & automations</li>
+                    <li className="flex items-start gap-2.5 text-[#a3a3a3] text-sm"><span className="text-[#2563eb] mt-0.5 flex-shrink-0">&rarr;</span>One team handling everything — not five freelancers</li>
+                    <li className="flex items-start gap-2.5 text-[#a3a3a3] text-sm"><span className="text-[#2563eb] mt-0.5 flex-shrink-0">&rarr;</span>Monthly check-ins with real reporting</li>
+                    <li className="flex items-start gap-2.5 text-[#a3a3a3] text-sm"><span className="text-[#2563eb] mt-0.5 flex-shrink-0">&rarr;</span>Cancel anytime — no contracts, no exit fees</li>
                   </ul>
                   <p className="text-white/80 font-medium text-sm pt-4 border-t border-white/[0.06]">Limited spots per quarter · Month to month</p>
                 </div>
@@ -365,38 +370,13 @@ export default function HomePage() {
           </div>
 
           <ScrollReveal direction="up" delay={0.3}>
-            <p className="text-center text-[#a3a3a3] text-sm mt-8">Need a website or one-time build? Always available. Looking for the full partnership? We only take on a few at a time so we can actually deliver — if we&apos;re at capacity, we&apos;ll tell you upfront.</p>
+            <p className="text-center text-[#a3a3a3] text-sm mt-8">We only take on a few partnerships at a time so we can actually deliver. If we&apos;re at capacity, we&apos;ll tell you upfront.</p>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* ==================== INDIVIDUAL SERVICES ==================== */}
-      <section className="py-24 px-6 relative z-10">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <ScrollReveal direction="up">
-              <h2 className="text-2xl md:text-4xl font-semibold text-white mb-4 tracking-[0.15em] uppercase" style={{ fontFamily: "'Cinzel', serif" }}>
-                What your digital team covers.
-              </h2>
-              <p className="text-[#a3a3a3] text-lg">
-                From custom code to marketing — everything handled in-house.
-              </p>
-              <AnimatedUnderline className="w-48 md:w-64 mx-auto mt-6" />
-            </ScrollReveal>
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-5">
-            {spotlightServices.map((svc, i) => (
-              <div key={svc.title} className="w-full md:w-[calc(33.333%-14px)]">
-                <SpotlightCard icon={svc.icon} title={svc.title} desc={svc.desc} index={i} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ==================== HOW WE WORK ==================== */}
-      <section className="py-24 px-6 relative z-10">
+      <section className="py-24 px-6 relative z-10 overflow-hidden">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <ScrollReveal direction="up">
@@ -404,7 +384,7 @@ export default function HomePage() {
                 How we work.
               </h2>
               <p className="text-[#a3a3a3] text-lg">
-                Same start. Two outcomes.
+                From first call to launch — here&apos;s how it works.
               </p>
               <AnimatedUnderline className="w-48 md:w-64 mx-auto mt-6" />
             </ScrollReveal>
@@ -413,7 +393,7 @@ export default function HomePage() {
           <div className="space-y-0">
             {processSteps.map((step, i) => (
               <ScrollReveal key={step.title} delay={i * 0.12} direction="left">
-                <div className="flex gap-6 md:gap-8">
+                <div className="flex gap-6 md:gap-8 pl-4 md:pl-0">
                   <div className="flex flex-col items-center">
                     <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#2563eb] to-[#06b6d4] flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
                       {i + 1}
@@ -442,7 +422,7 @@ export default function HomePage() {
 
             {/* Step 4 — Fork */}
             <ScrollReveal delay={0.36} direction="left">
-              <div className="flex gap-6 md:gap-8">
+              <div className="flex gap-6 md:gap-8 pl-4 md:pl-0">
                 <div className="flex flex-col items-center">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#2563eb] to-[#06b6d4] flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
                     4
@@ -603,20 +583,20 @@ export default function HomePage() {
           <ScrollReveal direction="up" delay={0.3}>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mt-16 pt-10 border-t border-white/[0.06]">
               <div className="text-center">
+                <p className="text-2xl md:text-3xl font-semibold text-white mb-1" style={{ fontFamily: "'Cinzel', serif" }}>100%</p>
+                <p className="text-[#a3a3a3] text-xs md:text-sm">Custom code — zero templates</p>
+              </div>
+              <div className="text-center">
                 <p className="text-2xl md:text-3xl font-semibold text-white mb-1" style={{ fontFamily: "'Cinzel', serif" }}>8+</p>
-                <p className="text-[#a3a3a3] text-xs md:text-sm">Sites & systems built</p>
+                <p className="text-[#a3a3a3] text-xs md:text-sm">Sites & systems shipped</p>
               </div>
               <div className="text-center">
-                <p className="text-2xl md:text-3xl font-semibold text-white mb-1" style={{ fontFamily: "'Cinzel', serif" }}>4</p>
-                <p className="text-[#a3a3a3] text-xs md:text-sm">Industries served</p>
-              </div>
-              <div className="text-center">
-                <p className="text-2xl md:text-3xl font-semibold text-white mb-1" style={{ fontFamily: "'Cinzel', serif" }}>5 sites, 1 client</p>
-                <p className="text-[#a3a3a3] text-xs md:text-sm">That&apos;s a partnership</p>
+                <p className="text-2xl md:text-3xl font-semibold text-white mb-1" style={{ fontFamily: "'Cinzel', serif" }}>1</p>
+                <p className="text-[#a3a3a3] text-xs md:text-sm">Team. Not five freelancers.</p>
               </div>
               <div className="text-center">
                 <p className="text-2xl md:text-3xl font-semibold text-white mb-1" style={{ fontFamily: "'Cinzel', serif" }}>0</p>
-                <p className="text-[#a3a3a3] text-xs md:text-sm">Templates used</p>
+                <p className="text-[#a3a3a3] text-xs md:text-sm">Clients locked into contracts</p>
               </div>
             </div>
           </ScrollReveal>
@@ -628,11 +608,11 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <ScrollReveal direction="up">
-              <h2 className="text-2xl md:text-4xl font-semibold text-white mb-4 tracking-[0.15em] uppercase" style={{ fontFamily: "'Cinzel', serif" }}>
-                What makes this different.
+              <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
+                What Makes This Different.
               </h2>
               <p className="text-[#a3a3a3] text-lg">
-                We serve a select few. Here&apos;s why.
+                Not the right fit for everyone. Here&apos;s why that&apos;s a good thing.
               </p>
               <AnimatedUnderline className="w-48 md:w-64 mx-auto mt-6" />
             </ScrollReveal>
@@ -684,7 +664,7 @@ export default function HomePage() {
                 Who this is for.
               </h2>
               <p className="text-[#a3a3a3] text-lg">
-                We work with a small number of clients at a time. Most stay for years.
+                We can&apos;t help everyone. But if this sounds like you, we should talk.
               </p>
               <AnimatedUnderline className="w-48 md:w-64 mx-auto mt-6" />
             </ScrollReveal>
@@ -748,10 +728,7 @@ export default function HomePage() {
               <div className="p-8 md:p-12">
                 <div className="space-y-6 text-[#d4d4d4] text-lg leading-relaxed">
                   <p>
-                    I&apos;m Omair. I ran a home services operation — scaled it to 90 properties, went in the field myself, and spent my own money learning what works online. Now I build websites, run marketing, and I&apos;m your single point of contact. No account managers. No handoffs. When you call, I pick up.
-                  </p>
-                  <p className="text-white font-medium">
-                    But I&apos;m not doing this alone.
+                    Three people. That&apos;s who works on your business. Not a rotating cast of juniors, not a faceless agency — three people who know your name and pick up when you call.
                   </p>
                 </div>
               </div>
@@ -807,7 +784,7 @@ export default function HomePage() {
               Start a conversation.
             </h2>
             <p className="text-[#d4d4d4] text-lg">
-              Fill out the form. We&apos;ll get back to you within 24 hours with honest feedback on where you stand and what we&apos;d do differently. We take on 5-6 clients at a time — if we&apos;re full, we&apos;ll tell you.
+              Fill out the form. We&apos;ll get back to you within 24 hours with honest feedback on where you stand and what we&apos;d do differently. We take on a handful of clients at a time — if we&apos;re full, we&apos;ll tell you.
             </p>
           </div>
 
@@ -859,7 +836,7 @@ export default function HomePage() {
       {/* ==================== FOOTER ==================== */}
       <footer className="py-16 px-6 border-t border-white/[0.06] relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-12 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-12">
             <div className="flex flex-col items-center text-center md:items-start md:text-left">
               <h4 className="text-sm font-medium text-[#a3a3a3] uppercase tracking-widest mb-5">Contact</h4>
               <div className="space-y-2 text-[#d4d4d4] text-sm leading-relaxed">
@@ -867,12 +844,17 @@ export default function HomePage() {
                 <p>Suite 100, Unit 404</p>
                 <p>Deerfield, IL 60015</p>
                 <div className="border-t border-white/[0.06] my-4" />
-                <p>
-                  <a href="mailto:hello@thekhan.io" className="hover:text-white transition-colors">Hello@TheKhan.io</a>
-                </p>
-                <p>
-                  <a href="tel:8472208550" className="hover:text-white transition-colors">(847) 220-8550</a>
-                </p>
+                <p><a href="mailto:hello@thekhan.io" className="hover:text-white transition-colors">Hello@TheKhan.io</a></p>
+                <p><a href="tel:8472208550" className="hover:text-white transition-colors">(847) 220-8550</a></p>
+              </div>
+            </div>
+            <div className="flex flex-col items-center text-center md:items-start md:text-left">
+              <h4 className="text-sm font-medium text-[#a3a3a3] uppercase tracking-widest mb-5">Pages</h4>
+              <div className="space-y-2 text-[#d4d4d4] text-sm">
+                <p><a href="#services" className="hover:text-white transition-colors">Services</a></p>
+                <p><a href="#work" className="hover:text-white transition-colors">Portfolio</a></p>
+                <p><Link to="/contractors" className="hover:text-white transition-colors">For Contractors</Link></p>
+                <p><Link to="/services" className="hover:text-white transition-colors">Full Services Breakdown</Link></p>
               </div>
             </div>
             <div className="flex flex-col items-center text-center">
@@ -892,7 +874,7 @@ export default function HomePage() {
             <div className="flex flex-col items-center text-center">
               <Logo variant="white" size="md" className="mb-4" />
               <p className="text-[#a3a3a3] text-sm leading-relaxed">
-                Build. Manage. Grow.<br />Your outsourced digital team.
+                Your digital partner.
               </p>
             </div>
           </div>
@@ -911,18 +893,18 @@ export default function HomePage() {
 const painPoints = [
   {
     icon: <IconAlertTriangle className="w-6 h-6 text-[#2563eb]" />,
-    title: "They Googled you. You weren't there.",
-    desc: "A homeowner in your city just searched for exactly what you do. Your competitor showed up first. Their site loaded fast, looked professional, and had a phone number right at the top. They got the call. You didn't even know it happened.",
+    title: "They searched. You weren't there.",
+    desc: "Right now, someone in your area is searching for exactly what you offer. They're not typing your name — they don't know you exist. They see whoever shows up first. If that's not you, they're calling someone else. And you'll never know it happened.",
   },
   {
-    icon: <IconPlugOff className="w-6 h-6 text-[#2563eb]" />,
-    title: "Your business runs on duct tape.",
-    desc: "A lead came in last Tuesday. It sat in your inbox for three days because you forgot. By the time you followed up, they'd already hired someone else. Your invoices are in one app, your schedule is in another, and your follow-ups live in your head. Every gap costs you money.",
+    icon: <IconEye className="w-6 h-6 text-[#2563eb]" />,
+    title: "They looked you up. They didn't call.",
+    desc: "Before anyone reaches out, they check your website, your reviews, your social media. If what they see looks outdated — or doesn't exist — they move on. You're losing people who were ready to buy.",
   },
   {
     icon: <IconClock className="w-6 h-6 text-[#2563eb]" />,
     title: "You are the marketing department.",
-    desc: "It's 10 PM and you're trying to figure out what to post on Instagram. Your last Google ad spent $400 and you can't tell if it brought in a single call. Meanwhile, your competitor has someone handling all of this — and it shows.",
+    desc: "It's 10 PM and you're searching \"how to get more customers.\" You're posting when you can, guessing at what works, and wondering why your competitor always seems one step ahead.",
   },
 ];
 
@@ -930,36 +912,33 @@ const serviceCards = [
   {
     icon: <IconHammer className="w-7 h-7 text-[#2563eb]" />,
     title: "Build",
-    desc: "Your customers judge your business by what they see online. We build websites and software from real code — not templates — so your site loads faster, ranks higher, and actually converts visitors into calls. You own every line of code.",
+    desc: "Someone finds you online. Your site loads fast, looks sharp, and tells them exactly why they should call. Real code, not a template — faster, ranks higher, and you own every line.",
     features: [
-      "Custom websites that load fast and rank high",
-      "Custom software and business applications",
-      "AI chatbots and AI receptionists",
-      "CRM, automation, and business systems",
+      "Websites and software built from real code — not Wix, not GHL templates, not a drag-and-drop page builder",
+      "AI tools that answer calls and capture leads",
+      "You own everything — code, assets, logins",
     ],
     price: "One-time projects — scoped to your needs.",
   },
   {
     icon: <IconSettings className="w-7 h-7 text-[#2563eb]" />,
     title: "Manage",
-    desc: "After launch day, most people disappear. We don't. Your site stays updated, your systems stay connected, and when something breaks at 9 PM on a Tuesday, there's a real person who picks up.",
+    desc: "Something breaks at 9 PM on a Tuesday. You text one number. It's fixed before morning. No ticket queue. No chatbot. A real person who already knows your setup.",
     features: [
-      "Updates and maintenance — nothing gets stale",
-      "Security monitoring — threats caught early",
-      "Hosting and uptime — your site stays live",
-      "Same-day issue resolution",
+      "Updates, security, and hosting — all handled",
+      "Your site stays live, fast, and current",
+      "One point of contact — not a support desk",
     ],
     price: "Ongoing — included with partnerships.",
   },
   {
     icon: <IconTrendingUp className="w-7 h-7 text-[#2563eb]" />,
     title: "Grow",
-    desc: "A website without traffic is a billboard in the desert. We put your business in front of the right people — on Google, on social media, and in AI search results — so your phone rings instead of collecting dust.",
+    desc: "Monday morning. Three new inquiries from people who found you over the weekend. We put you where they're already looking — search, social, ads, AI.",
     features: [
-      "Google Business Profile — show up when they search",
-      "SEO, AI search, and voice search optimization",
-      "Google Ads and paid media management",
-      "Social media — strategy, posting, and engagement",
+      "Show up when they search — Google, ChatGPT, Siri",
+      "Ads that bring the right people to your door",
+      "Social media — posting, engagement, and strategy",
     ],
     price: "Ongoing — built into every partnership.",
   },
@@ -970,7 +949,7 @@ const processSteps = [
     title: "Discovery",
     timeline: "Day 1",
     desc: "A quick call. We learn your business, your goals, and what's not working. No pitch — just questions.",
-    deliverable: "Clear picture of where you are and where we're headed",
+    deliverable: "Clear picture of where you stand and what to do about it",
   },
   {
     title: "Proposal",
@@ -986,48 +965,6 @@ const processSteps = [
   },
 ];
 
-const spotlightServices = [
-  {
-    icon: <IconWorldWww className="w-6 h-6" />,
-    title: "Custom Websites",
-    desc: "Hand-coded means faster load times, higher search rankings, and a site you actually own. Code will always outperform a template.",
-  },
-  {
-    icon: <IconHammer className="w-6 h-6" />,
-    title: "Custom Software",
-    desc: "Web apps, internal tools, automations, APIs — built around how your business actually works. Not off-the-shelf. Built for you.",
-  },
-  {
-    icon: <IconRobot className="w-6 h-6" />,
-    title: "AI Chatbots & Receptionists",
-    desc: "Custom AI that answers calls, books appointments, and handles customer questions 24/7 — even when you're on a job site.",
-  },
-  {
-    icon: <IconDatabase className="w-6 h-6" />,
-    title: "CRM & Business Systems",
-    desc: "Leads, invoices, follow-ups, scheduling — connected in one place instead of scattered across five apps you barely check.",
-  },
-  {
-    icon: <IconSearch className="w-6 h-6" />,
-    title: "SEO & AI Search",
-    desc: "Show up on Google, get cited by ChatGPT and Perplexity, and appear in voice search. We cover traditional and AI search.",
-  },
-  {
-    icon: <IconTargetArrow className="w-6 h-6" />,
-    title: "Google Ads & Paid Media",
-    desc: "We manage your Google Ads end to end — budget, copy, targeting, and optimization. You see where every dollar goes.",
-  },
-  {
-    icon: <IconSocial className="w-6 h-6" />,
-    title: "Social Media",
-    desc: "Strategy, content, posting, and engagement across Instagram, Facebook, and LinkedIn. Consistent presence without you lifting a finger.",
-  },
-  {
-    icon: <IconPalette className="w-6 h-6" />,
-    title: "Branding & Design",
-    desc: "Logo, business cards, flyers, brochures — your brand looking sharp and consistent across every touchpoint.",
-  },
-];
 
 const clients = [
   { name: "Clean & Green Property Care", industry: "Property Maintenance", url: "https://cleangreenproperty.com", logo: "/portfolio/clean-green-logo.png", outcome: "Website + GBP + Google Ads" },
@@ -1039,21 +976,21 @@ const clients = [
 const teamPillars = [
   {
     icon: <IconHammer className="w-7 h-7 text-[#06b6d4]" />,
-    label: "Build",
-    title: "The Engineer",
-    desc: "Every site, every app, every system — built in-house from real code. Our lead engineer oversees every build and handles the complex work: AI systems, custom software, advanced automations. When something breaks, there's a real developer who fixes it. Not a support ticket.",
+    label: "Cameron Olechowski",
+    title: "Lead Engineer",
+    desc: "Engineer with experience at Plex and Small World. Every site, every app, every system — built in-house from real code. No templates, no shortcuts, no outsourcing.",
   },
   {
     icon: <IconSettings className="w-7 h-7 text-[#06b6d4]" />,
-    label: "Manage",
-    title: "The Strategist",
-    desc: "5+ years building systems and infrastructure for companies. He keeps your tools connected, your operations running, and your business organized long after launch day. The part most people forget about — he owns it.",
+    label: "Zach Abbasi",
+    title: "Growth & Operations",
+    desc: "Spent years helping businesses adopt new technology — then learned to build it himself. Systems, automations, and infrastructure — he handles what runs behind the scenes.",
   },
   {
     icon: <IconTrendingUp className="w-7 h-7 text-[#06b6d4]" />,
-    label: "Grow",
-    title: "The Founder",
-    desc: "I run your marketing — SEO, Google Ads, social media, Google Business Profile. I didn't learn this in a classroom. I ran a home services operation, scaled to 90 properties, and spent my own money figuring out what actually works. Now I do the digital side for businesses like yours.",
+    label: "Omair Khan",
+    title: "Your Point of Contact",
+    desc: "Built a service company to 90 clients and spent his own money figuring out what actually works online. Now he runs yours — SEO, ads, social media, Google Business Profile. When you call, he picks up.",
   },
 ];
 
@@ -1062,26 +999,28 @@ const notThis = [
   "A freelancer who disappears after launch",
   "A platform that locks you into their ecosystem",
   "A template that looks like everyone else's site",
+  "An agency that takes your money and runs ads with no foundation — no site, no tracking, no way to know what's working",
 ];
 
 const thisInstead = [
   "We're not a 50-person agency, but that means the founder is on every project — not a junior dev you've never met",
-  "A real engineer and strategist behind every build — not outsourced overseas",
-  "Hand-coded from scratch — code will always outperform a template",
-  "You own everything. Code, domain, data, accounts. Walk away anytime.",
+  "We can't take on 30 clients at once, but that's why the ones we do take on actually get results",
+  "Hand-coded from scratch — code will always outperform a template, and we'll show you the speed difference",
+  "You own everything. Code, domain, data, accounts. Walk away anytime — we'll even help you transition out",
+  "We'll tell you you're not ready for ads yet — most won't. We build the foundation first so every dollar you spend actually converts.",
 ];
 
 const goodFit = [
-  "You're doing $300K+ and know your online presence should be better than it is",
-  "You want one team handling everything — not five freelancers you have to manage",
-  "You need custom software or systems built around how your business actually works",
-  "You're tired of paying for tools and marketing that aren't delivering results",
-  "You're ready to invest in something built to last — not a quick fix",
+  "You've been meaning to redo your website for two years — it's always next month's problem",
+  "You've hired freelancers, tried agencies, maybe even did it yourself — and you're done piecing it together",
+  "You're Googling marketing advice at 10 PM because nobody's handling it for you",
+  "You're paying for marketing but can't point to a single customer it brought in",
+  "You're ready to do this right — not the cheapest option, not the fastest, but something that actually works",
 ];
 
 const notAFit = [
-  "If you want the cheapest option, we're not it — we build things that last, and that costs more than a template",
-  "You want to manage everything yourself and just need someone to push buttons",
-  "You need results by Friday — real marketing takes time to compound",
-  "You're not ready to invest in your online presence yet",
+  "You're shopping for the cheapest option — we're not it, and we won't pretend to be",
+  "You want to run everything yourself and just need someone to push buttons",
+  "You need results by Friday — real marketing compounds over months, not days",
+  "You've been burned before and aren't ready to trust anyone with this again (we get it — but we can't help if you won't let us)",
 ];

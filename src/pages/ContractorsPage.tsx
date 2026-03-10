@@ -40,30 +40,97 @@ export default function ContractorsPage() {
     <main className="min-h-screen antialiased relative">
       <Helmet>
         <title>Contractors — TheKhan</title>
-        <meta name="description" content="Custom websites, Google Ads, and marketing for contractors — landscapers, power washers, plumbers, and handymen. Make your phone ring." />
-        <meta name="robots" content="noindex, nofollow" />
+        <meta name="description" content="Custom websites, Google Ads, and marketing for home service contractors. Make your phone ring." />
+        <link rel="canonical" href="https://thekhan.io/contractors" />
+        <meta property="og:title" content="Contractors — TheKhan" />
+        <meta property="og:description" content="Custom websites, Google Ads, and marketing for home service contractors. Make your phone ring." />
+        <meta property="og:url" content="https://thekhan.io/contractors" />
+        <meta property="og:image" content="https://thekhan.io/og-image.jpg" />
+        <meta property="og:type" content="website" />
+        <meta name="geo.region" content="US-IL" />
+        <meta name="geo.placename" content="Deerfield" />
+        <meta name="geo.position" content="42.1711;-87.8445" />
+        <meta name="ICBML" content="42.1711, -87.8445" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contractors — TheKhan" />
+        <meta name="twitter:description" content="Custom websites, Google Ads, and marketing for home service contractors. Make your phone ring." />
+        <meta name="twitter:image" content="https://thekhan.io/og-image.jpg" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "ProfessionalService",
+              "@id": "https://thekhan.io/#localbusiness",
+              "name": "TheKhan",
+              "url": "https://thekhan.io",
+              "logo": "https://thekhan.io/logo.png",
+              "image": "https://thekhan.io/og-image.jpg",
+              "email": "hello@thekhan.io",
+              "telephone": "(847) 220-8550",
+              "description": "Custom websites, software, AI systems, and marketing for growing businesses",
+              "priceRange": "$$",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "655 Deerfield Rd, Suite 100, Unit 404",
+                "addressLocality": "Deerfield",
+                "addressRegion": "IL",
+                "postalCode": "60015",
+                "addressCountry": "US"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 42.1711,
+                "longitude": -87.8445
+              },
+              "areaServed": {
+                "@type": "GeoCircle",
+                "geoMidpoint": {
+                  "@type": "GeoCoordinates",
+                  "latitude": 42.1711,
+                  "longitude": -87.8445
+                },
+                "geoRadius": "50mi",
+                "name": "Chicago metropolitan area"
+              },
+              "sameAs": [
+                "https://www.linkedin.com/company/thekhanio",
+                "https://www.instagram.com/thekhanio",
+                "https://www.facebook.com/profile.php?id=61584909881446"
+              ]
+            },
+            {
+              "@type": "Service",
+              "name": "Home Service Contractor Marketing",
+              "description": "Custom websites, Google Ads, SEO, and digital marketing for home service contractors — landscapers, power washers, plumbers, and handymen.",
+              "provider": { "@id": "https://thekhan.io/#localbusiness" },
+              "areaServed": "Chicago metropolitan area",
+              "serviceType": "Digital Marketing"
+            }
+          ]
+        })}</script>
       </Helmet>
 
       <BackgroundPaths />
 
       {/* Navigation — same as homepage */}
       <nav className="fixed top-0 left-0 right-0 z-[100] bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-white/[0.05]" style={{ position: 'fixed' }}>
-        <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 md:py-4 flex items-center justify-center md:justify-between relative">
+        <div className="max-w-7xl mx-auto px-4 lg:px-6 py-4 lg:py-4 flex items-center justify-center lg:justify-between relative">
           <Link to="/" className="flex flex-col cursor-pointer overflow-visible">
-            <div className="scale-[0.85] md:scale-100 origin-center">
+            <div className="scale-[0.85] lg:scale-100 origin-center">
               <Logo variant="white" size="sm" type="full" />
             </div>
           </Link>
 
-          <div className="hidden md:flex items-center gap-12">
+          <div className="hidden lg:flex items-center gap-12">
             <Link to="/" className="nav-link text-[#d4d4d4] text-base tracking-wide">Home</Link>
-            <a href="#pricing" className="nav-link text-[#d4d4d4] text-base tracking-wide">Pricing</a>
+            <a href="/#work" className="nav-link text-[#d4d4d4] text-base tracking-wide">Portfolio</a>
+            <span className="nav-link text-white text-base tracking-wide">For Contractors</span>
             <a href="#contact" className="nav-button-premium px-7 py-3 bg-gradient-to-r from-[#2563eb] to-[#06b6d4] text-white rounded-full text-base font-medium tracking-wide">
               Get Your Free Audit
             </a>
           </div>
 
-          <button className="md:hidden absolute right-4 p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle menu">
+          <button className="lg:hidden absolute right-4 p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle menu">
             {mobileMenuOpen ? (
               <IconX className="w-6 h-6 text-[#06b6d4]" />
             ) : (
@@ -79,11 +146,12 @@ export default function ContractorsPage() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-white/[0.05] overflow-hidden"
+              className="lg:hidden bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-white/[0.05] overflow-hidden"
             >
               <div className="px-4 py-5 flex flex-col items-center gap-3">
                 <Link to="/" onClick={handleNavClick} className="nav-link text-[#d4d4d4] text-base py-2">Home</Link>
-                <a href="#pricing" onClick={handleNavClick} className="nav-link text-[#d4d4d4] text-base py-2">Pricing</a>
+                <a href="/#work" onClick={handleNavClick} className="nav-link text-[#d4d4d4] text-base py-2">Portfolio</a>
+                <span className="nav-link text-white text-base py-2">For Contractors</span>
                 <a href="#contact" onClick={handleNavClick} className="nav-button-premium px-6 py-3 bg-gradient-to-r from-[#2563eb] to-[#06b6d4] text-white rounded-full text-base font-medium text-center mt-2">
                   Get Your Free Audit
                 </a>
@@ -94,23 +162,22 @@ export default function ContractorsPage() {
       </nav>
 
       {/* ==================== HERO ==================== */}
-      <section className="relative z-10 min-h-[85vh] flex items-center overflow-hidden pt-20 md:pt-16">
+      <section className="relative z-10 min-h-[75vh] flex items-center overflow-hidden pt-20 md:pt-16">
         <div className="max-w-4xl mx-auto px-6 w-full text-center">
           <div className="mb-6 md:mb-8">
             <span className="text-xs md:text-base font-medium tracking-[0.15em] md:tracking-[0.3em] uppercase text-[#2563eb]">
-              For Landscapers · Power Washers · Plumbers · Handymen
+              For Home Service Contractors
             </span>
           </div>
 
           <h1
-            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white leading-[1.15] mb-5 md:mb-7 tracking-[0.04em] md:tracking-[0.06em]"
-            style={{ fontFamily: "'Cinzel', serif" }}
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.15] mb-5 md:mb-7"
           >
-            <span className="text-gradient">You do the work.<br />I make sure people find you.</span>
+            <span className="text-gradient">You Do the Work.<br />I Make Sure People Find You.</span>
           </h1>
 
           <p className="text-sm md:text-lg text-[#a3a3a3] mb-8 md:mb-10 max-w-2xl mx-auto text-center">
-            Your competitor shows up on Google. You don't. Every day that stays true, they get the call — not you. Let's fix that.
+            Your competitor shows up online. You don&apos;t. Every day that stays true, they get the call — not you. Let&apos;s fix that.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -122,7 +189,7 @@ export default function ContractorsPage() {
               className="text-base px-8 tracking-wide"
               duration={3000}
             >
-              Get Your Free Google Audit
+              Get Your Free Audit
             </MovingBorderButton>
           </div>
         </div>
@@ -148,7 +215,7 @@ export default function ContractorsPage() {
                     <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#2563eb]/15 to-[#06b6d4]/15 flex items-center justify-center mb-6 border border-[#2563eb]/30 group-hover:border-[#06b6d4]/40 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
                       {point.icon}
                     </div>
-                    <h3 className="text-white font-semibold text-xl mb-3" style={{ fontFamily: "'Cinzel', serif" }}>
+                    <h3 className="text-white font-semibold text-xl mb-3">
                       {point.title}
                     </h3>
                     <p className="text-[#a3a3a3] text-base leading-relaxed">
@@ -185,7 +252,7 @@ export default function ContractorsPage() {
                     <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#2563eb]/20 to-[#06b6d4]/20 flex items-center justify-center mb-6 border border-[#2563eb]/30 group-hover:border-[#06b6d4]/40 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
                       {item.icon}
                     </div>
-                    <h3 className="text-xl font-semibold text-white mb-3" style={{ fontFamily: "'Cinzel', serif" }}>
+                    <h3 className="text-xl font-semibold text-white mb-3">
                       {item.title}
                     </h3>
                     <p className="text-[#a3a3a3] text-sm leading-relaxed">
@@ -196,6 +263,65 @@ export default function ContractorsPage() {
               </ScrollReveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ==================== DAMAGING ADMISSIONS ==================== */}
+      <section className="py-24 px-6 relative z-10">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <ScrollReveal direction="up">
+              <h2 className="text-2xl md:text-4xl font-semibold text-white mb-4 tracking-[0.15em] uppercase" style={{ fontFamily: "'Cinzel', serif" }}>
+                Let me be honest.
+              </h2>
+              <AnimatedUnderline className="w-48 md:w-64 mx-auto mt-6" />
+            </ScrollReveal>
+          </div>
+
+          <div className="space-y-6">
+            {admissions.map((item, i) => (
+              <ScrollReveal key={i} direction="up" delay={i * 0.1}>
+                <SpotlightGlow>
+                  <div className="p-8 md:p-10">
+                    <p className="text-[#d4d4d4] text-lg leading-relaxed">
+                      <span className="text-[#a3a3a3]">{item.flaw}</span>{" "}
+                      <span className="text-white font-medium">{item.benefit}</span>
+                    </p>
+                  </div>
+                </SpotlightGlow>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== PROOF ==================== */}
+      <section className="py-24 px-6 relative z-10">
+        <div className="max-w-4xl mx-auto">
+          <ScrollReveal direction="up">
+            <SpotlightGlow>
+              <div className="p-8 md:p-12">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+                  {proofStats.map((stat, i) => (
+                    <div key={i} className="text-center">
+                      <p className="text-2xl md:text-3xl font-semibold text-white mb-1" style={{ fontFamily: "'Cinzel', serif" }}>
+                        {stat.num}
+                      </p>
+                      <p className="text-[#a3a3a3] text-xs md:text-sm">{stat.label}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="border-t border-white/[0.06] pt-6">
+                  <p className="text-[#d4d4d4] text-sm text-center">
+                    See the <a href="https://servicesfrompremier.com" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:text-[#06b6d4] transition-colors">5-site ecosystem</a> we built for Premier Partners — power washing, holiday lighting, auto detailing, and snow removal.
+                  </p>
+                  <p className="text-[#a3a3a3] text-xs text-center mt-3">
+                    Active contractor case studies in progress · Results coming Q2 2026
+                  </p>
+                </div>
+              </div>
+            </SpotlightGlow>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -225,7 +351,7 @@ export default function ContractorsPage() {
                     <div className="p-7 md:p-8 flex flex-col h-full">
                       {tier.anchor && (
                         <span className="px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase bg-gradient-to-r from-[#2563eb] to-[#06b6d4] text-white self-start mb-4">
-                          Most Popular
+                          Recommended
                         </span>
                       )}
                       <h3 className="font-semibold text-xl text-white mb-1" style={{ fontFamily: "'Cinzel', serif" }}>
@@ -260,35 +386,6 @@ export default function ContractorsPage() {
               All plans include full code ownership. You're never locked in — to a platform, a tool, or us.
             </p>
           </ScrollReveal>
-        </div>
-      </section>
-
-      {/* ==================== DAMAGING ADMISSIONS ==================== */}
-      <section className="py-24 px-6 relative z-10">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <ScrollReveal direction="up">
-              <h2 className="text-2xl md:text-4xl font-semibold text-white mb-4 tracking-[0.15em] uppercase" style={{ fontFamily: "'Cinzel', serif" }}>
-                Let me be honest.
-              </h2>
-              <AnimatedUnderline className="w-48 md:w-64 mx-auto mt-6" />
-            </ScrollReveal>
-          </div>
-
-          <div className="space-y-6">
-            {admissions.map((item, i) => (
-              <ScrollReveal key={i} direction="up" delay={i * 0.1}>
-                <SpotlightGlow>
-                  <div className="p-8 md:p-10">
-                    <p className="text-[#d4d4d4] text-lg leading-relaxed">
-                      <span className="text-[#a3a3a3]">{item.flaw}</span>{" "}
-                      <span className="text-white font-medium">{item.benefit}</span>
-                    </p>
-                  </div>
-                </SpotlightGlow>
-              </ScrollReveal>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -341,59 +438,20 @@ export default function ContractorsPage() {
         </div>
       </section>
 
-      {/* ==================== SOCIAL PROOF ==================== */}
-      <section className="py-24 px-6 relative z-10">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <ScrollReveal direction="up">
-              <h2 className="text-2xl md:text-4xl font-semibold text-white mb-4 tracking-[0.15em] uppercase" style={{ fontFamily: "'Cinzel', serif" }}>
-                The proof.
-              </h2>
-              <AnimatedUnderline className="w-48 md:w-64 mx-auto mt-6" />
-            </ScrollReveal>
-          </div>
-
-          <ScrollReveal direction="up" delay={0.1}>
-            <SpotlightGlow>
-              <div className="p-8 md:p-12">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
-                  {proofStats.map((stat, i) => (
-                    <div key={i} className="text-center">
-                      <p className="text-2xl md:text-3xl font-semibold text-white mb-1" style={{ fontFamily: "'Cinzel', serif" }}>
-                        {stat.num}
-                      </p>
-                      <p className="text-[#a3a3a3] text-xs md:text-sm">{stat.label}</p>
-                    </div>
-                  ))}
-                </div>
-                <div className="border-t border-white/[0.06] pt-8 text-center">
-                  <p className="text-[#a3a3a3] text-base leading-relaxed">
-                    Currently building case studies with active contractor clients. Results and testimonials coming soon.
-                  </p>
-                  <p className="text-[#d4d4d4] text-sm mt-4">
-                    In the meantime — <a href="https://servicesfrompremier.com" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:text-[#06b6d4] transition-colors">check out the 5-site ecosystem</a> we built for Premier Partners, a home services company with power washing, holiday lighting, auto detailing, and snow removal.
-                  </p>
-                </div>
-              </div>
-            </SpotlightGlow>
-          </ScrollReveal>
-        </div>
-      </section>
-
       {/* ==================== CONTACT ==================== */}
       <section id="contact" className="py-24 px-6 relative z-10 scroll-mt-20">
         <div className="max-w-5xl mx-auto relative">
           <div className="text-center mb-16">
             <ScrollReveal direction="up">
-              <p className="text-[#a3a3a3] text-sm tracking-widest uppercase mb-6">Free Google Audit</p>
-              <h2 className="text-2xl md:text-4xl font-semibold text-white mb-4 tracking-[0.15em] uppercase" style={{ fontFamily: "'Cinzel', serif" }}>
-                Let's see where you stand.
+              <p className="text-[#a3a3a3] text-sm tracking-widest uppercase mb-6">Free Audit</p>
+              <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
+                Let&apos;s See Where You Stand.
               </h2>
               <p className="text-[#d4d4d4] text-lg max-w-2xl mx-auto">
-                Fill out the form. I'll send you a free audit of your Google presence within 24 hours — where you show up, where you don't, and what your competitors are doing that you're not.
+                Fill out the form. I'll send you a free audit of your online presence within 24 hours — where you show up, where you don't, and what your competitors are doing that you're not.
               </p>
               <p className="text-[#a3a3a3] text-sm mt-4">
-                I take on 5-6 contractors at a time. If I'm full, I'll tell you.
+                I take on a handful of contractors at a time. If I'm full, I'll tell you.
               </p>
             </ScrollReveal>
           </div>
@@ -446,7 +504,7 @@ export default function ContractorsPage() {
       {/* ==================== FOOTER ==================== */}
       <footer className="py-16 px-6 border-t border-white/[0.06] relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-12 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-12">
             <div className="flex flex-col items-center text-center md:items-start md:text-left">
               <h4 className="text-sm font-medium text-[#a3a3a3] uppercase tracking-widest mb-5">Contact</h4>
               <div className="space-y-2 text-[#d4d4d4] text-sm leading-relaxed">
@@ -456,6 +514,15 @@ export default function ContractorsPage() {
                 <div className="border-t border-white/[0.06] my-4" />
                 <p><a href="mailto:hello@thekhan.io" className="hover:text-white transition-colors">Hello@TheKhan.io</a></p>
                 <p><a href="tel:8472208550" className="hover:text-white transition-colors">(847) 220-8550</a></p>
+              </div>
+            </div>
+            <div className="flex flex-col items-center text-center md:items-start md:text-left">
+              <h4 className="text-sm font-medium text-[#a3a3a3] uppercase tracking-widest mb-5">Pages</h4>
+              <div className="space-y-2 text-[#d4d4d4] text-sm">
+                <p><Link to="/" className="hover:text-white transition-colors">Home</Link></p>
+                <p><a href="/#work" className="hover:text-white transition-colors">Portfolio</a></p>
+                <p><a href="#pricing" className="hover:text-white transition-colors">Pricing</a></p>
+                <p><Link to="/services" className="hover:text-white transition-colors">All Services</Link></p>
               </div>
             </div>
             <div className="flex flex-col items-center text-center">
@@ -475,12 +542,13 @@ export default function ContractorsPage() {
             <div className="flex flex-col items-center text-center">
               <Logo variant="white" size="md" className="mb-4" />
               <p className="text-[#a3a3a3] text-sm leading-relaxed">
-                Your digital partner.<br />Making contractors' phones ring.
+                Your digital partner.<br />Making contractors&apos; phones ring.
               </p>
             </div>
           </div>
           <div className="pt-8 border-t border-white/[0.06] text-center">
             <p className="text-[#606060] text-sm">&copy; {new Date().getFullYear()} TheKhan. All rights reserved.</p>
+            <p className="text-[#606060] text-sm mt-2 opacity-70">Designed and built by TheKhan</p>
           </div>
         </div>
       </footer>
@@ -547,7 +615,7 @@ const pricingTiers = [
       "Content creation",
       "Priority support",
     ],
-    anchor: true,
+    anchor: false,
   },
   {
     name: "Manage",
@@ -562,7 +630,7 @@ const pricingTiers = [
       "Monthly reporting",
       "Same-day support",
     ],
-    anchor: false,
+    anchor: true,
   },
   {
     name: "Foundation",
@@ -586,7 +654,7 @@ const admissions = [
     benefit: "But that means I personally build everything — your website, your ads, your Google profile. No junior dev. No handoff. No surprises.",
   },
   {
-    flaw: "I can only take 5-6 contractors at a time.",
+    flaw: "I can only take a handful of contractors at a time.",
     benefit: "But that's why every one of them gets my personal attention. You're not ticket #847 in a queue.",
   },
   {
@@ -600,8 +668,8 @@ const admissions = [
 ];
 
 const contractorFit = [
-  "You're doing $300K+ and want to hit $500K without figuring out marketing yourself",
-  "Your phone only rings from repeat customers and referrals — you want new leads from Google",
+  "You're growing and want more jobs — without figuring out marketing yourself",
+  "Your phone only rings from repeat customers and referrals — you want new leads finding you online",
   "You're paying for ads but can't tell if they're working",
   "You want a real website — not a template that looks like every other contractor's",
   "You're ready to invest in something that compounds over time",
