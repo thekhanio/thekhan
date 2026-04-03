@@ -128,7 +128,7 @@ export default function ServicesPage() {
               "description": "Custom websites, SEO, Google Ads, social media management, and AI tools for growing businesses. Build, manage, and grow your digital presence.",
               "provider": { "@id": "https://thekhan.io/#localbusiness" },
               "areaServed": "Chicago metropolitan area",
-              "serviceType": "Digital Marketing"
+              "serviceType": "Home Service Contractor Marketing"
             }
           ]
         })}</script>
@@ -190,7 +190,7 @@ export default function ServicesPage() {
       <section className="relative z-10 min-h-[60vh] flex items-center overflow-hidden pt-20 md:pt-16">
         <div className="max-w-4xl mx-auto px-6 w-full text-center">
           <p className="text-sm sm:text-base tracking-[0.3em] uppercase text-[#2563eb] mb-6 md:mb-8" style={{ fontFamily: "'Cinzel', serif" }}>
-            Build &middot; Manage &middot; Grow
+            Everything We Do
           </p>
           <h1
             className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white leading-[1.15] mb-5 md:mb-7 tracking-[0.04em] md:tracking-[0.06em]"
@@ -294,7 +294,7 @@ export default function ServicesPage() {
             </ScrollReveal>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-5">
+          <div className="grid md:grid-cols-2 gap-5 max-w-3xl mx-auto">
             {growServices.map((svc, i) => (
               <div key={svc.title} className="w-full">
                 <ServiceCard icon={svc.icon} title={svc.title} desc={svc.desc} index={i} />
@@ -538,8 +538,13 @@ const manageServices = [
 
 const growServices = [
   {
+    icon: <IconShield className="w-6 h-6" />,
+    title: "Google Guaranteed Leads",
+    desc: "Show up first when someone searches for what you do — with a Google Guaranteed badge that builds instant trust. You only pay when they actually call.",
+  },
+  {
     icon: <IconBrandGoogle className="w-6 h-6" />,
-    title: "Google Ads",
+    title: "Google Search Ads",
     desc: "We manage your ads end to end — budget, targeting, optimization. Your money, your ad account, full transparency.",
   },
   {

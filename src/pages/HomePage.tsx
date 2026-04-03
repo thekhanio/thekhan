@@ -53,7 +53,7 @@ export default function HomePage() {
     <main className="min-h-screen antialiased relative">
       <Helmet>
         <title>TheKhan | Custom Websites, AI Systems, Software &amp; Marketing</title>
-        <meta name="description" content="Custom websites, software, AI systems, and marketing — built by a real team from real code. No templates, no platforms, no lock-in." />
+        <meta name="description" content="Custom websites and marketing that make your phone ring. Built for home service contractors and growing businesses by a real team from real code. No templates, no lock-in." />
         <link rel="canonical" href="https://thekhan.io/" />
         <meta property="og:title" content="TheKhan | Custom Websites, AI Systems, Software & Marketing" />
         <meta property="og:description" content="A founder, an engineer, and a strategist — building custom websites, AI systems, software, and marketing for growing businesses. Real code. Real team. No templates." />
@@ -66,7 +66,7 @@ export default function HomePage() {
         <meta name="ICBML" content="42.1711, -87.8445" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="TheKhan | Custom Websites, AI Systems, Software & Marketing" />
-        <meta name="twitter:description" content="Custom websites, software, AI systems, and marketing — built by a real team from real code. No templates, no platforms, no lock-in." />
+        <meta name="twitter:description" content="Custom websites and marketing that make your phone ring. Built for home service contractors and growing businesses by a real team from real code. No templates, no lock-in." />
         <meta name="twitter:image" content="https://thekhan.io/og-image.jpg" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
@@ -94,7 +94,7 @@ export default function HomePage() {
               "image": "https://thekhan.io/og-image.jpg",
               "email": "hello@thekhan.io",
               "telephone": "(847) 220-8550",
-              "description": "Custom websites, software, AI systems, and marketing for growing businesses",
+              "description": "Custom websites, SEO, Google Ads, and marketing for home service contractors and growing businesses. Real code, real team, no templates.",
               "priceRange": "$$",
               "address": {
                 "@type": "PostalAddress",
@@ -124,6 +124,22 @@ export default function HomePage() {
                 "https://www.instagram.com/thekhanio",
                 "https://www.facebook.com/profile.php?id=61584909881446"
               ]
+            },
+            {
+              "@type": "Service",
+              "name": "Custom Website Development",
+              "description": "Custom-coded websites for businesses. Fast, mobile-responsive, SEO-optimized sites built from real code — not templates or page builders. You own everything.",
+              "provider": { "@id": "https://thekhan.io/#localbusiness" },
+              "areaServed": "Chicago metropolitan area",
+              "serviceType": "Web Development"
+            },
+            {
+              "@type": "Service",
+              "name": "Home Service Contractor Marketing",
+              "description": "Websites, SEO, Google Business Profile optimization, Google Ads, and Local Service Ads management for home service contractors — landscapers, power washers, roofers, plumbers, and more.",
+              "provider": { "@id": "https://thekhan.io/#localbusiness" },
+              "areaServed": "Chicago metropolitan area",
+              "serviceType": "Home Service Contractor Marketing"
             }
           ]
         })}</script>

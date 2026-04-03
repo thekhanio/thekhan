@@ -104,7 +104,7 @@ export default function ContractorsPage() {
               "description": "Custom websites, Google Ads, SEO, and digital marketing for home service contractors — landscapers, power washers, plumbers, and handymen.",
               "provider": { "@id": "https://thekhan.io/#localbusiness" },
               "areaServed": "Chicago metropolitan area",
-              "serviceType": "Digital Marketing"
+              "serviceType": "Home Service Contractor Marketing"
             }
           ]
         })}</script>
