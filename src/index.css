@@ -244,6 +244,16 @@ body {
   width: 100%;
 }
 
+/* Active state — current page. Mirrors hover (blue + gradient underline)
+   permanently, minus the lift transform. */
+.nav-link-active {
+  color: #2563eb;
+}
+
+.nav-link-active::after {
+  width: 100%;
+}
+
 /* Premium nav button (Contact) */
 .nav-button-premium {
   transition: all 200ms ease;

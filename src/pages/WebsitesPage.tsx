@@ -119,7 +119,7 @@ export default function WebsitesPage() {
 
           <div className="hidden lg:flex items-center gap-12">
             <Link to="/" className="nav-link text-[#d4d4d4] text-base tracking-wide">Home</Link>
-            <Link to="/websites" className="nav-link text-white text-base tracking-wide">Websites</Link>
+            <Link to="/websites" className="nav-link nav-link-active text-base tracking-wide">Websites</Link>
             <Link to="/contractors" className="nav-link text-[#d4d4d4] text-base tracking-wide">For Contractors</Link>
             <Link to="/portfolio" className="nav-link text-[#d4d4d4] text-base tracking-wide">Portfolio</Link>
             <Link to="/about" className="nav-link text-[#d4d4d4] text-base tracking-wide">About</Link>
@@ -144,7 +144,7 @@ export default function WebsitesPage() {
             >
               <div className="px-4 py-5 flex flex-col items-center gap-3">
                 <Link to="/" onClick={handleNavClick} className="nav-link text-[#d4d4d4] text-base py-2">Home</Link>
-                <Link to="/websites" onClick={handleNavClick} className="nav-link text-white text-base py-2">Websites</Link>
+                <Link to="/websites" onClick={handleNavClick} className="nav-link nav-link-active text-base py-2">Websites</Link>
                 <Link to="/contractors" onClick={handleNavClick} className="nav-link text-[#d4d4d4] text-base py-2">For Contractors</Link>
                 <Link to="/portfolio" onClick={handleNavClick} className="nav-link text-[#d4d4d4] text-base py-2">Portfolio</Link>
                 <Link to="/about" onClick={handleNavClick} className="nav-link text-[#d4d4d4] text-base py-2">About</Link>
@@ -294,8 +294,8 @@ export default function WebsitesPage() {
                       {[
                         "5 pages (home, about, services, contact + one more)",
                         "Everything in Starter",
-                        "About page included",
-                        "Extra content module (blog, gallery, or reviews)",
+                        "Expanded copy writing (About, services, trust sections)",
+                        "More design depth — extra sections, custom imagery, more polish",
                         "Up to 3 rounds of revisions",
                         "Priority launch slot",
                       ].map((f) => (

@@ -178,4 +178,4 @@
 ## Goals
 **Business goal:** Reposition from budget website shop to premium technology partner. Build portfolio with 2-3 more website clients at current rates, then raise prices. Land first custom CRM client through Velli partnership.
 **Conversion action:** Visitor fills out contact form or calls/texts to start a conversation. No self-serve purchasing. No public itemized pricing — ranges only on site, details on discovery call.
-**Current metrics:** Site is live, traffic data in GA4 (G-28L6YMQPC6). No current conversion benchmarks post-repositioning.
+**Current metrics:** Site is live, traffic data in GA4 (G-CF1CCVLVRB). No current conversion benchmarks post-repositioning.

@@ -132,7 +132,7 @@ export default function AboutPage() {
             <Link to="/websites" className="nav-link text-[#d4d4d4] text-base tracking-wide">Websites</Link>
             <Link to="/contractors" className="nav-link text-[#d4d4d4] text-base tracking-wide">For Contractors</Link>
             <Link to="/portfolio" className="nav-link text-[#d4d4d4] text-base tracking-wide">Portfolio</Link>
-            <Link to="/about" className="nav-link text-white text-base tracking-wide">About</Link>
+            <Link to="/about" className="nav-link nav-link-active text-base tracking-wide">About</Link>
             <a href="#contact" className="nav-button-premium px-7 py-3 bg-gradient-to-r from-[#2563eb] to-[#06b6d4] text-white rounded-full text-base font-medium tracking-wide">
               Let&apos;s Talk
             </a>
@@ -157,7 +157,7 @@ export default function AboutPage() {
                 <Link to="/websites" onClick={handleNavClick} className="nav-link text-[#d4d4d4] text-base py-2">Websites</Link>
                 <Link to="/contractors" onClick={handleNavClick} className="nav-link text-[#d4d4d4] text-base py-2">For Contractors</Link>
                 <Link to="/portfolio" onClick={handleNavClick} className="nav-link text-[#d4d4d4] text-base py-2">Portfolio</Link>
-                <Link to="/about" onClick={handleNavClick} className="nav-link text-white text-base py-2">About</Link>
+                <Link to="/about" onClick={handleNavClick} className="nav-link nav-link-active text-base py-2">About</Link>
                 <a href="#contact" onClick={handleNavClick} className="nav-button-premium px-6 py-3 bg-gradient-to-r from-[#2563eb] to-[#06b6d4] text-white rounded-full text-base font-medium text-center mt-2">
                   Let&apos;s Talk
                 </a>

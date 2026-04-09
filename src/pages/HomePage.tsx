@@ -178,7 +178,7 @@ export default function HomePage() {
           </a>
 
           <div className="hidden lg:flex items-center gap-12">
-            <Link to="/" className="nav-link text-white text-base tracking-wide">Home</Link>
+            <Link to="/" className="nav-link nav-link-active text-base tracking-wide">Home</Link>
             <Link to="/websites" className="nav-link text-[#d4d4d4] text-base tracking-wide">Websites</Link>
             <Link to="/contractors" className="nav-link text-[#d4d4d4] text-base tracking-wide">For Contractors</Link>
             <Link to="/portfolio" className="nav-link text-[#d4d4d4] text-base tracking-wide">Portfolio</Link>
@@ -207,7 +207,7 @@ export default function HomePage() {
               className="lg:hidden bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-white/[0.05] overflow-hidden"
             >
               <div className="px-4 py-5 flex flex-col items-center gap-3">
-                <Link to="/" onClick={handleNavClick} className="nav-link text-white text-base py-2">Home</Link>
+                <Link to="/" onClick={handleNavClick} className="nav-link nav-link-active text-base py-2">Home</Link>
                 <Link to="/websites" onClick={handleNavClick} className="nav-link text-[#d4d4d4] text-base py-2">Websites</Link>
                 <Link to="/contractors" onClick={handleNavClick} className="nav-link text-[#d4d4d4] text-base py-2">For Contractors</Link>
                 <Link to="/portfolio" onClick={handleNavClick} className="nav-link text-[#d4d4d4] text-base py-2">Portfolio</Link>
@@ -260,10 +260,12 @@ export default function HomePage() {
           {/* Trust strip */}
           <div className={`mt-14 md:mt-20 pt-10 md:pt-12 border-t border-white/[0.06] transition-all duration-700 delay-[500ms] ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <p className="text-[#606060] text-[11px] font-medium tracking-[0.25em] uppercase mb-6">Trusted by</p>
-            <div className="flex flex-wrap items-center justify-center gap-12 md:gap-20 opacity-90">
-              <img src="/portfolio/premier-partners-logo.png" alt="Premier Partners" className="h-20 md:h-24 w-auto object-contain" />
-              <img src="/portfolio/marioscape-logo.png" alt="MarioScape" className="h-24 md:h-28 w-auto object-contain" />
-              <img src="/portfolio/shifa-logo.png" alt="Shifa Home Care" className="h-20 md:h-24 w-auto object-contain" />
+            <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 opacity-90">
+              <img src="/portfolio/premier-partners-logo.png" alt="Premier Partners" className="h-14 md:h-16 w-auto object-contain" />
+              <img src="/portfolio/marioscape-logo.png" alt="MarioScape" className="h-16 md:h-20 w-auto object-contain" />
+              <img src="/portfolio/shifa-logo.png" alt="Shifa Home Care" className="h-14 md:h-16 w-auto object-contain" />
+              <img src="/portfolio/nours-logo.png" alt="Nour's Barbershop" className="h-14 md:h-16 w-auto object-contain" />
+              <img src="/portfolio/waf-logo.png" alt="WAF Chicago" className="h-14 md:h-16 w-auto object-contain" />
             </div>
             <p className="text-center mt-8">
               <Link to="/portfolio" className="text-[#06b6d4] hover:text-white text-sm tracking-wide underline underline-offset-4 transition-colors">
