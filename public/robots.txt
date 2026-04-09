@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /packages
+Disallow: /start
+Disallow: /premierpartners
+Disallow: /marioscape
 
 Sitemap: https://thekhan.io/sitemap.xml

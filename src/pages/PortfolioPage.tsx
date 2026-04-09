@@ -19,7 +19,7 @@ import {
   IconArrowUpRight,
 } from "@tabler/icons-react";
 
-const PAGE_TITLE = "The Work — TheKhan Portfolio";
+const PAGE_TITLE = "Portfolio — Custom Websites for Small Businesses | TheKhan";
 const PAGE_DESC = "Omair is an independent web designer at TheKhan who builds custom-coded websites for home service businesses across the Chicago area.";
 const PAGE_URL = "https://thekhan.io/portfolio";
 const OG_IMAGE = "https://thekhan.io/portfolio-og.jpg";

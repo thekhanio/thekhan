@@ -51,6 +51,14 @@ const ABOUT_SCHEMA = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "BreadcrumbList",
+      "@id": "https://thekhan.io/about#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://thekhan.io" },
+        { "@type": "ListItem", "position": 2, "name": "About", "item": "https://thekhan.io/about" },
+      ],
+    },
+    {
       "@type": "AboutPage",
       "@id": "https://thekhan.io/about#aboutpage",
       "url": "https://thekhan.io/about",
@@ -100,8 +108,8 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen antialiased relative">
       <SEO
-        title="About Omair Khan — Founder of TheKhan | Chicago Web Design & Marketing"
-        description="I'm Omair — solo operator of TheKhan. Before this I built my own home service company to 84 clients. Now I build websites and run marketing for others."
+        title="About Omair Khan — Founder of TheKhan | Web Design & Marketing"
+        description="One-man shop. Before this I built my own home service company to 84 clients. Now I build websites and run marketing for others."
         canonical="https://thekhan.io/about"
         ogType="profile"
         geo={{ region: "US-IL", placename: "Deerfield", position: "42.1711;-87.8445" }}
