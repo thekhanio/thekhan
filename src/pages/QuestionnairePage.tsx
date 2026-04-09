@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Helmet } from "react-helmet-async";
+import { SEO } from "@/components/SEO";
 import { motion, AnimatePresence } from "framer-motion";
 import { IconCheck, IconLoader2, IconChevronDown } from "@tabler/icons-react";
 import { Button as MovingBorderButton } from "@/components/ui/moving-border";
@@ -504,17 +504,12 @@ export default function QuestionnairePage() {
   );
 
   const questionnaireHelmet = (
-    <Helmet>
-      <title>Tell Us About Your Business | TheKhan</title>
-      <meta name="description" content="Tell us about your business — websites, software, AI, or marketing. We'll use this to prepare for our first conversation." />
-      <meta name="robots" content="noindex, nofollow" />
-      <link rel="canonical" href="https://thekhan.io/start" />
-      <meta property="og:title" content="Tell Us About Your Business | TheKhan" />
-      <meta property="og:description" content="Tell us about your business — websites, software, AI, or marketing. We'll use this to prepare for our first conversation." />
-      <meta property="og:url" content="https://thekhan.io/start" />
-      <meta property="og:image" content="https://thekhan.io/og-image.jpg" />
-      <meta property="og:type" content="website" />
-    </Helmet>
+    <SEO
+      title="Tell Me About Your Business | TheKhan"
+      description="Tell me about your business — websites, software, AI, or marketing. I'll use this to prepare for our first conversation."
+      canonical="https://thekhan.io/start"
+      noindex
+    />
   );
 
   if (isSuccess) {
@@ -588,7 +583,7 @@ export default function QuestionnairePage() {
               className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-3 md:mb-4 text-white tracking-[0.15em] uppercase px-2"
               style={{ fontFamily: "'Cinzel', serif" }}
             >
-              Tell Us About Your Business
+              Tell Me About Your Business
             </h1>
             <p className="text-base md:text-lg text-[#d4d4d4] px-4">
               The more we know upfront, the better our first conversation will be.
@@ -784,7 +779,7 @@ export default function QuestionnairePage() {
               </AnimatePresence>
 
               <div>
-                <label className={labelClasses}>How did you hear about us?</label>
+                <label className={labelClasses}>How did you hear about me?</label>
                 <div className="flex flex-wrap gap-3">
                   {["Google", "Referral", "Social Media", "Other"].map((option) => (
                     <button
@@ -882,10 +877,10 @@ export default function QuestionnairePage() {
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <label className={labelClasses}>How did you hear about us?</label>
+                    <label className={labelClasses}>How did you hear about me?</label>
                     <input
                       type="text"
-                      placeholder="Please tell us..."
+                      placeholder="Please tell me..."
                       className={inputClasses}
                       value={formData.hearAboutUsOther}
                       onChange={(e) => updateField("hearAboutUsOther", e.target.value)}
@@ -1086,7 +1081,7 @@ export default function QuestionnairePage() {
 
             {/* Business Details (for the website) */}
             <div className={sectionClasses}>
-              <SectionHeader sectionKey="details" title="Business Details" subtitle="This info helps us scope your project. If you have multiple businesses, provide details for your primary one here." />
+              <SectionHeader sectionKey="details" title="Business Details" subtitle="This info helps me scope your project. If you have multiple businesses, provide details for your primary one here." />
               <AnimatePresence>
                 {openSections.details && (
                   <motion.div
@@ -1321,7 +1316,7 @@ export default function QuestionnairePage() {
                     <label className={labelClasses}>What do you need?</label>
                     <input
                       type="text"
-                      placeholder="Tell us what you're looking for..."
+                      placeholder="Tell me what you're looking for..."
                       className={inputClasses}
                       value={formData.servicesOther}
                       onChange={(e) => updateField("servicesOther", e.target.value)}
@@ -1398,7 +1393,7 @@ export default function QuestionnairePage() {
                     <textarea
                       className={inputClasses}
                       rows={3}
-                      placeholder="List your main services or products — this helps us plan your site structure and pages"
+                      placeholder="List your main services or products — this helps me plan your site structure and pages"
                       value={formData.servicesOffered}
                       onChange={(e) => updateField("servicesOffered", e.target.value)}
                     />
@@ -1920,7 +1915,7 @@ export default function QuestionnairePage() {
                         <label className={labelClasses}>Describe your contact form needs</label>
                         <input
                           type="text"
-                          placeholder="Tell us what you need..."
+                          placeholder="Tell me what you need..."
                           className={inputClasses}
                           value={formData.contactFormOther}
                           onChange={(e) => updateField("contactFormOther", e.target.value)}
@@ -2407,8 +2402,8 @@ export default function QuestionnairePage() {
               </p>
               <p className="text-sm text-[#a3a3a3]">
                 Email them to{" "}
-                <a href="mailto:hello@thekhan.io" className="text-white hover:text-[#2563eb] transition-colors">
-                  Hello@TheKhan.io
+                <a href="mailto:omair@thekhan.io" className="text-white hover:text-[#2563eb] transition-colors">
+                  Omair@TheKhan.io
                 </a>
                 {" "}with your business name in the subject line. The more we have, the faster we can move.
               </p>

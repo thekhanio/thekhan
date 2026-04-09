@@ -1,9 +1,9 @@
-import { useState } from "react";
-import { Helmet } from "react-helmet-async";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Logo } from "@/components/Logo";
 import { ContactForm } from "@/components/ContactForm";
+import { SEO } from "@/components/SEO";
 import { Button as MovingBorderButton } from "@/components/ui/moving-border";
 import { BackgroundPaths } from "@/components/ui/background-paths";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
@@ -17,102 +17,88 @@ import {
   IconBrandLinkedin,
   IconBrandFacebook,
   IconBrandInstagram,
-  IconMapPinFilled,
   IconMenu2,
   IconSearch,
   IconDeviceMobile,
-  IconCalendar,
   IconCurrencyDollar,
-  IconAlertTriangle,
-  IconMoodSad,
-  IconChartBar,
   IconTruck,
+  IconLock,
 } from "@tabler/icons-react";
 
+const CONTRACTORS_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://thekhan.io/contractors#service",
+  "name": "Home Service Contractor Marketing",
+  "description": "Websites, Google Ads, and SEO that make the phone ring for home service contractors in the Chicago area.",
+  "provider": { "@id": "https://thekhan.io/#localbusiness" },
+  "areaServed": "Chicago metropolitan area",
+  "serviceType": [
+    "Home Service Contractor Marketing",
+    "Website Design",
+    "Google Ads Management",
+    "Local SEO",
+    "Marketing for Landscapers",
+    "Marketing for Roofers",
+    "Marketing for HVAC",
+    "Marketing for Plumbers",
+    "Marketing for Electricians",
+    "Marketing for Pressure Washers",
+    "Marketing for Painters",
+    "Marketing for Cleaners",
+    "Marketing for Handymen",
+    "Marketing for Snow Removal",
+  ],
+};
+
 export default function ContractorsPage() {
+  const [mounted, setMounted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleNavClick = () => {
     setMobileMenuOpen(false);
   };
 
+  const painCards = [
+    {
+      Icon: IconSearch,
+      title: "Your phone only rings from people you already know.",
+      body: "A homeowner down the street Googles your service, finds three other guys, and calls one. You never even showed up.",
+    },
+    {
+      Icon: IconDeviceMobile,
+      title: "Your website isn't making the phone ring.",
+      body: "Maybe you don't have one. Maybe you update the one you have every week and it still doesn't show up on Google — because it wasn't built to show up in the first place. You're doing the work. The site isn't.",
+    },
+    {
+      Icon: IconCurrencyDollar,
+      title: "You pay for ads. You can't tell if they work.",
+      body: "Whether you run them or someone else does, every month there's a report full of numbers nobody explains. You can't tell if the call came from the ads, the Google listing, or the yard sign out front. You just know it's expensive.",
+    },
+    {
+      Icon: IconTruck,
+      title: "Your competitor's truck keeps showing up.",
+      body: "You drive past a house on your street. Another company's truck is in the driveway. You never got a call about that one. And that's just the one you saw.",
+    },
+  ];
+
   return (
     <main className="min-h-screen antialiased relative">
-      <Helmet>
-        <title>Contractors — TheKhan</title>
-        <meta name="description" content="Custom websites, Google Ads, and marketing for home service contractors. Make your phone ring." />
-        <link rel="canonical" href="https://thekhan.io/contractors" />
-        <meta property="og:title" content="Contractors — TheKhan" />
-        <meta property="og:description" content="Custom websites, Google Ads, and marketing for home service contractors. Make your phone ring." />
-        <meta property="og:url" content="https://thekhan.io/contractors" />
-        <meta property="og:image" content="https://thekhan.io/og-image.jpg" />
-        <meta property="og:type" content="website" />
-        <meta name="geo.region" content="US-IL" />
-        <meta name="geo.placename" content="Deerfield" />
-        <meta name="geo.position" content="42.1711;-87.8445" />
-        <meta name="ICBML" content="42.1711, -87.8445" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Contractors — TheKhan" />
-        <meta name="twitter:description" content="Custom websites, Google Ads, and marketing for home service contractors. Make your phone ring." />
-        <meta name="twitter:image" content="https://thekhan.io/og-image.jpg" />
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "ProfessionalService",
-              "@id": "https://thekhan.io/#localbusiness",
-              "name": "TheKhan",
-              "url": "https://thekhan.io",
-              "logo": "https://thekhan.io/logo.png",
-              "image": "https://thekhan.io/og-image.jpg",
-              "email": "hello@thekhan.io",
-              "telephone": "(847) 220-8550",
-              "description": "Custom websites, software, AI systems, and marketing for growing businesses",
-              "priceRange": "$$",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "655 Deerfield Rd, Suite 100, Unit 404",
-                "addressLocality": "Deerfield",
-                "addressRegion": "IL",
-                "postalCode": "60015",
-                "addressCountry": "US"
-              },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": 42.1711,
-                "longitude": -87.8445
-              },
-              "areaServed": {
-                "@type": "GeoCircle",
-                "geoMidpoint": {
-                  "@type": "GeoCoordinates",
-                  "latitude": 42.1711,
-                  "longitude": -87.8445
-                },
-                "geoRadius": "50mi",
-                "name": "Chicago metropolitan area"
-              },
-              "sameAs": [
-                "https://www.linkedin.com/company/thekhanio",
-                "https://www.instagram.com/thekhanio",
-                "https://www.facebook.com/profile.php?id=61584909881446"
-              ]
-            },
-            {
-              "@type": "Service",
-              "name": "Home Service Contractor Marketing",
-              "description": "Custom websites, Google Ads, SEO, and digital marketing for home service contractors — landscapers, power washers, plumbers, and handymen.",
-              "provider": { "@id": "https://thekhan.io/#localbusiness" },
-              "areaServed": "Chicago metropolitan area",
-              "serviceType": "Home Service Contractor Marketing"
-            }
-          ]
-        })}</script>
-      </Helmet>
+      <SEO
+        title="Marketing for Home Service Contractors in Chicago | TheKhan"
+        description="I build websites and run marketing for Chicago home service contractors who want their phone ringing every week. You do the work. I make people find you."
+        canonical="https://thekhan.io/contractors"
+        geo={{ region: "US-IL", placename: "Deerfield", position: "42.1711;-87.8445" }}
+        schema={CONTRACTORS_SCHEMA}
+      />
 
       <BackgroundPaths />
 
-      {/* Navigation — same as homepage */}
+      {/* ==================== NAV ==================== */}
       <nav className="fixed top-0 left-0 right-0 z-[100] bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-white/[0.05]" style={{ position: 'fixed' }}>
         <div className="max-w-7xl mx-auto px-4 lg:px-6 py-4 lg:py-4 flex items-center justify-center lg:justify-between relative">
           <Link to="/" className="flex flex-col cursor-pointer overflow-visible">
@@ -123,10 +109,12 @@ export default function ContractorsPage() {
 
           <div className="hidden lg:flex items-center gap-12">
             <Link to="/" className="nav-link text-[#d4d4d4] text-base tracking-wide">Home</Link>
-            <a href="/#work" className="nav-link text-[#d4d4d4] text-base tracking-wide">Portfolio</a>
-            <span className="nav-link text-white text-base tracking-wide">For Contractors</span>
+            <Link to="/websites" className="nav-link text-[#d4d4d4] text-base tracking-wide">Websites</Link>
+            <Link to="/contractors" className="nav-link text-white text-base tracking-wide">For Contractors</Link>
+            <Link to="/portfolio" className="nav-link text-[#d4d4d4] text-base tracking-wide">Portfolio</Link>
+            <Link to="/about" className="nav-link text-[#d4d4d4] text-base tracking-wide">About</Link>
             <a href="#contact" className="nav-button-premium px-7 py-3 bg-gradient-to-r from-[#2563eb] to-[#06b6d4] text-white rounded-full text-base font-medium tracking-wide">
-              Get Your Free Audit
+              Let&apos;s Talk
             </a>
           </div>
 
@@ -150,10 +138,12 @@ export default function ContractorsPage() {
             >
               <div className="px-4 py-5 flex flex-col items-center gap-3">
                 <Link to="/" onClick={handleNavClick} className="nav-link text-[#d4d4d4] text-base py-2">Home</Link>
-                <a href="/#work" onClick={handleNavClick} className="nav-link text-[#d4d4d4] text-base py-2">Portfolio</a>
-                <span className="nav-link text-white text-base py-2">For Contractors</span>
+                <Link to="/websites" onClick={handleNavClick} className="nav-link text-[#d4d4d4] text-base py-2">Websites</Link>
+                <Link to="/contractors" onClick={handleNavClick} className="nav-link text-white text-base py-2">For Contractors</Link>
+                <Link to="/portfolio" onClick={handleNavClick} className="nav-link text-[#d4d4d4] text-base py-2">Portfolio</Link>
+                <Link to="/about" onClick={handleNavClick} className="nav-link text-[#d4d4d4] text-base py-2">About</Link>
                 <a href="#contact" onClick={handleNavClick} className="nav-button-premium px-6 py-3 bg-gradient-to-r from-[#2563eb] to-[#06b6d4] text-white rounded-full text-base font-medium text-center mt-2">
-                  Get Your Free Audit
+                  Let&apos;s Talk
                 </a>
               </div>
             </motion.div>
@@ -162,43 +152,56 @@ export default function ContractorsPage() {
       </nav>
 
       {/* ==================== HERO ==================== */}
-      <section className="relative z-10 min-h-[75vh] flex items-center overflow-hidden pt-20 md:pt-16">
+      <section className="relative z-10 flex items-center overflow-hidden pt-32 md:pt-40 pb-16 md:pb-20">
         <div className="max-w-4xl mx-auto px-6 w-full text-center">
-          <div className="mb-6 md:mb-8">
-            <span className="text-xs md:text-base font-medium tracking-[0.15em] md:tracking-[0.3em] uppercase text-[#2563eb]">
-              For Home Service Contractors
-            </span>
-          </div>
-
-          <h1
-            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.15] mb-5 md:mb-7"
-          >
-            <span className="text-gradient">You Do the Work.<br />I Make Sure People Find You.</span>
-          </h1>
-
-          <p className="text-sm md:text-lg text-[#a3a3a3] mb-8 md:mb-10 max-w-2xl mx-auto text-center">
-            Your competitor shows up online. You don&apos;t. Every day that stays true, they get the call — not you. Let&apos;s fix that.
+          <p className={`text-[#2563eb] text-xs sm:text-sm tracking-[0.25em] uppercase font-medium mb-5 transition-all duration-700 delay-100 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            For Contractors
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <h1
+            className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.15] mb-5 md:mb-6 text-center transition-all duration-700 delay-150 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            style={{ fontFamily: "'Cinzel', serif" }}
+          >
+            <span className="text-gradient">
+              You do the work.<br />
+              I make sure<br />
+              people find you.
+            </span>
+          </h1>
+
+          <p className={`text-lg sm:text-xl text-[#d4d4d4] mb-9 md:mb-10 max-w-2xl mx-auto text-center transition-all duration-700 delay-200 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            One-man shop. I treat every business I work with like my own.
+          </p>
+
+          <div className={`flex flex-col items-center justify-center gap-4 transition-all duration-700 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <MovingBorderButton
               as="a"
               href="#contact"
               borderRadius="9999px"
-              containerClassName="h-14 w-full sm:w-64 shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] transition-all duration-200 ease-out clickable-hover active:scale-[0.98]"
-              className="text-base px-8 tracking-wide"
-              duration={3000}
+              className="bg-gradient-to-r from-[#2563eb] to-[#06b6d4] text-white text-base font-medium tracking-wide px-8 py-4 shadow-[0_0_30px_rgba(6,182,212,0.35)] hover:shadow-[0_0_50px_rgba(6,182,212,0.6)] transition-shadow duration-300"
+              containerClassName="w-auto h-auto"
             >
-              Get Your Free Audit
+              See if we&apos;re a fit &rarr;
             </MovingBorderButton>
+
+            <a href="#pricing" className="text-[#06b6d4] hover:text-white text-sm tracking-wide underline underline-offset-4 transition-colors mt-1">
+              See pricing
+            </a>
           </div>
+
+          <p className={`text-[#808080] text-sm italic mt-8 transition-all duration-700 delay-[400ms] ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            &mdash; I work with a handful of contractors at a time. &mdash;
+          </p>
+          <p className={`text-[#808080] text-sm italic mt-3 max-w-2xl mx-auto leading-relaxed transition-all duration-700 delay-[450ms] ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            &mdash; Before TheKhan, I built my own home service company to 84 clients &mdash; before I realized I was better at the growth side than the job site. &mdash;
+          </p>
         </div>
       </section>
 
-      {/* ==================== PAIN POINTS ==================== */}
-      <section className="py-24 px-6 relative z-10">
+      {/* ==================== PAIN GRID ==================== */}
+      <section className="py-20 md:py-24 px-6 relative z-10">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-14">
             <ScrollReveal direction="up">
               <h2 className="text-2xl md:text-4xl font-semibold text-white mb-4 tracking-[0.15em] uppercase" style={{ fontFamily: "'Cinzel', serif" }}>
                 Sound familiar?
@@ -208,18 +211,18 @@ export default function ContractorsPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {contractorPains.map((point, i) => (
-              <ScrollReveal key={point.title} delay={i * 0.1} direction="up">
-                <SpotlightGlow tilt className="h-full">
-                  <div className="p-8 md:p-10">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#2563eb]/15 to-[#06b6d4]/15 flex items-center justify-center mb-6 border border-[#2563eb]/30 group-hover:border-[#06b6d4]/40 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
-                      {point.icon}
+            {painCards.map((card, i) => (
+              <ScrollReveal key={i} direction="up" delay={i * 0.08}>
+                <SpotlightGlow>
+                  <div className="p-8 h-full">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#2563eb]/15 to-[#06b6d4]/15 border border-[#2563eb]/30 flex items-center justify-center mb-5">
+                      <card.Icon className="w-5 h-5 text-[#06b6d4]" />
                     </div>
-                    <h3 className="text-white font-semibold text-xl mb-3">
-                      {point.title}
+                    <h3 className="text-lg md:text-xl font-semibold text-white mb-3 leading-snug">
+                      {card.title}
                     </h3>
                     <p className="text-[#a3a3a3] text-base leading-relaxed">
-                      {point.desc}
+                      {card.body}
                     </p>
                   </div>
                 </SpotlightGlow>
@@ -229,272 +232,277 @@ export default function ContractorsPage() {
         </div>
       </section>
 
-      {/* ==================== WHAT YOU GET ==================== */}
-      <section className="py-24 px-6 relative z-10">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <ScrollReveal direction="up">
-              <h2 className="text-2xl md:text-4xl font-semibold text-white mb-4 tracking-[0.15em] uppercase" style={{ fontFamily: "'Cinzel', serif" }}>
-                Here's what changes.
-              </h2>
-              <p className="text-[#a3a3a3] text-lg">
-                This is what it looks like when your digital presence actually works.
-              </p>
-              <AnimatedUnderline className="w-48 md:w-64 mx-auto mt-6" />
-            </ScrollReveal>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {outcomes.map((item, i) => (
-              <ScrollReveal key={item.title} delay={i * 0.1} direction="up">
-                <SpotlightGlow tilt className="h-full">
-                  <div className="p-7 md:p-8 flex flex-col h-full">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#2563eb]/20 to-[#06b6d4]/20 flex items-center justify-center mb-6 border border-[#2563eb]/30 group-hover:border-[#06b6d4]/40 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
-                      {item.icon}
-                    </div>
-                    <h3 className="text-xl font-semibold text-white mb-3">
-                      {item.title}
-                    </h3>
-                    <p className="text-[#a3a3a3] text-sm leading-relaxed">
-                      {item.desc}
-                    </p>
-                  </div>
-                </SpotlightGlow>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ==================== DAMAGING ADMISSIONS ==================== */}
-      <section className="py-24 px-6 relative z-10">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <ScrollReveal direction="up">
-              <h2 className="text-2xl md:text-4xl font-semibold text-white mb-4 tracking-[0.15em] uppercase" style={{ fontFamily: "'Cinzel', serif" }}>
-                Let me be honest.
-              </h2>
-              <AnimatedUnderline className="w-48 md:w-64 mx-auto mt-6" />
-            </ScrollReveal>
-          </div>
-
-          <div className="space-y-6">
-            {admissions.map((item, i) => (
-              <ScrollReveal key={i} direction="up" delay={i * 0.1}>
-                <SpotlightGlow>
-                  <div className="p-8 md:p-10">
-                    <p className="text-[#d4d4d4] text-lg leading-relaxed">
-                      <span className="text-[#a3a3a3]">{item.flaw}</span>{" "}
-                      <span className="text-white font-medium">{item.benefit}</span>
-                    </p>
-                  </div>
-                </SpotlightGlow>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ==================== PROOF ==================== */}
-      <section className="py-24 px-6 relative z-10">
-        <div className="max-w-4xl mx-auto">
+      {/* ==================== FULL STORY LINK ==================== */}
+      <section className="pt-2 pb-8 px-6 relative z-10">
+        <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal direction="up">
-            <SpotlightGlow>
-              <div className="p-8 md:p-12">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
-                  {proofStats.map((stat, i) => (
-                    <div key={i} className="text-center">
-                      <p className="text-2xl md:text-3xl font-semibold text-white mb-1" style={{ fontFamily: "'Cinzel', serif" }}>
-                        {stat.num}
-                      </p>
-                      <p className="text-[#a3a3a3] text-xs md:text-sm">{stat.label}</p>
-                    </div>
-                  ))}
-                </div>
-                <div className="border-t border-white/[0.06] pt-6">
-                  <p className="text-[#d4d4d4] text-sm text-center">
-                    See the <a href="https://servicesfrompremier.com" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:text-[#06b6d4] transition-colors">5-site ecosystem</a> we built for Premier Partners — power washing, holiday lighting, auto detailing, and snow removal.
-                  </p>
-                  <p className="text-[#a3a3a3] text-xs text-center mt-3">
-                    Active contractor case studies in progress · Results coming Q2 2026
-                  </p>
-                </div>
-              </div>
-            </SpotlightGlow>
+            <Link to="/about" className="text-[#06b6d4] hover:text-white text-sm tracking-wide underline underline-offset-4 transition-colors">
+              How I got here &rarr;
+            </Link>
           </ScrollReveal>
         </div>
       </section>
 
       {/* ==================== PRICING ==================== */}
-      <section id="pricing" className="py-24 px-6 relative z-10 scroll-mt-20">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
+      <section id="pricing" className="py-20 md:py-24 px-6 relative z-10 scroll-mt-20">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14 max-w-3xl mx-auto">
             <ScrollReveal direction="up">
-              <h2 className="text-2xl md:text-4xl font-semibold text-white mb-4 tracking-[0.15em] uppercase" style={{ fontFamily: "'Cinzel', serif" }}>
-                Simple pricing. No surprises.
-              </h2>
-              <p className="text-[#a3a3a3] text-lg">
-                No contracts. No hidden fees. Cancel anytime.
+              <p className="text-[#2563eb] text-xs sm:text-sm tracking-[0.25em] uppercase font-medium mb-5">
+                What It Costs
               </p>
-              <AnimatedUnderline className="w-48 md:w-64 mx-auto mt-6" />
-            </ScrollReveal>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {pricingTiers.map((tier, i) => (
-              <ScrollReveal key={tier.name} direction="up" delay={i * 0.1}>
-                <div className="relative h-full">
-                  {tier.anchor && (
-                    <div className="absolute -inset-[2px] rounded-2xl bg-gradient-to-br from-[#2563eb] via-[#06b6d4] to-[#2563eb] z-0 opacity-50" />
-                  )}
-                  <SpotlightGlow tilt className={`h-full ${tier.anchor ? "relative z-10" : ""}`}>
-                    <div className="p-7 md:p-8 flex flex-col h-full">
-                      {tier.anchor && (
-                        <span className="px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase bg-gradient-to-r from-[#2563eb] to-[#06b6d4] text-white self-start mb-4">
-                          Recommended
-                        </span>
-                      )}
-                      <h3 className="font-semibold text-xl text-white mb-1" style={{ fontFamily: "'Cinzel', serif" }}>
-                        {tier.name}
-                      </h3>
-                      <div className="flex items-baseline gap-1 mb-3">
-                        <span className="text-3xl font-bold bg-gradient-to-r from-[#2563eb] to-[#06b6d4] bg-clip-text text-transparent">
-                          {tier.price}
-                        </span>
-                        <span className="text-sm text-[#a3a3a3]">{tier.period}</span>
-                      </div>
-                      <p className="text-[#a3a3a3] text-sm mb-6">
-                        {tier.desc}
-                      </p>
-                      <ul className="space-y-2.5 flex-1">
-                        {tier.features.map((f) => (
-                          <li key={f} className="flex items-start gap-2.5 text-sm text-[#d4d4d4]">
-                            <IconCheck className="w-4 h-4 text-[#06b6d4] mt-0.5 shrink-0" />
-                            <span>{f}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </SpotlightGlow>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-
-          <ScrollReveal direction="up" delay={0.3}>
-            <p className="text-center text-[#a3a3a3] text-sm mt-8">
-              All plans include full code ownership. You're never locked in — to a platform, a tool, or us.
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* ==================== WHO IT'S FOR ==================== */}
-      <section className="py-24 px-6 relative z-10">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <ScrollReveal direction="up">
-              <h2 className="text-2xl md:text-4xl font-semibold text-white mb-4 tracking-[0.15em] uppercase" style={{ fontFamily: "'Cinzel', serif" }}>
-                Is this for you?
+              <h2 className="text-2xl md:text-4xl font-semibold text-white mb-6 leading-tight" style={{ fontFamily: "'Cinzel', serif" }}>
+                Pick your tier. The first 60 days are the same.
               </h2>
-              <AnimatedUnderline className="w-48 md:w-64 mx-auto mt-6" />
+              <p className="text-[#d4d4d4] text-base md:text-lg leading-relaxed">
+                $550/mo for the first 60 days &mdash; any tier. That&apos;s when I build the foundation: new site, Google listing, basic SEO. That&apos;s the work that moves the needle fastest. The deeper work takes 3&ndash;6 months to show up anyway. Day 61 you move to your full tier rate.
+              </p>
             </ScrollReveal>
           </div>
 
-          <ScrollReveal direction="up" delay={0.1}>
-            <SpotlightGlow>
-              <div className="p-8 md:p-12">
-                <div className="grid md:grid-cols-2 gap-10 md:gap-16">
-                  <div>
-                    <h3 className="text-white font-semibold text-lg mb-6" style={{ fontFamily: "'Cinzel', serif" }}>
-                      Built for you if
-                    </h3>
-                    <ul className="space-y-4">
-                      {contractorFit.map((item) => (
-                        <li key={item} className="flex items-start gap-3 text-[#d4d4d4]">
-                          <IconCheck className="w-4 h-4 text-[#2563eb] mt-1 flex-shrink-0" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <h3 className="text-[#a3a3a3] font-semibold text-lg mb-6" style={{ fontFamily: "'Cinzel', serif" }}>
-                      Not a fit if
-                    </h3>
-                    <ul className="space-y-4">
-                      {contractorNotFit.map((item) => (
-                        <li key={item} className="flex items-start gap-3 text-[#a3a3a3]">
-                          <IconX className="w-4 h-4 text-[#a3a3a3]/50 mt-1 flex-shrink-0" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+          {/* Tier cards */}
+          <div className="grid md:grid-cols-3 gap-6 md:items-stretch mb-8">
+            {/* Foundation */}
+            <ScrollReveal direction="up" delay={0.05}>
+              <div className="md:mt-8 h-full bg-[#111111] rounded-2xl border border-white/[0.08] p-8 flex flex-col">
+                <h3 className="text-sm tracking-[0.25em] uppercase text-[#a3a3a3] font-semibold mb-3" style={{ fontFamily: "'Cinzel', serif" }}>
+                  Foundation
+                </h3>
+                <p className="text-3xl md:text-4xl font-bold text-white mb-6">
+                  $550<span className="text-base font-medium text-[#808080]">/mo</span>
+                </p>
+                <p className="text-white font-semibold text-lg leading-snug mb-4">
+                  Get found. Stop losing jobs to the other guys.
+                </p>
+                <p className="text-[#a3a3a3] text-sm leading-relaxed">
+                  For contractors still surviving on referrals and repeat customers.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            {/* Engine — anchor */}
+            <ScrollReveal direction="up" delay={0.1}>
+              <div className="relative h-full bg-[#0f0f0f] rounded-2xl border-2 border-[#06b6d4]/60 p-8 flex flex-col shadow-[0_0_40px_rgba(6,182,212,0.15)]">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-[#2563eb] to-[#06b6d4] text-white text-[10px] tracking-[0.2em] uppercase font-semibold whitespace-nowrap">
+                  Most Common
                 </div>
+                <h3 className="text-sm tracking-[0.25em] uppercase text-[#06b6d4] font-semibold mb-3" style={{ fontFamily: "'Cinzel', serif" }}>
+                  Engine
+                </h3>
+                <p className="text-4xl md:text-5xl font-bold text-white mb-6">
+                  $1,050<span className="text-base font-medium text-[#808080]">/mo</span>
+                </p>
+                <p className="text-white font-semibold text-lg leading-snug mb-4">
+                  Make the phone ring. Keep it ringing.
+                </p>
+                <p className="text-[#a3a3a3] text-sm leading-relaxed">
+                  For contractors who want jobs coming in every week &mdash; not just during busy season.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            {/* Machine */}
+            <ScrollReveal direction="up" delay={0.15}>
+              <div className="md:mt-8 h-full bg-[#111111] rounded-2xl border border-white/[0.08] p-8 flex flex-col">
+                <h3 className="text-sm tracking-[0.25em] uppercase text-[#a3a3a3] font-semibold mb-3" style={{ fontFamily: "'Cinzel', serif" }}>
+                  Machine
+                </h3>
+                <p className="text-3xl md:text-4xl font-bold text-white mb-6">
+                  $1,500<span className="text-base font-medium text-[#808080]">/mo</span>
+                </p>
+                <p className="text-white font-semibold text-lg leading-snug mb-4">
+                  Turn jobs away. Hire the crew.
+                </p>
+                <p className="text-[#a3a3a3] text-sm leading-relaxed">
+                  For contractors ready to stop being the bottleneck and start running a real company.
+                </p>
+              </div>
+            </ScrollReveal>
+          </div>
+
+          {/* 60-day intro callout */}
+          <ScrollReveal direction="up" delay={0.2}>
+            <SpotlightGlow>
+              <div className="p-8 md:p-10 text-center">
+                <h3 className="text-xl md:text-2xl font-semibold text-white mb-4" style={{ fontFamily: "'Cinzel', serif" }}>
+                  Here&apos;s how the first 60 days work.
+                </h3>
+                <p className="text-[#d4d4d4] text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+                  $550/mo, any tier. No setup fee. If I&apos;m not delivering in the first 30 days, you can walk.
+                </p>
               </div>
             </SpotlightGlow>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* ==================== CONTACT ==================== */}
-      <section id="contact" className="py-24 px-6 relative z-10 scroll-mt-20">
-        <div className="max-w-5xl mx-auto relative">
-          <div className="text-center mb-16">
+      {/* ==================== NOTHING HELD HOSTAGE MINI-STRIP ==================== */}
+      <section className="py-12 md:py-16 px-6 relative z-10">
+        <div className="max-w-3xl mx-auto text-center">
+          <ScrollReveal direction="up">
+            <div className="inline-flex items-center justify-center w-11 h-11 rounded-full bg-gradient-to-br from-[#2563eb]/15 to-[#06b6d4]/15 border border-[#2563eb]/30 mb-5">
+              <IconLock className="w-5 h-5 text-[#06b6d4]" />
+            </div>
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
+              Nothing&apos;s held hostage.
+            </h3>
+            <p className="text-[#a3a3a3] italic text-base md:text-lg leading-relaxed max-w-xl mx-auto">
+              Your site, your logins, your content &mdash; all in your name from day one. Most agencies don&apos;t work that way.
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ==================== POLARIZER ==================== */}
+      <section className="py-20 md:py-24 px-6 relative z-10">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-14">
             <ScrollReveal direction="up">
-              <p className="text-[#a3a3a3] text-sm tracking-widest uppercase mb-6">Free Audit</p>
-              <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
-                Let&apos;s See Where You Stand.
+              <h2 className="text-2xl md:text-4xl font-semibold text-white mb-4 tracking-[0.15em] uppercase" style={{ fontFamily: "'Cinzel', serif" }}>
+                Think we&apos;re a fit?
               </h2>
-              <p className="text-[#d4d4d4] text-lg max-w-2xl mx-auto">
-                Fill out the form. I'll send you a free audit of your online presence within 24 hours — where you show up, where you don't, and what your competitors are doing that you're not.
-              </p>
-              <p className="text-[#a3a3a3] text-sm mt-4">
-                I take on a handful of contractors at a time. If I'm full, I'll tell you.
-              </p>
+              <AnimatedUnderline className="w-48 md:w-64 mx-auto mt-6" />
             </ScrollReveal>
           </div>
 
-          <div className="grid lg:grid-cols-5 gap-12">
-            <div className="lg:col-span-2 space-y-8 flex flex-col items-center lg:items-start">
-              <div>
-                <div className="space-y-6">
-                  <a href="tel:8472208550" className="flex items-start gap-4 group">
-                    <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#2563eb]/10 to-[#06b6d4]/10 border border-[#2563eb]/30 flex items-center justify-center group-hover:border-[#2563eb]/50 transition-colors flex-shrink-0">
-                      <IconPhone className="w-4 h-4 text-[#2563eb]" />
-                    </div>
-                    <div className="flex flex-col pt-1">
-                      <span className="text-[#2563eb] text-sm font-medium">Call or Text</span>
-                      <span className="text-[#d0d0d0] group-hover:text-white transition-colors">(847) 220-8550</span>
-                    </div>
-                  </a>
-                  <a href="mailto:hello@thekhan.io" className="flex items-start gap-4 group">
-                    <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#2563eb]/10 to-[#06b6d4]/10 border border-[#2563eb]/30 flex items-center justify-center group-hover:border-[#2563eb]/50 transition-colors flex-shrink-0">
-                      <IconMail className="w-4 h-4 text-[#2563eb]" />
-                    </div>
-                    <div className="flex flex-col pt-1">
-                      <span className="text-[#2563eb] text-sm font-medium">Email</span>
-                      <span className="text-[#d0d0d0] group-hover:text-white transition-colors">Hello@TheKhan.io</span>
-                    </div>
-                  </a>
-                </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Built for you */}
+            <ScrollReveal direction="up" delay={0.05}>
+              <div className="h-full bg-[#111111] rounded-2xl border border-[#2563eb]/30 p-8">
+                <p className="text-[#2563eb] text-xs tracking-[0.25em] uppercase font-semibold mb-6">
+                  Built For You If
+                </p>
+                <ul className="space-y-5">
+                  {[
+                    "You're good at the work but slow months still scare you.",
+                    "This is your full-time business — not a side gig.",
+                    "You're tired of reports full of numbers nobody explains — and someone telling you \"it's working.\"",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#06b6d4]/15 border border-[#06b6d4]/40 flex items-center justify-center mt-0.5">
+                        <IconCheck className="w-3.5 h-3.5 text-[#06b6d4]" />
+                      </div>
+                      <p className="text-[#d4d4d4] text-base leading-relaxed">{item}</p>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <div>
-                <h3 className="text-sm font-medium text-white uppercase tracking-widest mb-5 text-center lg:text-left">Office</h3>
-                <div className="flex items-start gap-4 text-[#d4d4d4]">
-                  <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#2563eb]/10 to-[#06b6d4]/10 border border-[#2563eb]/30 flex items-center justify-center flex-shrink-0">
-                    <IconMapPinFilled className="w-4 h-4 text-[#2563eb]" />
+            </ScrollReveal>
+
+            {/* Not a fit */}
+            <ScrollReveal direction="up" delay={0.1}>
+              <div className="h-full bg-[#0d0d0d] rounded-2xl border border-white/[0.06] p-8">
+                <p className="text-[#a3a3a3] text-xs tracking-[0.25em] uppercase font-semibold mb-6">
+                  Not A Fit If
+                </p>
+                <ul className="space-y-5">
+                  {[
+                    "Your budget is under $550/mo.",
+                    "You want me to promise you a specific number of leads.",
+                    "You need the phone ringing in week one.",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-white/[0.04] border border-white/[0.1] flex items-center justify-center mt-0.5">
+                        <IconX className="w-3.5 h-3.5 text-[#707070]" />
+                      </div>
+                      <p className="text-[#a3a3a3] text-base leading-relaxed">{item}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== CONTACT ==================== */}
+      <section id="contact" className="py-24 px-6 relative z-10 scroll-mt-20">
+        <div className="max-w-6xl mx-auto relative">
+          <div className="text-center mb-12">
+            <p className="text-[#a3a3a3] text-sm tracking-widest uppercase mb-6">Think we&apos;re a fit?</p>
+            <h2 className="text-2xl md:text-4xl font-semibold text-white mb-4 tracking-[0.15em] uppercase" style={{ fontFamily: "'Cinzel', serif" }}>
+              Let&apos;s see if I can help.
+            </h2>
+            <p className="text-[#d4d4d4] text-lg max-w-xl mx-auto">
+              Tell me about your business and what&apos;s not working. I&apos;ll give you a straight answer &mdash; whether I&apos;m the right fit or not. No pitch.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-5 gap-10">
+            <div className="lg:col-span-2 space-y-8 flex flex-col items-center lg:items-start">
+              <div className="space-y-6">
+                <a href="tel:8472208550" className="flex items-start gap-4 group">
+                  <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#2563eb]/10 to-[#06b6d4]/10 border border-[#2563eb]/30 flex items-center justify-center group-hover:border-[#2563eb]/50 transition-colors flex-shrink-0">
+                    <IconPhone className="w-4 h-4 text-[#2563eb]" />
                   </div>
-                  <div className="pt-2.5 leading-relaxed">
-                    655 Deerfield Rd<br />Suite 100, Unit 404<br />Deerfield, IL 60015
+                  <div className="flex flex-col pt-1">
+                    <span className="text-[#2563eb] text-sm font-medium">Call or Text</span>
+                    <span className="text-[#d0d0d0] group-hover:text-white transition-colors">(847) 220-8550</span>
+                  </div>
+                </a>
+                <a href="mailto:omair@thekhan.io" className="flex items-start gap-4 group">
+                  <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#2563eb]/10 to-[#06b6d4]/10 border border-[#2563eb]/30 flex items-center justify-center group-hover:border-[#2563eb]/50 transition-colors flex-shrink-0">
+                    <IconMail className="w-4 h-4 text-[#2563eb]" />
+                  </div>
+                  <div className="flex flex-col pt-1">
+                    <span className="text-[#2563eb] text-sm font-medium">Email</span>
+                    <span className="text-[#d0d0d0] group-hover:text-white transition-colors">Omair@TheKhan.io</span>
+                  </div>
+                </a>
+              </div>
+
+              <div className="pt-2 border-t border-white/[0.06] w-full">
+                <p className="text-[#2563eb] text-sm font-medium uppercase tracking-widest mb-6 pt-6">What happens next</p>
+                <div>
+                  {/* Step 1 */}
+                  <div className="flex gap-4">
+                    <div className="flex flex-col items-center">
+                      <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#2563eb] to-[#06b6d4] flex items-center justify-center text-white font-semibold text-sm flex-shrink-0">
+                        1
+                      </div>
+                      <AnimatedUnderline vertical className="flex-1 min-h-[28px] my-1.5" />
+                    </div>
+                    <div className="pb-6 pt-1.5">
+                      <p className="text-[#d0d0d0] text-sm leading-relaxed">I read your message myself &mdash; usually within a few hours.</p>
+                    </div>
+                  </div>
+                  {/* Step 2 */}
+                  <div className="flex gap-4">
+                    <div className="flex flex-col items-center">
+                      <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#2563eb] to-[#06b6d4] flex items-center justify-center text-white font-semibold text-sm flex-shrink-0">
+                        2
+                      </div>
+                      <AnimatedUnderline vertical className="flex-1 min-h-[28px] my-1.5" />
+                    </div>
+                    <div className="pb-6 pt-1.5">
+                      <p className="text-[#d0d0d0] text-sm leading-relaxed">I&apos;ll reach back by call or text &mdash; whatever works for you.</p>
+                    </div>
+                  </div>
+                  {/* Step 3 */}
+                  <div className="flex gap-4">
+                    <div className="flex flex-col items-center">
+                      <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#2563eb] to-[#06b6d4] flex items-center justify-center text-white font-semibold text-sm flex-shrink-0">
+                        3
+                      </div>
+                    </div>
+                    <div className="pt-1.5">
+                      <p className="text-[#d0d0d0] text-sm leading-relaxed">If it feels right, we&apos;ll book a quick call so I can look at your jobs and what&apos;s getting in the way.</p>
+                    </div>
                   </div>
                 </div>
+                <p className="text-[#808080] text-xs italic mt-5 leading-relaxed">
+                  Rather skip the form? Call or text &mdash; number&apos;s right there.
+                </p>
               </div>
             </div>
             <div className="lg:col-span-3">
               <div className="bg-[#111111] rounded-2xl p-8 border border-white/[0.08]">
-                <ContactForm />
+                <ContactForm
+                  source="contractors-page"
+                  subjectPrefix="[Contractors form]"
+                  showPhoneField
+                  showTradeDropdown
+                />
               </div>
             </div>
           </div>
@@ -512,7 +520,7 @@ export default function ContractorsPage() {
                 <p>Suite 100, Unit 404</p>
                 <p>Deerfield, IL 60015</p>
                 <div className="border-t border-white/[0.06] my-4" />
-                <p><a href="mailto:hello@thekhan.io" className="hover:text-white transition-colors">Hello@TheKhan.io</a></p>
+                <p><a href="mailto:omair@thekhan.io" className="hover:text-white transition-colors">Omair@TheKhan.io</a></p>
                 <p><a href="tel:8472208550" className="hover:text-white transition-colors">(847) 220-8550</a></p>
               </div>
             </div>
@@ -520,13 +528,15 @@ export default function ContractorsPage() {
               <h4 className="text-sm font-medium text-[#a3a3a3] uppercase tracking-widest mb-5">Pages</h4>
               <div className="space-y-2 text-[#d4d4d4] text-sm">
                 <p><Link to="/" className="hover:text-white transition-colors">Home</Link></p>
-                <p><a href="/#work" className="hover:text-white transition-colors">Portfolio</a></p>
-                <p><a href="#pricing" className="hover:text-white transition-colors">Pricing</a></p>
-                <p><Link to="/services" className="hover:text-white transition-colors">All Services</Link></p>
+                <p><Link to="/websites" className="hover:text-white transition-colors">Websites</Link></p>
+                <p><Link to="/contractors" className="text-white transition-colors">For Contractors</Link></p>
+                <p><Link to="/portfolio" className="hover:text-white transition-colors">Portfolio</Link></p>
+                <p><Link to="/about" className="hover:text-white transition-colors">About</Link></p>
+                <p><a href="#contact" className="hover:text-white transition-colors">Contact</a></p>
               </div>
             </div>
             <div className="flex flex-col items-center text-center">
-              <h4 className="text-sm font-medium text-[#a3a3a3] uppercase tracking-widest mb-5">Follow Us</h4>
+              <h4 className="text-sm font-medium text-[#a3a3a3] uppercase tracking-widest mb-5">Follow Along</h4>
               <div className="flex gap-3">
                 <a href="https://www.linkedin.com/company/thekhanio" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-full bg-[#111111] border border-white/[0.08] flex items-center justify-center text-[#a3a3a3] hover:text-white hover:border-[#2563eb]/50 hover:bg-[#2563eb]/10 hover:scale-125 hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(37,99,235,0.25)] transition-all duration-300">
                   <IconBrandLinkedin className="w-4 h-4" />
@@ -542,7 +552,10 @@ export default function ContractorsPage() {
             <div className="flex flex-col items-center text-center">
               <Logo variant="white" size="md" className="mb-4" />
               <p className="text-[#a3a3a3] text-sm leading-relaxed">
-                Your digital partner.<br />Making contractors&apos; phones ring.
+                Your digital partner.
+              </p>
+              <p className="text-[#606060] text-xs leading-relaxed mt-1">
+                Custom-built websites. Here to grow your business.
               </p>
             </div>
           </div>
@@ -555,136 +568,3 @@ export default function ContractorsPage() {
     </main>
   );
 }
-
-// ==================== DATA ====================
-
-const contractorPains = [
-  {
-    icon: <IconSearch className="w-6 h-6 text-[#2563eb]" />,
-    title: "Your phone only rings from people you already know.",
-    desc: "A homeowner three blocks from your last job just Googled exactly what you do. Your competitor showed up. You didn't. They got the call. You didn't even know it happened.",
-  },
-  {
-    icon: <IconMoodSad className="w-6 h-6 text-[#2563eb]" />,
-    title: "You tried posting on social media. Nothing happened.",
-    desc: "You spent an hour taking photos on the job site, wrote a caption, posted it. Three likes — all from people you know. Meanwhile, the guy down the road has his phone ringing off the hook and you can't figure out what he's doing differently.",
-  },
-  {
-    icon: <IconCurrencyDollar className="w-6 h-6 text-[#2563eb]" />,
-    title: "You're paying $2,000/mo for ads and can't tell what's working.",
-    desc: "Someone's running your Google Ads. They send you a report full of numbers you don't understand. You're not sure if the calls are coming from the ads, from Google Maps, or from the yard sign you put out last spring. You just know it's expensive.",
-  },
-  {
-    icon: <IconTruck className="w-6 h-6 text-[#2563eb]" />,
-    title: "Your competitor's truck keeps showing up.",
-    desc: "You drive past a house you quoted last month. There's another company's truck in the driveway. They got the job. Not because they're better — because they showed up first when the homeowner searched online. That's the game now.",
-  },
-];
-
-const outcomes = [
-  {
-    icon: <IconDeviceMobile className="w-7 h-7 text-[#06b6d4]" />,
-    title: "Your phone buzzes at 7 AM.",
-    desc: "A homeowner found you on Google. They already looked at your site, saw your work, and want a quote. You didn't chase them. They came to you.",
-  },
-  {
-    icon: <IconCalendar className="w-7 h-7 text-[#06b6d4]" />,
-    title: "Your calendar fills itself.",
-    desc: "You stop scrambling for the next job. Leads come in steady — not just in peak season, but through the slow months too. You start turning work away instead of chasing it.",
-  },
-  {
-    icon: <IconChartBar className="w-7 h-7 text-[#06b6d4]" />,
-    title: "You know exactly what's working.",
-    desc: "Every call tracked. Every dollar accounted for. You can see which jobs came from Google, which came from your Google Business Profile, and which came from ads. No guessing.",
-  },
-];
-
-const pricingTiers = [
-  {
-    name: "Full Digital Takeover",
-    price: "$3,000–5,000",
-    period: "/mo",
-    desc: "Everything handled. Website, Google Ads, SEO, social media, AI receptionist, content creation, and monthly strategy calls. For contractors doing $500K+ who want to hit $1M.",
-    features: [
-      "Custom website — hand-coded, not a template",
-      "Google Ads — setup, management, and optimization",
-      "SEO and Google Business Profile management",
-      "Social media management",
-      "AI receptionist + AI chatbot",
-      "Monthly strategy calls",
-      "Content creation",
-      "Priority support",
-    ],
-    anchor: false,
-  },
-  {
-    name: "Manage",
-    price: "$535",
-    period: "/mo",
-    desc: "Your website, Google Business Profile, and SEO — managed month to month. The foundation that makes everything else work.",
-    features: [
-      "Custom website — built and maintained",
-      "Google Business Profile management",
-      "SEO — show up when they search",
-      "Content dashboard — edit your own site",
-      "Monthly reporting",
-      "Same-day support",
-    ],
-    anchor: true,
-  },
-  {
-    name: "Foundation",
-    price: "$275",
-    period: "/mo",
-    desc: "A hand-coded website and basic maintenance. The starting point for contractors who need to get online the right way.",
-    features: [
-      "Custom website — hand-coded",
-      "Mobile responsive",
-      "Basic SEO setup",
-      "Monthly maintenance",
-      "Content dashboard",
-    ],
-    anchor: false,
-  },
-];
-
-const admissions = [
-  {
-    flaw: "I'm not a 50-person company.",
-    benefit: "But that means I personally build everything — your website, your ads, your Google profile. No junior dev. No handoff. No surprises.",
-  },
-  {
-    flaw: "I can only take a handful of contractors at a time.",
-    benefit: "But that's why every one of them gets my personal attention. You're not ticket #847 in a queue.",
-  },
-  {
-    flaw: "Your site won't be done in 48 hours.",
-    benefit: "But it'll be hand-coded to load faster than anything your competitors have. Code will always outperform a template.",
-  },
-  {
-    flaw: "I haven't been doing this for 20 years.",
-    benefit: "But I've reverse-engineered every competitor in your market and I know exactly what they're doing wrong — because I've been in your industry myself.",
-  },
-];
-
-const contractorFit = [
-  "You're growing and want more jobs — without figuring out marketing yourself",
-  "Your phone only rings from repeat customers and referrals — you want new leads finding you online",
-  "You're paying for ads but can't tell if they're working",
-  "You want a real website — not a template that looks like every other contractor's",
-  "You're ready to invest in something that compounds over time",
-];
-
-const contractorNotFit = [
-  "You want a cheap template and a monthly PDF report — there are plenty of companies that do that",
-  "You need your phone ringing by Friday — real marketing takes 60-90 days to build momentum",
-  "You want to run your own ads and just need someone to push buttons",
-  "You're not ready to invest in your online presence yet",
-];
-
-const proofStats = [
-  { num: "8+", label: "Sites built" },
-  { num: "5", label: "Home services sites" },
-  { num: "4", label: "Industries served" },
-  { num: "0", label: "Templates used" },
-];

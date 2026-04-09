@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
+import { SEO } from "@/components/SEO";
 import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Logo } from "@/components/Logo";
@@ -131,11 +131,12 @@ export default function PackagesPage() {
 
   return (
     <>
-      <Helmet>
-        <title>Packages — TheKhan</title>
-        <meta name="description" content="Custom websites, software, AI systems, and marketing packages from TheKhan. A founder, engineer, and strategist — choose your starting point." />
-        <meta name="robots" content="noindex, nofollow" />
-      </Helmet>
+      <SEO
+        title="Packages — TheKhan"
+        description="Custom websites, software, AI systems, and marketing packages from TheKhan. A founder, engineer, and strategist — choose your starting point."
+        canonical="https://thekhan.io/packages"
+        noindex
+      />
 
       <div className="min-h-screen bg-gradient-to-b from-[#0a0a0a] to-[#1a1a1a] text-white pb-28 relative overflow-hidden">
         <BackgroundPaths />
@@ -391,7 +392,7 @@ export default function PackagesPage() {
               { q: "What happens after I submit?", a: "We'll review your answers and get back to you within 24 hours with thoughts and next steps." },
               { q: "Can I upgrade later?", a: "Absolutely. Many clients start with a website or software build and move into a full Partnership as they grow. Your initial investment carries over." },
               { q: "What's not included?", a: "Ad spend (Google Ads budget), stock photo licensing, and third-party software subscriptions are billed separately. We'll flag any additional costs before they happen." },
-              { q: "Do you offer payment plans?", a: "For Launch and above, we offer a 50/50 split — half upfront, half on delivery." },
+              { q: "Do you offer payment plans?", a: "For Launch and above, I take payment in a 50/50 split — half upfront, half on delivery." },
             ].map((faq, i) => (
               <ScrollReveal key={i} direction="up" delay={i * 0.06}>
                 <div className="py-5 px-6 rounded-2xl border border-white/[0.06] bg-[#111111]">
@@ -414,7 +415,7 @@ export default function PackagesPage() {
                   <p>Suite 100, Unit 404</p>
                   <p>Deerfield, IL 60015</p>
                   <div className="border-t border-white/[0.06] my-4" />
-                  <p><a href="mailto:hello@thekhan.io" className="hover:text-white transition-colors">Hello@TheKhan.io</a></p>
+                  <p><a href="mailto:omair@thekhan.io" className="hover:text-white transition-colors">Omair@TheKhan.io</a></p>
                   <p><a href="tel:8472208550" className="hover:text-white transition-colors">(847) 220-8550</a></p>
                 </div>
               </div>

@@ -2,7 +2,30 @@ import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { MovingBorder } from "@/components/ui/moving-border";
 
-export function ContactForm() {
+interface ContactFormProps {
+  source?: string;
+  subjectPrefix?: string;
+  showProjectTypeDropdown?: boolean;
+  showTradeDropdown?: boolean;
+  showPhoneField?: boolean;
+  submitText?: string;
+}
+
+const TRADE_OPTIONS = [
+  "Landscaping / Lawn Care",
+  "Snow Removal",
+  "Roofing",
+  "HVAC",
+  "Plumbing",
+  "Electrical",
+  "Pressure Washing",
+  "Painting",
+  "Cleaning",
+  "Handyman / General Contracting",
+  "Other",
+];
+
+export function ContactForm({ source, subjectPrefix, showProjectTypeDropdown, showTradeDropdown, showPhoneField = true, submitText = "Start the Conversation" }: ContactFormProps = {}) {
   const [mounted, setMounted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -12,6 +35,9 @@ export function ContactForm() {
     hearAboutUs: "",
     referralName: "",
     hearAboutUsOther: "",
+    projectType: "",
+    trade: "",
+    tradeOther: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
@@ -25,6 +51,15 @@ export function ContactForm() {
     setIsSubmitting(true);
 
     try {
+      const tradeValue = showTradeDropdown
+        ? formData.trade === "Other"
+          ? formData.tradeOther || "Other"
+          : formData.trade
+        : "";
+      const messageWithTrade = showTradeDropdown && tradeValue
+        ? `Trade: ${tradeValue}\n\n${formData.message}`
+        : formData.message;
+
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
@@ -36,9 +71,12 @@ export function ContactForm() {
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
-          message: formData.message,
+          message: messageWithTrade,
           referral_source: formData.hearAboutUs === "Referral" ? `Referral — ${formData.referralName || "No name given"}` : formData.hearAboutUs === "Other" ? formData.hearAboutUsOther || "Other" : formData.hearAboutUs,
-          subject: `New Inquiry from ${formData.name}`,
+          ...(showProjectTypeDropdown && { project_type: formData.projectType }),
+          ...(showTradeDropdown && tradeValue && { trade: tradeValue }),
+          ...(source && { source }),
+          subject: subjectPrefix ? `${subjectPrefix} — ${formData.name}` : `New Inquiry from ${formData.name}`,
         }),
       });
 
@@ -52,6 +90,9 @@ export function ContactForm() {
           hearAboutUs: "",
           referralName: "",
           hearAboutUsOther: "",
+          projectType: "",
+          trade: "",
+          tradeOther: "",
         });
       } else {
         setSubmitStatus("error");
@@ -98,8 +139,10 @@ export function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-5">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm text-[#d4d4d4] mb-2">Name *</label>
+          <label htmlFor="contact-name" className="block text-sm text-[#d4d4d4] mb-2">Name *</label>
           <input
+            id="contact-name"
+            name="name"
             type="text"
             required
             value={formData.name}
@@ -109,8 +152,10 @@ export function ContactForm() {
           />
         </div>
         <div>
-          <label className="block text-sm text-[#d4d4d4] mb-2">Email *</label>
+          <label htmlFor="contact-email" className="block text-sm text-[#d4d4d4] mb-2">Email *</label>
           <input
+            id="contact-email"
+            name="email"
             type="email"
             required
             value={formData.email}
@@ -121,20 +166,45 @@ export function ContactForm() {
         </div>
       </div>
 
-      <div>
-        <label className="block text-sm text-[#d4d4d4] mb-2">Phone</label>
-        <input
-          type="tel"
-          value={formData.phone}
-          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-          className={inputClasses}
-          placeholder="(555) 123-4567"
-        />
-      </div>
+      {showPhoneField && (
+        <div>
+          <label htmlFor="contact-phone" className="block text-sm text-[#d4d4d4] mb-2">Phone <span className="text-[#808080] text-xs font-normal">(optional)</span></label>
+          <input
+            id="contact-phone"
+            name="phone"
+            type="tel"
+            value={formData.phone}
+            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+            className={inputClasses}
+            placeholder="(555) 123-4567"
+          />
+        </div>
+      )}
+
+      {showProjectTypeDropdown && (
+        <div>
+          <label htmlFor="contact-projectType" className="block text-sm text-[#d4d4d4] mb-2">What do you need? *</label>
+          <select
+            id="contact-projectType"
+            name="projectType"
+            required
+            value={formData.projectType}
+            onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
+            className={cn(inputClasses, "appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill%3D%22%23707070%22%20d%3D%22M6%208L1%203h10z%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[right_16px_center]")}
+          >
+            <option value="" className="bg-[#0a0a0a]">Select one...</option>
+            <option value="Landing page ($300)" className="bg-[#0a0a0a]">Landing page ($300)</option>
+            <option value="Full website ($550+)" className="bg-[#0a0a0a]">Full website ($550+)</option>
+            <option value="Custom project / not sure" className="bg-[#0a0a0a]">Custom project / not sure</option>
+          </select>
+        </div>
+      )}
 
       <div>
-        <label className="block text-sm text-[#d4d4d4] mb-2">Tell us about your business and what you need *</label>
+        <label htmlFor="contact-message" className="block text-sm text-[#d4d4d4] mb-2">Tell me about your business and what you need *</label>
         <textarea
+          id="contact-message"
+          name="message"
           required
           value={formData.message}
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -143,9 +213,44 @@ export function ContactForm() {
         />
       </div>
 
+      {showTradeDropdown && (
+        <div>
+          <label htmlFor="contact-trade" className="block text-sm text-[#d4d4d4] mb-2">
+            What do you do? <span className="text-[#808080] text-xs font-normal">(optional)</span>
+          </label>
+          <p className="text-[#808080] text-xs mb-2">Pick the closest one — or skip it and tell me in the message below.</p>
+          <select
+            id="contact-trade"
+            name="trade"
+            value={formData.trade}
+            onChange={(e) => setFormData({ ...formData, trade: e.target.value, tradeOther: e.target.value === "Other" ? formData.tradeOther : "" })}
+            className={cn(inputClasses, "appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill%3D%22%23707070%22%20d%3D%22M6%208L1%203h10z%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[right_16px_center]")}
+          >
+            <option value="" className="bg-[#0a0a0a]">Select one...</option>
+            {TRADE_OPTIONS.map((opt) => (
+              <option key={opt} value={opt} className="bg-[#0a0a0a]">{opt}</option>
+            ))}
+          </select>
+          {formData.trade === "Other" && (
+            <input
+              id="contact-tradeOther"
+              name="tradeOther"
+              type="text"
+              aria-label="Tell me what you do"
+              value={formData.tradeOther}
+              onChange={(e) => setFormData({ ...formData, tradeOther: e.target.value })}
+              className={cn(inputClasses, "mt-3")}
+              placeholder="Tell me what you do"
+            />
+          )}
+        </div>
+      )}
+
       <div>
-        <label className="block text-sm text-[#d4d4d4] mb-2">How did you hear about us?</label>
+        <label htmlFor="contact-hearAboutUs" className="block text-sm text-[#d4d4d4] mb-2">How did you hear about me?</label>
         <select
+          id="contact-hearAboutUs"
+          name="hearAboutUs"
           value={formData.hearAboutUs}
           onChange={(e) => setFormData({ ...formData, hearAboutUs: e.target.value, referralName: "", hearAboutUsOther: "" })}
           className={cn(inputClasses, "appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill%3D%22%23707070%22%20d%3D%22M6%208L1%203h10z%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[right_16px_center]")}
@@ -154,12 +259,17 @@ export function ContactForm() {
           <option value="Google" className="bg-[#0a0a0a]">Google</option>
           <option value="Instagram" className="bg-[#0a0a0a]">Instagram</option>
           <option value="Facebook" className="bg-[#0a0a0a]">Facebook</option>
+          <option value="LinkedIn" className="bg-[#0a0a0a]">LinkedIn</option>
           <option value="Referral" className="bg-[#0a0a0a]">Referral</option>
+          <option value="Word of mouth" className="bg-[#0a0a0a]">Word of mouth</option>
           <option value="Other" className="bg-[#0a0a0a]">Other</option>
         </select>
         {formData.hearAboutUs === "Referral" && (
           <input
+            id="contact-referralName"
+            name="referralName"
             type="text"
+            aria-label="Who referred you"
             value={formData.referralName}
             onChange={(e) => setFormData({ ...formData, referralName: e.target.value })}
             className={cn(inputClasses, "mt-3")}
@@ -168,18 +278,21 @@ export function ContactForm() {
         )}
         {formData.hearAboutUs === "Other" && (
           <input
+            id="contact-hearAboutUsOther"
+            name="hearAboutUsOther"
             type="text"
+            aria-label="Tell me where you heard about me"
             value={formData.hearAboutUsOther}
             onChange={(e) => setFormData({ ...formData, hearAboutUsOther: e.target.value })}
             className={cn(inputClasses, "mt-3")}
-            placeholder="Tell us where..."
+            placeholder="Tell me where..."
           />
         )}
       </div>
 
       {submitStatus === "error" && (
         <p className="text-red-400 text-sm">
-          Something went wrong. Please try again or email us directly.
+          Something went wrong. Please try again or email me directly.
         </p>
       )}
 
@@ -206,7 +319,7 @@ export function ContactForm() {
 
         {/* Content */}
         <div className="relative bg-gradient-to-r from-[#2563eb] to-[#06b6d4] text-white py-4 rounded-xl font-medium tracking-wide">
-          {isSubmitting ? "Sending..." : "Start the Conversation"}
+          {isSubmitting ? "Sending..." : submitText}
         </div>
       </button>
     </form>

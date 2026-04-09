@@ -8,31 +8,19 @@
     <link rel="icon" type="image/png" href="/portfolio/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-icon.png" />
 
-    <!-- SEO Meta Tags -->
-    <title>TheKhan | Websites, AI & Marketing for Growing Businesses</title>
-    <meta name="description" content="Your outsourced digital team. We build websites, AI systems, and marketing that grows your business — then manage it all so you don't have to. Chicagoland and beyond." />
-    <meta name="keywords" content="digital marketing, Chicagoland marketing, Chicago suburbs marketing, website design Chicago, Google Business Profile setup, social media management, AI chatbots, SEO, branding, local business marketing, Deerfield IL" />
+    <!-- Global meta (per-route tags live in components via <SEO />) -->
     <meta name="author" content="TheKhan" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://thekhan.io/" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="TheKhan | Websites, AI & Marketing for Growing Businesses" />
-    <meta property="og:description" content="Your outsourced digital team. We build websites, AI systems, and marketing that grows your business — then manage it all so you don't have to." />
-    <meta property="og:url" content="https://thekhan.io" />
-    <meta property="og:site_name" content="TheKhan" />
-    <meta property="og:image" content="https://thekhan.io/og-image.jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="TheKhan - Your Outsourced Digital Team" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:type" content="website" />
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="TheKhan | Websites, AI & Marketing for Growing Businesses" />
-    <meta name="twitter:description" content="Your outsourced digital team. Websites, AI systems, and marketing for growing businesses in Chicagoland." />
-    <meta name="twitter:image" content="https://thekhan.io/og-image.jpg" />
+    <!-- No fallback <title> here: React 19 does NOT dedupe <title> against
+         the source HTML, so any title in index.html would stack on top of
+         the per-route <SEO /> title and confuse Google. Every route owns
+         its title via <SEO />. Social crawlers that don't execute JS will
+         see no title until we add build-time prerendering (follow-up). -->
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -46,184 +34,6 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-CF1CCVLVRB');
-    </script>
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "TheKhan",
-        "description": "Your outsourced digital team. Websites, AI systems, and marketing for growing businesses in Chicagoland and beyond.",
-        "url": "https://thekhan.io",
-        "logo": "https://thekhan.io/portfolio/logo-white.png",
-        "image": "https://thekhan.io/og-image.jpg",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "655 Deerfield Rd, Suite 100, Unit 404",
-          "addressLocality": "Deerfield",
-          "addressRegion": "IL",
-          "postalCode": "60015",
-          "addressCountry": "US"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "42.1711",
-          "longitude": "-87.8445"
-        },
-        "telephone": "+18472208550",
-        "email": "hello@thekhan.io",
-        "areaServed": {
-          "@type": "GeoCircle",
-          "geoMidpoint": {
-            "@type": "GeoCoordinates",
-            "latitude": "42.1711",
-            "longitude": "-87.8445"
-          },
-          "geoRadius": "50000",
-          "description": "Chicagoland area and Chicago suburbs"
-        },
-        "priceRange": "$$",
-        "openingHours": "Mo-Fr 09:00-17:00",
-        "sameAs": [
-          "https://www.linkedin.com/company/thekhanio",
-          "https://www.instagram.com/thekhanio",
-          "https://x.com/thekhanio"
-        ],
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Digital Services",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Website Design & Development",
-                "description": "Custom websites that get found and convert for local businesses"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "AI Solutions",
-                "description": "Custom AI chatbots, AI receptionists, and automation systems"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Digital Marketing",
-                "description": "SEO, Google Ads, social media management, and Google Business Profile optimization"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Ongoing Management",
-                "description": "Website maintenance, security monitoring, hosting, and same-day support"
-              }
-            }
-          ]
-        }
-      }
-    </script>
-
-    <!-- LocalBusiness Structured Data -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": ["LocalBusiness", "ProfessionalService"],
-        "name": "TheKhan",
-        "description": "TheKhan is a digital services team on Chicago's North Shore offering custom websites, AI solutions, and marketing for growing businesses.",
-        "url": "https://thekhan.io",
-        "logo": "https://thekhan.io/portfolio/logo-white.png",
-        "image": "https://thekhan.io/og-image.jpg",
-        "telephone": "+18472208550",
-        "email": "hello@thekhan.io",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "655 Deerfield Rd, Suite 100, Unit 404",
-          "addressLocality": "Deerfield",
-          "addressRegion": "IL",
-          "postalCode": "60015",
-          "addressCountry": "US"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "42.1711",
-          "longitude": "-87.8445"
-        },
-        "areaServed": {
-          "@type": "GeoCircle",
-          "geoMidpoint": {
-            "@type": "GeoCoordinates",
-            "latitude": "42.1711",
-            "longitude": "-87.8445"
-          },
-          "geoRadius": "50000",
-          "description": "North Shore Chicago area and Chicago suburbs"
-        },
-        "priceRange": "$$",
-        "openingHours": "Mo-Fr 09:00-17:00",
-        "sameAs": [
-          "https://www.linkedin.com/company/thekhanio",
-          "https://www.instagram.com/thekhanio",
-          "https://x.com/thekhanio"
-        ]
-      }
-    </script>
-
-    <!-- FAQ Structured Data -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What services does TheKhan offer?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "TheKhan offers custom website design and development, AI solutions (chatbots, AI receptionists, automation), digital marketing (SEO, Google Ads, social media management), Google Business Profile optimization, and ongoing website management and support."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Where is TheKhan located?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "TheKhan is located at 655 Deerfield Rd, Suite 100, Unit 404, Deerfield, IL 60015. We serve businesses throughout the Chicagoland area, Chicago suburbs, and remotely nationwide."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does TheKhan work with small businesses?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, we specialize in helping established small businesses grow their digital presence. From businesses that need a website and marketing to those looking for AI-powered systems and automation."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How can I get started with TheKhan?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "You can get started by filling out our contact form on our website, calling us at (847) 220-8550, or emailing hello@thekhan.io. We'll discuss your business goals and create a customized plan."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What areas does TheKhan serve?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "We serve businesses throughout Chicagoland, including the North Shore suburbs like Deerfield, Highland Park, Lake Forest, Northbrook, Glencoe, Winnetka, and the broader Chicago metropolitan area. We also work with clients remotely."
-            }
-          }
-        ]
-      }
     </script>
   </head>
   <body class="antialiased" style="font-family: 'Manrope', system-ui, sans-serif;">

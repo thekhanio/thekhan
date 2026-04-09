@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SEO } from "@/components/SEO";
 import { Link } from "react-router-dom";
 
 import { Logo } from "@/components/Logo";
@@ -44,10 +44,12 @@ export default function ProposalPage({ config }: { config: ProposalConfig }) {
 
   return (
     <>
-      <Helmet>
-        <title>Proposal for {client.businessName || client.name} — TheKhan</title>
-        <meta name="robots" content="noindex, nofollow" />
-      </Helmet>
+      <SEO
+        title={`Proposal for ${client.businessName || client.name} — TheKhan`}
+        description={`Custom proposal for ${client.businessName || client.name} from TheKhan.`}
+        canonical="https://thekhan.io/"
+        noindex
+      />
 
       <div className="min-h-screen bg-gradient-to-b from-[#0a0a0a] to-[#1a1a1a] text-white">
         {/* Nav */}
