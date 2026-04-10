@@ -35,7 +35,7 @@ const faqs = [
   },
   {
     q: "What if my content isn't ready yet?",
-    a: "That's normal. Most people don't have polished copy or photos lined up before they hire me. During discovery, I get everything I need about your business and write the copy from there — you just review it. For photos, we figure out what you have, what you need, and what we can grab.",
+    a: "That's normal. Most people don't have polished copy or photos lined up before they hire me. During discovery, I get everything I need about your business and write the copy from there — you just review it. For photos, I figure out what you already have and help fill in the gaps.",
   },
   {
     q: "What if I want changes after launch?",
@@ -54,7 +54,17 @@ const faqs = [
 const PAGE_TITLE = "Custom Web Design — Deerfield, IL | One Payment, You Own It";
 const PAGE_DESC = "Custom websites built from scratch in 1–6 weeks. One-time payment, no retainer, no lock-in. You walk away with every file. Deerfield, IL.";
 const PAGE_URL = "https://thekhan.io/websites";
-const OG_IMAGE = "https://thekhan.io/og-image.jpg";
+const OG_IMAGE = "https://thekhan.io/websites-og.jpg";
+
+const BREADCRUMB_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "https://thekhan.io/websites#breadcrumb",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://thekhan.io" },
+    { "@type": "ListItem", "position": 2, "name": "Websites", "item": "https://thekhan.io/websites" },
+  ],
+};
 
 const SERVICE_SCHEMA = {
   "@context": "https://schema.org",
@@ -79,7 +89,7 @@ const FAQ_SCHEMA_FOR_HEAD = {
     { "@type": "Question", "name": "Do I need my own domain?", "acceptedAnswer": { "@type": "Answer", "text": "If you don't have one, I'll walk you through buying it (about $12/year through GoDaddy, Namecheap, or whichever provider you prefer). You register it in your own account, with your own login. You own it forever — even if we never talk again." } },
     { "@type": "Question", "name": "Where will my site be hosted?", "acceptedAnswer": { "@type": "Answer", "text": "On modern hosting that's free for small business sites. The login is in your account, not mine. Your only ongoing cost is your domain renewal — about $12 a year." } },
     { "@type": "Question", "name": "Can you migrate my existing Wix or Squarespace site?", "acceptedAnswer": { "@type": "Answer", "text": "I'll use your existing copy, photos, and content — anything that's yours, I move over. But the site itself gets built from scratch on custom code, which gives you a faster, cleaner result than dragging an old template along. Same price as a new build." } },
-    { "@type": "Question", "name": "What if my content isn't ready yet?", "acceptedAnswer": { "@type": "Answer", "text": "That's normal. Most people don't have polished copy or photos lined up before they hire me. During discovery, I get everything I need about your business and write the copy from there — you just review it. For photos, we figure out what you have, what you need, and what we can grab." } },
+    { "@type": "Question", "name": "What if my content isn't ready yet?", "acceptedAnswer": { "@type": "Answer", "text": "That's normal. Most people don't have polished copy or photos lined up before they hire me. During discovery, I get everything I need about your business and write the copy from there — you just review it. For photos, I figure out what you already have and help fill in the gaps." } },
     { "@type": "Question", "name": "What if I want changes after launch?", "acceptedAnswer": { "@type": "Answer", "text": "Two options. Grab the optional dashboard ($59/mo) and edit anything yourself in a few clicks. Or text me for one-off updates — most start around $75, depending on scope. If you'll be making changes more than once a month, the dashboard usually pays for itself." } },
     { "@type": "Question", "name": "Do I sign a long-term contract?", "acceptedAnswer": { "@type": "Answer", "text": "No. It's a one-time project, not a subscription. You pay 50% to start, 50% on launch — that's the whole deal. No retainer, no auto-renewal, no cancellation fee. The optional dashboard is month-to-month, so if you grab it later, you can cancel by letting me know before the next month starts." } },
     { "@type": "Question", "name": "How and when do I pay?", "acceptedAnswer": { "@type": "Answer", "text": "50% to start, 50% on launch. Stripe or Zelle — whichever's easiest. No hidden fees, no surprise invoices." } }
@@ -104,7 +114,7 @@ export default function WebsitesPage() {
         description={PAGE_DESC}
         canonical={PAGE_URL}
         ogImage={OG_IMAGE}
-        schema={[SERVICE_SCHEMA, FAQ_SCHEMA_FOR_HEAD]}
+        schema={[BREADCRUMB_SCHEMA, SERVICE_SCHEMA, FAQ_SCHEMA_FOR_HEAD]}
       />
       <BackgroundPaths />
 
@@ -546,7 +556,7 @@ export default function WebsitesPage() {
 
           <div>
             {[
-              { n: 1, title: "Discovery — Day 1", body: "A quick call. Tell me about your business and what you need the site to do. No pitch, just questions.", arrow: "Clear picture of what we're building." },
+              { n: 1, title: "Discovery — Day 1", body: "A quick call. Tell me about your business and what you need the site to do. No pitch, just questions.", arrow: "Clear picture of what I'm building." },
               { n: 2, title: "Proposal — Within 48 hours", body: "Exact scope, timeline, and price. No surprises. You see exactly what you're paying for before I start.", arrow: "Locked plan and start date." },
               { n: 3, title: "Build — 1 to 6 weeks", body: "You see progress along the way. I test everything before it goes live. No \u201Ctrust me, it'll be great\u201D black box.", arrow: "Working site, tested and ready." },
               { n: 4, title: "Launch — Day of", body: "I hand it over. Code, files, domain, logins — all yours. Add the dashboard if you want to edit, bring in any developer, or just let it run.", arrow: "Your site, live, owned by you.", last: true },
@@ -590,7 +600,7 @@ export default function WebsitesPage() {
             <ScrollReveal direction="up">
               <p className="text-[#a3a3a3] text-sm tracking-widest uppercase mb-6">Common questions</p>
               <h2 className="text-2xl md:text-4xl font-semibold text-white mb-4 tracking-[0.15em] uppercase" style={{ fontFamily: "'Cinzel', serif" }}>
-                What people ask before we start.
+                What people ask before we start working together.
               </h2>
               <AnimatedUnderline className="w-48 md:w-64 mx-auto mt-6" />
             </ScrollReveal>
@@ -713,7 +723,7 @@ export default function WebsitesPage() {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-12">
             <div className="flex flex-col items-center text-center md:items-start md:text-left">
-              <h4 className="text-sm font-medium text-[#a3a3a3] uppercase tracking-widest mb-5">Contact</h4>
+              <h3 className="text-sm font-medium text-[#a3a3a3] uppercase tracking-widest mb-5">Contact</h3>
               <div className="space-y-2 text-[#d4d4d4] text-sm leading-relaxed">
                 <p>655 Deerfield Rd</p>
                 <p>Suite 100, Unit 404</p>
@@ -724,7 +734,7 @@ export default function WebsitesPage() {
               </div>
             </div>
             <div className="flex flex-col items-center text-center md:items-start md:text-left">
-              <h4 className="text-sm font-medium text-[#a3a3a3] uppercase tracking-widest mb-5">Pages</h4>
+              <h3 className="text-sm font-medium text-[#a3a3a3] uppercase tracking-widest mb-5">Pages</h3>
               <div className="space-y-2 text-[#d4d4d4] text-sm">
                 <p><Link to="/" className="hover:text-white transition-colors">Home</Link></p>
                 <p><Link to="/websites" className="text-white transition-colors">Websites</Link></p>
@@ -735,15 +745,15 @@ export default function WebsitesPage() {
               </div>
             </div>
             <div className="flex flex-col items-center text-center">
-              <h4 className="text-sm font-medium text-[#a3a3a3] uppercase tracking-widest mb-5">Follow Along</h4>
+              <h3 className="text-sm font-medium text-[#a3a3a3] uppercase tracking-widest mb-5">Follow Along</h3>
               <div className="flex gap-3">
-                <a href="https://www.linkedin.com/company/thekhanio" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-full bg-[#111111] border border-white/[0.08] flex items-center justify-center text-[#a3a3a3] hover:text-white hover:border-[#2563eb]/50 hover:bg-[#2563eb]/10 hover:scale-125 hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(37,99,235,0.25)] transition-all duration-300">
+                <a href="https://www.linkedin.com/company/thekhanio" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-11 h-11 rounded-full bg-[#111111] border border-white/[0.08] flex items-center justify-center text-[#a3a3a3] hover:text-white hover:border-[#2563eb]/50 hover:bg-[#2563eb]/10 hover:scale-125 hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(37,99,235,0.25)] transition-all duration-300">
                   <IconBrandLinkedin className="w-4 h-4" />
                 </a>
-                <a href="https://www.facebook.com/profile.php?id=61584909881446" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-full bg-[#111111] border border-white/[0.08] flex items-center justify-center text-[#a3a3a3] hover:text-white hover:border-[#2563eb]/50 hover:bg-[#2563eb]/10 hover:scale-125 hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(37,99,235,0.25)] transition-all duration-300">
+                <a href="https://www.facebook.com/profile.php?id=61584909881446" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-11 h-11 rounded-full bg-[#111111] border border-white/[0.08] flex items-center justify-center text-[#a3a3a3] hover:text-white hover:border-[#2563eb]/50 hover:bg-[#2563eb]/10 hover:scale-125 hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(37,99,235,0.25)] transition-all duration-300">
                   <IconBrandFacebook className="w-4 h-4" />
                 </a>
-                <a href="https://www.instagram.com/thekhanio" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-full bg-[#111111] border border-white/[0.08] flex items-center justify-center text-[#a3a3a3] hover:text-white hover:border-[#2563eb]/50 hover:bg-[#2563eb]/10 hover:scale-125 hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(37,99,235,0.25)] transition-all duration-300">
+                <a href="https://www.instagram.com/thekhanio" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-11 h-11 rounded-full bg-[#111111] border border-white/[0.08] flex items-center justify-center text-[#a3a3a3] hover:text-white hover:border-[#2563eb]/50 hover:bg-[#2563eb]/10 hover:scale-125 hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(37,99,235,0.25)] transition-all duration-300">
                   <IconBrandInstagram className="w-4 h-4" />
                 </a>
               </div>

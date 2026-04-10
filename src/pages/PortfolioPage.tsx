@@ -204,7 +204,7 @@ export default function PortfolioPage() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="group flex flex-col items-center min-w-0"
-                          aria-label={`Visit ${sub.name}`}
+                          aria-label={`${sub.display} — ${sub.name}`}
                           title={sub.name}
                         >
                           <div className="relative w-full flex items-center justify-center h-24 md:h-28 lg:h-32 px-4 md:px-6 py-4 rounded-xl bg-[#0a0a0a]/60 border border-white/[0.06] group-hover:border-[#06b6d4]/40 group-hover:bg-[#06b6d4]/[0.04] group-hover:-translate-y-0.5 group-hover:shadow-[0_6px_24px_rgba(6,182,212,0.15)] transition-all duration-300">
@@ -353,7 +353,7 @@ export default function PortfolioPage() {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-12">
             <div className="flex flex-col items-center text-center md:items-start md:text-left">
-              <h4 className="text-sm font-medium text-[#a3a3a3] uppercase tracking-widest mb-5">Contact</h4>
+              <h3 className="text-sm font-medium text-[#a3a3a3] uppercase tracking-widest mb-5">Contact</h3>
               <div className="space-y-2 text-[#d4d4d4] text-sm leading-relaxed">
                 <p>655 Deerfield Rd</p>
                 <p>Suite 100, Unit 404</p>
@@ -364,7 +364,7 @@ export default function PortfolioPage() {
               </div>
             </div>
             <div className="flex flex-col items-center text-center md:items-start md:text-left">
-              <h4 className="text-sm font-medium text-[#a3a3a3] uppercase tracking-widest mb-5">Pages</h4>
+              <h3 className="text-sm font-medium text-[#a3a3a3] uppercase tracking-widest mb-5">Pages</h3>
               <div className="space-y-2 text-[#d4d4d4] text-sm">
                 <p><Link to="/" className="hover:text-white transition-colors">Home</Link></p>
                 <p><Link to="/websites" className="hover:text-white transition-colors">Websites</Link></p>
@@ -375,15 +375,15 @@ export default function PortfolioPage() {
               </div>
             </div>
             <div className="flex flex-col items-center text-center">
-              <h4 className="text-sm font-medium text-[#a3a3a3] uppercase tracking-widest mb-5">Follow Along</h4>
+              <h3 className="text-sm font-medium text-[#a3a3a3] uppercase tracking-widest mb-5">Follow Along</h3>
               <div className="flex gap-3">
-                <a href="https://www.linkedin.com/company/thekhanio" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-full bg-[#111111] border border-white/[0.08] flex items-center justify-center text-[#a3a3a3] hover:text-white hover:border-[#2563eb]/50 hover:bg-[#2563eb]/10 hover:scale-125 hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(37,99,235,0.25)] transition-all duration-300">
+                <a href="https://www.linkedin.com/company/thekhanio" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-11 h-11 rounded-full bg-[#111111] border border-white/[0.08] flex items-center justify-center text-[#a3a3a3] hover:text-white hover:border-[#2563eb]/50 hover:bg-[#2563eb]/10 hover:scale-125 hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(37,99,235,0.25)] transition-all duration-300">
                   <IconBrandLinkedin className="w-4 h-4" />
                 </a>
-                <a href="https://www.facebook.com/profile.php?id=61584909881446" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-full bg-[#111111] border border-white/[0.08] flex items-center justify-center text-[#a3a3a3] hover:text-white hover:border-[#2563eb]/50 hover:bg-[#2563eb]/10 hover:scale-125 hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(37,99,235,0.25)] transition-all duration-300">
+                <a href="https://www.facebook.com/profile.php?id=61584909881446" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-11 h-11 rounded-full bg-[#111111] border border-white/[0.08] flex items-center justify-center text-[#a3a3a3] hover:text-white hover:border-[#2563eb]/50 hover:bg-[#2563eb]/10 hover:scale-125 hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(37,99,235,0.25)] transition-all duration-300">
                   <IconBrandFacebook className="w-4 h-4" />
                 </a>
-                <a href="https://www.instagram.com/thekhanio" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-full bg-[#111111] border border-white/[0.08] flex items-center justify-center text-[#a3a3a3] hover:text-white hover:border-[#2563eb]/50 hover:bg-[#2563eb]/10 hover:scale-125 hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(37,99,235,0.25)] transition-all duration-300">
+                <a href="https://www.instagram.com/thekhanio" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-11 h-11 rounded-full bg-[#111111] border border-white/[0.08] flex items-center justify-center text-[#a3a3a3] hover:text-white hover:border-[#2563eb]/50 hover:bg-[#2563eb]/10 hover:scale-125 hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(37,99,235,0.25)] transition-all duration-300">
                   <IconBrandInstagram className="w-4 h-4" />
                 </a>
               </div>

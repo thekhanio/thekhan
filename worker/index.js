@@ -14,8 +14,8 @@ const DEFAULT_OG_IMAGE = "https://thekhan.io/og-image.jpg";
 
 const ROUTE_META = {
   "/": {
-    title: "Custom Websites & Marketing for Home Services | TheKhan",
-    description: "Custom websites that rank + marketing that makes your phone ring. One operator, a handful of clients a year. Deerfield, IL.",
+    title: "Custom Websites & Marketing for Growing Businesses | TheKhan",
+    description: "Custom websites and marketing that actually bring in business. One point of contact, start to finish.",
     canonical: "https://thekhan.io/",
     ogImage: DEFAULT_OG_IMAGE,
     ogType: "website",
@@ -24,14 +24,14 @@ const ROUTE_META = {
     title: "Custom Web Design — Deerfield, IL | One Payment, You Own It",
     description: "Custom websites built from scratch in 1–6 weeks. One-time payment, no retainer, no lock-in. You walk away with every file. Deerfield, IL.",
     canonical: "https://thekhan.io/websites",
-    ogImage: DEFAULT_OG_IMAGE,
+    ogImage: "https://thekhan.io/websites-og.jpg",
     ogType: "website",
   },
   "/contractors": {
     title: "Marketing for Home Service Contractors in Chicago | TheKhan",
     description: "Websites, Google Ads, and SEO for Chicago home service contractors. Get your phone ringing every week. You do the work. I make people find you.",
     canonical: "https://thekhan.io/contractors",
-    ogImage: DEFAULT_OG_IMAGE,
+    ogImage: "https://thekhan.io/contractors-og.jpg",
     ogType: "website",
   },
   "/portfolio": {
@@ -45,7 +45,7 @@ const ROUTE_META = {
     title: "About Omair Khan — Founder of TheKhan | Web Design & Marketing",
     description: "One-man shop. Before this I built my own home service company to 84 clients. Now I build websites and run marketing for others.",
     canonical: "https://thekhan.io/about",
-    ogImage: DEFAULT_OG_IMAGE,
+    ogImage: "https://thekhan.io/about-og.jpg",
     ogType: "profile",
   },
 };
