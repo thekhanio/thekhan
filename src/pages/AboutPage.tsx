@@ -37,7 +37,7 @@ const TIMELINE_NODES = [
   },
   {
     date: "Mar '26",
-    body: "I closed Clean & Green. I'm all in on TheKhan now — building websites and running marketing for other people growing their own businesses. I treat every one of them like my own — because I know what that seat feels like.",
+    body: "I closed Clean & Green and went all in on TheKhan. I know what that seat feels like — so I treat every business I work with like my own.",
   },
 ];
 
@@ -265,7 +265,7 @@ export default function AboutPage() {
 
           <ScrollReveal direction="up" delay={0.05}>
             <p className="text-[#d4d4d4] text-lg leading-relaxed max-w-3xl mx-auto text-center mb-16">
-              I scaled Clean &amp; Green to 84 clients. I ran the marketing that brought the jobs in while trying to do the work in the field. Turned out I was much better at one than the other — so I shut down Clean &amp; Green. I&apos;m all in on TheKhan now, doing the one thing I was good at: making the phone ring.
+              I scaled a home service company to 84 clients before I shut it down. Here&apos;s why.
             </p>
           </ScrollReveal>
 
@@ -304,14 +304,14 @@ export default function AboutPage() {
           <ScrollReveal direction="up" delay={0.05}>
             <div className="max-w-3xl mx-auto space-y-6 text-[#d4d4d4] text-lg leading-relaxed">
               <p>
-                Today, TheKhan does two things. I build{" "}
+                I do two things. I build{" "}
                 <Link to="/websites" className="text-[#06b6d4] hover:text-white underline underline-offset-4 transition-colors">custom websites</Link>
-                {" "}for small businesses. And I run{" "}
+                {" "}for businesses that need more than a template. And I run{" "}
                 <Link to="/contractors" className="text-[#06b6d4] hover:text-white underline underline-offset-4 transition-colors">monthly marketing for home service contractors</Link>
                 {" "}who want their phone ringing every week.
               </p>
               <p>
-                I work with a handful of clients at a time. If your project doesn&apos;t fit those two cleanly, reach out. I partner with Velli, a technology studio, when something needs deeper engineering or strategy muscle — if it&apos;s the right fit, I can usually make it work.
+                I work with a handful of clients at a time. If your project doesn&apos;t fit those two cleanly, reach out anyway — I partner with Velli, a technology studio, when something needs deeper engineering or strategy muscle.
               </p>
             </div>
           </ScrollReveal>
@@ -336,10 +336,10 @@ export default function AboutPage() {
                 Code will always outperform a template. That&apos;s why I write every site from scratch — and why you own every line when I&apos;m done.
               </p>
               <p>
-                You deal with me from day one — that&apos;s not a pitch, it&apos;s just how I work. Fewer handoffs, fewer things lost in translation, nobody else to chase if something slips.
+                You deal with me from day one. No front desk giving you the runaround. No wondering who&apos;s actually handling your project. Just one person, start to finish.
               </p>
               <p>
-                I&apos;d rather tell you &ldquo;no&rdquo; on a first call than waste your time pretending we&apos;re a fit. If that sounds like how you want to work, the next move is below.
+                I&apos;d rather tell you &ldquo;no&rdquo; on a first call than waste your time pretending we&apos;re a fit. If that sounds right, the form&apos;s below.
               </p>
             </div>
           </ScrollReveal>
@@ -350,12 +350,11 @@ export default function AboutPage() {
       <section id="contact" className="py-24 px-6 relative z-10 scroll-mt-20">
         <div className="max-w-6xl mx-auto relative">
           <div className="text-center mb-12">
-            <p className="text-[#a3a3a3] text-sm tracking-widest uppercase mb-6">Still here?</p>
             <h2 className="text-2xl md:text-4xl font-semibold text-white mb-4 tracking-[0.15em] uppercase" style={{ fontFamily: "'Cinzel', serif" }}>
               Glad you made it here.
             </h2>
             <p className="text-[#d4d4d4] text-lg max-w-xl mx-auto">
-              If you&apos;ve got a question, a project, or just want to say hi, drop a note below.
+              Got a project in mind? Drop a note and I&apos;ll get back to you.
             </p>
           </div>
 
