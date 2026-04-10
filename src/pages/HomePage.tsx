@@ -31,7 +31,7 @@ const HOME_SCHEMA = {
       "telephone": "+18472208550",
       "email": "omair@thekhan.io",
       "priceRange": "$$",
-      "openingHours": "Mo-Sa 10:30-20:00",
+      "openingHours": "Mo-Su 10:30-22:00",
       "founder": { "@id": "https://thekhan.io/about#omair" },
       "address": {
         "@type": "PostalAddress",
