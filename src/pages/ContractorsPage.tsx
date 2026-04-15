@@ -22,7 +22,6 @@ import {
   IconDeviceMobile,
   IconCurrencyDollar,
   IconTruck,
-  IconLock,
 } from "@tabler/icons-react";
 
 const BREADCRUMB_SCHEMA = {
@@ -105,7 +104,7 @@ const CONTRACTORS_FAQ_SCHEMA = {
       "name": "How much does marketing for home service contractors cost?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "I work on monthly retainers in three tiers: Foundation ($550/mo), Engine ($1,050/mo — most common), and Machine ($1,500/mo). Every new contractor starts with a 60-day intro at $550/mo flat, regardless of which tier you pick — that's when I build the foundation: new site, Google listing, basic SEO. Day 61, you move to your full tier rate. No setup fee, no long-term contract.",
+        "text": "Three monthly tiers: Foundation ($550/mo), Engine ($1,050/mo — most common), and Machine ($1,500/mo). Monthly starts the day your site goes live. A new website build is $750, paid upfront at signing. Month-to-month, no long-term lock-ins. Cancel any month with 72 hours notice before your next bill.",
       },
     },
     {
@@ -113,7 +112,7 @@ const CONTRACTORS_FAQ_SCHEMA = {
       "name": "How long before I see more phone calls?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Google Ads can start driving calls within days of launch. Local SEO and organic rankings take 3 to 6 months to show up meaningfully — that's why every new contractor starts with a 60-day intro, so the foundational work is in place by the time the deeper SEO work starts paying off. I'll tell you which channel fits your timeline and budget before we start, not after.",
+        "text": "Google Ads can start driving calls within days of launch. Local SEO compounds — it doesn't work day one. Organic rankings take 3 to 6 months to show up meaningfully, which is why most contractors run both: ads bridge the gap while SEO builds. I'll tell you which channel fits your timeline and budget before we start, not after.",
       },
     },
     {
@@ -129,7 +128,7 @@ const CONTRACTORS_FAQ_SCHEMA = {
       "name": "What happens if the marketing doesn't work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The 60-day intro comes with a 30-day walk clause — if I'm not delivering in the first 30 days, you can walk, no questions asked. Beyond that, I cap myself at a handful of clients per year specifically so I can pay attention to each one. If something isn't working, I find out fast and fix it — not 90 days later when your next retainer invoice hits.",
+        "text": "Month-to-month means you're never locked in. Cancel any month with 72 hours notice before your next bill. I cap myself at a handful of clients per year specifically so I can pay attention to each one — if something isn't working, I find out fast and fix it, not 90 days later when your next invoice hits. Everything stays in your name, so canceling doesn't cost you what we've built.",
       },
     },
     {
@@ -352,10 +351,10 @@ export default function ContractorsPage() {
                 What It Costs
               </p>
               <h2 className="text-2xl md:text-4xl font-semibold text-white mb-6 leading-tight" style={{ fontFamily: "'Cinzel', serif" }}>
-                Pick your tier. The first 60 days are the same.
+                Three tiers. Month-to-month.
               </h2>
               <p className="text-[#d4d4d4] text-base md:text-lg leading-relaxed">
-                $550/mo for the first 60 days &mdash; any tier. That&apos;s when I build the foundation: new site, Google listing, basic SEO. That&apos;s the work that moves the needle fastest. The deeper work takes 3&ndash;6 months to show up anyway. Day 61 you move to your full tier rate.
+                Your monthly starts the day your site goes live. Cancel any month with 72 hours notice before your next bill. A new website build is $750, paid upfront at signing.
               </p>
             </ScrollReveal>
           </div>
@@ -372,11 +371,26 @@ export default function ContractorsPage() {
                   $550<span className="text-base font-medium text-[#808080]">/mo</span>
                 </p>
                 <p className="text-white font-semibold text-lg leading-snug mb-4">
-                  Get found. Stop losing jobs to the other guys.
+                  Get found.
                 </p>
-                <p className="text-[#a3a3a3] text-sm leading-relaxed">
+                <p className="text-[#a3a3a3] text-sm leading-relaxed mb-5">
                   For contractors still surviving on referrals and repeat customers.
                 </p>
+                <ul className="space-y-3 mt-auto">
+                  {[
+                    "Website hosted and maintained",
+                    "Google Business Profile kept active so it doesn\u2019t go dormant",
+                    "Every Google review replied to \u2014 good or bad, none ignored",
+                    "Monthly report in plain English \u2014 what moved, what didn\u2019t, what\u2019s next",
+                    "Dashboard to edit your site yourself",
+                    "Text or email me direct \u2014 no tickets, no gatekeepers",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2.5">
+                      <IconCheck className="w-4 h-4 text-[#06b6d4] flex-shrink-0 mt-0.5" />
+                      <span className="text-[#d4d4d4] text-sm leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </ScrollReveal>
 
@@ -393,11 +407,28 @@ export default function ContractorsPage() {
                   $1,050<span className="text-base font-medium text-[#808080]">/mo</span>
                 </p>
                 <p className="text-white font-semibold text-lg leading-snug mb-4">
-                  Make the phone ring. Keep it ringing.
+                  Make the phone ring.
                 </p>
-                <p className="text-[#a3a3a3] text-sm leading-relaxed">
+                <p className="text-[#a3a3a3] text-sm leading-relaxed mb-5">
                   For contractors who want jobs coming in every week &mdash; not just during busy season.
                 </p>
+                <p className="text-[#06b6d4] text-xs tracking-wide uppercase font-semibold mb-3">
+                  Everything in Foundation, plus:
+                </p>
+                <ul className="space-y-3 mt-auto">
+                  {[
+                    "New pages added every month \u2014 so you rank for more services in more towns",
+                    "Review request scripts you send after jobs \u2014 more reviews come in without the awkward ask",
+                    "More photos on your Google profile from jobs you share \u2014 keeps your listing looking alive",
+                    "Listed consistently across the directories customers actually check",
+                    "Seasonal pivots handled \u2014 your site and Google match what you\u2019re actually selling this season",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2.5">
+                      <IconCheck className="w-4 h-4 text-[#06b6d4] flex-shrink-0 mt-0.5" />
+                      <span className="text-[#d4d4d4] text-sm leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </ScrollReveal>
 
@@ -411,44 +442,62 @@ export default function ContractorsPage() {
                   $1,500<span className="text-base font-medium text-[#808080]">/mo</span>
                 </p>
                 <p className="text-white font-semibold text-lg leading-snug mb-4">
-                  Turn jobs away. Hire the crew.
+                  Turn jobs away.
                 </p>
-                <p className="text-[#a3a3a3] text-sm leading-relaxed">
+                <p className="text-[#a3a3a3] text-sm leading-relaxed mb-5">
                   For contractors ready to stop being the bottleneck and start running a real company.
                 </p>
+                <p className="text-[#06b6d4] text-xs tracking-wide uppercase font-semibold mb-3">
+                  Everything in Engine, plus:
+                </p>
+                <ul className="space-y-3 mt-auto">
+                  {[
+                    "Google Ads managed \u2014 up to three services, your account, your card",
+                    "Google LSA managed \u2014 the Google Guaranteed ads at the very top of search. I handle bids, fake-lead disputes, and review flow so you don\u2019t have to.",
+                    "Full online cleanup at onboarding \u2014 your business listed the same way everywhere it matters, so Google can actually verify who you are",
+                    "Third-party audit at onboarding \u2014 Porch, Angi, HomeAdvisor, any lead service you pay for. If you\u2019re paying, I make sure they\u2019re actually sending leads.",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2.5">
+                      <IconCheck className="w-4 h-4 text-[#06b6d4] flex-shrink-0 mt-0.5" />
+                      <span className="text-[#d4d4d4] text-sm leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </ScrollReveal>
           </div>
 
-          {/* 60-day intro callout */}
+          {/* $750 build education blurb */}
+          <ScrollReveal direction="up" delay={0.18}>
+            <div className="max-w-3xl mx-auto mb-8 p-6 md:p-8 rounded-2xl bg-[#0d0d0d] border border-white/[0.06]">
+              <h3 className="text-lg md:text-xl font-semibold text-white mb-3">
+                Why the build is $750.
+              </h3>
+              <p className="text-[#d4d4d4] text-base leading-relaxed">
+                Five pages &mdash; home, services, about, contact, area served. Each one answers a different question Google asks about your business: what you do, who you are, how to reach you, where you work. Template sites pile it all onto one page and Google can&apos;t sort it out. That&apos;s the difference between showing up in search and not.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          {/* Ads add-on line */}
+          <ScrollReveal direction="up" delay={0.19}>
+            <p className="max-w-3xl mx-auto mb-10 text-center text-[#a3a3a3] text-sm md:text-base leading-relaxed px-4">
+              <span className="text-white font-semibold">Want ads?</span> Machine includes Google Ads and LSA management. On Foundation or Engine, add Google Ads ($400/mo) or LSA ($150/mo). Ad spend is separate and billed directly to your card by Google &mdash; you see exactly where every dollar goes.
+            </p>
+          </ScrollReveal>
+
+          {/* Terms callout */}
           <ScrollReveal direction="up" delay={0.2}>
             <SpotlightGlow>
               <div className="p-8 md:p-10 text-center">
                 <h3 className="text-xl md:text-2xl font-semibold text-white mb-4" style={{ fontFamily: "'Cinzel', serif" }}>
-                  Here&apos;s how the first 60 days work.
+                  The terms, plain.
                 </h3>
                 <p className="text-[#d4d4d4] text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-                  $550/mo, any tier. No setup fee. If I&apos;m not delivering in the first 30 days, you can walk.
+                  Month-to-month. Cancel any month with 72 hours notice before your next bill. Anything not already in your name, I hand over. You keep everything.
                 </p>
               </div>
             </SpotlightGlow>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* ==================== NOTHING HELD HOSTAGE MINI-STRIP ==================== */}
-      <section className="py-12 md:py-16 px-6 relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
-          <ScrollReveal direction="up">
-            <div className="inline-flex items-center justify-center w-11 h-11 rounded-full bg-gradient-to-br from-[#2563eb]/15 to-[#06b6d4]/15 border border-[#2563eb]/30 mb-5">
-              <IconLock className="w-5 h-5 text-[#06b6d4]" />
-            </div>
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
-              Nothing&apos;s held hostage.
-            </h3>
-            <p className="text-[#a3a3a3] italic text-base md:text-lg leading-relaxed max-w-xl mx-auto">
-              Your site, your logins, your content &mdash; all in your name from day one. Most agencies don&apos;t work that way.
-            </p>
           </ScrollReveal>
         </div>
       </section>
