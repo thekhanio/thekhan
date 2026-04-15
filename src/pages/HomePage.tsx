@@ -248,13 +248,12 @@ export default function HomePage() {
           >
             <span className="text-gradient">
               Websites that rank.<br />
-              Marketing that pays off.<br />
-              Pick your door.
+              Marketing that pays off.
             </span>
           </h1>
 
           <p className={`text-lg sm:text-xl md:text-2xl text-[#a3a3a3] mb-8 md:mb-10 max-w-2xl mx-auto text-center transition-all duration-700 delay-200 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            I custom-build your website — then stick around to grow the business, if we&apos;re a fit.
+            Websites built from scratch to rank on Google. Marketing built to bring in more business.
           </p>
 
           <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-700 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
@@ -312,27 +311,30 @@ export default function HomePage() {
             <SpotlightGlow>
               <div className="p-8 md:p-12">
                 <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
-                  <div className="flex-shrink-0">
+                  <div className="flex-shrink-0 flex flex-col items-center">
                     <img
                       src="/omair-headshot.webp"
                       alt="Omair Khan, founder of TheKhan"
                       className="w-44 md:w-56 h-auto object-contain"
                     />
+                    <p className="text-white text-base font-medium mt-3" style={{ fontFamily: "'Cinzel', serif" }}>
+                      Omair Khan
+                    </p>
                   </div>
                   <div className="flex-1 space-y-5 text-[#d4d4d4] text-lg leading-relaxed text-center md:text-left">
                     <h3 className="text-2xl md:text-3xl font-semibold text-white" style={{ fontFamily: "'Cinzel', serif" }}>
-                      I&apos;m Omair. Your direct line.
+                      No team. No handoffs.
                     </h3>
                     <p>
                       I&apos;m a one-man shop — but that&apos;s the point. No account managers, no ticket queues, no &ldquo;let me check with the team.&rdquo; Whether that&apos;s one project or a long-term run, you&apos;re dealing with me from day one.
                     </p>
                     <div className="border-l-2 border-[#06b6d4]/60 pl-5 my-2">
                       <p className="text-white">
-                        I use new AI tools to build faster and squeeze more out of every page. You get what&apos;s working right now — not strategies from a year ago.
+                        I don&apos;t take on a job unless I know I can do it right.
                       </p>
                     </div>
                     <p className="text-[#a3a3a3] text-base">
-                      For partnerships, I cap at a handful of clients at a time — if I&apos;m at capacity, I&apos;ll tell you upfront. One-time website builds usually have room. I can fit those in around the partnership work.
+                      Monthly marketing is capped. One-time website builds have more room — I fit those in around the ongoing work.
                     </p>
                     <div className="pt-2">
                       <Link to="/about" className="text-[#06b6d4] hover:text-white text-sm tracking-wide underline underline-offset-4 transition-colors">
@@ -351,9 +353,9 @@ export default function HomePage() {
       <section id="contact" className="py-24 px-6 relative z-10 scroll-mt-20">
         <div className="max-w-3xl mx-auto relative">
           <div className="text-center mb-12">
-            <p className="text-[#a3a3a3] text-sm tracking-widest uppercase mb-6">Not sure which door?</p>
+            <p className="text-[#a3a3a3] text-sm tracking-widest uppercase mb-6">Not sure what you need?</p>
             <h2 className="text-2xl md:text-4xl font-semibold text-white mb-4 tracking-[0.15em] uppercase" style={{ fontFamily: "'Cinzel', serif" }}>
-              Let&apos;s talk it through.
+              Let&apos;s talk.
             </h2>
             <p className="text-[#d4d4d4] text-lg max-w-xl mx-auto">
               Tell me where you&apos;re at. I&apos;ll give you my honest recommendation. No sales pitch.
@@ -418,12 +420,12 @@ export default function HomePage() {
                       </div>
                     </div>
                     <div className="pt-1.5">
-                      <p className="text-[#d0d0d0] text-sm leading-relaxed">If you&apos;d like to move forward, we&apos;ll book a quick call so I can dig into your business.</p>
+                      <p className="text-[#d0d0d0] text-sm leading-relaxed">From there, if a longer call makes sense, we&apos;ll book one so I can actually understand your business before I say anything.</p>
                     </div>
                   </div>
                 </div>
                 <p className="text-[#808080] text-xs italic mt-5 leading-relaxed">
-                  Prefer to skip the form? Just call or text the number above.
+                  Prefer to skip the form? Text or call (847) 220-8550.
                 </p>
               </div>
             </div>
@@ -435,7 +437,7 @@ export default function HomePage() {
           </div>
 
           <p className="text-center text-[#a3a3a3] text-sm italic mt-12 max-w-2xl mx-auto leading-relaxed">
-            P.S. — I&apos;d rather tell you &ldquo;no&rdquo; on a first call than waste your time pretending we&apos;re a fit.
+            P.S. — I&apos;d rather tell you we&apos;re not a fit on the first call than waste both our time.
           </p>
         </div>
       </section>
@@ -486,7 +488,7 @@ export default function HomePage() {
                 Your digital partner.
               </p>
               <p className="text-[#606060] text-xs leading-relaxed mt-1">
-                Custom-built websites. Here to grow your business.
+                Websites and marketing for growing businesses.
               </p>
             </div>
           </div>
