@@ -104,7 +104,7 @@ const CONTRACTORS_FAQ_SCHEMA = {
       "name": "How much does marketing for home service contractors cost?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Three monthly tiers: Foundation ($550/mo), Engine ($1,050/mo — most common), and Machine ($1,500/mo). Monthly starts the day your site goes live. A new website build is $750, paid upfront at signing. Month-to-month, no long-term lock-ins. Cancel any month with 72 hours notice before your next bill.",
+        "text": "Three monthly tiers: Foundation ($550/mo), Engine ($1,050/mo — most common), and Machine ($1,500/mo). Monthly starts the day your site goes live. The website build is $750 upfront. Month-to-month, no long-term lock-ins. Cancel any month with 72 hours notice before your next bill.",
       },
     },
     {
@@ -262,7 +262,7 @@ export default function ContractorsPage() {
           </h1>
 
           <h2 className={`text-sm sm:text-base md:text-lg text-[#a3a3a3] font-medium tracking-wide mb-6 md:mb-7 text-center transition-all duration-700 delay-[175ms] ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ fontFamily: "'Cinzel', serif" }}>
-            Home Service Contractor Marketing &mdash; Chicago &amp; North Shore
+            Home service contractor marketing that makes the phone ring &mdash; based on Chicago&apos;s North Shore.
           </h2>
 
           <p className={`text-lg sm:text-xl text-[#d4d4d4] mb-9 md:mb-10 max-w-2xl mx-auto text-center transition-all duration-700 delay-200 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
@@ -289,10 +289,10 @@ export default function ContractorsPage() {
             &mdash; I work with a handful of contractors at a time. &mdash;
           </p>
           <p className={`text-[#808080] text-sm italic mt-3 max-w-2xl mx-auto leading-relaxed transition-all duration-700 delay-[450ms] ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            &mdash; Before TheKhan, I built my own home service company to 84 clients &mdash; before I realized I was better at the growth side than the job site. &mdash;
+            &mdash; Before TheKhan, I built my own home service company to 84 clients. Closed it in March &mdash; the company phone still rings today from the SEO work I did. &mdash;
           </p>
           <p className={`text-[#808080] text-sm italic mt-3 max-w-3xl mx-auto leading-relaxed transition-all duration-700 delay-[500ms] ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            &mdash; Serving contractors across Chicagoland &mdash; Deerfield, Highland Park, Lake Forest, Northbrook, Glencoe, Winnetka, Wilmette, Evanston, Skokie, Arlington Heights, Naperville, Oak Park, and the rest of the Chicago metro. Websites and marketing clients served nationwide. &mdash;
+            &mdash; Serving contractors across Chicagoland &mdash; Deerfield, Highland Park, Lake Forest, Northbrook, Glencoe, Winnetka, Wilmette, Evanston, Skokie, Arlington Heights, Naperville, Oak Park, and the rest of the Chicago metro. Remote clients welcome anywhere in the US. &mdash;
           </p>
         </div>
       </section>
@@ -351,10 +351,10 @@ export default function ContractorsPage() {
                 What It Costs
               </p>
               <h2 className="text-2xl md:text-4xl font-semibold text-white mb-6 leading-tight" style={{ fontFamily: "'Cinzel', serif" }}>
-                Three tiers. Month-to-month.
+                Three tiers, all month-to-month.
               </h2>
               <p className="text-[#d4d4d4] text-base md:text-lg leading-relaxed">
-                Your monthly starts the day your site goes live. Cancel any month with 72 hours notice before your next bill. A new website build is $750, paid upfront at signing.
+                Your monthly starts the day your site goes live. Cancel any month with 72 hours notice before your next bill. The website build is $750 upfront.
               </p>
             </ScrollReveal>
           </div>
@@ -378,12 +378,12 @@ export default function ContractorsPage() {
                 </p>
                 <ul className="space-y-3 mt-auto">
                   {[
-                    "Website hosted and maintained",
-                    "Google Business Profile kept active so it doesn\u2019t go dormant",
-                    "Every Google review replied to \u2014 good or bad, none ignored",
-                    "Monthly report in plain English \u2014 what moved, what didn\u2019t, what\u2019s next",
-                    "Dashboard to edit your site yourself",
-                    "Text or email me direct \u2014 no tickets, no gatekeepers",
+                    <>Website hosted and maintained</>,
+                    <>Google Business Profile kept active &mdash; <strong className="text-white font-semibold">so it doesn&apos;t go dormant</strong></>,
+                    <>Every Google review replied to &mdash; <strong className="text-white font-semibold">good or bad, none ignored</strong></>,
+                    <>Monthly report in plain English &mdash; <strong className="text-white font-semibold">what moved, what didn&apos;t, what&apos;s next</strong></>,
+                    <>Dashboard to edit your site yourself</>,
+                    <>Text or email me direct &mdash; <strong className="text-white font-semibold">no tickets, no gatekeepers</strong></>,
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2.5">
                       <IconCheck className="w-4 h-4 text-[#06b6d4] flex-shrink-0 mt-0.5" />
@@ -417,11 +417,11 @@ export default function ContractorsPage() {
                 </p>
                 <ul className="space-y-3 mt-auto">
                   {[
-                    "New pages added every month \u2014 so you rank for more services in more towns",
-                    "Review request scripts you send after jobs \u2014 more reviews come in without the awkward ask",
-                    "More photos on your Google profile from jobs you share \u2014 keeps your listing looking alive",
-                    "Listed consistently across the directories customers actually check",
-                    "Seasonal pivots handled \u2014 your site and Google match what you\u2019re actually selling this season",
+                    <>New pages added every month &mdash; <strong className="text-white font-semibold">so you rank for more services in more towns</strong></>,
+                    <>Review request scripts you send after jobs &mdash; <strong className="text-white font-semibold">more reviews come in without the awkward ask</strong></>,
+                    <>More photos on your Google profile from jobs you share &mdash; <strong className="text-white font-semibold">keeps your listing looking alive</strong></>,
+                    <>Listed consistently across the directories customers actually check</>,
+                    <>Seasonal pivots handled &mdash; <strong className="text-white font-semibold">your site and Google match what you&apos;re actually selling this season</strong></>,
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2.5">
                       <IconCheck className="w-4 h-4 text-[#06b6d4] flex-shrink-0 mt-0.5" />
@@ -452,10 +452,10 @@ export default function ContractorsPage() {
                 </p>
                 <ul className="space-y-3 mt-auto">
                   {[
-                    "Google Ads managed \u2014 up to three services, your account, your card",
-                    "Google LSA managed \u2014 the Google Guaranteed ads at the very top of search. I handle bids, fake-lead disputes, and review flow so you don\u2019t have to.",
-                    "Full online cleanup at onboarding \u2014 your business listed the same way everywhere it matters, so Google can actually verify who you are",
-                    "Third-party audit at onboarding \u2014 Porch, Angi, HomeAdvisor, any lead service you pay for. If you\u2019re paying, I make sure they\u2019re actually sending leads.",
+                    <>Google Ads managed (up to three services, your account, your card) &mdash; <strong className="text-white font-semibold">you show up for the jobs you want most</strong></>,
+                    <>Google LSA managed &mdash; <strong className="text-white font-semibold">you rank at the very top of search as Google Guaranteed.</strong> I handle bids, fake-lead disputes, and reviews so you don&apos;t have to.</>,
+                    <>Full online cleanup at onboarding &mdash; your business listed the same way everywhere it matters, <strong className="text-white font-semibold">so Google can actually verify who you are</strong></>,
+                    <>Third-party audit at onboarding &mdash; Porch, Angi, HomeAdvisor, any lead service you pay for. <strong className="text-white font-semibold">If you&apos;re paying, I make sure they&apos;re actually sending leads.</strong></>,
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2.5">
                       <IconCheck className="w-4 h-4 text-[#06b6d4] flex-shrink-0 mt-0.5" />
@@ -474,7 +474,7 @@ export default function ContractorsPage() {
                 Why the build is $750.
               </h3>
               <p className="text-[#d4d4d4] text-base leading-relaxed">
-                Five pages &mdash; home, services, about, contact, area served. Each one answers a different question Google asks about your business: what you do, who you are, how to reach you, where you work. Template sites pile it all onto one page and Google can&apos;t sort it out. That&apos;s the difference between showing up in search and not.
+                Five pages &mdash; home, services, about, contact, area served. Each one answers a different question Google asks about your business: what you do, who you are, how to reach you, what areas you work. Template sites pile it all onto one page and Google can&apos;t sort it out.
               </p>
             </div>
           </ScrollReveal>
@@ -482,7 +482,7 @@ export default function ContractorsPage() {
           {/* Ads add-on line */}
           <ScrollReveal direction="up" delay={0.19}>
             <p className="max-w-3xl mx-auto mb-10 text-center text-[#a3a3a3] text-sm md:text-base leading-relaxed px-4">
-              <span className="text-white font-semibold">Want ads?</span> Machine includes Google Ads and LSA management. On Foundation or Engine, add Google Ads ($400/mo) or LSA ($150/mo). Ad spend is separate and billed directly to your card by Google &mdash; you see exactly where every dollar goes.
+              <span className="text-white font-semibold">Want ads?</span> Machine includes Google Ads and LSA management. On Foundation or Engine, add Google Ads ($400/mo &mdash; setup, ongoing optimization, and landing pages built to convert) or LSA ($150/mo &mdash; bid management, fake-lead disputes, review flow). Ad spend is separate and billed directly to your card by Google &mdash; you see exactly where every dollar goes.
             </p>
           </ScrollReveal>
 
@@ -494,7 +494,7 @@ export default function ContractorsPage() {
                   The terms, plain.
                 </h3>
                 <p className="text-[#d4d4d4] text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-                  Month-to-month. Cancel any month with 72 hours notice before your next bill. Anything not already in your name, I hand over. You keep everything.
+                  Month-to-month. Cancel any month with 72 hours notice before your next bill. If you ever leave, I transfer every account I manage &mdash; site files, hosting, analytics. Everything goes with you.
                 </p>
               </div>
             </SpotlightGlow>
@@ -568,12 +568,11 @@ export default function ContractorsPage() {
       <section id="contact" className="py-24 px-6 relative z-10 scroll-mt-20">
         <div className="max-w-6xl mx-auto relative">
           <div className="text-center mb-12">
-            <p className="text-[#a3a3a3] text-sm tracking-widest uppercase mb-6">Think we&apos;re a fit?</p>
             <h2 className="text-2xl md:text-4xl font-semibold text-white mb-4 tracking-[0.15em] uppercase" style={{ fontFamily: "'Cinzel', serif" }}>
-              Let&apos;s see if I can help.
+              If that&apos;s you, let&apos;s talk.
             </h2>
             <p className="text-[#d4d4d4] text-lg max-w-xl mx-auto">
-              Tell me about your business and what&apos;s not working. I&apos;ll give you a straight answer &mdash; whether I&apos;m the right fit or not. No pitch.
+              Tell me about your business &mdash; what you&apos;ve tried, what worked, what didn&apos;t. If we&apos;re not a fit, I&apos;ll tell you on the first call. No pitch.
             </p>
           </div>
 
@@ -640,7 +639,7 @@ export default function ContractorsPage() {
                   </div>
                 </div>
                 <p className="text-[#808080] text-xs italic mt-5 leading-relaxed">
-                  Rather skip the form? Call or text &mdash; number&apos;s right there.
+                  Prefer to skip the form? Text or call (847) 220-8550.
                 </p>
               </div>
             </div>

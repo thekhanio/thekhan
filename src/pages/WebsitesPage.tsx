@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     q: "Where will my site be hosted?",
-    a: "On modern hosting that's free for small business sites. The login is in your account, not mine. Your only ongoing cost is your domain renewal — about $12 a year.",
+    a: "On modern hosting that's free for small business sites. Your only ongoing cost is your domain renewal — about $12 a year.",
   },
   {
     q: "Can you migrate my existing Wix or Squarespace site?",
@@ -35,15 +35,15 @@ const faqs = [
   },
   {
     q: "What if my content isn't ready yet?",
-    a: "That's normal. Most people don't have polished copy or photos lined up before they hire me. During discovery, I get everything I need about your business and write the copy from there — you just review it. For photos, I figure out what you already have and help fill in the gaps.",
+    a: "That's normal. Most people don't have polished copy or photos lined up before they hire me. I'll write the copy from what you tell me — you just review it. For photos, I'll tell you exactly what I need and help you figure out how to source it.",
   },
   {
     q: "What if I want changes after launch?",
-    a: "Two options. Grab the optional dashboard ($59/mo) and edit anything yourself in a few clicks. Or text me for one-off updates — most start around $75, depending on scope. If you'll be making changes more than once a month, the dashboard usually pays for itself.",
+    a: "Two options. Grab the optional dashboard ($59/mo) and edit anything yourself in a few clicks. Or text me for one-off updates — I'll quote each one upfront before I start. If you're going to be making changes regularly, the dashboard usually makes more sense.",
   },
   {
     q: "Do I sign a long-term contract?",
-    a: "No. It's a one-time project, not a subscription. You pay 50% to start, 50% on launch — that's the whole deal. No retainer, no auto-renewal, no cancellation fee. The optional dashboard is month-to-month, so if you grab it later, you can cancel by letting me know before the next month starts.",
+    a: "No. It's a one-time project, not a subscription. You pay 50% to start, 50% on launch — that's the whole deal. No retainer, no auto-renewal, no cancellation fee. The optional dashboard is month-to-month, so if you grab it later, you can cancel any month with 72 hours notice before your next bill.",
   },
   {
     q: "How and when do I pay?",
@@ -87,11 +87,11 @@ const FAQ_SCHEMA_FOR_HEAD = {
   "@id": "https://thekhan.io/websites#faq",
   "mainEntity": [
     { "@type": "Question", "name": "Do I need my own domain?", "acceptedAnswer": { "@type": "Answer", "text": "If you don't have one, I'll walk you through buying it (about $12/year through GoDaddy, Namecheap, or whichever provider you prefer). You register it in your own account, with your own login. You own it forever — even if we never talk again." } },
-    { "@type": "Question", "name": "Where will my site be hosted?", "acceptedAnswer": { "@type": "Answer", "text": "On modern hosting that's free for small business sites. The login is in your account, not mine. Your only ongoing cost is your domain renewal — about $12 a year." } },
+    { "@type": "Question", "name": "Where will my site be hosted?", "acceptedAnswer": { "@type": "Answer", "text": "On modern hosting that's free for small business sites. Your only ongoing cost is your domain renewal — about $12 a year." } },
     { "@type": "Question", "name": "Can you migrate my existing Wix or Squarespace site?", "acceptedAnswer": { "@type": "Answer", "text": "I'll use your existing copy, photos, and content — anything that's yours, I move over. But the site itself gets built from scratch on custom code, which gives you a faster, cleaner result than dragging an old template along. Same price as a new build." } },
-    { "@type": "Question", "name": "What if my content isn't ready yet?", "acceptedAnswer": { "@type": "Answer", "text": "That's normal. Most people don't have polished copy or photos lined up before they hire me. During discovery, I get everything I need about your business and write the copy from there — you just review it. For photos, I figure out what you already have and help fill in the gaps." } },
-    { "@type": "Question", "name": "What if I want changes after launch?", "acceptedAnswer": { "@type": "Answer", "text": "Two options. Grab the optional dashboard ($59/mo) and edit anything yourself in a few clicks. Or text me for one-off updates — most start around $75, depending on scope. If you'll be making changes more than once a month, the dashboard usually pays for itself." } },
-    { "@type": "Question", "name": "Do I sign a long-term contract?", "acceptedAnswer": { "@type": "Answer", "text": "No. It's a one-time project, not a subscription. You pay 50% to start, 50% on launch — that's the whole deal. No retainer, no auto-renewal, no cancellation fee. The optional dashboard is month-to-month, so if you grab it later, you can cancel by letting me know before the next month starts." } },
+    { "@type": "Question", "name": "What if my content isn't ready yet?", "acceptedAnswer": { "@type": "Answer", "text": "That's normal. Most people don't have polished copy or photos lined up before they hire me. I'll write the copy from what you tell me — you just review it. For photos, I'll tell you exactly what I need and help you figure out how to source it." } },
+    { "@type": "Question", "name": "What if I want changes after launch?", "acceptedAnswer": { "@type": "Answer", "text": "Two options. Grab the optional dashboard ($59/mo) and edit anything yourself in a few clicks. Or text me for one-off updates — I'll quote each one upfront before I start. If you're going to be making changes regularly, the dashboard usually makes more sense." } },
+    { "@type": "Question", "name": "Do I sign a long-term contract?", "acceptedAnswer": { "@type": "Answer", "text": "No. It's a one-time project, not a subscription. You pay 50% to start, 50% on launch — that's the whole deal. No retainer, no auto-renewal, no cancellation fee. The optional dashboard is month-to-month, so if you grab it later, you can cancel any month with 72 hours notice before your next bill." } },
     { "@type": "Question", "name": "How and when do I pay?", "acceptedAnswer": { "@type": "Answer", "text": "50% to start, 50% on launch. Stripe or Zelle — whichever's easiest. No hidden fees, no surprise invoices." } }
   ]
 };
@@ -175,14 +175,12 @@ export default function WebsitesPage() {
           </p>
           <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.15] mb-4 md:mb-5 text-center transition-all duration-700 delay-150 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <span className="text-gradient">
-              I build it.<br />
-              You own it.<br />
-              Done.
+              You own the site I build.
             </span>
           </h1>
 
           <p className={`text-lg sm:text-xl md:text-2xl text-[#a3a3a3] mb-8 md:mb-10 max-w-2xl mx-auto text-center transition-all duration-700 delay-200 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            One-time build, launched in 1–6 weeks. You walk away with every file, the domain, and the logins — no retainer, no lock-in, no hostage hosting.
+            Every file, the domain, the logins — yours. Launched in 1–6 weeks. One payment, no retainer.
           </p>
 
           <div className={`flex flex-col items-center justify-center gap-4 transition-all duration-700 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
@@ -198,7 +196,6 @@ export default function WebsitesPage() {
           </div>
 
           <p className={`text-[#a3a3a3] text-sm mt-10 transition-all duration-700 delay-[400ms] ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            Just me. You talk to the person building your site, start to finish.{" "}
             <Link to="/portfolio" className="text-[#06b6d4] hover:text-white underline underline-offset-4 transition-colors">
               See the work →
             </Link>
@@ -211,13 +208,13 @@ export default function WebsitesPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <ScrollReveal direction="up">
-              <p className="text-[#a3a3a3] text-sm tracking-widest uppercase mb-6">Pick your package</p>
+              <p className="text-[#a3a3a3] text-sm tracking-widest uppercase mb-6">What it costs</p>
               <h2 className="text-2xl md:text-4xl font-semibold text-white mb-4 tracking-[0.15em] uppercase" style={{ fontFamily: "'Cinzel', serif" }}>
                 Pick what fits.
               </h2>
               <AnimatedUnderline className="w-48 md:w-64 mx-auto mt-6 mb-6" />
               <p className="text-[#d4d4d4] text-lg max-w-2xl mx-auto">
-                All builds include the foundation — mobile, fast, built to rank, and yours to keep. The only thing that changes is how much site you need.
+                Every build is mobile-friendly, fast, built to rank, and yours to keep. More pages cost more. That&apos;s the only difference.
               </p>
             </ScrollReveal>
           </div>
@@ -231,15 +228,15 @@ export default function WebsitesPage() {
                   <div className="flex items-baseline gap-2 mb-2">
                     <span className="text-4xl md:text-5xl font-bold text-white" style={{ fontFamily: "'Cinzel', serif" }}>$300</span>
                   </div>
-                  <p className="text-[#a3a3a3] text-sm italic mb-6">Best for: one clear offer, one clear CTA.</p>
+                  <p className="text-[#a3a3a3] text-sm italic mb-6">Best for: one service, one clear action.</p>
                   <ul className="space-y-3 mb-8 flex-1">
                     {[
-                      "1 page, built to convert",
-                      "Mobile-responsive, loads in under 2 seconds",
+                      "1 page, built to get calls",
+                      "Mobile-friendly, loads in under 2 seconds",
                       "Contact form, click-to-call, map embed",
-                      "SEO foundation (schema, sitemap, meta tags)",
+                      "Built to rank (schema, sitemap, meta tags)",
                       "Google Analytics 4 setup",
-                      "You keep every file, the domain, and the logins",
+                      "Every file, the domain, and the logins — yours",
                     ].map((f) => (
                       <li key={f} className="flex items-start gap-3 text-[#d4d4d4] text-sm leading-relaxed">
                         <IconCheck className="w-4 h-4 text-[#06b6d4] flex-shrink-0 mt-0.5" />
@@ -262,12 +259,12 @@ export default function WebsitesPage() {
                   <div className="flex items-baseline gap-2 mb-2">
                     <span className="text-4xl md:text-5xl font-bold text-white" style={{ fontFamily: "'Cinzel', serif" }}>$550</span>
                   </div>
-                  <p className="text-[#a3a3a3] text-sm italic mb-6">Best for: a real website with room to grow.</p>
+                  <p className="text-[#a3a3a3] text-sm italic mb-6">Best for: a real site with room to grow.</p>
                   <ul className="space-y-3 mb-8 flex-1">
                     {[
                       "3 pages (home, services, contact)",
                       "Everything in Landing",
-                      "Custom section design — no template feel",
+                      "Custom section design — no template look",
                       "FAQ or testimonials block",
                       "Up to 2 rounds of revisions",
                       "Priority launch slot",
@@ -299,13 +296,13 @@ export default function WebsitesPage() {
                     <div className="flex items-baseline gap-2 mb-2">
                       <span className="text-4xl md:text-5xl font-bold text-white" style={{ fontFamily: "'Cinzel', serif" }}>$750</span>
                     </div>
-                    <p className="text-[#a3a3a3] text-sm italic mb-6">Best for: a complete site that covers every angle.</p>
+                    <p className="text-[#a3a3a3] text-sm italic mb-6">Best for: a full site with the pages most businesses need.</p>
                     <ul className="space-y-3 mb-8 flex-1">
                       {[
                         "5 pages (home, about, services, contact + one more)",
                         "Everything in Starter",
-                        "Expanded copy writing (About, services, trust sections)",
-                        "More design depth — extra sections, custom imagery, more polish",
+                        "Expanded copywriting (About, services, trust sections)",
+                        "More design depth — extra sections, custom imagery",
                         "Up to 3 rounds of revisions",
                         "Priority launch slot",
                       ].map((f) => (
@@ -330,7 +327,7 @@ export default function WebsitesPage() {
               <span className="italic">Custom builds start at $999. Tell me about your project and I&apos;ll quote it.</span>
             </p>
             <p className="text-[#808080] text-xs italic mt-6 leading-relaxed">
-              All builds live in 1–6 weeks. Need it sooner? Tell me when you reach out and I&apos;ll see what I can do.
+              All builds go live in 1–6 weeks. Need it sooner? Tell me when you reach out and I&apos;ll see what I can do.
             </p>
           </div>
         </div>
@@ -347,7 +344,7 @@ export default function WebsitesPage() {
               </h2>
               <AnimatedUnderline className="w-48 md:w-64 mx-auto mt-6 mb-6" />
               <p className="text-[#d4d4d4] text-lg max-w-2xl mx-auto">
-                What&apos;s on your tier&apos;s list is what I build. Everything else is a separate conversation — priced up front, no surprise invoices. Here&apos;s what&apos;s not in the price, so we&apos;re on the same page from day one.
+                What&apos;s on your tier&apos;s list is what I build. Everything else is a separate conversation — priced up front, no surprise invoices.
               </p>
             </ScrollReveal>
           </div>
@@ -359,7 +356,7 @@ export default function WebsitesPage() {
                 <p className="text-[#d4d4d4] leading-relaxed italic">
                   No SEO maintenance, no Google Ads, no social media, no Google Business Profile management. I build the site. I don&apos;t run your marketing. If you want that handled for you every month,{" "}
                   <Link to="/contractors" className="text-[#06b6d4] hover:text-white underline underline-offset-4 not-italic">
-                    that&apos;s the &ldquo;I want to grow my business&rdquo; door →
+                    that&apos;s the monthly marketing side →
                   </Link>
                 </p>
               </div>
@@ -368,7 +365,7 @@ export default function WebsitesPage() {
               <div className="p-6 md:p-8 rounded-xl border border-white/[0.08] bg-[#111111]/60">
                 <h3 className="text-xl font-semibold text-white mb-3">2. Photos and brand assets.</h3>
                 <p className="text-[#d4d4d4] leading-relaxed italic">
-                  I&apos;ll write the copy — you just tell me anything specific you want included and I&apos;ll draft the rest. But photos, logos, and brand materials need to come from you. I&apos;m not running a photo shoot, and I&apos;m not your brand designer. Need a headshot or a logo? I can point you to someone — that&apos;s a separate conversation.
+                  I&apos;ll write the copy — just tell me anything specific you want included and I&apos;ll draft the rest. Photos, logos, and existing brand materials are on you. If you don&apos;t have a logo yet and need something basic to get started, let me know when you reach out — I can help with that separately.
                 </p>
               </div>
             </ScrollReveal>
@@ -376,7 +373,7 @@ export default function WebsitesPage() {
               <div className="p-6 md:p-8 rounded-xl border border-white/[0.08] bg-[#111111]/60">
                 <h3 className="text-xl font-semibold text-white mb-3">3. Post-launch edits.</h3>
                 <p className="text-[#d4d4d4] leading-relaxed italic">
-                  Once the site is live, you&apos;re in the driver&apos;s seat. Edits are on you — or grab the optional dashboard (more below) and make changes yourself in a few clicks.
+                  Once the site goes live, it&apos;s yours. Ongoing edits aren&apos;t part of the one-time build — but the optional dashboard (more below) lets you update anything yourself in a few clicks.
                 </p>
               </div>
             </ScrollReveal>
@@ -384,7 +381,7 @@ export default function WebsitesPage() {
               <div className="p-6 md:p-8 rounded-xl border border-white/[0.08] bg-[#111111]/60">
                 <h3 className="text-xl font-semibold text-white mb-3">4. Custom systems.</h3>
                 <p className="text-[#d4d4d4] leading-relaxed italic">
-                  E-commerce backends, custom booking systems, membership logins, payment processors — building these from scratch isn&apos;t in the base tiers. But if you already use something like Stripe, Booksy, or Calendly, I can embed the link on your site for free — that&apos;s quick work. Need a custom system built from scratch? Tell me upfront and I&apos;ll quote it as its own project.
+                  Custom systems aren&apos;t part of the base tiers — things like e-commerce backends, booking systems, membership logins, and payment processors. But if you already use something like Stripe, Booksy, or Calendly, I can embed the link on your site for free — quick to set up. Need a custom system built from scratch? Tell me upfront and I&apos;ll quote it as its own project.
                 </p>
               </div>
             </ScrollReveal>
@@ -403,7 +400,7 @@ export default function WebsitesPage() {
               </h2>
               <AnimatedUnderline className="w-48 md:w-64 mx-auto mt-6 mb-6" />
               <p className="text-[#d4d4d4] text-lg max-w-2xl mx-auto">
-                Short version: you get more control, lower long-term cost, and no platform holding your site hostage. Here&apos;s the breakdown.
+                Short version: you get more control, lower long-term cost, and no platform holding your site hostage. Here&apos;s how.
               </p>
             </ScrollReveal>
           </div>
@@ -415,7 +412,7 @@ export default function WebsitesPage() {
                 <div className="flex-1">
                   <h3 className="text-xl font-semibold text-white mb-2">It&apos;s faster where it matters.</h3>
                   <p className="text-[#d4d4d4] leading-relaxed italic">
-                    Template builders load a mountain of code your site doesn&apos;t actually need. Custom-built sites only load what&apos;s used — which shows up in Google&apos;s Core Web Vitals, the speed scores Google watches to rank mobile search results.
+                    Template builders load a mountain of code your site doesn&apos;t actually need. Custom-built sites only load what&apos;s used — which shows up in Google&apos;s Core Web Vitals, the speed scores Google uses to rank search results.
                   </p>
                 </div>
               </div>
@@ -425,9 +422,9 @@ export default function WebsitesPage() {
               <div className="flex gap-5">
                 <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-[#2563eb] to-[#06b6d4] flex items-center justify-center text-white font-bold">2</div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-white mb-2">You control the technical SEO.</h3>
+                  <h3 className="text-xl font-semibold text-white mb-2">Your SEO, not the platform&apos;s.</h3>
                   <p className="text-[#d4d4d4] leading-relaxed italic">
-                    Google rewards fast sites with clean structure behind them. Template platforms give you a generic version of that. Custom-coded means I can tune every page to rank for the exact search you&apos;re trying to win — not the one-size-fits-all setup everyone else on the platform gets.
+                    Template platforms decide what you can tune — URLs, schema, how pages load. With custom code, I decide. Every page gets built to rank for the exact search you&apos;re trying to win — not the generic version every other user on the platform gets.
                   </p>
                 </div>
               </div>
@@ -439,32 +436,38 @@ export default function WebsitesPage() {
                 <div className="flex-1">
                   <h3 className="text-xl font-semibold text-white mb-2">No platform rent.</h3>
                   <p className="text-[#d4d4d4] leading-relaxed italic mb-4">
-                    Your site runs on modern hosting for about $60 over 5 years — just the domain renewal. Compare that to what the platforms charge:
+                    Most website builders charge a monthly fee for as long as your site is up. A custom-coded site doesn&apos;t. You pay for the build once, and after that the only recurring cost is your domain — about $12 a year.
+                  </p>
+                  <p className="text-[#d4d4d4] leading-relaxed mb-4">
+                    Here&apos;s what five years looks like if you never touch the site:
                   </p>
                   <div className="grid sm:grid-cols-2 gap-3 mb-4">
                     <div className="px-4 py-3 rounded-lg border border-[#06b6d4]/40 bg-[#06b6d4]/5">
-                      <p className="text-[#06b6d4] text-sm font-semibold">Your custom-coded site</p>
-                      <p className="text-white text-lg font-bold">~$60 / 5 years</p>
+                      <p className="text-[#06b6d4] text-sm font-semibold">Custom-coded site</p>
+                      <p className="text-white text-lg font-bold">~$60 (domain only)</p>
                     </div>
                     <div className="px-4 py-3 rounded-lg border border-red-500/20 bg-red-500/5">
-                      <p className="text-red-400/80 text-sm font-semibold">Wix Core</p>
-                      <p className="text-[#d4d4d4] text-lg font-bold">~$1,080 / 5 years</p>
-                    </div>
-                    <div className="px-4 py-3 rounded-lg border border-red-500/20 bg-red-500/5">
-                      <p className="text-red-400/80 text-sm font-semibold">Squarespace Core</p>
-                      <p className="text-[#d4d4d4] text-lg font-bold">~$1,460 / 5 years</p>
+                      <p className="text-red-400/80 text-sm font-semibold">GoDaddy Premium</p>
+                      <p className="text-[#d4d4d4] text-lg font-bold">~$1,260</p>
                     </div>
                     <div className="px-4 py-3 rounded-lg border border-red-500/20 bg-red-500/5">
                       <p className="text-red-400/80 text-sm font-semibold">Webflow CMS</p>
-                      <p className="text-[#d4d4d4] text-lg font-bold">~$1,380 / 5 years</p>
+                      <p className="text-[#d4d4d4] text-lg font-bold">~$1,380</p>
+                    </div>
+                    <div className="px-4 py-3 rounded-lg border border-red-500/20 bg-red-500/5">
+                      <p className="text-red-400/80 text-sm font-semibold">Wix Core</p>
+                      <p className="text-[#d4d4d4] text-lg font-bold">~$1,790</p>
                     </div>
                     <div className="px-4 py-3 rounded-lg border border-red-500/20 bg-red-500/5 sm:col-span-2">
-                      <p className="text-red-400/80 text-sm font-semibold">GoDaddy Premium</p>
-                      <p className="text-[#d4d4d4] text-lg font-bold">~$1,700+ / 5 years</p>
+                      <p className="text-red-400/80 text-sm font-semibold">Squarespace Core</p>
+                      <p className="text-[#d4d4d4] text-lg font-bold">~$1,990</p>
                     </div>
                   </div>
+                  <p className="text-[#d4d4d4] leading-relaxed italic mb-3">
+                    If you want to edit the site yourself, I offer an optional dashboard — I cover that further down. You can cancel it any time and the site keeps running; you just lose the click-to-edit part. You can come back to the dashboard later, or hand the site off to any developer.
+                  </p>
                   <p className="text-[#d4d4d4] leading-relaxed italic">
-                    You&apos;re paying for a domain, not renting access to your own site. (Want to edit pages yourself? I offer an optional dashboard — covered in the next section.)
+                    If you cancel Wix or Squarespace, the site goes down — with them, you&apos;re essentially renting. With a custom site, you own it.
                   </p>
                 </div>
               </div>
@@ -476,10 +479,10 @@ export default function WebsitesPage() {
                 <div className="flex-1">
                   <h3 className="text-xl font-semibold text-white mb-2">You actually own it — platforms don&apos;t let you leave.</h3>
                   <p className="text-[#d4d4d4] leading-relaxed italic mb-3">
-                    Wix&apos;s own support docs say exporting your site is &ldquo;not possible.&rdquo; Squarespace exports are partial — most content won&apos;t transfer. GoDaddy has no export at all. Webflow lets you export HTML/CSS but not your content database. If you leave any of them, you&apos;re rebuilding from scratch.
+                    Wix&apos;s own support docs say a Wix site can only run on Wix — you can&apos;t take it anywhere else. Squarespace exports are partial — most content won&apos;t transfer. GoDaddy has no way to export your site&apos;s pages, content, or design. Webflow lets you export HTML/CSS but not your content database. If you leave any of them, you&apos;re rebuilding from scratch.
                   </p>
                   <p className="text-[#d4d4d4] leading-relaxed italic">
-                    When I build you a custom site, every file is yours — text, images, code, structure. Leave anytime. Bring in any developer. Host it anywhere.
+                    When I build you a custom site, every file is yours — text, images, code, structure. You can leave anytime, take it to any developer, or host it anywhere you want.
                   </p>
                 </div>
               </div>
@@ -488,7 +491,7 @@ export default function WebsitesPage() {
 
           <ScrollReveal direction="up" delay={0.25}>
             <p className="text-center text-white text-lg md:text-xl italic mt-16 max-w-2xl mx-auto leading-relaxed">
-              &ldquo;Most of your competitors are paying Wix rent forever — and they can&apos;t leave without starting over. You won&apos;t have that problem.&rdquo;
+              &ldquo;Most of your competitors are locked into a platform like Wix or Squarespace, paying rent forever. They can&apos;t leave without rebuilding from scratch. You won&apos;t have that problem.&rdquo;
             </p>
           </ScrollReveal>
         </div>
@@ -505,7 +508,7 @@ export default function WebsitesPage() {
               </h2>
               <AnimatedUnderline className="w-48 md:w-64 mx-auto mt-6 mb-6" />
               <p className="text-[#d4d4d4] text-lg max-w-2xl mx-auto">
-                Make every change to your site yourself — text, photos, hours, prices, blog posts, anything. No code, no HTML, no tech background needed. Click what you want to update, make the change, hit save. Simple enough to use from your phone on a jobsite.
+                Make every change to your site yourself — text, photos, hours, prices, blog posts, anything. No code, no HTML, no tech background needed. Click what you want to update, make the change, hit save. Works on your phone — update hours, prices, and photos from the jobsite.
               </p>
             </ScrollReveal>
           </div>
@@ -516,7 +519,7 @@ export default function WebsitesPage() {
                 <div className="flex items-baseline gap-3">
                   <span className="text-3xl md:text-4xl font-bold text-white" style={{ fontFamily: "'Cinzel', serif" }}>$59</span>
                   <span className="text-[#a3a3a3]">/month</span>
-                  <span className="text-[#808080] text-sm italic ml-2">Completely optional. Month-to-month — cancel before the next month starts.</span>
+                  <span className="text-[#808080] text-sm italic ml-2">Completely optional. Month-to-month — cancel any month with 72 hours notice before your next bill.</span>
                 </div>
 
                 <div className="border-l-2 border-[#06b6d4]/60 pl-5">
@@ -525,7 +528,7 @@ export default function WebsitesPage() {
                     If you cancel the dashboard, your site keeps running. The code is still yours, the site is still live — the only thing that goes away is the edit interface. You&apos;d just text me (or any developer) for changes after that.
                   </p>
                   <p className="text-[#d4d4d4] leading-relaxed italic mt-3">
-                    Cancel Wix or Squarespace? Your site disappears the same day. That&apos;s the real difference between a dashboard and a platform.
+                    Cancel Wix or Squarespace? Your site disappears the same day. Here, canceling only turns off the edit tool — the site stays up either way.
                   </p>
                 </div>
 
@@ -557,9 +560,9 @@ export default function WebsitesPage() {
           <div>
             {[
               { n: 1, title: "Discovery — Day 1", body: "A quick call. Tell me about your business and what you need the site to do. No pitch, just questions.", arrow: "Clear picture of what I'm building." },
-              { n: 2, title: "Proposal — Within 48 hours", body: "Exact scope, timeline, and price. No surprises. You see exactly what you're paying for before I start.", arrow: "Locked plan and start date." },
+              { n: 2, title: "Proposal — Within 48 hours", body: "Exact scope, timeline, and price. No surprises. You see exactly what you're paying for before I start. Once you approve, I'll send an intake form to collect everything I need to build — anything outside the tier, I'll quote separately.", arrow: "Locked plan and start date." },
               { n: 3, title: "Build — 1 to 6 weeks", body: "You see progress along the way. I test everything before it goes live. No \u201Ctrust me, it'll be great\u201D black box.", arrow: "Working site, tested and ready." },
-              { n: 4, title: "Launch — Day of", body: "I hand it over. Code, files, domain, logins — all yours. Add the dashboard if you want to edit, bring in any developer, or just let it run.", arrow: "Your site, live, owned by you.", last: true },
+              { n: 4, title: "Launch — Day of", body: "I hand off the code and files. By launch, every account is in your name — domain, hosting, analytics. Add the dashboard if you want to edit your site yourself, bring in any developer, or just let it run.", arrow: "Your site, live and yours.", last: true },
             ].map((step) => (
               <ScrollReveal key={step.n} direction="up" delay={0.05 * step.n}>
                 <div className="flex gap-5">
@@ -582,7 +585,7 @@ export default function WebsitesPage() {
           <ScrollReveal direction="up" delay={0.3}>
             <div className="border-l-2 border-[#06b6d4]/60 pl-5 my-8 max-w-2xl mx-auto">
               <p className="text-white italic leading-relaxed">
-                &ldquo;Prefer not to get on a call? Same process, just over text. I&apos;ll send you a quick questionnaire — fill it out on your own time, and we go from there. A lot of busy clients like it this way.&rdquo;
+                &ldquo;Prefer not to get on a call? Same process, just over text. I&apos;ll send you a form that covers everything I&apos;d ask on a call — fill it out on your own time, and we go from there. A lot of busy clients like it this way.&rdquo;
               </p>
             </div>
           </ScrollReveal>
@@ -646,7 +649,7 @@ export default function WebsitesPage() {
               Let&apos;s start your site.
             </h2>
             <p className="text-[#d4d4d4] text-lg max-w-xl mx-auto">
-              Tell me about your business. You could have a proposal in your inbox — scope, timeline, price — within 48 hours.
+              Tell me about your business. I can have a proposal to you — scope, timeline, price — within 48 hours.
             </p>
           </div>
 
@@ -678,9 +681,9 @@ export default function WebsitesPage() {
                 <div>
                   {[
                     "I read your message myself — usually within a few hours.",
-                    "I send you a quick questionnaire. Continue by text or call, your choice.",
-                    "I send a proposal with scope, timeline, and price.",
-                    "If you approve, I send a one-page agreement and start the build.",
+                    "I reach back out by call or text — whatever works for you.",
+                    "I send a proposal with scope, timeline, and price — usually within 48 hours.",
+                    "If you approve, I send a one-page agreement and the intake form, then I start the build.",
                   ].map((text, i, arr) => (
                     <div className="flex gap-4" key={i}>
                       <div className="flex flex-col items-center">
@@ -696,7 +699,7 @@ export default function WebsitesPage() {
                   ))}
                 </div>
                 <p className="text-[#808080] text-xs italic mt-5 leading-relaxed">
-                  Prefer to skip the form? Just call or text the number above.
+                  Prefer to skip the form? Text or call (847) 220-8550.
                 </p>
               </div>
             </div>
