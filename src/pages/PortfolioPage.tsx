@@ -89,6 +89,7 @@ export default function PortfolioPage() {
         description={PAGE_DESC}
         canonical={PAGE_URL}
         ogImage={OG_IMAGE}
+        geo={{ region: "US-IL", placename: "Deerfield", position: "42.1711;-87.8445" }}
         schema={[BREADCRUMB_SCHEMA, COLLECTION_PAGE_SCHEMA]}
       />
       <BackgroundPaths />

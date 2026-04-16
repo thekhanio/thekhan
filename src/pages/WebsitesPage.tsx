@@ -114,6 +114,7 @@ export default function WebsitesPage() {
         description={PAGE_DESC}
         canonical={PAGE_URL}
         ogImage={OG_IMAGE}
+        geo={{ region: "US-IL", placename: "Deerfield", position: "42.1711;-87.8445" }}
         schema={[BREADCRUMB_SCHEMA, SERVICE_SCHEMA, FAQ_SCHEMA_FOR_HEAD]}
       />
       <BackgroundPaths />
