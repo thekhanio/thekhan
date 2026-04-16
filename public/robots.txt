@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Disallow: /start
+Disallow: /form
 Disallow: /premierpartners
 Disallow: /marioscape
 

@@ -105,6 +105,7 @@ interface FormData {
   addressIsPrivate: string;
   domainPreference: string;
   websiteTone: string;
+  websiteToneNotes: string;
 
   // Basic Info: Business scoping
   targetAudience: string;
@@ -283,6 +284,7 @@ export default function QuestionnairePage() {
     addressIsPrivate: "",
     domainPreference: "",
     websiteTone: "",
+    websiteToneNotes: "",
     targetAudience: "",
     serviceArea: "",
     primaryCTA: [],
@@ -532,7 +534,7 @@ export default function QuestionnairePage() {
         body: JSON.stringify({
           access_key: "27068209-3ff0-4c82-a1ed-e67558c5ffa4",
           subject: `New Inquiry from ${formData.name} — ${formData.businessName || "No business name"}`,
-          from_name: "TheKhan Start",
+          from_name: "TheKhan Form",
           ...formData,
           // Format arrays for email
           services: formData.services.join(", "),
@@ -705,7 +707,7 @@ export default function QuestionnairePage() {
     <SEO
       title="Tell Me About Your Business | TheKhan"
       description="Tell me about your business — websites, marketing, or custom systems. I'll use this to prepare for our first conversation."
-      canonical="https://thekhan.io/start"
+      canonical="https://thekhan.io/form"
       noindex
     />
   );
@@ -2578,6 +2580,13 @@ export default function QuestionnairePage() {
                         </button>
                       ))}
                     </div>
+                    <textarea
+                      className={`${inputClasses} mt-3`}
+                      rows={2}
+                      placeholder="Anything else about how you want to come across? (optional)"
+                      value={formData.websiteToneNotes}
+                      onChange={(e) => updateField("websiteToneNotes", e.target.value)}
+                    />
                   </div>
 
                   <div>

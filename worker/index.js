@@ -193,7 +193,7 @@ const ROUTE_SCHEMAS = {
 };
 
 const NOINDEX_ROUTES = new Set([
-  "/start",
+  "/form",
   "/premierpartners",
   "/marioscape",
 ]);
