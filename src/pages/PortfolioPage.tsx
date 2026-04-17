@@ -155,7 +155,7 @@ export default function PortfolioPage() {
           </h1>
 
           <p className={`text-lg sm:text-xl md:text-2xl text-[#a3a3a3] max-w-2xl mx-auto text-center transition-all duration-700 delay-200 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            Five clients, ten sites &mdash; all custom-coded and live right now. <span className="text-[#06b6d4] font-semibold">Click any logo</span> to see for yourself.
+            Five clients, ten sites &mdash; all custom-coded and live right now. <span className="text-[#06b6d4] font-semibold">Click any of them</span> to see for yourself.
           </p>
         </div>
       </section>
@@ -205,14 +205,14 @@ export default function PortfolioPage() {
                           aria-label={`${sub.display} — ${sub.name}`}
                           title={sub.name}
                         >
-                          <div className="relative w-full flex items-center justify-center h-24 md:h-28 lg:h-32 px-4 md:px-6 py-4 rounded-xl bg-[#0a0a0a]/60 border border-white/[0.06] group-hover:border-[#06b6d4]/40 group-hover:bg-[#06b6d4]/[0.04] group-hover:-translate-y-0.5 group-hover:shadow-[0_6px_24px_rgba(6,182,212,0.15)] transition-all duration-300">
+                          <div className="relative w-full flex items-center justify-center h-24 md:h-28 lg:h-32 px-4 md:px-6 py-4 rounded-xl bg-[#0a0a0a]/60 border border-white/[0.18] group-hover:border-[#06b6d4]/60 group-hover:bg-[#06b6d4]/[0.06] group-hover:-translate-y-0.5 group-hover:shadow-[0_6px_24px_rgba(6,182,212,0.2)] transition-all duration-300">
                             <img
                               src={sub.logo}
                               alt={sub.name}
                               className="max-h-full max-w-full object-contain group-hover:scale-[1.04] transition-all duration-300"
                               loading="lazy"
                             />
-                            <IconArrowUpRight className="absolute top-2.5 right-2.5 w-4 h-4 text-[#06b6d4] opacity-60 group-hover:opacity-100 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300" />
+                            <IconArrowUpRight className="absolute top-2.5 right-2.5 w-4 h-4 text-[#06b6d4] opacity-80 group-hover:opacity-100 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300" />
                           </div>
                           <span className="mt-3 text-[11px] md:text-sm text-[#a3a3a3] group-hover:text-white text-center tracking-wide truncate w-full px-1 transition-colors duration-200">
                             {sub.display}
@@ -234,7 +234,7 @@ export default function PortfolioPage() {
                   href={card.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group block bg-[#111111] rounded-2xl border border-white/[0.08] overflow-hidden hover:border-[#06b6d4]/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(6,182,212,0.15)]"
+                  className="group block bg-[#141414] rounded-2xl border border-white/[0.18] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.35)] hover:border-[#06b6d4]/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(6,182,212,0.25)]"
                 >
                   <div className="overflow-hidden border-b border-white/[0.06]">
                     <img
@@ -262,7 +262,7 @@ export default function PortfolioPage() {
           <div className="text-center mt-12">
             <ScrollReveal direction="up">
               <Link to="/about" className="text-[#06b6d4] hover:text-white text-sm tracking-wide underline underline-offset-4 transition-colors">
-                The person behind these projects &rarr;
+                About me &rarr;
               </Link>
             </ScrollReveal>
           </div>
@@ -311,7 +311,7 @@ export default function PortfolioPage() {
                   {[
                     "I read your message myself — usually within a few hours.",
                     "I'll reach back out by call or text — whatever works for you.",
-                    "From there, if a longer call makes sense, we'll book one so I can actually understand your project before I say anything.",
+                    "From there, if a longer call makes sense, we'll book one so I can understand your project before I recommend anything.",
                   ].map((text, i, arr) => (
                     <div className="flex gap-4" key={i}>
                       <div className="flex flex-col items-center">
@@ -321,7 +321,7 @@ export default function PortfolioPage() {
                         {i < arr.length - 1 && <AnimatedUnderline vertical className="flex-1 min-h-[28px] my-1.5" />}
                       </div>
                       <div className={`${i < arr.length - 1 ? 'pb-6' : ''} pt-1.5`}>
-                        <p className="text-[#d0d0d0] text-sm leading-relaxed italic">{text}</p>
+                        <p className="text-[#d0d0d0] text-sm leading-relaxed">{text}</p>
                       </div>
                     </div>
                   ))}

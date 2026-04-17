@@ -340,7 +340,7 @@ export default function AboutPage() {
                 You deal with me from day one. No front desk giving you the runaround. No wondering who&apos;s actually handling your project. Just one person, start to finish.
               </p>
               <p>
-                I&apos;d rather tell you we&apos;re not a fit on a first call than waste your time. If that sounds right, the form&apos;s below.
+                I&apos;d rather tell you we&apos;re not a fit on the first call than waste both our time. If that sounds right, the form&apos;s below.
               </p>
             </div>
           </ScrollReveal>

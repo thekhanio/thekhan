@@ -338,7 +338,7 @@ export default function HomePage() {
                     </p>
                     <div className="pt-2">
                       <Link to="/about" className="text-[#06b6d4] hover:text-white text-sm tracking-wide underline underline-offset-4 transition-colors">
-                        Read my full story →
+                        How I got here →
                       </Link>
                     </div>
                   </div>
@@ -358,7 +358,7 @@ export default function HomePage() {
               Let&apos;s talk.
             </h2>
             <p className="text-[#d4d4d4] text-lg max-w-xl mx-auto">
-              Tell me where you&apos;re at. I&apos;ll give you my honest recommendation. No sales pitch.
+              Tell me where you&apos;re at and I&apos;ll give you an honest recommendation. No pitch.
             </p>
           </div>
 

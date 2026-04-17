@@ -659,7 +659,7 @@ export default function ContractorsPage() {
                       </div>
                     </div>
                     <div className="pt-1.5">
-                      <p className="text-[#d0d0d0] text-sm leading-relaxed">If it feels right, we&apos;ll book a quick call so I can look at your jobs and what&apos;s getting in the way.</p>
+                      <p className="text-[#d0d0d0] text-sm leading-relaxed">If it feels right, we&apos;ll get on a longer call to go through where your jobs are coming from, where they&apos;re not, and what I&apos;d change to get the phone ringing more.</p>
                     </div>
                   </div>
                 </div>
