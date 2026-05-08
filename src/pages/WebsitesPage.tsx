@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     q: "Can you migrate my existing Wix or Squarespace site?",
-    a: "I'll use your existing copy, photos, and content — anything that's yours, I move over. But the site itself gets built from scratch on custom code, which gives you a faster, cleaner result than dragging an old template along. Same price as a new build.",
+    a: "I'll use your existing copy, photos, and content — anything that's yours, I move over. But the site itself gets built from scratch on custom code, which gives you a faster, cleaner result than dragging an old template along. Priced like any new build — Starter, Full, or Authority Site, depending on what you need.",
   },
   {
     q: "What if my content isn't ready yet?",
@@ -43,16 +43,16 @@ const faqs = [
   },
   {
     q: "Do I sign a long-term contract?",
-    a: "No. It's a one-time project, not a subscription. You pay 50% to start, 50% on launch — that's the whole deal. No retainer, no auto-renewal, no cancellation fee. The optional dashboard is month-to-month, so if you grab it later, you can cancel any month with 72 hours notice before your next bill.",
+    a: "No. Site-only builds (Starter, Full, or Authority Site) are one-time projects — 50% paid Day 1 to start the build, 50% on launch, no retainer, no cancellation fee. The Marketing Bundle includes a monthly marketing tier that kicks in Day 31, billed month-to-month — cancel any month with 72 hours notice before your next bill. The optional dashboard ($59/mo) is also month-to-month with the same 72-hour cancel.",
   },
   {
     q: "How and when do I pay?",
-    a: "50% to start, 50% on launch. Stripe or Zelle — whichever's easiest. No hidden fees, no surprise invoices.",
+    a: "Site-only builds: 50% paid Day 1 to start the build, 50% on launch. Marketing Bundle: build + setup paid Day 1, non-refundable. Either way — card or Zelle, your call. Invoiced upfront, no hidden fees, no surprise invoices.",
   },
 ];
 
-const PAGE_TITLE = "Custom Web Design — Deerfield, IL | One Payment, You Own It";
-const PAGE_DESC = "Custom websites built from scratch in 1–6 weeks. One-time payment, no retainer, no lock-in. You walk away with every file. Deerfield, IL.";
+const PAGE_TITLE = "Custom Web Design — Deerfield, IL | Sites You Own";
+const PAGE_DESC = "Custom websites built from scratch in 1–6 weeks. You own every file, the domain, the logins. No retainer, no lock-in. Deerfield, IL.";
 const PAGE_URL = "https://thekhan.io/websites";
 const OG_IMAGE = "https://thekhan.io/websites-og.jpg";
 
@@ -71,13 +71,14 @@ const SERVICE_SCHEMA = {
   "@type": "Service",
   "@id": "https://thekhan.io/websites#service",
   "name": "Custom Website Design & Development",
-  "description": "Custom-coded websites built from scratch for small businesses, growing companies, and contractors who only need a one-time build. Mobile-responsive, SEO-optimized, owner-controlled — no template platforms, no retainer required.",
+  "description": "Custom-coded websites built from scratch for small businesses and growing companies. Three site tiers (Starter, Full, Authority) or the Marketing Bundle with ongoing marketing handoff. Mobile-responsive, SEO-optimized, owner-controlled — no template platforms, no required retainer.",
   "provider": { "@id": "https://thekhan.io/#localbusiness" },
   "areaServed": ["Chicago metropolitan area", "United States"],
   "offers": [
-    { "@type": "Offer", "name": "Landing Page Build", "price": "300", "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Starter Website Build", "price": "550", "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Full Site Build", "price": "750", "priceCurrency": "USD" }
+    { "@type": "Offer", "name": "Starter Site Build", "price": "750", "priceCurrency": "USD" },
+    { "@type": "Offer", "name": "Full Site Build", "price": "1200", "priceCurrency": "USD" },
+    { "@type": "Offer", "name": "Authority Site Build", "price": "1800", "priceCurrency": "USD" },
+    { "@type": "Offer", "name": "Marketing Bundle", "price": "1699", "priceCurrency": "USD" }
   ]
 };
 
@@ -88,11 +89,11 @@ const FAQ_SCHEMA_FOR_HEAD = {
   "mainEntity": [
     { "@type": "Question", "name": "Do I need my own domain?", "acceptedAnswer": { "@type": "Answer", "text": "If you don't have one, I'll walk you through buying it (about $12/year through GoDaddy, Namecheap, or whichever provider you prefer). You register it in your own account, with your own login. You own it forever — even if we never talk again." } },
     { "@type": "Question", "name": "Where will my site be hosted?", "acceptedAnswer": { "@type": "Answer", "text": "On modern hosting that's free for small business sites. Your only ongoing cost is your domain renewal — about $12 a year." } },
-    { "@type": "Question", "name": "Can you migrate my existing Wix or Squarespace site?", "acceptedAnswer": { "@type": "Answer", "text": "I'll use your existing copy, photos, and content — anything that's yours, I move over. But the site itself gets built from scratch on custom code, which gives you a faster, cleaner result than dragging an old template along. Same price as a new build." } },
+    { "@type": "Question", "name": "Can you migrate my existing Wix or Squarespace site?", "acceptedAnswer": { "@type": "Answer", "text": "I'll use your existing copy, photos, and content — anything that's yours, I move over. But the site itself gets built from scratch on custom code, which gives you a faster, cleaner result than dragging an old template along. Priced like any new build — Starter, Full, or Authority Site, depending on what you need." } },
     { "@type": "Question", "name": "What if my content isn't ready yet?", "acceptedAnswer": { "@type": "Answer", "text": "That's normal. Most people don't have polished copy or photos lined up before they hire me. I'll write the copy from what you tell me — you just review it. For photos, I'll tell you exactly what I need and help you figure out how to source it." } },
     { "@type": "Question", "name": "What if I want changes after launch?", "acceptedAnswer": { "@type": "Answer", "text": "Two options. Grab the optional dashboard ($59/mo) and edit anything yourself in a few clicks. Or text me for one-off updates — I'll quote each one upfront before I start. If you're going to be making changes regularly, the dashboard usually makes more sense." } },
-    { "@type": "Question", "name": "Do I sign a long-term contract?", "acceptedAnswer": { "@type": "Answer", "text": "No. It's a one-time project, not a subscription. You pay 50% to start, 50% on launch — that's the whole deal. No retainer, no auto-renewal, no cancellation fee. The optional dashboard is month-to-month, so if you grab it later, you can cancel any month with 72 hours notice before your next bill." } },
-    { "@type": "Question", "name": "How and when do I pay?", "acceptedAnswer": { "@type": "Answer", "text": "50% to start, 50% on launch. Stripe or Zelle — whichever's easiest. No hidden fees, no surprise invoices." } }
+    { "@type": "Question", "name": "Do I sign a long-term contract?", "acceptedAnswer": { "@type": "Answer", "text": "No. Site-only builds (Starter, Full, or Authority Site) are one-time projects — 50% paid Day 1 to start the build, 50% on launch, no retainer, no cancellation fee. The Marketing Bundle includes a monthly marketing tier that kicks in Day 31, billed month-to-month — cancel any month with 72 hours notice before your next bill. The optional dashboard ($59/mo) is also month-to-month with the same 72-hour cancel." } },
+    { "@type": "Question", "name": "How and when do I pay?", "acceptedAnswer": { "@type": "Answer", "text": "Site-only builds: 50% paid Day 1 to start the build, 50% on launch. Marketing Bundle: build + setup paid Day 1, non-refundable. Either way — card or Zelle, your call. Invoiced upfront, no hidden fees, no surprise invoices." } }
   ]
 };
 
@@ -181,7 +182,7 @@ export default function WebsitesPage() {
           </h1>
 
           <p className={`text-lg sm:text-xl md:text-2xl text-[#a3a3a3] mb-8 md:mb-10 max-w-2xl mx-auto text-center transition-all duration-700 delay-200 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            Every file, the domain, the logins — yours. Launched in 1–6 weeks. One payment, no retainer.
+            Every file, the domain, the logins — yours. Launched in 1–6 weeks. No retainer.
           </p>
 
           <div className={`flex flex-col items-center justify-center gap-4 transition-all duration-700 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
@@ -196,7 +197,11 @@ export default function WebsitesPage() {
             </a>
           </div>
 
-          <p className={`text-[#a3a3a3] text-sm mt-10 transition-all duration-700 delay-[400ms] ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <p className={`text-[#808080] text-sm italic mt-8 transition-all duration-700 delay-[350ms] ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            &mdash; Want me to handle marketing after launch? See the Marketing Bundle below. &mdash;
+          </p>
+
+          <p className={`text-[#a3a3a3] text-sm mt-6 transition-all duration-700 delay-[400ms] ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <Link to="/portfolio" className="text-[#06b6d4] hover:text-white underline underline-offset-4 transition-colors">
               See the work →
             </Link>
@@ -215,122 +220,195 @@ export default function WebsitesPage() {
               </h2>
               <AnimatedUnderline className="w-48 md:w-64 mx-auto mt-6 mb-6" />
               <p className="text-[#d4d4d4] text-lg max-w-2xl mx-auto">
-                Same build quality on every tier &mdash; fast, mobile-friendly, built to rank, and yours to keep. The only thing that changes is how much work the pages do for you. You can&apos;t rank one page for everything.
+                Same build quality on every tier &mdash; fast, mobile-friendly, built to rank, and yours to keep. The only thing that changes is how many pages you get and how deep we go. Prices below are Spring 2026 launch pricing &mdash; locked through June 30, 2026.
               </p>
             </ScrollReveal>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Tier 1 — LANDING */}
+            {/* Tier 1 — STARTER SITE */}
             <ScrollReveal direction="up" delay={0.1}>
               <SpotlightGlow>
                 <div className="p-8 md:p-10 h-full flex flex-col">
-                  <p className="text-[#06b6d4] text-xs font-medium tracking-[0.25em] uppercase mb-3">Landing</p>
-                  <div className="flex items-baseline gap-2 mb-2">
-                    <span className="text-4xl md:text-5xl font-bold text-white" style={{ fontFamily: "'Cinzel', serif" }}>$300</span>
+                  <p className="text-[#06b6d4] text-xs font-medium tracking-[0.25em] uppercase mb-3">Starter Site</p>
+                  <div className="flex items-baseline gap-3 mb-2">
+                    <span className="text-4xl md:text-5xl font-bold text-white" style={{ fontFamily: "'Cinzel', serif" }}>$750</span>
+                    <span className="text-base text-[#606060] line-through">$1,200</span>
                   </div>
-                  <p className="text-[#a3a3a3] text-sm italic mb-6">Best for: one service, one clear action.</p>
+                  <p className="text-[#a3a3a3] text-sm italic mb-6">For a small business that needs a real site, built right, owned in full.</p>
                   <ul className="space-y-3 mb-8 flex-1">
                     {[
-                      "1 page, built to get calls",
-                      "Mobile-friendly, loads in under 2 seconds",
-                      "Contact form, click-to-call, map embed",
-                      "Built to rank (schema, sitemap, meta tags)",
-                      "Google Analytics 4 setup",
-                      "Every file, the domain, and the logins — yours",
-                    ].map((f) => (
-                      <li key={f} className="flex items-start gap-3 text-[#d4d4d4] text-sm leading-relaxed">
+                      <>5 pages &mdash; <strong className="text-white font-semibold">home, about, services, contact, plus one more (gallery or FAQ)</strong></>,
+                      <>Fast loading, no template &mdash; <strong className="text-white font-semibold">no monthly platform fee, ever</strong></>,
+                      <>Contact form, click-to-call, map embed on every page &mdash; <strong className="text-white font-semibold">3 ways to reach you from anywhere on the site</strong></>,
+                      <>Built to rank &mdash; <strong className="text-white font-semibold">Google has the structure to start showing your pages when people search for your services</strong></>,
+                      <>Tracking installed &mdash; <strong className="text-white font-semibold">you see where visitors came from and what they did on the site</strong></>,
+                      <>2 rounds of revisions before launch &mdash; <strong className="text-white font-semibold">catch what you want changed, no hourly clock running</strong></>,
+                      <>Every file, the domain, and the logins &mdash; <strong className="text-white font-semibold">yours, day one</strong></>,
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-3 text-[#d4d4d4] text-sm leading-relaxed">
                         <IconCheck className="w-4 h-4 text-[#06b6d4] flex-shrink-0 mt-0.5" />
-                        <span>{f}</span>
+                        <span>{item}</span>
                       </li>
                     ))}
                   </ul>
                   <a href="#contact" className="block w-full text-center px-6 py-3.5 rounded-full text-[#d4d4d4] hover:text-white border border-white/[0.15] hover:border-transparent hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#06b6d4] transition-all duration-200 text-sm tracking-wide">
-                    Start a landing page →
+                    Start a Starter Site →
                   </a>
                 </div>
               </SpotlightGlow>
             </ScrollReveal>
 
-            {/* Tier 2 — STARTER */}
+            {/* Tier 2 — FULL SITE (Most Common) */}
             <ScrollReveal direction="up" delay={0.2}>
-              <SpotlightGlow>
-                <div className="p-8 md:p-10 h-full flex flex-col">
-                  <p className="text-[#06b6d4] text-xs font-medium tracking-[0.25em] uppercase mb-3">Starter</p>
-                  <div className="flex items-baseline gap-2 mb-2">
-                    <span className="text-4xl md:text-5xl font-bold text-white" style={{ fontFamily: "'Cinzel', serif" }}>$550</span>
-                  </div>
-                  <p className="text-[#a3a3a3] text-sm italic mb-6">Best for: a real site with room to grow.</p>
-                  <ul className="space-y-3 mb-8 flex-1">
-                    {[
-                      "3 pages (home, services, contact)",
-                      "Everything in Landing",
-                      "Custom section design — no template look",
-                      "FAQ or testimonials block",
-                      "Up to 2 rounds of revisions",
-                      "Priority launch slot",
-                    ].map((f) => (
-                      <li key={f} className="flex items-start gap-3 text-[#d4d4d4] text-sm leading-relaxed">
-                        <IconCheck className="w-4 h-4 text-[#06b6d4] flex-shrink-0 mt-0.5" />
-                        <span>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <a href="#contact" className="block w-full text-center px-6 py-3.5 rounded-full text-[#d4d4d4] hover:text-white border border-white/[0.15] hover:border-transparent hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#06b6d4] transition-all duration-200 text-sm tracking-wide">
-                    Start a starter site →
-                  </a>
-                </div>
-              </SpotlightGlow>
-            </ScrollReveal>
-
-            {/* Tier 3 — FULL */}
-            <ScrollReveal direction="up" delay={0.3}>
               <div className="relative h-full">
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
                   <span className="px-4 py-1 rounded-full bg-gradient-to-r from-[#2563eb] to-[#06b6d4] text-white text-xs font-semibold tracking-widest uppercase shadow-[0_0_20px_rgba(6,182,212,0.5)]">
-                    Most common
+                    Most Common
                   </span>
                 </div>
                 <div className="relative h-full rounded-2xl border-2 border-[#06b6d4]/40 bg-[#111111] shadow-[0_0_40px_rgba(6,182,212,0.15)]">
                   <div className="p-8 md:p-10 h-full flex flex-col">
-                    <p className="text-[#06b6d4] text-xs font-medium tracking-[0.25em] uppercase mb-3">Full</p>
-                    <div className="flex items-baseline gap-2 mb-2">
-                      <span className="text-4xl md:text-5xl font-bold text-white" style={{ fontFamily: "'Cinzel', serif" }}>$750</span>
+                    <p className="text-[#06b6d4] text-xs font-medium tracking-[0.25em] uppercase mb-3">Full Site</p>
+                    <div className="flex items-baseline gap-3 mb-2">
+                      <span className="text-4xl md:text-5xl font-bold text-white" style={{ fontFamily: "'Cinzel', serif" }}>$1,200</span>
+                      <span className="text-base text-[#606060] line-through">$1,800</span>
                     </div>
-                    <p className="text-[#a3a3a3] text-sm italic mb-6">Best for: a full site with the pages most businesses need.</p>
+                    <p className="text-[#a3a3a3] text-sm italic mb-6">For a business with multiple services, locations, or audiences to cover.</p>
+                    <p className="text-[#06b6d4] text-xs tracking-wide uppercase font-semibold mb-3">Everything in Starter Site, plus:</p>
                     <ul className="space-y-3 mb-8 flex-1">
                       {[
-                        "5 pages (home, about, services, contact + one more)",
-                        "Everything in Starter",
-                        "Expanded copywriting (About, services, trust sections)",
-                        "More design depth — extra sections, custom imagery",
-                        "Up to 3 rounds of revisions",
-                        "Priority launch slot",
-                      ].map((f) => (
-                        <li key={f} className="flex items-start gap-3 text-[#d4d4d4] text-sm leading-relaxed">
+                        <>7&ndash;8 pages &mdash; <strong className="text-white font-semibold">2&ndash;3 more pages so you show up for more of the searches your customers run</strong></>,
+                        <>Expanded copywriting on every page &mdash; <strong className="text-white font-semibold">written to convert visitors, not just fill space</strong></>,
+                        <>More design depth on every page &mdash; <strong className="text-white font-semibold">testimonials, FAQs, custom sections that earn the visitor&apos;s trust</strong></>,
+                        <>3 rounds of revisions &mdash; <strong className="text-white font-semibold">more time to dial it in before launch</strong></>,
+                      ].map((item, i) => (
+                        <li key={i} className="flex items-start gap-3 text-[#d4d4d4] text-sm leading-relaxed">
                           <IconCheck className="w-4 h-4 text-[#06b6d4] flex-shrink-0 mt-0.5" />
-                          <span>{f}</span>
+                          <span>{item}</span>
                         </li>
                       ))}
                     </ul>
                     <a href="#contact" className="block w-full text-center px-6 py-3.5 rounded-full text-white bg-gradient-to-r from-[#2563eb] to-[#06b6d4] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] transition-all duration-200 text-sm tracking-wide font-medium">
-                      Start a full site →
+                      Start a Full Site →
                     </a>
                   </div>
                 </div>
               </div>
             </ScrollReveal>
+
+            {/* Tier 3 — AUTHORITY SITE */}
+            <ScrollReveal direction="up" delay={0.3}>
+              <SpotlightGlow>
+                <div className="p-8 md:p-10 h-full flex flex-col">
+                  <p className="text-[#06b6d4] text-xs font-medium tracking-[0.25em] uppercase mb-3">Authority Site</p>
+                  <div className="flex items-baseline gap-3 mb-2">
+                    <span className="text-4xl md:text-5xl font-bold text-white" style={{ fontFamily: "'Cinzel', serif" }}>$1,800</span>
+                    <span className="text-base text-[#606060] line-through">$2,300</span>
+                  </div>
+                  <p className="text-[#a3a3a3] text-sm italic mb-6">For a business with a deep service catalog, multiple locations, or both.</p>
+                  <p className="text-[#06b6d4] text-xs tracking-wide uppercase font-semibold mb-3">Everything in Full Site, plus:</p>
+                  <ul className="space-y-3 mb-8 flex-1">
+                    {[
+                      <>10+ pages &mdash; <strong className="text-white font-semibold">each service or location gets its own page, built for the search that matches it</strong></>,
+                      <>Page-by-page plan up front &mdash; <strong className="text-white font-semibold">I map out which 10+ pages earn their keep before building any of them</strong></>,
+                      <>More design depth &mdash; <strong className="text-white font-semibold">custom layouts on each page, no two pages feel the same</strong></>,
+                      <>4 rounds of revisions &mdash; <strong className="text-white font-semibold">the biggest scope deserves the most refinement before launch</strong></>,
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-3 text-[#d4d4d4] text-sm leading-relaxed">
+                        <IconCheck className="w-4 h-4 text-[#06b6d4] flex-shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a href="#contact" className="block w-full text-center px-6 py-3.5 rounded-full text-[#d4d4d4] hover:text-white border border-white/[0.15] hover:border-transparent hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#06b6d4] transition-all duration-200 text-sm tracking-wide">
+                    Start an Authority Site →
+                  </a>
+                </div>
+              </SpotlightGlow>
+            </ScrollReveal>
           </div>
 
-          <div className="mt-12 max-w-2xl mx-auto text-center">
-            <p className="text-[#a3a3a3] text-sm leading-relaxed">
-              <span className="text-white font-semibold">Need more than 5 pages?</span>{" "}
-              <span>Custom builds start at $999. Tell me about your project and I&apos;ll quote it.</span>
-            </p>
-            <p className="text-[#808080] text-xs italic mt-6 leading-relaxed">
-              All builds go live in 1–6 weeks. Need it sooner? Tell me when you reach out and I&apos;ll see what I can do.
-            </p>
-          </div>
+          {/* Landing inline mention — also available */}
+          <ScrollReveal direction="up" delay={0.35}>
+            <div className="mt-12 max-w-2xl mx-auto text-center">
+              <p className="text-[#d4d4d4] text-base leading-relaxed">
+                <span className="text-white font-semibold">Just need a single page?</span>{" "}
+                Landing pages start at <span className="text-white font-semibold">$300</span>{" "}
+                (<span className="line-through text-[#606060]">$750</span> after June 30, 2026).{" "}
+                One page, built around the single thing you want a visitor to do &mdash; call, fill out the form, sign up, book.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          {/* Marketing Bundle section intro */}
+          <ScrollReveal direction="up" delay={0.4}>
+            <div className="mt-20 max-w-3xl mx-auto text-center">
+              <p className="text-[#d4d4d4] text-base md:text-lg leading-relaxed">
+                Already know you want ongoing marketing? The Marketing Bundle is the bridge &mdash; the site plus the foundation that makes a monthly tier work.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          {/* Marketing Bundle callout */}
+          <ScrollReveal direction="up" delay={0.45}>
+            <div className="max-w-3xl mx-auto mt-8 p-6 md:p-8 rounded-2xl bg-[#0d0d0d] border border-white/[0.06]">
+              <p className="text-[#06b6d4] text-xs font-medium tracking-[0.25em] uppercase mb-3">Marketing Bundle</p>
+              <div className="flex items-baseline gap-3 mb-4 flex-wrap">
+                <span className="text-3xl md:text-4xl font-bold text-white" style={{ fontFamily: "'Cinzel', serif" }}>$1,699</span>
+                <span className="text-base text-[#606060] line-through">$2,400</span>
+                <span className="text-[#808080] text-sm italic">after June 30, 2026</span>
+              </div>
+              <ul className="space-y-3 mt-5">
+                {[
+                  <>Full Site (7&ndash;8 pages) &mdash; <strong className="text-white font-semibold">fast, mobile, built to rank</strong></>,
+                  <>Google Business Profile set up &mdash; <strong className="text-white font-semibold">you show up on the map for your services and area</strong></>,
+                  <>Tracking installed &mdash; <strong className="text-white font-semibold">you see where every call and click is coming from</strong></>,
+                  <>Listed where it counts for local search &mdash; <strong className="text-white font-semibold">so customers find you when they look, not just when they Google</strong></>,
+                  <>First SEO pages built and submitted to Google from day one &mdash; <strong className="text-white font-semibold">the foundation Google needs to start ranking you for the searches you care about</strong></>,
+                  <>Dashboard set up at yourdomain.com/admin &mdash; <strong className="text-white font-semibold">edit anything yourself, anytime</strong></>,
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-2.5">
+                    <IconCheck className="w-4 h-4 text-[#06b6d4] flex-shrink-0 mt-0.5" />
+                    <span className="text-[#d4d4d4] text-sm leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-5 text-[#a3a3a3] text-sm italic">
+                Build + setup paid Day 1, non-refundable. Day 31, your monthly tier kicks in.
+              </p>
+              <Link to="/contractors" className="block w-full text-center mt-6 px-6 py-3.5 rounded-full text-white bg-gradient-to-r from-[#2563eb] to-[#06b6d4] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] transition-all duration-200 text-sm tracking-wide font-medium">
+                See marketing tiers &rarr;
+              </Link>
+            </div>
+          </ScrollReveal>
+
+          {/* Terms strip */}
+          <ScrollReveal direction="up" delay={0.5}>
+            <div className="max-w-3xl mx-auto mt-16">
+              <SpotlightGlow>
+                <div className="p-8 md:p-10">
+                  <h3 className="text-xl md:text-2xl font-semibold text-white mb-6 text-center" style={{ fontFamily: "'Cinzel', serif" }}>
+                    The terms, plain.
+                  </h3>
+                  <div className="space-y-5 text-[#d4d4d4] text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+                    <p>
+                      <span className="text-white font-semibold">Site-only build (Starter, Full, or Authority Site).</span>{" "}
+                      50% paid Day 1 to start the build, 50% on launch. Site goes live in 1 to 6 weeks. One-time project &mdash; no retainer, no cancellation fee.
+                    </p>
+                    <p>
+                      <span className="text-white font-semibold">Marketing Bundle.</span>{" "}
+                      Build + setup paid Day 1, non-refundable &mdash; that&apos;s what covers the 30-day foundation work. Day 31, your monthly marketing tier kicks in. Then month-to-month &mdash; cancel any month with 72 hours notice before your next bill.
+                    </p>
+                    <p>
+                      <span className="text-white font-semibold">Either way.</span>{" "}
+                      Every file, the domain, and the logins are yours at launch. Optional dashboard ($59/mo, further down) is month-to-month &mdash; cancel any month with 72 hours notice before your next bill.
+                    </p>
+                  </div>
+                </div>
+              </SpotlightGlow>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -355,9 +433,9 @@ export default function WebsitesPage() {
               <div className="p-6 md:p-8 rounded-xl border border-white/[0.08] bg-[#111111]/60">
                 <h3 className="text-xl font-semibold text-white mb-3">1. Ongoing marketing.</h3>
                 <p className="text-[#d4d4d4] leading-relaxed">
-                  No SEO maintenance, no Google Ads, no social media, no Google Business Profile management. I build the site. I don&apos;t run your marketing. If you want that handled for you every month,{" "}
+                  No SEO maintenance, no Google Ads, no social media, no Google Business Profile management. I build the site. I don&apos;t run your marketing. If you want that handled every month,{" "}
                   <Link to="/contractors" className="text-[#06b6d4] hover:text-white underline underline-offset-4 not-italic">
-                    that&apos;s the monthly marketing side →
+                    see the monthly tiers →
                   </Link>
                 </p>
               </div>
@@ -401,7 +479,7 @@ export default function WebsitesPage() {
               </h2>
               <AnimatedUnderline className="w-48 md:w-64 mx-auto mt-6 mb-6" />
               <p className="text-[#d4d4d4] text-lg max-w-2xl mx-auto">
-                You get more control, lower cost, and no platform lock-in.
+                You get more control, faster pages, and no platform lock-in.
               </p>
             </ScrollReveal>
           </div>
@@ -435,49 +513,6 @@ export default function WebsitesPage() {
               <div className="flex gap-5">
                 <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-[#2563eb] to-[#06b6d4] flex items-center justify-center text-white font-bold">3</div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-white mb-2">No platform rent.</h3>
-                  <p className="text-[#d4d4d4] leading-relaxed mb-4">
-                    Most website builders charge a monthly fee for as long as your site is up. A custom-coded site doesn&apos;t. You pay for the build once, and after that the only recurring cost is your domain — about $12 a year.
-                  </p>
-                  <p className="text-[#d4d4d4] leading-relaxed mb-4">
-                    Here&apos;s what five years looks like if you never touch the site:
-                  </p>
-                  <div className="grid sm:grid-cols-2 gap-3 mb-4">
-                    <div className="px-4 py-3 rounded-lg border border-[#06b6d4]/40 bg-[#06b6d4]/5">
-                      <p className="text-[#06b6d4] text-sm font-semibold">Custom-coded site</p>
-                      <p className="text-white text-lg font-bold">~$60 over 5 years (domain only)</p>
-                    </div>
-                    <div className="px-4 py-3 rounded-lg border border-red-500/20 bg-red-500/5">
-                      <p className="text-red-400/80 text-sm font-semibold">GoDaddy Premium</p>
-                      <p className="text-[#d4d4d4] text-lg font-bold">~$1,260 over 5 years</p>
-                    </div>
-                    <div className="px-4 py-3 rounded-lg border border-red-500/20 bg-red-500/5">
-                      <p className="text-red-400/80 text-sm font-semibold">Webflow CMS</p>
-                      <p className="text-[#d4d4d4] text-lg font-bold">~$1,380 over 5 years</p>
-                    </div>
-                    <div className="px-4 py-3 rounded-lg border border-red-500/20 bg-red-500/5">
-                      <p className="text-red-400/80 text-sm font-semibold">Wix Core</p>
-                      <p className="text-[#d4d4d4] text-lg font-bold">~$1,790 over 5 years</p>
-                    </div>
-                    <div className="px-4 py-3 rounded-lg border border-red-500/20 bg-red-500/5 sm:col-span-2">
-                      <p className="text-red-400/80 text-sm font-semibold">Squarespace Core</p>
-                      <p className="text-[#d4d4d4] text-lg font-bold">~$1,990 over 5 years</p>
-                    </div>
-                  </div>
-                  <p className="text-[#d4d4d4] leading-relaxed mb-3">
-                    If you want to edit the site yourself, I offer an optional dashboard — I cover that further down. You can cancel it any time and the site keeps running; you just lose the click-to-edit part. You can come back to the dashboard later, or hand the site off to any developer.
-                  </p>
-                  <p className="text-[#d4d4d4] leading-relaxed">
-                    If you cancel Wix or Squarespace, the site goes down — with them, you&apos;re essentially renting. With a custom site, you own it.
-                  </p>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal direction="up" delay={0.2}>
-              <div className="flex gap-5">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-[#2563eb] to-[#06b6d4] flex items-center justify-center text-white font-bold">4</div>
-                <div className="flex-1">
                   <h3 className="text-xl font-semibold text-white mb-2">You actually own it — platforms don&apos;t let you leave.</h3>
                   <p className="text-[#d4d4d4] leading-relaxed mb-3">
                     Wix&apos;s own support docs say a Wix site can only run on Wix — you can&apos;t take it anywhere else. Squarespace exports are partial — most content won&apos;t transfer. GoDaddy has no way to export your site&apos;s pages, content, or design. Webflow lets you export HTML/CSS but not your content database. If you leave any of them, you&apos;re rebuilding from scratch.
@@ -492,7 +527,7 @@ export default function WebsitesPage() {
 
           <ScrollReveal direction="up" delay={0.25}>
             <p className="text-center text-white text-lg md:text-xl italic mt-16 max-w-2xl mx-auto leading-relaxed">
-              Most of your competitors are locked into a platform like Wix or Squarespace, paying rent forever. They can&apos;t leave without rebuilding from scratch. With a custom site, you don&apos;t have that problem.
+              Most of your competitors are locked into a platform like Wix or Squarespace. They can&apos;t leave without rebuilding from scratch. With a custom site, you don&apos;t have that problem.
             </p>
           </ScrollReveal>
         </div>
