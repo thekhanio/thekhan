@@ -510,7 +510,6 @@ export default function CalvinProposalPage() {
               <strong className="text-[#F5F1EB]">Either path works.</strong> Path B if you want me running things alongside you. Path A if you&apos;d rather start with the site and circle back. Either way &mdash; month-to-month, no contracts.
             </p>
 
-            <SectionHeading>Ready When You Are</SectionHeading>
             <p className="text-[#F5F1EB] text-lg md:text-xl leading-relaxed font-[family-name:var(--font-body)] mb-8">
               Three ways to reach me when you&apos;re ready:
             </p>
