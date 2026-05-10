@@ -330,6 +330,12 @@ body {
   color: var(--bg);
   border-color: var(--accent-light);
 }
+/* Inline sage-accent spans (e.g., audience words on homepage buttons) would
+   otherwise stay sage-on-sage on hover and disappear. Force inherit so the
+   span flips to the button's hover text color along with the rest. */
+.btn-outline-accent:hover span {
+  color: inherit;
+}
 
 .section-cream .btn-primary {
   background: var(--ink-inv);
