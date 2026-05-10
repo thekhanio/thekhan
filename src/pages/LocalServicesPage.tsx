@@ -229,13 +229,13 @@ export default function LocalServicesPage() {
             {/* Micro-strips — now inside the hero's light section */}
             <div className="mt-14 md:mt-16 space-y-3">
               <p className={`text-ink-quiet text-base md:text-[17px] leading-relaxed opacity-80 transition-all duration-700 delay-[400ms] ${mounted ? 'opacity-80 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                &mdash; I work with a handful of local service businesses at a time. &mdash;
+                &mdash; I work with a handful of local service businesses at a time.
               </p>
               <p className={`text-ink-quiet text-base md:text-[17px] leading-relaxed opacity-80 transition-all duration-700 delay-[475ms] ${mounted ? 'opacity-80 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                &mdash; Before TheKhan, I built my own home service company to <CountUp to={84} className="font-mono text-accent-light" /> clients. Closed it in March &mdash; the phone still rings from the SEO work I did &mdash; and those calls now go to the businesses I work with. &mdash;
+                &mdash; Before TheKhan, I built my own home service company to <CountUp to={84} className="font-mono text-accent-light" /> clients. Closed it in March &mdash; the phone still rings from the SEO work I did &mdash; and those calls now go to the businesses I work with.
               </p>
               <p className={`text-ink-quiet text-base md:text-[17px] leading-relaxed opacity-80 transition-all duration-700 delay-[550ms] ${mounted ? 'opacity-80 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                &mdash; Serving local service businesses across Chicagoland &mdash; Deerfield, Highland Park, Lake Forest, Northbrook, Glencoe, Winnetka, Wilmette, Evanston, Skokie, Arlington Heights, Naperville, Oak Park, and the rest of the Chicago metro. Remote clients welcome anywhere in the US. &mdash;
+                &mdash; Serving local service businesses across Chicagoland &mdash; Deerfield, Highland Park, Lake Forest, Northbrook, Glencoe, Winnetka, Wilmette, Evanston, Skokie, Arlington Heights, Naperville, Oak Park, and the rest of the Chicago metro. Remote clients welcome anywhere in the US.
               </p>
             </div>
           </div>
@@ -479,7 +479,7 @@ export default function LocalServicesPage() {
                   </p>
                   <ul className="space-y-2 pl-5 list-disc marker:text-accent">
                     <li>Bundled (Google Search + LSA) &mdash; <strong className="text-ink font-semibold">$600/mo</strong></li>
-                    <li>Google only &mdash; <strong className="text-ink font-semibold">$500/mo</strong></li>
+                    <li>Google Search ads only &mdash; <strong className="text-ink font-semibold">$500/mo</strong></li>
                     <li>LSA only &mdash; <strong className="text-ink font-semibold">$150/mo</strong></li>
                     <li>Partnership rate (bundled + first landing page included) &mdash; <strong className="text-ink font-semibold">$500/mo</strong></li>
                     <li>Ad spend goes on your card direct &mdash; <strong className="text-ink font-semibold">zero markup</strong></li>
@@ -489,7 +489,7 @@ export default function LocalServicesPage() {
                   Engine is the best place to run ads &mdash; the ongoing optimization makes spend compound faster. Foundation + ads still works, just slower organically alongside.
                 </p>
                 <p>
-                  <span className="text-ink font-semibold">Custom landing pages</span> &mdash; $300 each (<span className="line-through text-ink-faint">$750</span> &mdash; Spring 2026 launch pricing through June 30, 2026). Partnership ads bundle includes the first one free; add&apos;l pages run $250 each (<span className="line-through text-ink-faint">$500</span> after June 30) at the Partnership rate.
+                  <span className="text-ink font-semibold">Custom landing pages</span> &mdash; $300 each through June 30, 2026 ($750 after). Partnership ads bundle includes the first one free; add&apos;l pages run $250 each through June 30, 2026 ($500 after) at the Partnership rate.
                 </p>
                 <p>
                   <span className="text-ink font-semibold">Multiple service brands</span> &mdash; say you run paving, snow plowing, and holiday lighting as separate businesses. Each tier covers one brand. Each additional brand is +$649/mo. Build + setup quoted separately based on scope.

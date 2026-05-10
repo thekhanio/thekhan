@@ -43,18 +43,12 @@ export function Layout({ children, activePath, contactHref = "/#contact" }: Layo
               change layout size, so the next element would collide;
               we wrap the logo in a width-reservation block sized to
               the scaled width (logo sm = 160px → 216px at 1.35×). */}
-          <Link to="/" className="flex items-end gap-2 md:gap-3 lg:gap-4 cursor-pointer overflow-visible" onClick={closeMenu}>
+          <Link to="/" className="flex items-center cursor-pointer overflow-visible" onClick={closeMenu}>
             <div className="w-[152px] lg:w-[216px] flex-shrink-0">
               <div className="scale-[0.95] lg:scale-[1.35] origin-left">
                 <Logo variant="white" size="sm" type="full" />
               </div>
             </div>
-            <p
-              className="hidden md:block font-mono text-[11px] tracking-[0.18em] uppercase text-accent leading-none whitespace-nowrap pb-2 lg:pb-3"
-              aria-label="Based in Deerfield, IL"
-            >
-              Deerfield, IL
-            </p>
           </Link>
 
           <div className="hidden lg:flex items-center gap-10">
