@@ -95,7 +95,7 @@ export default function HomePage() {
       />
 
       {/* ==================== HERO — single column, no photo.
-           Atmospheric gradient drift matches /websites and /contractors. ==================== */}
+           Atmospheric gradient drift matches /websites and /home-services. ==================== */}
       <section className="section-base relative pt-16 md:pt-24 pb-20 md:pb-28 px-6 md:px-12 lg:px-16 overflow-hidden">
         <div className="gradient-drift" aria-hidden="true" />
         <div className="relative max-w-[1400px] mx-auto">
@@ -118,7 +118,7 @@ export default function HomePage() {
 
             <div className="mt-10 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-5">
               <Link to="/websites" className="btn-primary">I need a website &rarr;</Link>
-              <Link to="/contractors" className="btn-outline-accent">I want to grow my contracting business &rarr;</Link>
+              <Link to="/home-services" className="btn-outline-accent">I want to grow my home service business &rarr;</Link>
               <Link to="/local-services" className="btn-outline-accent">I want to grow my local services business &rarr;</Link>
             </div>
             <div className="mt-6">

@@ -1,0 +1,14 @@
+# /contractors → /home-services 301 redirect — local Worker preview check
+# Run on 2026-05-10 via 'wrangler dev --port 8790 --local'
+
+$ curl -sI http://127.0.0.1:8790/contractors
+
+HTTP/1.1 301 Moved Permanently
+Location: http://127.0.0.1:8790/home-services
+
+[redirect verified in Worker; runs before React routing]
+
+# Production verification after deploy:
+$ curl -sI https://thekhan.io/contractors
+HTTP/2 301
+Location: https://thekhan.io/home-services

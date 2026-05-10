@@ -2,7 +2,7 @@ import { useEffect, lazy, Suspense } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { LazyMotion, domAnimation } from "framer-motion";
 import HomePage from "./pages/HomePage";
-import ContractorsPage from "./pages/ContractorsPage";
+import HomeServicesPage from "./pages/HomeServicesPage";
 import LocalServicesPage from "./pages/LocalServicesPage";
 import WebsitesPage from "./pages/WebsitesPage";
 import PortfolioPage from "./pages/PortfolioPage";
@@ -40,7 +40,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/form" element={<QuestionnairePage />} />
-          <Route path="/contractors" element={<ContractorsPage />} />
+          <Route path="/home-services" element={<HomeServicesPage />} />
           <Route path="/local-services" element={<LocalServicesPage />} />
           <Route path="/websites" element={<WebsitesPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />

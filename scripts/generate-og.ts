@@ -6,7 +6,7 @@
  * - Brand fonts pulled from Google Fonts (woff2)
  * - TK logo composited from public/portfolio/logo-white.png as base64
  * - 5 pages, identical template, per-page copy
- * - Output: public/{og-image,websites-og,contractors-og,portfolio-og,about-og}.png
+ * - Output: public/{og-image,websites-og,home-services-og,portfolio-og,about-og}.png
  *           + copies to docs/og-images-preview-2026-05-10/
  */
 
@@ -44,11 +44,11 @@ const PAGES = [
     subhead: "Custom websites in about 30 days. You own everything.",
   },
   {
-    out: "contractors-og.png",
-    preview: "03-contractors-og.png",
+    out: "home-services-og.png",
+    preview: "03-home-services-og.png",
     line1: "You do the work.",
     line2: "I make sure people find you.",
-    subhead: "Contractor marketing that makes your phone ring.",
+    subhead: "Home services marketing that makes your phone ring.",
   },
   {
     out: "portfolio-og.png",

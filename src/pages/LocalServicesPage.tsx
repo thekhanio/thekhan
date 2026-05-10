@@ -242,11 +242,11 @@ export default function LocalServicesPage() {
         </div>
       </section>
 
-      {/* ==================== TEXT MARQUEE — solid, slower ==================== */}
-      <section className="section-deep py-8 md:py-10 border-y border-line overflow-hidden">
+      {/* ==================== TEXT MARQUEE — 2-row, categories solid + specific verticals outlined ==================== */}
+      <section className="section-deep py-8 md:py-10 border-y border-line overflow-hidden space-y-2 md:space-y-3">
         <TextMarquee
           variant="solid"
-          durationSec={120}
+          durationSec={110}
           items={[
             "Healthcare",
             "Dental",
@@ -256,6 +256,24 @@ export default function LocalServicesPage() {
             "Beauty & Wellness",
             "Pet Services",
             "Personal Services",
+          ]}
+        />
+        <TextMarquee
+          variant="outlined"
+          durationSec={130}
+          items={[
+            "Dentists",
+            "Lawyers",
+            "Real Estate Agents",
+            "Salons",
+            "Barbers",
+            "Chiropractors",
+            "Personal Trainers",
+            "Vets",
+            "Tutors",
+            "Pet Groomers",
+            "Locksmiths",
+            "Movers",
           ]}
         />
       </section>
@@ -336,7 +354,7 @@ export default function LocalServicesPage() {
                   Get found.
                 </p>
                 <p className="text-ink-muted text-sm leading-relaxed mb-5">
-                  For contractors still surviving on referrals and repeat customers.
+                  For local services businesses still surviving on referrals and repeat customers.
                 </p>
                 <ul className="space-y-3 mt-auto">
                   {[
@@ -374,7 +392,7 @@ export default function LocalServicesPage() {
                   Make the phone ring.
                 </p>
                 <p className="text-ink-muted text-sm leading-relaxed mb-5">
-                  For contractors who want jobs coming in every week &mdash; not just busy season.
+                  For local services businesses that want clients coming in every week &mdash; not just busy season.
                 </p>
                 <p className="text-accent text-xs tracking-wide uppercase font-semibold mb-3">
                   Everything in Foundation, plus:
@@ -411,7 +429,7 @@ export default function LocalServicesPage() {
                   Turn jobs away.
                 </p>
                 <p className="text-ink-muted text-sm leading-relaxed mb-5">
-                  For contractors ready to lock down their service area and pick which jobs to take.
+                  For local services businesses ready to lock down their service area and pick which clients to take.
                 </p>
                 <p className="text-accent text-xs tracking-wide uppercase font-semibold mb-3">
                   Everything in Engine, plus:
@@ -420,7 +438,7 @@ export default function LocalServicesPage() {
                   {[
                     <>Up to 8 cities locked to you &mdash; <strong className="text-ink font-semibold">I won&apos;t take a competitor&apos;s check in any of them</strong></>,
                     <>4&ndash;6 new pages every month &mdash; <strong className="text-ink font-semibold">you cover more services and cities than competitors can keep up with</strong></>,
-                    <>Overflow leads from my pipeline &mdash; <strong className="text-ink font-semibold">they come to you every month, not split with the next contractor I sign</strong></>,
+                    <>Overflow leads from my pipeline &mdash; <strong className="text-ink font-semibold">they come to you every month, not split with the next business I sign</strong></>,
                     <>Full site audit every quarter &mdash; <strong className="text-ink font-semibold">find what&apos;s slipping, double down on what&apos;s working</strong></>,
                     <>Custom playbook built around how you work &mdash; <strong className="text-ink font-semibold">scripts, templates, systems yours to keep, even if you cancel</strong></>,
                     <>Multi-round review disputes &mdash; <strong className="text-ink font-semibold">I don&apos;t drop it after one rejection</strong></>,
@@ -565,7 +583,7 @@ export default function LocalServicesPage() {
             <ScrollReveal direction="up" delay={0.05}>
               <div className="p-6 md:p-7 rounded-xl border border-line bg-bg-raised/60">
                 <p className="text-ink-muted leading-relaxed">
-                  <strong className="text-ink font-semibold">You&apos;re findable in regular Google searches</strong> &mdash; when someone types &quot;[your service] in [your town],&quot; your business is part of the results. That&apos;s <strong className="text-accent">SEO</strong> (search engine optimization). The version that matters most for contractors is <strong className="text-accent">local SEO</strong> &mdash; the &quot;near me&quot; and city searches that bring jobs.
+                  <strong className="text-ink font-semibold">You&apos;re findable in regular Google searches</strong> &mdash; when someone types &quot;[your service] in [your town],&quot; your business is part of the results. That&apos;s <strong className="text-accent">SEO</strong> (search engine optimization). The version that matters most for local services businesses is <strong className="text-accent">local SEO</strong> &mdash; the &quot;near me&quot; and city searches that bring clients.
                 </p>
               </div>
             </ScrollReveal>

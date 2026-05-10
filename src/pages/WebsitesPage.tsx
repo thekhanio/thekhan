@@ -276,7 +276,7 @@ export default function WebsitesPage() {
               <p className="mt-8 text-ink-quiet text-sm italic">
                 Build + setup paid Day 1, non-refundable. Day 31, your monthly tier kicks in.
               </p>
-              <Link to="/contractors" className="btn-primary text-sm mt-8">
+              <Link to="/home-services" className="btn-primary text-sm mt-8">
                 See marketing tiers &rarr;
               </Link>
             </div>
@@ -414,7 +414,7 @@ export default function WebsitesPage() {
 
           <div className="border-t border-line">
             {[
-              { num: "01", title: "Ongoing marketing.", body: <>No ongoing SEO, ads, social, or Google Business Profile management. I build the site. I don&apos;t run your marketing. Want that handled monthly? <Link to="/contractors" className="link">See the monthly tiers &rarr;</Link></> },
+              { num: "01", title: "Ongoing marketing.", body: <>No ongoing SEO, ads, social, or Google Business Profile management. I build the site. I don&apos;t run your marketing. Want that handled monthly? <Link to="/home-services" className="link">See the monthly tiers &rarr;</Link></> },
               { num: "02", title: "Photos and brand assets.", body: <>I&apos;ll write the copy — just tell me anything specific you want included and I&apos;ll draft the rest. Photos, logos, and existing brand materials are on you. If you don&apos;t have a logo yet and need something basic to get started, let me know when you reach out — I can help with that separately.</> },
               { num: "03", title: "Post-launch edits.", body: <>Once the site goes live, it&apos;s yours. Ongoing edits aren&apos;t part of the one-time build — but the optional dashboard (more below) lets you update anything yourself in a few clicks.</> },
               { num: "04", title: "Custom systems.", body: <>Custom systems aren&apos;t part of the base tiers — things like e-commerce backends, booking systems, membership logins, and payment processors. But if you already use something like Stripe, Booksy, or Calendly, I can embed the link on your site for free — quick to set up. Need a custom system built from scratch? Tell me upfront and I&apos;ll quote it as its own project.</> },

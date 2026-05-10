@@ -30,11 +30,11 @@ const ROUTE_META = {
     ogImage: "https://thekhan.io/websites-og.png",
     ogType: "website",
   },
-  "/contractors": {
-    title: "Marketing for Home Service Contractors in Chicago | TheKhan",
-    description: "Websites, Google Ads, and SEO for Chicago home service contractors. Get your phone ringing every week. You do the work. I make people find you.",
-    canonical: "https://thekhan.io/contractors",
-    ogImage: "https://thekhan.io/contractors-og.png",
+  "/home-services": {
+    title: "Marketing for Home Service Businesses in Chicago | TheKhan",
+    description: "Websites, Google Ads, and SEO for Chicago home service businesses. Get your phone ringing every week. You do the work. I make people find you.",
+    canonical: "https://thekhan.io/home-services",
+    ogImage: "https://thekhan.io/home-services-og.png",
     ogType: "website",
   },
   "/local-services": {
@@ -95,8 +95,8 @@ const ROUTE_SCHEMAS = {
           hasOfferCatalog: {
             "@type": "OfferCatalog", name: "Digital Services",
             itemListElement: [
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Custom Website Design & Development", description: "Custom-coded responsive websites built from scratch for small businesses, home service contractors, and growing companies. Mobile-friendly, SEO-optimized, owner-controlled — no template platforms or page builders." } },
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Monthly Marketing Retainers for Home Service Businesses", description: "Ongoing marketing for home service contractors including SEO, Google Ads, Local Service Ads (LSA), Google Business Profile management, and lead generation. Built for plumbers, HVAC, roofing, electrical, landscaping, and other trades." } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Custom Website Design & Development", description: "Custom-coded responsive websites built from scratch for small businesses, home service businesses, and growing companies. Mobile-friendly, SEO-optimized, owner-controlled — no template platforms or page builders." } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Monthly Marketing Retainers for Home Service Businesses", description: "Ongoing marketing for home service businesses including SEO, Google Ads, Local Service Ads (LSA), Google Business Profile management, and lead generation. Built for plumbers, HVAC, roofing, electrical, landscaping, and other trades." } },
             ],
           },
         },
@@ -104,7 +104,7 @@ const ROUTE_SCHEMAS = {
           "@type": "FAQPage",
           "@id": "https://thekhan.io/#faq",
           mainEntity: [
-            { "@type": "Question", name: "What services does TheKhan offer?", acceptedAnswer: { "@type": "Answer", text: "TheKhan offers two main services: custom-coded website design and development for small businesses, plus monthly marketing retainers for home service contractors. Marketing retainers include SEO, Google Ads, Local Service Ads, Google Business Profile management, and lead generation." } },
+            { "@type": "Question", name: "What services does TheKhan offer?", acceptedAnswer: { "@type": "Answer", text: "TheKhan offers two main services: custom-coded website design and development for small businesses, plus monthly marketing retainers for home service businesses. Marketing retainers include SEO, Google Ads, Local Service Ads, Google Business Profile management, and lead generation." } },
             { "@type": "Question", name: "Where is TheKhan located?", acceptedAnswer: { "@type": "Answer", text: "TheKhan is based in Deerfield, Illinois on Chicago's North Shore. Founded by Omair Khan, the studio serves businesses throughout Chicagoland and works with remote clients nationwide." } },
             { "@type": "Question", name: "Does TheKhan work with small businesses?", acceptedAnswer: { "@type": "Answer", text: "Yes — TheKhan is built specifically for small and growing businesses. Every client works directly with founder Omair Khan, not an account manager or sales rep. TheKhan caps at a handful of clients per year to keep that direct relationship." } },
             { "@type": "Question", name: "How can I get started with TheKhan?", acceptedAnswer: { "@type": "Answer", text: "Get started by filling out the contact form at thekhan.io, calling or texting (847) 220-8550, or emailing omair@thekhan.io. Omair reads every message himself and usually replies within a few hours." } },
@@ -140,23 +140,23 @@ const ROUTE_SCHEMAS = {
       ],
     },
   ],
-  "/contractors": [
-    { "@context": "https://schema.org", "@type": "BreadcrumbList", "@id": "https://thekhan.io/contractors#breadcrumb", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://thekhan.io" }, { "@type": "ListItem", position: 2, name: "Contractors", item: "https://thekhan.io/contractors" }] },
+  "/home-services": [
+    { "@context": "https://schema.org", "@type": "BreadcrumbList", "@id": "https://thekhan.io/home-services#breadcrumb", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://thekhan.io" }, { "@type": "ListItem", position: 2, name: "Home Services", item: "https://thekhan.io/home-services" }] },
     {
-      "@context": "https://schema.org", "@type": "Service", "@id": "https://thekhan.io/contractors#service",
-      name: "Home Service Contractor Marketing",
-      description: "Websites, Google Ads, and SEO that make the phone ring for home service contractors in the Chicago area.",
+      "@context": "https://schema.org", "@type": "Service", "@id": "https://thekhan.io/home-services#service",
+      name: "Home Service Business Marketing",
+      description: "Websites, Google Ads, and SEO that make the phone ring for home service businesses in the Chicago area.",
       provider: { "@id": "https://thekhan.io/#localbusiness" },
-      serviceType: ["Home Service Contractor Marketing", "Website Design", "Google Ads Management", "Local SEO", "Marketing for Landscapers", "Marketing for Roofers", "Marketing for HVAC", "Marketing for Plumbers", "Marketing for Electricians", "Marketing for Pressure Washers", "Marketing for Painters", "Marketing for Cleaners", "Marketing for Handymen", "Marketing for Snow Removal"],
+      serviceType: ["Home Service Business Marketing", "Website Design", "Google Ads Management", "Local SEO", "Marketing for Landscapers", "Marketing for Roofers", "Marketing for HVAC", "Marketing for Plumbers", "Marketing for Electricians", "Marketing for Pressure Washers", "Marketing for Painters", "Marketing for Cleaners", "Marketing for Handymen", "Marketing for Snow Removal"],
     },
     {
-      "@context": "https://schema.org", "@type": "FAQPage", "@id": "https://thekhan.io/contractors#faq",
+      "@context": "https://schema.org", "@type": "FAQPage", "@id": "https://thekhan.io/home-services#faq",
       mainEntity: [
-        { "@type": "Question", name: "How much does marketing for home service contractors cost?", acceptedAnswer: { "@type": "Answer", text: "Three monthly tiers: Foundation ($600/mo), Engine ($1,260/mo — most common), and Partnership ($2,200/mo). Build + setup is a one-time $1,699 (Spring 2026 launch pricing through June 30, 2026; $2,400 after). Your monthly tier kicks in Day 31. Month-to-month — cancel any month with 72 hours notice before your next bill." } },
-        { "@type": "Question", name: "How long before I see more phone calls?", acceptedAnswer: { "@type": "Answer", text: "Google Ads can start driving calls within days of launch. Local SEO compounds — it doesn't work day one. Organic rankings take 3 to 6 months to show up meaningfully, which is why most contractors run both: ads bridge the gap while SEO builds. I'll tell you which channel fits your timeline and budget before we start, not after." } },
+        { "@type": "Question", name: "How much does marketing for home service businesses cost?", acceptedAnswer: { "@type": "Answer", text: "Three monthly tiers: Foundation ($600/mo), Engine ($1,260/mo — most common), and Partnership ($2,200/mo). Build + setup is a one-time $1,699 (Spring 2026 launch pricing through June 30, 2026; $2,400 after). Your monthly tier kicks in Day 31. Month-to-month — cancel any month with 72 hours notice before your next bill." } },
+        { "@type": "Question", name: "How long before I see more phone calls?", acceptedAnswer: { "@type": "Answer", text: "Google Ads can start driving calls within days of launch. Local SEO compounds — it doesn't work day one. Organic rankings take 3 to 6 months to show up meaningfully, which is why most home service businesses run both: ads bridge the gap while SEO builds. I'll tell you which channel fits your timeline and budget before we start, not after." } },
         { "@type": "Question", name: "Do I own my Google Ads account, or do you?", acceptedAnswer: { "@type": "Answer", text: "You own it. Always. I run your ads under your own Google Ads account with your card on file. If we ever part ways, you keep the account, the history, and the data. No agency-owned account hostage situations." } },
         { "@type": "Question", name: "What happens if the marketing doesn't work?", acceptedAnswer: { "@type": "Answer", text: "Month-to-month means you're never locked in. Cancel any month with 72 hours notice before your next bill. I cap myself at a handful of clients per year specifically so I can pay attention to each one — if something isn't working, I find out fast and fix it, not 90 days later when your next invoice hits. Everything stays in your name, so canceling doesn't cost you what we've built." } },
-        { "@type": "Question", name: "What Chicago suburbs do you serve?", acceptedAnswer: { "@type": "Answer", text: "I work with contractors across the North Shore and Chicagoland — Deerfield, Highland Park, Lake Forest, Northbrook, Glencoe, Winnetka, Bannockburn, Evanston, and the broader Chicago metro area. Remote clients anywhere in the US welcome if the project fits." } },
+        { "@type": "Question", name: "What Chicago suburbs do you serve?", acceptedAnswer: { "@type": "Answer", text: "I work with home service businesses across the North Shore and Chicagoland — Deerfield, Highland Park, Lake Forest, Northbrook, Glencoe, Winnetka, Bannockburn, Evanston, and the broader Chicago metro area. Remote clients anywhere in the US welcome if the project fits." } },
       ],
     },
   ],
@@ -281,6 +281,14 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const pathname = normalizePath(url.pathname);
+
+    // 301 redirect /contractors → /home-services (rename 2026-05-10).
+    // Worker hits before React routing, so this preserves SEO equity from
+    // any existing backlinks pointing at /contractors.
+    if (pathname === "/contractors") {
+      const target = new URL("/home-services" + url.search + url.hash, url.origin);
+      return Response.redirect(target.toString(), 301);
+    }
 
     // Fetch the static asset from the assets binding.
     const assetResponse = await env.ASSETS.fetch(request);

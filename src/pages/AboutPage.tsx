@@ -122,7 +122,7 @@ export default function AboutPage() {
               bullets={[
                 <>I&apos;m Omair &mdash; based in Deerfield, IL</>,
                 <>Before TheKhan I built my own home service company to <MonoNum>84</MonoNum> clients before closing it</>,
-                <>Now I run the marketing for other contractors and local businesses &mdash; so they can focus on the work</>,
+                <>Now I run the marketing for other home service and local businesses &mdash; so they can focus on the work</>,
               ]}
               links={[
                 { label: "How I got here", href: "#how-i-got-here" },
@@ -197,7 +197,7 @@ export default function AboutPage() {
           <div className="space-y-6 text-ink-muted text-lg leading-relaxed">
             <p>
               I build <Link to="/websites" className="link">custom websites</Link> for businesses that need more than a template.
-              And I run <Link to="/contractors" className="link">monthly marketing for contractors and local businesses</Link> who want their phone ringing every week.
+              And I run <Link to="/home-services" className="link">monthly marketing for home service and local businesses</Link> who want their phone ringing every week.
             </p>
             <p>
               I work with a handful of clients at a time. If your project doesn&apos;t fit those two cleanly,
