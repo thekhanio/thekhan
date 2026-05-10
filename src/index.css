@@ -491,6 +491,73 @@ body {
 }
 
 /* ============================================================
+   Logo marquee — large clickable brand logos, slow scroll,
+   pause-on-hover. Used on /portfolio under the hero. Uses the
+   same .marquee track keyframe as the text marquee.
+   ============================================================ */
+
+.logo-marquee {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.logo-marquee-track {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0;
+  width: max-content;
+  animation: marquee-scroll 95s linear infinite;
+  animation-fill-mode: none;
+  will-change: transform;
+}
+.logo-marquee:hover .logo-marquee-track {
+  animation-play-state: paused;
+}
+.logo-marquee-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: 110px;
+  padding: 0 3rem;
+  opacity: 0.78;
+  transition: opacity 220ms ease;
+}
+.logo-marquee-cell:hover { opacity: 1; }
+.logo-marquee-img {
+  max-height: 80px;
+  max-width: 220px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+@media (min-width: 768px) {
+  .logo-marquee-cell { height: 140px; padding: 0 4rem; }
+  .logo-marquee-img { max-height: 100px; max-width: 260px; }
+}
+
+/* ============================================================
+   Sticky pull-quote — used on /websites. Holds while user scrolls
+   past it within its parent <section>.
+   ============================================================ */
+.sticky-pullquote {
+  position: sticky;
+  top: 120px;
+  z-index: 1;
+}
+
+/* ============================================================
+   Sticky timeline date — left-margin pin for /about origin arc.
+   Date label stays anchored while reader scrolls through the body.
+   ============================================================ */
+.sticky-date {
+  position: sticky;
+  top: 130px;
+  align-self: start;
+}
+
+/* ============================================================
    Gradient drift
    ============================================================ */
 

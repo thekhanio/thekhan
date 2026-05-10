@@ -5,12 +5,17 @@ import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/Layout";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { AnimatedUnderline } from "@/components/ui/animated-underline";
+import { TldrStrip } from "@/components/ui/tldr-strip";
+import { TextMarquee } from "@/components/ui/text-marquee";
+import { CountUp } from "@/components/ui/count-up";
+import { ClipReveal } from "@/components/ui/clip-reveal";
 import { Eyebrow, DisplayH1, MonoNum } from "@/components/editorial";
 import {
   IconCheck,
   IconX,
   IconPhone,
   IconMail,
+  IconArrowRight,
 } from "@tabler/icons-react";
 
 const BREADCRUMB_SCHEMA = {
@@ -184,49 +189,89 @@ export default function ContractorsPage() {
         schema={[BREADCRUMB_SCHEMA, CONTRACTORS_SCHEMA, CONTRACTORS_FAQ_SCHEMA]}
       />
 
-      {/* ==================== HERO ==================== */}
-      <section className="section-base relative pt-16 md:pt-24 pb-12 md:pb-16 px-6 md:px-12 lg:px-16">
+      {/* ==================== HERO (includes micro-strips) ==================== */}
+      <section className="section-base relative pt-16 md:pt-24 pb-16 md:pb-20 px-6 md:px-12 lg:px-16 overflow-hidden">
+        <div className="gradient-drift" aria-hidden="true" />
         <div className="relative max-w-[1400px] mx-auto">
           <div className={`transition-all duration-700 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
             <Eyebrow accent className="mb-8">
               For Contractors
             </Eyebrow>
 
-            <DisplayH1 className="max-w-5xl">
-              You do the work.
-              <br />
-              <span className="text-accent">I make sure people find you.</span>
-            </DisplayH1>
+            <ClipReveal trigger="load">
+              <DisplayH1 className="max-w-5xl">
+                You do the work.
+                <br />
+                <span className="text-accent">I make sure people find you.</span>
+              </DisplayH1>
+            </ClipReveal>
 
             <p className="lede mt-10 max-w-2xl">
               Contractor marketing that makes your phone ring.
             </p>
 
+            <TldrStrip
+              bullets={[
+                <>Site, SEO, ads, reviews, reports &mdash; I run all of it</>,
+                <>3 tiers: <MonoNum>$599</MonoNum>, <MonoNum>$1,260</MonoNum>, or <MonoNum>$2,200</MonoNum>/mo</>,
+                <>Month-to-month &mdash; cancel any month with 72 hours notice</>,
+              ]}
+              links={[
+                { label: "Pricing", href: "#pricing" },
+                { label: "How it works", href: "#how-it-works" },
+                { label: "Am I a fit?", href: "#fit" },
+              ]}
+            />
+
             <div className="mt-10 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-5">
               <a href="#contact" className="btn-primary">See if we&apos;re a fit &rarr;</a>
               <a href="#pricing" className="btn-outline-accent">See pricing &rarr;</a>
+            </div>
+
+            {/* Micro-strips — now inside the hero's light section */}
+            <div className="mt-14 md:mt-16 space-y-3">
+              <p className={`text-ink-quiet text-base md:text-[17px] leading-relaxed opacity-80 transition-all duration-700 delay-[400ms] ${mounted ? 'opacity-80 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                &mdash; I work with a handful of contractors at a time. &mdash;
+              </p>
+              <p className={`text-ink-quiet text-base md:text-[17px] leading-relaxed opacity-80 transition-all duration-700 delay-[475ms] ${mounted ? 'opacity-80 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                &mdash; Before TheKhan, I built my own home service company to <CountUp to={84} className="font-mono text-accent-light" /> clients. Closed it in March &mdash; the phone still rings from the SEO work I did &mdash; and those calls now go to the contractors I work with. &mdash;
+              </p>
+              <p className={`text-ink-quiet text-base md:text-[17px] leading-relaxed opacity-80 transition-all duration-700 delay-[550ms] ${mounted ? 'opacity-80 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                &mdash; Serving contractors across Chicagoland &mdash; Deerfield, Highland Park, Lake Forest, Northbrook, Glencoe, Winnetka, Wilmette, Evanston, Skokie, Arlington Heights, Naperville, Oak Park, and the rest of the Chicago metro. Remote clients welcome anywhere in the US. &mdash;
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ==================== HERO MICRO-STRIPS ==================== */}
-      <section className="section-base px-6 md:px-12 lg:px-16 pb-20 md:pb-28">
-        <div className="max-w-[1400px] mx-auto space-y-2">
-          <p className={`text-ink-quiet text-sm leading-relaxed opacity-80 transition-all duration-700 delay-[400ms] ${mounted ? 'opacity-80 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            &mdash; I work with a handful of contractors at a time. &mdash;
-          </p>
-          <p className={`text-ink-quiet text-sm leading-relaxed opacity-80 transition-all duration-700 delay-[475ms] ${mounted ? 'opacity-80 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            &mdash; Before TheKhan, I built my own home service company to 84 clients. Closed it in March &mdash; the phone still rings from the SEO work I did. &mdash;
-          </p>
-          <p className={`text-ink-quiet text-sm leading-relaxed opacity-80 transition-all duration-700 delay-[550ms] ${mounted ? 'opacity-80 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            &mdash; Serving contractors across Chicagoland &mdash; Deerfield, Highland Park, Lake Forest, Northbrook, Glencoe, Winnetka, Wilmette, Evanston, Skokie, Arlington Heights, Naperville, Oak Park, and the rest of the Chicago metro. Remote clients welcome anywhere in the US. &mdash;
-          </p>
-        </div>
+      {/* ==================== TEXT MARQUEE — solid, slower ==================== */}
+      <section className="section-deep py-8 md:py-10 border-y border-line overflow-hidden">
+        <TextMarquee
+          variant="solid"
+          durationSec={120}
+          items={[
+            "Power Washing",
+            "Window Washing",
+            "Landscaping",
+            "Snow Removal",
+            "Cleaning",
+            "Janitorial",
+            "Lighting Installation",
+            "Junk Removal",
+            "Roofing",
+            "HVAC",
+            "Plumbing",
+            "Electrical",
+            "Painting",
+            "Concrete",
+            "Paving",
+            "Paver Restoration",
+          ]}
+        />
       </section>
 
       {/* ==================== PAIN GRID ==================== */}
-      <section className="section-deep py-24 md:py-36 px-6 relative z-10">
+      <section className="section-base py-24 md:py-36 px-6 relative z-10">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <ScrollReveal direction="up">
@@ -240,7 +285,7 @@ export default function ContractorsPage() {
           <div className="max-w-3xl mx-auto">
             {painPoints.map((p, i) => (
               <ScrollReveal key={i} direction="up" delay={i * 0.08}>
-                <div className={`py-16 md:py-24 ${i > 0 ? "border-t border-accent-line/40" : ""}`}>
+                <div className={`py-8 md:py-12 ${i > 0 ? "border-t border-accent-line/40" : ""}`}>
                   <h3 className="display-h2 text-2xl md:text-3xl text-ink leading-snug mb-5">
                     {p.title}
                   </h3>
@@ -255,7 +300,7 @@ export default function ContractorsPage() {
       </section>
 
       {/* ==================== FULL STORY LINK ==================== */}
-      <section className="section-base pt-2 pb-8 px-6 relative z-10">
+      <section className="section-deep py-10 md:py-12 px-6 relative z-10 border-y border-line">
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal direction="up">
             <Link to="/about" className="text-accent hover:text-ink text-sm tracking-wide underline underline-offset-4 transition-colors">
@@ -467,7 +512,7 @@ export default function ContractorsPage() {
       </section>
 
       {/* ==================== HOW THIS WORKS + TERMS — paired ==================== */}
-      <section className="section-base py-20 md:py-28 px-6 relative z-10">
+      <section id="how-it-works" className="section-base py-20 md:py-28 px-6 relative z-10 scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           {/* How this works — 2-col */}
           <ScrollReveal direction="up">
@@ -512,7 +557,7 @@ export default function ContractorsPage() {
       </section>
 
       {/* ==================== WHAT I ACTUALLY DO ==================== */}
-      <section className="section-base py-24 md:py-36 px-6 relative z-10">
+      <section className="section-deep py-24 md:py-36 px-6 relative z-10">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <ScrollReveal direction="up">
@@ -567,7 +612,7 @@ export default function ContractorsPage() {
       </section>
 
       {/* ==================== POLARIZER ==================== */}
-      <section className="section-deep py-24 md:py-36 px-6 relative z-10">
+      <section id="fit" className="section-raised py-24 md:py-36 px-6 relative z-10 scroll-mt-20">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <ScrollReveal direction="up">
@@ -705,8 +750,13 @@ export default function ContractorsPage() {
                     </div>
                   </div>
                 </div>
+                <div className="mt-8">
+                  <a href="tel:8472208550" className="cta-orbit">
+                    Tell me about your business &nbsp;<IconArrowRight className="w-4 h-4" />
+                  </a>
+                </div>
                 <p className="text-ink-quiet text-xs italic mt-5 leading-relaxed">
-                  Prefer to skip the form? Text or call (847) 220-8550.
+                  Prefer the form? Fill it out — same inbox.
                 </p>
               </div>
             </div>

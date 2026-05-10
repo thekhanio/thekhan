@@ -95,9 +95,9 @@ export default function HomePage() {
       />
 
       {/* ==================== HERO — single column, no photo.
-           Background treatment matches /websites: section-base only,
-           no gradient-drift, no WavesBackdrop. ==================== */}
-      <section className="section-base relative pt-16 md:pt-24 pb-20 md:pb-28 px-6 md:px-12 lg:px-16">
+           Atmospheric gradient drift matches /websites and /contractors. ==================== */}
+      <section className="section-base relative pt-16 md:pt-24 pb-20 md:pb-28 px-6 md:px-12 lg:px-16 overflow-hidden">
+        <div className="gradient-drift" aria-hidden="true" />
         <div className="relative max-w-[1400px] mx-auto">
           <div
             className={`transition-all duration-700 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
@@ -300,7 +300,7 @@ export default function HomePage() {
                 {/* MovingBorder CTA — single, page-final earned-attention button */}
                 <div className="mt-10">
                   <a href="tel:8472208550" className="cta-orbit">
-                    Text me &nbsp;<IconArrowRight className="w-4 h-4" />
+                    Tell me about your business &nbsp;<IconArrowRight className="w-4 h-4" />
                   </a>
                 </div>
                 <p className="text-ink-faint text-xs italic mt-6 leading-relaxed">

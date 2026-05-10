@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 import { ContactForm } from "@/components/ContactForm";
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/Layout";
+import { LogoMarquee } from "@/components/ui/logo-marquee";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { ClipReveal } from "@/components/ui/clip-reveal";
 import { Eyebrow, DisplayH2, MonoNum } from "@/components/editorial";
-import { IconPhone, IconMail, IconArrowUpRight } from "@tabler/icons-react";
+import { IconPhone, IconMail, IconArrowUpRight, IconArrowRight } from "@tabler/icons-react";
 
 const PAGE_TITLE = "Portfolio — Custom Websites for Small Businesses | TheKhan";
 const PAGE_DESC = "I build custom websites and run the marketing for home service businesses across Chicago.";
@@ -63,6 +66,20 @@ const PREMIER_BRANDS: PremierBrand[] = [
   { name: "Premier Paver Restoration", url: "https://paversfrompremier.com", display: "paversfrompremier.com", logo: "/portfolio/premier-paver-logo.png" },
 ];
 
+const LOGO_MARQUEE_BRANDS = [
+  { name: "Premier Partners", url: "https://servicesfrompremier.com", logo: "/portfolio/premier-partners-logo.png" },
+  { name: "MarioScape", url: "https://marioscape.com", logo: "/portfolio/marioscape-logo.png" },
+  { name: "Premier Power Washing", url: "https://powerwashingfrompremier.com", logo: "/portfolio/premier-powerwashing-logo.png" },
+  { name: "Clean & Green", url: "https://cleangreenproperty.com", logo: "/portfolio/cleangreen-logo.png" },
+  { name: "Premier Paver Restoration", url: "https://paversfrompremier.com", logo: "/portfolio/premier-paver-logo.png" },
+  { name: "WAF Chicago", url: "https://wafchicago.org", logo: "/portfolio/waf-logo.svg" },
+  { name: "Premier Holiday Lighting", url: "https://lightingfrompremier.com", logo: "/portfolio/premier-lighting-logo.png" },
+  { name: "Premier Auto Spa", url: "https://detailingfrompremier.com", logo: "/portfolio/premier-detailing-logo.png" },
+  { name: "Nour's Barbershop", url: "https://noursbarbershop.com", logo: "/portfolio/nours-logo.png" },
+  { name: "Premier Plowing", url: "https://plowingfrompremier.com", logo: "/portfolio/premier-plowing-logo.png" },
+  { name: "Shifa Home Care", url: "https://shifahomecareservices.com", logo: "/portfolio/shifa-logo.png" },
+];
+
 interface ClientCard {
   name: string;
   area: string;
@@ -115,62 +132,153 @@ export default function PortfolioPage() {
       />
 
       {/* ==================== HERO ==================== */}
-      <section className="section-base relative pt-16 md:pt-24 pb-12 md:pb-16 px-6 md:px-12 lg:px-16">
+      <section className="section-base relative pt-16 md:pt-24 pb-8 md:pb-10 px-6 md:px-12 lg:px-16">
         <div className="max-w-[1400px] mx-auto">
           <Eyebrow accent className="mb-6">The work</Eyebrow>
-          <h1 className="display-h1 text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-ink max-w-5xl">
-            Who I&apos;ve <span className="text-accent">built for.</span>
-          </h1>
+          <ClipReveal trigger="load">
+            <h1 className="display-h1 text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-ink max-w-5xl">
+              Who I&apos;ve <span className="text-accent">built for.</span>
+            </h1>
+          </ClipReveal>
           <p className="lede mt-8 max-w-2xl">
-            <MonoNum>10</MonoNum> sites, all live right now. Click any of them to see for yourself.
+            <MonoNum>11</MonoNum> sites, all live right now. Click any of them to see for yourself.
           </p>
         </div>
       </section>
 
-      {/* ==================== PREMIER PARTNERS — 6-brand grid ==================== */}
-      <section className="section-deep border-t border-line py-20 md:py-28 px-6 md:px-12 lg:px-16">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="mb-12 md:mb-16">
-            <h2 className="display-h2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-ink mb-4">
-              Premier Partners
-            </h2>
-            <p className="text-accent-light text-base md:text-lg leading-relaxed max-w-3xl">
-              Multi-brand home service company serving Cook County, Lake County, and McHenry County
-            </p>
-          </div>
+      {/* ==================== LOGO MARQUEE — large, slow, clickable ==================== */}
+      <section className="section-deep py-8 md:py-10 border-y border-line overflow-hidden">
+        <LogoMarquee items={LOGO_MARQUEE_BRANDS} durationSec={95} />
+      </section>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-            {PREMIER_BRANDS.map((brand) => (
+      {/* ==================== PREMIER PARTNERS + CLEAN & GREEN — paired (60/40) ==================== */}
+      <section className="section-base border-t border-line py-20 md:py-28 px-6 md:px-12 lg:px-16">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-10 md:gap-0">
+            {/* PREMIER PARTNERS — 60% */}
+            <div className="md:pr-12 lg:pr-16">
+              <h2 className="display-h2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-ink mb-6 md:mb-8">
+                Premier Partners
+              </h2>
+
               <a
-                key={brand.url}
-                href={brand.url}
+                href="https://servicesfrompremier.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group lift relative flex flex-col bg-bg-raised border border-line hover:border-accent transition-colors"
-                aria-label={`${brand.name} — ${brand.display}`}
+                className="block aspect-[16/10] bg-bg-raised border border-line overflow-hidden lift mb-6 md:mb-8"
+                aria-label="Premier Partners hub site screenshot"
               >
-                <IconArrowUpRight className="absolute top-4 right-4 w-5 h-5 text-accent opacity-60 group-hover:opacity-100 transition-opacity" />
-                <div className="flex items-center justify-center h-40 md:h-44 px-8 py-10">
-                  <img
-                    src={brand.logo}
-                    alt={brand.name}
-                    className="max-h-full max-w-full object-contain"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="border-t border-line px-6 py-4">
-                  <p className="font-mono text-[11px] md:text-xs tracking-widest text-ink-quiet group-hover:text-accent transition-colors text-center">
-                    {brand.display}
-                  </p>
-                </div>
+                <img
+                  src="/portfolio/premier-hub-screenshot.jpg"
+                  alt="Premier Partners hub website"
+                  className="w-full h-full object-cover object-top"
+                  loading="lazy"
+                />
               </a>
-            ))}
+
+              <p className="text-accent-light text-base md:text-lg leading-relaxed max-w-3xl mb-8 md:mb-10">
+                Multi-brand home service company serving Cook County, Lake County, and McHenry County
+              </p>
+
+              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mb-6 md:mb-8">
+                {PREMIER_BRANDS.map((brand, i) => (
+                  <ScrollReveal key={brand.url} delay={i * 0.1}>
+                    <a
+                      href={brand.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group lift relative flex flex-col bg-bg-raised border border-line hover:border-accent transition-colors h-full"
+                      aria-label={`${brand.name} — ${brand.display}`}
+                    >
+                      <IconArrowUpRight className="absolute top-3 right-3 w-4 h-4 text-accent opacity-60 group-hover:opacity-100 transition-opacity" />
+                      <div className="flex items-center justify-center h-28 md:h-32 px-5 py-6">
+                        <img
+                          src={brand.logo}
+                          alt={brand.name}
+                          className="max-h-full max-w-full object-contain"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="border-t border-line px-3 py-3">
+                        <p className="font-mono text-[10px] md:text-[11px] tracking-widest text-ink-quiet group-hover:text-accent transition-colors text-center truncate">
+                          {brand.display}
+                        </p>
+                      </div>
+                    </a>
+                  </ScrollReveal>
+                ))}
+              </div>
+
+              <a
+                href="https://servicesfrompremier.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-accent-light hover:text-ink transition-colors font-mono text-sm tracking-wide"
+              >
+                <span>Visit hub site &rarr;</span>
+                <IconArrowUpRight className="w-4 h-4" />
+              </a>
+            </div>
+
+            {/* CLEAN & GREEN — 40%, with vertical sage divider on desktop */}
+            <div className="md:pl-12 lg:pl-16 md:border-l md:border-accent-line/60 mt-16 md:mt-0">
+              <h2 className="display-h2 text-3xl sm:text-4xl md:text-4xl lg:text-5xl text-ink mb-6 md:mb-8">
+                Clean &amp; Green
+              </h2>
+
+              <a
+                href="https://cleangreenproperty.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block aspect-[16/10] bg-bg-raised border border-line overflow-hidden lift mb-6 md:mb-8"
+                aria-label="Clean & Green homepage screenshot"
+              >
+                <img
+                  src="/portfolio/cleangreen-screenshot.jpg"
+                  alt="Clean & Green Property Care website"
+                  className="w-full h-full object-cover object-top"
+                  loading="lazy"
+                />
+              </a>
+
+              <p className="text-ink-muted text-base md:text-lg leading-relaxed mb-10 md:mb-12">
+                My old company. Founded June 2024, scaled to 84 clients on the North Shore before I closed it March 2026. The phone still rings from the SEO work I did &mdash; and those calls now go to the contractors I work with.
+              </p>
+
+              {/* 3-stat editorial data block — Founded / Peak / Closed */}
+              <dl className="grid grid-cols-3 gap-4 md:gap-6 py-8 md:py-10 border-y border-line mb-10 md:mb-12">
+                {[
+                  { label: "Founded", value: "June 2024" },
+                  { label: "Peak", value: "84 clients" },
+                  { label: "Closed", value: "March 2026" },
+                ].map((stat) => (
+                  <div key={stat.label}>
+                    <dt className="font-mono text-[10px] md:text-[11px] tracking-widest uppercase text-accent-light mb-2">
+                      {stat.label}
+                    </dt>
+                    <dd className="font-display text-lg md:text-xl lg:text-2xl text-ink leading-tight uppercase tracking-wide">
+                      {stat.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+
+              <a
+                href="https://cleangreenproperty.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-accent-light hover:text-ink transition-colors font-mono text-sm tracking-wide"
+              >
+                <span>Visit &rarr;</span>
+                <IconArrowUpRight className="w-4 h-4" />
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ==================== OTHER CLIENTS — 2×2 grid ==================== */}
-      <section className="section-base border-t border-line py-20 md:py-28 px-6 md:px-12 lg:px-16">
+      <section className="section-deep border-t border-line py-20 md:py-28 px-6 md:px-12 lg:px-16">
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-12">
             {CLIENTS.map((c) => {
@@ -289,8 +397,13 @@ export default function PortfolioPage() {
                     </li>
                   ))}
                 </ol>
+                <div className="mt-8">
+                  <a href="tel:8472208550" className="cta-orbit">
+                    Tell me about your business &nbsp;<IconArrowRight className="w-4 h-4" />
+                  </a>
+                </div>
                 <p className="text-ink-quiet text-xs italic mt-6 leading-relaxed">
-                  Prefer to skip the form? Text or call <MonoNum>(847) 220-8550</MonoNum>.
+                  Prefer the form? Fill it out — same inbox.
                 </p>
               </div>
             </div>

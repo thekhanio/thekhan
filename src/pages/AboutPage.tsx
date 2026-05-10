@@ -1,17 +1,20 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ContactForm } from "@/components/ContactForm";
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/Layout";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { TldrStrip } from "@/components/ui/tldr-strip";
+import { ClipReveal } from "@/components/ui/clip-reveal";
 import { Eyebrow, DisplayH2, MonoNum } from "@/components/editorial";
-import { IconPhone, IconMail } from "@tabler/icons-react";
+import { IconPhone, IconMail, IconArrowRight } from "@tabler/icons-react";
 
 const TIMELINE_NODES = [
   { date: "Jun '24", body: "I started Clean & Green Property Care as a cleaning company. My wife and I ran every clean ourselves — move-in/move-out jobs from the city to the burbs. The problem was keeping up with both the marketing and the field work." },
   { date: "Jan '25", body: "I stopped doing the work myself. Started running everything through subcontractors — added landscaping, power washing, gutter cleaning, and lighting installs. Margins got tighter and the volume got higher. But the business side was finally the only thing on my plate." },
   { date: "Oct '25", body: "I registered TheKhan, built the first version of the site, took on my first clients, and started running marketing for them on the side. Still a side project — but I was spending more of my week on it than I should have been." },
   { date: "Late '25", body: "A couple of subcontractors fell through, so I brought the work back myself. I was out in the field again, running two routes that took me 15 to 20 hours straight to finish. The company hit 84 clients at peak — and between the workload and some old injuries, I knew the labor side wasn't my edge." },
-  { date: "Mar '26", body: "I closed Clean & Green Property Care and went all in on TheKhan. The phone still rings from the SEO work I did. I know what that seat feels like — so I treat every business I work with like my own." },
+  { date: "Mar '26", body: "I closed Clean & Green Property Care and went all in on TheKhan. The phone still rings from the SEO work I did — and those calls now go to the contractors I work with." },
 ];
 
 const NEXT_STEPS = [
@@ -57,6 +60,20 @@ const ABOUT_SCHEMA = {
 };
 
 export default function AboutPage() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
+  // Inline stagger animation — preserves the two-axis layout by animating
+  // each element in place (no display-collapsing wrapper).
+  const staggerStyle = (delayMs: number): React.CSSProperties => ({
+    opacity: mounted ? 1 : 0,
+    transform: mounted ? "translateY(0)" : "translateY(0.4em)",
+    transition: `opacity 700ms cubic-bezier(0.22, 0.61, 0.36, 1) ${delayMs}ms, transform 700ms cubic-bezier(0.22, 0.61, 0.36, 1) ${delayMs}ms`,
+  });
+
   return (
     <Layout activePath="/about" contactHref="#contact">
       <SEO
@@ -74,21 +91,47 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto text-center">
           <Eyebrow accent className="mb-8">About</Eyebrow>
           <h1 className="display-h1">
-            <span className="block text-2xl sm:text-3xl md:text-4xl text-ink-muted mb-8 md:mb-10">
+            <span
+              className="block text-2xl sm:text-3xl md:text-4xl text-ink-muted mb-8 md:mb-10"
+              style={staggerStyle(0)}
+            >
               Every business has two jobs.
             </span>
             <span className="flex items-center justify-center gap-6 sm:gap-10 md:gap-14 mb-8 md:mb-10 text-sm sm:text-base md:text-lg uppercase tracking-[0.2em] font-mono">
-              <span className="text-ink-muted">Doing<br className="sm:hidden" /> the work</span>
-              <span aria-hidden="true" className="block h-10 md:h-14 w-px bg-accent" />
-              <span className="text-accent font-semibold">Getting<br className="sm:hidden" /> the work</span>
+              <span className="text-ink-muted" style={staggerStyle(200)}>
+                Doing<br className="sm:hidden" /> the work
+              </span>
+              <span aria-hidden="true" className="block h-10 md:h-14 w-px bg-accent" style={staggerStyle(300)} />
+              <span className="text-accent font-semibold" style={staggerStyle(400)}>
+                Getting<br className="sm:hidden" /> the work
+              </span>
             </span>
-            <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-ink">
+            <span
+              className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-ink"
+              style={staggerStyle(600)}
+            >
               The second one is all I do now.
             </span>
           </h1>
           <p className="lede mt-10 max-w-2xl mx-auto">
-            You keep doing the work. I&apos;ll help you bring more in.
+            You keep doing the work. I&apos;ll handle the marketing.
           </p>
+
+          <div className="mt-14 text-left">
+            <TldrStrip
+              bullets={[
+                <>I&apos;m Omair &mdash; based in Deerfield, IL</>,
+                <>Before TheKhan I built my own home service company to <MonoNum>84</MonoNum> clients before closing it</>,
+                <>Now I run the marketing for other contractors and local businesses &mdash; so they can focus on the work</>,
+              ]}
+              links={[
+                { label: "How I got here", href: "#how-i-got-here" },
+                { label: "How I work", href: "#how-i-work" },
+                { label: "Let's talk", href: "#contact" },
+              ]}
+              className="mx-auto"
+            />
+          </div>
         </div>
       </section>
 
@@ -96,7 +139,7 @@ export default function AboutPage() {
       <section className="section-deep py-24 px-6 border-t border-line">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-start">
           <div className="md:col-span-5">
-            <ScrollReveal>
+            <ClipReveal trigger="scroll" durationMs={900}>
               <img
                 src="/omair-portrait.webp"
                 alt="Omair Khan, founder of TheKhan"
@@ -105,7 +148,7 @@ export default function AboutPage() {
               <p className="mt-4 font-mono text-xs text-ink-quiet uppercase tracking-widest">
                 Omair Khan · Deerfield, IL
               </p>
-            </ScrollReveal>
+            </ClipReveal>
           </div>
           <div className="md:col-span-7">
             <Eyebrow accent className="mb-5">Who you&apos;re working with</Eyebrow>
@@ -121,7 +164,7 @@ export default function AboutPage() {
       </section>
 
       {/* ==================== ORIGIN ARC — specimen timeline ==================== */}
-      <section className="section-raised py-24 md:py-32 px-6 border-t border-line">
+      <section id="how-i-got-here" className="section-raised py-24 md:py-32 px-6 border-t border-line scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <div className="mb-16">
             <Eyebrow accent className="mb-5">How I got here</Eyebrow>
@@ -134,11 +177,11 @@ export default function AboutPage() {
           <div className="border-t border-line">
             {TIMELINE_NODES.map((node) => (
               <ScrollReveal key={node.date}>
-                <div className="grid grid-cols-[auto_1fr] gap-x-8 md:gap-x-12 gap-y-3 py-8 border-b border-line">
-                  <p className="font-mono text-sm text-accent tracking-widest pt-1 whitespace-nowrap">
+                <div className="grid grid-cols-[auto_1fr] gap-x-8 md:gap-x-12 gap-y-3 py-10 md:py-12 border-b border-line">
+                  <p className="sticky-date font-mono text-sm text-accent tracking-widest pt-1 whitespace-nowrap">
                     {node.date}
                   </p>
-                  <p className="text-ink-muted leading-relaxed">{node.body}</p>
+                  <p className="text-ink-muted leading-relaxed text-base md:text-lg">{node.body}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -165,7 +208,7 @@ export default function AboutPage() {
       </section>
 
       {/* ==================== HOW I WORK ==================== */}
-      <section className="section-deep py-24 md:py-32 px-6 border-t border-line">
+      <section id="how-i-work" className="section-deep py-24 md:py-32 px-6 border-t border-line scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <Eyebrow accent className="mb-5">How I work</Eyebrow>
           <DisplayH2 className="mb-10">
@@ -223,8 +266,13 @@ export default function AboutPage() {
                     </li>
                   ))}
                 </ol>
+                <div className="mt-8">
+                  <a href="tel:8472208550" className="cta-orbit">
+                    Tell me about your business &nbsp;<IconArrowRight className="w-4 h-4" />
+                  </a>
+                </div>
                 <p className="text-ink-quiet text-xs italic mt-6 leading-relaxed">
-                  Prefer to skip the form? Text or call <MonoNum>(847) 220-8550</MonoNum>.
+                  Prefer the form? Fill it out — same inbox.
                 </p>
               </div>
             </div>

@@ -4,8 +4,11 @@ import { m, AnimatePresence } from "framer-motion";
 import { ContactForm } from "@/components/ContactForm";
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/Layout";
-import { Eyebrow, DisplayH1, DisplayH2, MonoNum } from "@/components/editorial";
-import { IconPhone, IconMail, IconCheck, IconChevronDown } from "@tabler/icons-react";
+import { Eyebrow, DisplayH1, DisplayH2, MonoNum, PullQuote } from "@/components/editorial";
+import { TldrStrip } from "@/components/ui/tldr-strip";
+import { TextMarquee } from "@/components/ui/text-marquee";
+import { ClipReveal } from "@/components/ui/clip-reveal";
+import { IconPhone, IconMail, IconCheck, IconChevronDown, IconArrowRight } from "@tabler/icons-react";
 
 const faqs = [
   { q: "Do I need my own domain?", a: "If you don't have one, I'll walk you through buying it (about $12/year through GoDaddy, Namecheap, or whichever provider you prefer). You register it in your own account, with your own login. You own it forever — even if we never talk again." },
@@ -18,7 +21,7 @@ const faqs = [
 ];
 
 const PAGE_TITLE = "Custom Web Design — Deerfield, IL | Sites You Own";
-const PAGE_DESC = "Custom websites built from scratch in 1–6 weeks. You own every file, the domain, the logins. No retainer, no lock-in. Deerfield, IL.";
+const PAGE_DESC = "Custom websites built from scratch in about 30 days. You own every file, the domain, the logins. No retainer, no lock-in. Deerfield, IL.";
 const PAGE_URL = "https://thekhan.io/websites";
 const OG_IMAGE = "https://thekhan.io/websites-og.jpg";
 
@@ -119,17 +122,34 @@ export default function WebsitesPage() {
       />
 
       {/* ==================== HERO ==================== */}
-      <section className="section-base relative pt-16 md:pt-24 pb-20 md:pb-28 px-6 lg:px-12">
-        <div className="max-w-[1600px] mx-auto">
+      <section className="section-base relative pt-16 md:pt-24 pb-20 md:pb-28 px-6 lg:px-12 overflow-hidden">
+        <div className="gradient-drift" aria-hidden="true" />
+        <div className="relative max-w-[1600px] mx-auto">
           <Eyebrow accent className="mb-8">Websites</Eyebrow>
-          <DisplayH1 className="max-w-6xl">
-            A site you own.
-            <br />
-            <span className="text-accent">Built to rank.</span>
-          </DisplayH1>
+          <ClipReveal trigger="load">
+            <DisplayH1 className="max-w-6xl">
+              A site you own.
+              <br />
+              <span className="text-accent">Built to rank.</span>
+            </DisplayH1>
+          </ClipReveal>
           <p className="lede mt-12 max-w-2xl">
-            Live in <MonoNum>1</MonoNum> to <MonoNum>6</MonoNum> weeks. The site is yours — move it anywhere you want. No monthly fees.
+            Live in about <MonoNum>30</MonoNum> days. The site is yours — move it anywhere you want. No monthly fees.
           </p>
+
+          <TldrStrip
+            bullets={[
+              <>A site built just for you, ready in about 30 days</>,
+              <>3 tiers: <MonoNum>$750</MonoNum>, <MonoNum>$1,200</MonoNum>, or <MonoNum>$1,800</MonoNum> (one-time, Spring 2026 launch pricing)</>,
+              <>You own the code &mdash; no contracts, no lock-in</>,
+            ]}
+            links={[
+              { label: "Pricing", href: "#pricing" },
+              { label: "Process", href: "#process" },
+              { label: "FAQ", href: "#faq" },
+            ]}
+          />
+
           <div className="mt-12 flex flex-wrap items-center gap-8">
             <a href="#contact" className="btn-primary">Start your build &rarr;</a>
             <a href="#pricing" className="text-accent-light hover:text-ink text-sm tracking-wide underline underline-offset-4 decoration-accent-line hover:decoration-ink transition-colors">
@@ -142,6 +162,24 @@ export default function WebsitesPage() {
             </Link>
           </p>
         </div>
+      </section>
+
+      {/* ==================== TEXT MARQUEE — outlined, slower ==================== */}
+      <section className="section-deep py-8 md:py-10 border-y border-line overflow-hidden">
+        <TextMarquee
+          variant="outlined"
+          durationSec={90}
+          items={[
+            "Built Just for You",
+            "Found on Google",
+            "Brings In Calls",
+            "Loads Fast",
+            "Looks Sharp on Phones",
+            "Easy to Edit Yourself",
+            "You Own It",
+            "No Contracts",
+          ]}
+        />
       </section>
 
       {/* ==================== PRICING ==================== */}
@@ -249,7 +287,7 @@ export default function WebsitesPage() {
             <div className="space-y-6 text-ink-muted text-base md:text-lg leading-relaxed">
               <p>
                 <span className="text-ink font-semibold">Site-only build (Starter, Full, or Authority Site).</span>{" "}
-                50% paid Day 1 to start the build, 50% on launch. Live in 1 to 6 weeks. One-time project — no monthly fee, no cancellation fee.
+                50% paid Day 1 to start the build, 50% on launch. Live in about 30 days. One-time project — no monthly fee, no cancellation fee.
               </p>
               <p>
                 <span className="text-ink font-semibold">Marketing Bundle.</span>{" "}
@@ -260,34 +298,6 @@ export default function WebsitesPage() {
                 The site is yours at launch. <strong className="text-accent-light font-semibold">Optional</strong> dashboard ($59/mo, further down) is month-to-month — cancel any month with 72 hours notice before your next bill.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ==================== WHAT'S NOT INCLUDED ==================== */}
-      <section className="section-base py-24 md:py-32 px-6 lg:px-12 border-t border-line">
-        <div className="max-w-4xl mx-auto">
-          <div className="mb-20 max-w-3xl">
-            <Eyebrow accent className="mb-8">Honest scope</Eyebrow>
-            <DisplayH2 className="mb-8">What I don&apos;t do — on purpose.</DisplayH2>
-            <p className="lede">
-              What&apos;s on your tier&apos;s list is what I build. Everything else is a separate conversation — priced up front, no surprise invoices.
-            </p>
-          </div>
-
-          <div className="border-t border-line">
-            {[
-              { num: "01", title: "Ongoing marketing.", body: <>No ongoing SEO, ads, social, or Google Business Profile management. I build the site. I don&apos;t run your marketing. Want that handled monthly? <Link to="/contractors" className="link">See the monthly tiers &rarr;</Link></> },
-              { num: "02", title: "Photos and brand assets.", body: <>I&apos;ll write the copy — just tell me anything specific you want included and I&apos;ll draft the rest. Photos, logos, and existing brand materials are on you. If you don&apos;t have a logo yet and need something basic to get started, let me know when you reach out — I can help with that separately.</> },
-              { num: "03", title: "Post-launch edits.", body: <>Once the site goes live, it&apos;s yours. Ongoing edits aren&apos;t part of the one-time build — but the optional dashboard (more below) lets you update anything yourself in a few clicks.</> },
-              { num: "04", title: "Custom systems.", body: <>Custom systems aren&apos;t part of the base tiers — things like e-commerce backends, booking systems, membership logins, and payment processors. But if you already use something like Stripe, Booksy, or Calendly, I can embed the link on your site for free — quick to set up. Need a custom system built from scratch? Tell me upfront and I&apos;ll quote it as its own project.</> },
-            ].map((item) => (
-              <div key={item.num} className="grid grid-cols-[auto_1fr] gap-x-8 md:gap-x-14 gap-y-3 py-12 border-b border-line">
-                <p className="font-mono text-sm text-accent tracking-widest pt-2">{item.num}</p>
-                <h3 className="display-h2 text-2xl md:text-3xl text-ink">{item.title}</h3>
-                <div className="col-start-2 text-ink-muted leading-relaxed text-base md:text-lg">{item.body}</div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -358,7 +368,7 @@ export default function WebsitesPage() {
       </section>
 
       {/* ==================== PROCESS ==================== */}
-      <section className="section-base py-24 md:py-32 px-6 lg:px-12 border-t border-line">
+      <section id="process" className="section-base py-24 md:py-32 px-6 lg:px-12 border-t border-line scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <div className="mb-20 max-w-3xl">
             <Eyebrow accent className="mb-8">The process</Eyebrow>
@@ -369,7 +379,7 @@ export default function WebsitesPage() {
             {[
               { n: "01", title: "Discovery — Day 1", body: "A quick call. Tell me about your business and what you need the site to do. No pitch, just questions.", arrow: "Clear picture of what I'm building." },
               { n: "02", title: "Proposal — Within 48 hours", body: "Exact scope, timeline, and price — no surprises. Once you approve, I send an intake form. Anything outside the tier, I'll quote separately.", arrow: "Locked plan and start date." },
-              { n: "03", title: "Build — 1 to 6 weeks", body: "You see progress along the way. I test everything before it goes live. Nothing hidden.", arrow: "Working site, tested and ready." },
+              { n: "03", title: "Build — about 30 days", body: "You see progress along the way. I test everything before it goes live. Nothing hidden.", arrow: "Working site, tested and ready." },
               { n: "04", title: "Launch — Day of", body: "I hand off the site. By launch, every account is in your name — domain, hosting, analytics.", arrow: "Your site, live and yours." },
             ].map((step) => (
               <div key={step.n} className="grid grid-cols-[auto_1fr] gap-x-8 md:gap-x-14 gap-y-3 py-12 border-b border-line">
@@ -391,8 +401,64 @@ export default function WebsitesPage() {
         </div>
       </section>
 
+      {/* ==================== WHAT'S NOT INCLUDED — relocated to position 6 ==================== */}
+      <section className="section-base py-24 md:py-32 px-6 lg:px-12 border-t border-line">
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-20 max-w-3xl">
+            <Eyebrow accent className="mb-8">Honest scope</Eyebrow>
+            <DisplayH2 className="mb-8">What I don&apos;t do — on purpose.</DisplayH2>
+            <p className="lede">
+              What&apos;s on your tier&apos;s list is what I build. Everything else is a separate conversation — priced up front, no surprise invoices.
+            </p>
+          </div>
+
+          <div className="border-t border-line">
+            {[
+              { num: "01", title: "Ongoing marketing.", body: <>No ongoing SEO, ads, social, or Google Business Profile management. I build the site. I don&apos;t run your marketing. Want that handled monthly? <Link to="/contractors" className="link">See the monthly tiers &rarr;</Link></> },
+              { num: "02", title: "Photos and brand assets.", body: <>I&apos;ll write the copy — just tell me anything specific you want included and I&apos;ll draft the rest. Photos, logos, and existing brand materials are on you. If you don&apos;t have a logo yet and need something basic to get started, let me know when you reach out — I can help with that separately.</> },
+              { num: "03", title: "Post-launch edits.", body: <>Once the site goes live, it&apos;s yours. Ongoing edits aren&apos;t part of the one-time build — but the optional dashboard (more below) lets you update anything yourself in a few clicks.</> },
+              { num: "04", title: "Custom systems.", body: <>Custom systems aren&apos;t part of the base tiers — things like e-commerce backends, booking systems, membership logins, and payment processors. But if you already use something like Stripe, Booksy, or Calendly, I can embed the link on your site for free — quick to set up. Need a custom system built from scratch? Tell me upfront and I&apos;ll quote it as its own project.</> },
+            ].map((item) => (
+              <div key={item.num} className="grid grid-cols-[auto_1fr] gap-x-8 md:gap-x-14 gap-y-3 py-12 border-b border-line">
+                <p className="font-mono text-sm text-accent tracking-widest pt-2">{item.num}</p>
+                <h3 className="display-h2 text-2xl md:text-3xl text-ink">{item.title}</h3>
+                <div className="col-start-2 text-ink-muted leading-relaxed text-base md:text-lg">{item.body}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== STICKY PULL-QUOTE — anchors trust between scope & FAQ ==================== */}
+      <section className="section-raised py-24 md:py-32 px-6 lg:px-12 border-t border-line">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 min-h-[60vh]">
+          <div className="md:col-span-7 md:col-start-1">
+            <div className="sticky-pullquote">
+              <Eyebrow accent className="mb-6">What clients say</Eyebrow>
+              <PullQuote attribution="Mario Reyes · MarioScape Landscaping">
+                Code beats a template. The site loads fast, ranks fast, and the calls keep coming in.
+              </PullQuote>
+            </div>
+          </div>
+          <div className="md:col-span-5 md:pt-2 space-y-7 text-ink-muted leading-relaxed text-base md:text-lg max-w-xl">
+            <p>
+              Every site I ship is built from scratch — written by hand, line by line, for the business in front of me.
+            </p>
+            <p>
+              That&apos;s why the pages load faster than templated sites. It&apos;s why Google ranks them. It&apos;s why your competitors can&apos;t copy them.
+            </p>
+            <p>
+              And when launch day comes, every file is yours.
+            </p>
+            <p>
+              <Link to="/portfolio" className="link">See the work &rarr;</Link>
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ==================== FAQ ==================== */}
-      <section className="section-deep py-24 md:py-32 px-6 lg:px-12 border-t border-line">
+      <section id="faq" className="section-deep py-24 md:py-32 px-6 lg:px-12 border-t border-line scroll-mt-20">
         <div className="max-w-3xl mx-auto">
           <div className="mb-20">
             <Eyebrow accent className="mb-8">Common questions</Eyebrow>
@@ -479,8 +545,13 @@ export default function WebsitesPage() {
                     </li>
                   ))}
                 </ol>
-                <p className="text-ink-faint text-xs italic mt-8 leading-relaxed">
-                  Prefer to skip the form? Text or call <MonoNum>(847) 220-8550</MonoNum>.
+                <div className="mt-10">
+                  <a href="tel:8472208550" className="cta-orbit">
+                    Tell me about your business &nbsp;<IconArrowRight className="w-4 h-4" />
+                  </a>
+                </div>
+                <p className="text-ink-faint text-xs italic mt-6 leading-relaxed">
+                  Prefer the form? Fill it out — same inbox.
                 </p>
               </div>
             </div>
