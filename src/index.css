@@ -330,6 +330,14 @@ body {
   color: var(--bg);
   border-color: var(--accent-light);
 }
+/* When combined with text-ink-muted on the button itself, let muted win at
+   rest. Hover override below restores the dark-on-sage hover color. */
+.btn-outline-accent.text-ink-muted {
+  color: var(--ink-muted);
+}
+.btn-outline-accent.text-ink-muted:hover {
+  color: var(--bg);
+}
 /* Inline sage-accent spans (e.g., audience words on homepage buttons) would
    otherwise stay sage-on-sage on hover and disappear. Force inherit so the
    span flips to the button's hover text color along with the rest. */
