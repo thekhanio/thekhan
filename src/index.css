@@ -259,7 +259,7 @@ body {
   transition: width 200ms ease;
 }
 .nav-link:hover::after, .nav-link-active::after { width: 100%; }
-.nav-link-active { color: var(--ink); }
+.nav-link-active { color: var(--accent-light); }
 
 /* ============================================================
    Buttons
