@@ -435,7 +435,7 @@ export default function LocalServicesPage() {
                 </p>
                 <ul className="space-y-3 mt-auto">
                   {[
-                    <>Up to 8 cities locked to you &mdash; <strong className="text-ink font-semibold">I won&apos;t take a competitor&apos;s check in any of them</strong></>,
+                    <>Up to 8 cities locked to you &mdash; <strong className="text-ink font-semibold">I won&apos;t work with your competitors in those cities</strong></>,
                     <>4&ndash;6 new pages every month &mdash; <strong className="text-ink font-semibold">you cover more services and cities than competitors can keep up with</strong></>,
                     <>Overflow leads from my pipeline &mdash; <strong className="text-ink font-semibold">they come to you every month, not split with the next business I sign</strong></>,
                     <>Full site audit every quarter &mdash; <strong className="text-ink font-semibold">find what&apos;s slipping, double down on what&apos;s working</strong></>,

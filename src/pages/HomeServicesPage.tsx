@@ -138,7 +138,7 @@ const HOME_SERVICES_FAQ_SCHEMA = {
       "name": "Do you offer exclusive territory protection?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, on the Partnership tier. You lock up to 8 cities of your choice — I won't take a competitor of yours in any of those cities. Beyond 8 cities is +$100/mo per city. At Foundation and Engine, I won't double up on competitors in the same service area either — that's just how I run. But Partnership is the only tier where exclusivity is locked in writing. If a competitor of yours ever tries to sign me on for your locked cities, the answer is no.",
+        "text": "Yes, on the Partnership tier. You lock up to 8 cities of your choice — I won't work with your competitors in any of those cities. Beyond 8 cities is +$100/mo per city. At Foundation and Engine, I won't double up on competitors in the same service area either — that's just how I run. But Partnership is the only tier where exclusivity is locked in writing. If a competitor of yours ever tries to sign me on for your locked cities, the answer is no.",
       },
     },
     {
@@ -437,7 +437,7 @@ export default function HomeServicesPage() {
                 </p>
                 <ul className="space-y-3 mt-auto">
                   {[
-                    <>Up to 8 cities locked to you &mdash; <strong className="text-ink font-semibold">I won&apos;t take a competitor&apos;s check in any of them</strong></>,
+                    <>Up to 8 cities locked to you &mdash; <strong className="text-ink font-semibold">I won&apos;t work with your competitors in those cities</strong></>,
                     <>4&ndash;6 new pages every month &mdash; <strong className="text-ink font-semibold">you cover more services and cities than competitors can keep up with</strong></>,
                     <>Overflow leads from my pipeline &mdash; <strong className="text-ink font-semibold">they come to you every month, not split with the next business I sign</strong></>,
                     <>Full site audit every quarter &mdash; <strong className="text-ink font-semibold">find what&apos;s slipping, double down on what&apos;s working</strong></>,
