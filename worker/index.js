@@ -223,6 +223,7 @@ const ROUTE_SCHEMAS = {
 
 const NOINDEX_ROUTES = new Set([
   "/form",
+  "/intake",
   "/premierpartners",
   "/marioscape",
 ]);

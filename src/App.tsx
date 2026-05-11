@@ -12,6 +12,7 @@ const QuestionnairePage = lazy(() => import("./pages/QuestionnairePage"));
 const SteveReportPage = lazy(() => import("./pages/SteveReportPage"));
 const MarioReportPage = lazy(() => import("./pages/MarioReportPage"));
 const CalvinProposalPage = lazy(() => import("./pages/CalvinProposalPage"));
+const IntakePage = lazy(() => import("./pages/IntakePage"));
 
 function NotFound() {
   return (
@@ -40,6 +41,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/form" element={<QuestionnairePage />} />
+          <Route path="/intake" element={<IntakePage />} />
           <Route path="/home-services" element={<HomeServicesPage />} />
           <Route path="/local-services" element={<LocalServicesPage />} />
           <Route path="/websites" element={<WebsitesPage />} />
