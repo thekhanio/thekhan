@@ -30,18 +30,11 @@ const ROUTE_META = {
     ogImage: "https://thekhan.io/websites-og.png",
     ogType: "website",
   },
-  "/home-services": {
-    title: "Marketing for Home Service Businesses in Chicago | TheKhan",
-    description: "Websites, Google Ads, and SEO for Chicago home service businesses. Get your phone ringing every week. You do the work. I make people find you.",
-    canonical: "https://thekhan.io/home-services",
-    ogImage: "https://thekhan.io/home-services-og.png",
-    ogType: "website",
-  },
-  "/local-services": {
-    title: "Marketing for Local Services Businesses | TheKhan",
-    description: "Local services marketing that brings in real business. Healthcare, dental, real estate, financial, beauty & wellness, pet services. Month-to-month, no contracts.",
-    canonical: "https://thekhan.io/local-services",
-    ogImage: "https://thekhan.io/local-services-og.png",
+  "/marketing": {
+    title: "Marketing for Home Service & Local Businesses | TheKhan",
+    description: "SEO, Google Ads, and Google Business Profile that get you found by people already searching — for home service and local businesses across Chicago. You do the work. I make sure people find you.",
+    canonical: "https://thekhan.io/marketing",
+    ogImage: "https://thekhan.io/og-image.png",
     ogType: "website",
   },
   "/portfolio": {
@@ -57,6 +50,13 @@ const ROUTE_META = {
     canonical: "https://thekhan.io/about",
     ogImage: "https://thekhan.io/about-og.png",
     ogType: "profile",
+  },
+  "/why-intent": {
+    title: "Intent Marketing vs Interruption Marketing | TheKhan",
+    description: "Why I market to people already searching — Google, Maps, and AI like ChatGPT — instead of interrupting them on Facebook. The idea behind everything I do, plus the numbers.",
+    canonical: "https://thekhan.io/why-intent",
+    ogImage: "https://thekhan.io/og-image.png",
+    ogType: "article",
   },
 };
 
@@ -79,7 +79,7 @@ const ROUTE_SCHEMAS = {
           "@type": ["LocalBusiness", "ProfessionalService"],
           "@id": "https://thekhan.io/#localbusiness",
           name: "TheKhan",
-          description: "TheKhan is an independent web design and digital marketing studio founded by Omair Khan in Deerfield, Illinois. Serving home service businesses and growing companies across Chicagoland and remote clients nationwide, TheKhan builds custom websites and runs the marketing that drives real leads.",
+          description: "TheKhan is an independent web design and digital marketing studio founded by Omair Khan in Deerfield, Illinois. Serving home service and local businesses, and growing companies, across Chicagoland and remote clients nationwide, TheKhan builds custom websites and runs the marketing that drives real leads.",
           url: "https://thekhan.io",
           logo: "https://thekhan.io/portfolio/logo-white.png",
           image: "https://thekhan.io/og-image.png",
@@ -95,8 +95,8 @@ const ROUTE_SCHEMAS = {
           hasOfferCatalog: {
             "@type": "OfferCatalog", name: "Digital Services",
             itemListElement: [
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Custom Website Design & Development", description: "Custom-coded responsive websites built from scratch for small businesses, home service businesses, and growing companies. Mobile-friendly, SEO-optimized, owner-controlled — no template platforms or page builders." } },
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Monthly Marketing Retainers for Home Service Businesses", description: "Ongoing marketing for home service businesses including SEO, Google Ads, Local Service Ads (LSA), Google Business Profile management, and lead generation. Built for plumbers, HVAC, roofing, electrical, landscaping, and other trades." } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Custom Website Design & Development", description: "Custom-coded responsive websites built from scratch for small businesses, home service and local businesses, and growing companies. Mobile-friendly, SEO-optimized, owner-controlled — no template platforms or page builders." } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Monthly Marketing Retainers for Home Service & Local Businesses", description: "Ongoing marketing for home service and local businesses including SEO, Google Ads, Local Service Ads (LSA), Google Business Profile management, and lead generation. Built for plumbers, HVAC, roofing, and landscaping, plus dentists, salons, auto shops, and other local businesses." } },
             ],
           },
         },
@@ -104,7 +104,7 @@ const ROUTE_SCHEMAS = {
           "@type": "FAQPage",
           "@id": "https://thekhan.io/#faq",
           mainEntity: [
-            { "@type": "Question", name: "What services does TheKhan offer?", acceptedAnswer: { "@type": "Answer", text: "TheKhan offers two main services: custom-coded website design and development for small businesses, plus monthly marketing retainers for home service businesses. Marketing retainers include SEO, Google Ads, Local Service Ads, Google Business Profile management, and lead generation." } },
+            { "@type": "Question", name: "What services does TheKhan offer?", acceptedAnswer: { "@type": "Answer", text: "TheKhan offers two main services: custom-coded website design and development for small businesses, plus monthly marketing retainers for home service and local businesses. Marketing retainers include SEO, Google Ads, Local Service Ads, Google Business Profile management, and lead generation." } },
             { "@type": "Question", name: "Where is TheKhan located?", acceptedAnswer: { "@type": "Answer", text: "TheKhan is based in Deerfield, Illinois on Chicago's North Shore. Founded by Omair Khan, the studio serves businesses throughout Chicagoland and works with remote clients nationwide." } },
             { "@type": "Question", name: "Does TheKhan work with small businesses?", acceptedAnswer: { "@type": "Answer", text: "Yes — TheKhan is built specifically for small and growing businesses. Every client works directly with founder Omair Khan, not an account manager or sales rep. TheKhan caps at a handful of clients per year to keep that direct relationship." } },
             { "@type": "Question", name: "How can I get started with TheKhan?", acceptedAnswer: { "@type": "Answer", text: "Get started by filling out the contact form at thekhan.io, calling or texting (847) 220-8550, or emailing omair@thekhan.io. Omair reads every message himself and usually replies within a few hours." } },
@@ -126,59 +126,39 @@ const ROUTE_SCHEMAS = {
   ],
   "/websites": [
     { "@context": "https://schema.org", "@type": "BreadcrumbList", "@id": "https://thekhan.io/websites#breadcrumb", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://thekhan.io" }, { "@type": "ListItem", position: 2, name: "Websites", item: "https://thekhan.io/websites" }] },
-    { "@context": "https://schema.org", "@type": "Service", "@id": "https://thekhan.io/websites#service", name: "Custom Website Design & Development", description: "Custom-coded websites built from scratch for small businesses and growing companies. Three site tiers (Starter, Full, Authority) or the Marketing Bundle with ongoing marketing handoff. Mobile-responsive, SEO-optimized, owner-controlled — no template platforms, no required retainer.", provider: { "@id": "https://thekhan.io/#localbusiness" }, areaServed: ["Chicago metropolitan area", "United States"], offers: [{ "@type": "Offer", name: "Starter Site Build", price: "750", priceCurrency: "USD" }, { "@type": "Offer", name: "Full Site Build", price: "1200", priceCurrency: "USD" }, { "@type": "Offer", name: "Authority Site Build", price: "1800", priceCurrency: "USD" }, { "@type": "Offer", name: "Marketing Bundle", price: "1699", priceCurrency: "USD" }] },
+    { "@context": "https://schema.org", "@type": "Service", "@id": "https://thekhan.io/websites#service", name: "Custom Website Design & Development", description: "Custom-coded websites built from scratch for small businesses and growing companies. Three site options (Brochure, Standard, Custom), or the Foundation when you want ongoing marketing too. Mobile-responsive, SEO-optimized, owner-controlled — no template platforms, no required retainer.", provider: { "@id": "https://thekhan.io/#localbusiness" }, areaServed: ["Chicago metropolitan area", "United States"], offers: [{ "@type": "Offer", name: "Brochure Site", price: "750", priceCurrency: "USD" }, { "@type": "Offer", name: "Standard Site", price: "1500", priceCurrency: "USD" }, { "@type": "Offer", name: "The Foundation", price: "2100", priceCurrency: "USD" }, { "@type": "Offer", name: "Website Care", price: "50", priceCurrency: "USD" }] },
     {
       "@context": "https://schema.org", "@type": "FAQPage", "@id": "https://thekhan.io/websites#faq",
       mainEntity: [
         { "@type": "Question", name: "Do I need my own domain?", acceptedAnswer: { "@type": "Answer", text: "If you don't have one, I'll walk you through buying it (about $12/year through GoDaddy, Namecheap, or whichever provider you prefer). You register it in your own account, with your own login. You own it forever — even if we never talk again." } },
         { "@type": "Question", name: "Where will my site be hosted?", acceptedAnswer: { "@type": "Answer", text: "On modern hosting that's free for small business sites. Your only ongoing cost is your domain renewal — about $12 a year." } },
-        { "@type": "Question", name: "Can you migrate my existing Wix or Squarespace site?", acceptedAnswer: { "@type": "Answer", text: "I'll use your existing copy, photos, and content — anything that's yours, I move over. But the site itself gets built from scratch on custom code, which gives you a faster, cleaner result than dragging an old template along. Priced like any new build — Starter, Full, or Authority Site, depending on what you need." } },
+        { "@type": "Question", name: "Can you migrate my existing Wix or Squarespace site?", acceptedAnswer: { "@type": "Answer", text: "I'll use your existing copy, photos, and content — anything that's yours, I move over. But the site itself gets built from scratch on custom code, which gives you a faster, cleaner result than dragging an old template along. Priced like any new build — Brochure, Standard, or Custom, depending on what you need." } },
         { "@type": "Question", name: "What if my content isn't ready yet?", acceptedAnswer: { "@type": "Answer", text: "That's normal. Most people don't have polished copy or photos lined up before they hire me. I'll write the copy from what you tell me — you just review it. For photos, I'll tell you exactly what I need and help you figure out how to source it." } },
-        { "@type": "Question", name: "What if I want changes after launch?", acceptedAnswer: { "@type": "Answer", text: "Two options. Grab the optional dashboard ($59/mo) and edit anything yourself in a few clicks. Or text me for one-off updates — I'll quote each one upfront before I start. If you're going to be making changes regularly, the dashboard usually makes more sense." } },
-        { "@type": "Question", name: "Do I sign a long-term contract?", acceptedAnswer: { "@type": "Answer", text: "No. Site-only builds (Starter, Full, or Authority Site) are one-time projects — 50% paid Day 1 to start the build, 50% on launch, no retainer, no cancellation fee. The Marketing Bundle includes a monthly marketing tier that kicks in Day 31, billed month-to-month — cancel any month with 72 hours notice before your next bill. The optional dashboard ($59/mo) is also month-to-month with the same 72-hour cancel." } },
-        { "@type": "Question", name: "How and when do I pay?", acceptedAnswer: { "@type": "Answer", text: "Site-only builds: 50% paid Day 1 to start the build, 50% on launch. Marketing Bundle: build + setup paid Day 1, non-refundable. Either way — card or Zelle, your call. Invoiced upfront, no hidden fees, no surprise invoices." } },
+        { "@type": "Question", name: "What if I want changes after launch?", acceptedAnswer: { "@type": "Answer", text: "Two options. Grab Website Care ($50/mo) and edit your own photos, hours, and text in a few clicks. Or text me for one-off updates — I'll quote each one upfront before I start. If you're going to be making changes regularly, Website Care usually makes more sense." } },
+        { "@type": "Question", name: "Do I sign a long-term contract?", acceptedAnswer: { "@type": "Answer", text: "No. Site-only builds (Brochure, Standard, or Custom) are one-time projects — 50% paid Day 1 to start the build, 50% on launch, no retainer, no cancellation fee. The Foundation includes The Partnership — my monthly marketing — which begins Day 31 at $950/mo, billed month-to-month, cancel any month with 72 hours notice before your next bill. Website Care ($50/mo) is also month-to-month with the same 72-hour cancel." } },
+        { "@type": "Question", name: "How and when do I pay?", acceptedAnswer: { "@type": "Answer", text: "Site-only builds: 50% paid Day 1 to start the build, 50% on launch. The Foundation: paid Day 1, non-refundable. Either way — card or Zelle, your call. Invoiced upfront, no hidden fees, no surprise invoices." } },
       ],
     },
   ],
-  "/home-services": [
-    { "@context": "https://schema.org", "@type": "BreadcrumbList", "@id": "https://thekhan.io/home-services#breadcrumb", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://thekhan.io" }, { "@type": "ListItem", position: 2, name: "Home Services", item: "https://thekhan.io/home-services" }] },
+  "/marketing": [
+    { "@context": "https://schema.org", "@type": "BreadcrumbList", "@id": "https://thekhan.io/marketing#breadcrumb", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://thekhan.io" }, { "@type": "ListItem", position: 2, name: "Marketing", item: "https://thekhan.io/marketing" }] },
     {
-      "@context": "https://schema.org", "@type": "Service", "@id": "https://thekhan.io/home-services#service",
-      name: "Home Service Business Marketing",
-      description: "Websites, Google Ads, and SEO that make the phone ring for home service businesses in the Chicago area.",
+      "@context": "https://schema.org", "@type": "Service", "@id": "https://thekhan.io/marketing#service",
+      name: "Local Marketing — SEO & Google Ads",
+      description: "Websites, Google Ads, and SEO that get home service and local businesses found by the people already searching — across the Chicago area.",
       provider: { "@id": "https://thekhan.io/#localbusiness" },
-      serviceType: ["Home Service Business Marketing", "Website Design", "Google Ads Management", "Local SEO", "Marketing for Landscapers", "Marketing for Roofers", "Marketing for HVAC", "Marketing for Plumbers", "Marketing for Electricians", "Marketing for Pressure Washers", "Marketing for Painters", "Marketing for Cleaners", "Marketing for Handymen", "Marketing for Snow Removal"],
+      serviceType: ["Local Business Marketing", "Home Service Business Marketing", "Website Design", "Google Ads Management", "Local SEO", "Answer Engine Optimization", "Marketing for Contractors", "Marketing for Home Services", "Marketing for Dentists", "Marketing for Med Spas", "Marketing for Salons and Barbers", "Marketing for Real Estate Agents", "Marketing for Restaurants", "Marketing for Gyms", "Marketing for Auto Shops", "Marketing for Law Firms"],
     },
     {
-      "@context": "https://schema.org", "@type": "FAQPage", "@id": "https://thekhan.io/home-services#faq",
+      "@context": "https://schema.org", "@type": "FAQPage", "@id": "https://thekhan.io/marketing#faq",
       mainEntity: [
-        { "@type": "Question", name: "How much does marketing for home service businesses cost?", acceptedAnswer: { "@type": "Answer", text: "Three monthly tiers: Foundation ($600/mo), Engine ($1,260/mo — most common), and Partnership ($2,200/mo). Build + setup is a one-time $1,699 (Spring 2026 launch pricing through June 30, 2026; $2,400 after). Your monthly tier kicks in Day 31. Month-to-month — cancel any month with 72 hours notice before your next bill." } },
-        { "@type": "Question", name: "How long before I see more phone calls?", acceptedAnswer: { "@type": "Answer", text: "Google Ads can start driving calls within days of launch. Local SEO compounds — it doesn't work day one. Organic rankings take 3 to 6 months to show up meaningfully, which is why most home service businesses run both: ads bridge the gap while SEO builds. I'll tell you which channel fits your timeline and budget before we start, not after." } },
-        { "@type": "Question", name: "Do I own my Google Ads account, or do you?", acceptedAnswer: { "@type": "Answer", text: "You own it. Always. I run your ads under your own Google Ads account with your card on file. If we ever part ways, you keep the account, the history, and the data. No agency-owned account hostage situations." } },
-        { "@type": "Question", name: "What happens if the marketing doesn't work?", acceptedAnswer: { "@type": "Answer", text: "Month-to-month means you're never locked in. Cancel any month with 72 hours notice before your next bill. I cap myself at a handful of clients per year specifically so I can pay attention to each one — if something isn't working, I find out fast and fix it, not 90 days later when your next invoice hits. Everything stays in your name, so canceling doesn't cost you what we've built." } },
-        { "@type": "Question", name: "What Chicago suburbs do you serve?", acceptedAnswer: { "@type": "Answer", text: "I work with home service businesses across the North Shore and Chicagoland — Deerfield, Highland Park, Lake Forest, Northbrook, Glencoe, Winnetka, Bannockburn, Evanston, and the broader Chicago metro area. Remote clients anywhere in the US welcome if the project fits." } },
-      ],
-    },
-  ],
-  "/local-services": [
-    { "@context": "https://schema.org", "@type": "BreadcrumbList", "@id": "https://thekhan.io/local-services#breadcrumb", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://thekhan.io" }, { "@type": "ListItem", position: 2, name: "Local Services", item: "https://thekhan.io/local-services" }] },
-    {
-      "@context": "https://schema.org", "@type": "Service", "@id": "https://thekhan.io/local-services#service",
-      name: "Local Services Business Marketing",
-      description: "Websites, Google Ads, and SEO for local services businesses in Chicago — healthcare, dental, real estate, financial, beauty & wellness, pet services, and personal services.",
-      provider: { "@id": "https://thekhan.io/#localbusiness" },
-      serviceType: ["Local Services Business Marketing", "Website Design", "Google Ads Management", "Local SEO", "Marketing for Healthcare", "Marketing for Dental Offices", "Marketing for Real Estate Agents", "Marketing for Financial Planners", "Marketing for Tax Preparers", "Marketing for Beauty & Wellness", "Marketing for Pet Services", "Marketing for Personal Services"],
-    },
-    {
-      "@context": "https://schema.org", "@type": "FAQPage", "@id": "https://thekhan.io/local-services#faq",
-      mainEntity: [
-        { "@type": "Question", name: "How much does marketing for local services businesses cost?", acceptedAnswer: { "@type": "Answer", text: "Three monthly tiers: Foundation ($600/mo), Engine ($1,260/mo — most common), and Partnership ($2,200/mo). Build + setup is a one-time $1,699 (Spring 2026 launch pricing through June 30, 2026; $2,400 after). Your monthly tier kicks in Day 31. Month-to-month — cancel any month with 72 hours notice before your next bill." } },
-        { "@type": "Question", name: "How long before I see more clients?", acceptedAnswer: { "@type": "Answer", text: "Google Ads can start driving calls and inquiries shortly after launch. Local SEO is the long game — it compounds over time. You'll usually start seeing some results around 3 months, real movement on the needle by 6 months, and the full payoff around the 1-year mark. That's why most local services businesses run both: ads bring inquiries right away while SEO builds for the long haul. If you want results now, ads is the play. If you want the long-term win, SEO. Both gets you both. I'll tell you which fits your timeline and budget before we start, not after." } },
-        { "@type": "Question", name: "What kinds of local services businesses do you work with?", acceptedAnswer: { "@type": "Answer", text: "Healthcare practices, dental offices, real estate agents, financial planners, tax preparers, beauty & wellness, pet services, and personal services — independent local businesses where someone Googles the service in their area and picks one. If your business is LSA-eligible (Local Services Ads through Google) or shows up in the local map pack, the playbook fits." } },
+        { "@type": "Question", name: "How much does your marketing cost?", acceptedAnswer: { "@type": "Answer", text: "The Partnership is $950/mo — flat, month-to-month, cancel any month with 72 hours notice. It covers your website, Google Business Profile, and ongoing SEO under one brand. The build that starts it, the Foundation, is a one-time $2,100. Want leads right away? Ad Management runs from $500/mo on top, and your ad spend goes straight to Google. Day 31, the monthly plan begins." } },
+        { "@type": "Question", name: "How long before I see more calls or bookings?", acceptedAnswer: { "@type": "Answer", text: "Google Ads can start driving calls shortly after launch. SEO is the long game — it compounds over time. You'll usually start seeing some results around 3 months, real movement by 6 months, and the full payoff around the 1-year mark. That's why most businesses run both: ads bring leads right away while SEO builds for the long haul. I'll tell you which fits your timeline and budget up front, not after." } },
         { "@type": "Question", name: "Do I own my Google Ads account, or do you?", acceptedAnswer: { "@type": "Answer", text: "You own it. Always. I run your ads under your own Google Ads account with your card on file. If we ever part ways, everything stays with you. Nothing of yours is locked behind me." } },
-        { "@type": "Question", name: "What happens if the marketing doesn't work?", acceptedAnswer: { "@type": "Answer", text: "Month-to-month means you're never locked in. Cancel any month with 72 hours notice before your next bill. I cap myself at a handful of clients per year specifically so I can pay attention to each one — if something isn't working, I find out fast and fix it, not 90 days later when your next invoice hits. Everything stays in your name, so canceling doesn't cost you what we've built." } },
-        { "@type": "Question", name: "What Chicago suburbs do you serve?", acceptedAnswer: { "@type": "Answer", text: "I work with local services businesses across the North Shore and Chicagoland — Deerfield, Highland Park, Lake Forest, Northbrook, Glencoe, Winnetka, Bannockburn, Evanston, and the broader Chicago metro area. Remote clients anywhere in the US welcome if the project fits." } },
-        { "@type": "Question", name: "Do you work with franchise locations?", acceptedAnswer: { "@type": "Answer", text: "No. I work with independents — local services businesses where the owner makes the marketing call. If your franchise has corporate-mandated marketing or HQ approval rules, the playbook won't fit. Independents only." } },
+        { "@type": "Question", name: "What happens if the marketing doesn't work?", acceptedAnswer: { "@type": "Answer", text: "Month-to-month means you're never locked in. Cancel any month with 72 hours notice before your next bill. I cap myself at a handful of clients so I can pay attention to each one — if something isn't working, I find out fast and fix it, not 90 days later when your next invoice hits. Everything stays in your name, so canceling doesn't cost you what we've built." } },
+        { "@type": "Question", name: "What Chicago suburbs do you serve?", acceptedAnswer: { "@type": "Answer", text: "I work with home service and local businesses across the North Shore and Chicagoland — Deerfield, Highland Park, Lake Forest, Northbrook, Glencoe, Winnetka, Bannockburn, Evanston, and the broader Chicago metro area. Remote clients anywhere in the US welcome if the project fits." } },
+        { "@type": "Question", name: "Do you offer exclusive territory protection?", acceptedAnswer: { "@type": "Answer", text: "By default, I won't take on a direct competitor in your service area — that's just how I run. Want it locked in writing? Territory exclusivity is an add-on from $150/city/mo, so a competitor in those cities can't sign with me no matter what they offer." } },
+        { "@type": "Question", name: "Do you work with businesses running multiple brands?", acceptedAnswer: { "@type": "Answer", text: "Yes. The Partnership covers one brand — one site, one Google profile, one set of reviews. A second brand under a different name gets its own site and profile for +$700/mo. The build for the extra brand is quoted separately based on scope. Running multiple brands? Tell me upfront and I'll lay out what makes sense." } },
       ],
     },
   ],
@@ -216,6 +196,19 @@ const ROUTE_SCHEMAS = {
           knowsAbout: ["Web design", "Web development", "SEO", "Google Ads", "Local SEO", "Home service marketing", "Small business marketing"],
           sameAs: ["https://www.linkedin.com/in/omair-khan-64088a357"],
         },
+      ],
+    },
+  ],
+  "/why-intent": [
+    { "@context": "https://schema.org", "@type": "BreadcrumbList", "@id": "https://thekhan.io/why-intent#breadcrumb", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://thekhan.io" }, { "@type": "ListItem", position: 2, name: "Why Intent", item: "https://thekhan.io/why-intent" }] },
+    { "@context": "https://schema.org", "@type": "Article", "@id": "https://thekhan.io/why-intent#article", headline: "Intent Marketing vs Interruption Marketing", description: "Why I market to people already searching — Google, Maps, and AI like ChatGPT — instead of interrupting them on Facebook.", author: { "@id": "https://thekhan.io/about#omair" }, publisher: { "@id": "https://thekhan.io/#localbusiness" }, isPartOf: { "@id": "https://thekhan.io/#website" }, about: ["Intent marketing", "Demand capture", "Local SEO", "Answer Engine Optimization", "Generative Engine Optimization"] },
+    {
+      "@context": "https://schema.org", "@type": "FAQPage", "@id": "https://thekhan.io/why-intent#faq",
+      mainEntity: [
+        { "@type": "Question", name: "What is intent marketing?", acceptedAnswer: { "@type": "Answer", text: "Intent marketing means reaching people who are already searching for what you sell — on Google, Google Maps, and AI search like ChatGPT — at the exact moment they want it. The industry term is demand capture. It's the opposite of interruption marketing (demand generation), which puts ads in front of people who weren't looking, like Facebook and Instagram feed ads." } },
+        { "@type": "Question", name: "What's the difference between intent marketing and interruption marketing?", acceptedAnswer: { "@type": "Answer", text: "Intent (pull) marketing catches people who are already looking — a search for 'plumber near me' is someone ready to call. Interruption (push) marketing pushes a message at people who weren't looking, hoping to create demand. Seth Godin framed this as permission vs interruption. Both can work, but for local service businesses the people actively searching convert far better — so that's the lane TheKhan specializes in." } },
+        { "@type": "Question", name: "What are AEO and GEO?", acceptedAnswer: { "@type": "Answer", text: "AEO (Answer Engine Optimization) and GEO (Generative Engine Optimization) mean getting your business cited when people ask AI tools — ChatGPT, Google's AI Overviews, Perplexity — instead of typing a search. It's the same goal as SEO (being found), applied to AI answers." } },
+        { "@type": "Question", name: "Does intent marketing convert better than social media ads?", acceptedAnswer: { "@type": "Answer", text: "For most local service businesses, yes. People who find a business through organic search convert at about 2.7%, nearly double social media's 1.5% (Ruler Analytics, 2025). And for home services, Google Search ads convert roughly 40% higher than Facebook ads — 7.3% vs 5.2% (LocaliQ/WordStream, 2025)." } },
       ],
     },
   ],
@@ -286,11 +279,11 @@ export default {
     const url = new URL(request.url);
     const pathname = normalizePath(url.pathname);
 
-    // 301 redirect /contractors → /home-services (rename 2026-05-10).
-    // Worker hits before React routing, so this preserves SEO equity from
-    // any existing backlinks pointing at /contractors.
-    if (pathname === "/contractors") {
-      const target = new URL("/home-services" + url.search + url.hash, url.origin);
+    // 301 redirects → /marketing. Consolidated the two audience pages into one
+    // hub 2026-05-25; /contractors was renamed 2026-05-10. Worker hits before
+    // React routing, so this preserves equity from any existing backlinks.
+    if (pathname === "/contractors" || pathname === "/home-services" || pathname === "/local-services") {
+      const target = new URL("/marketing" + url.search + url.hash, url.origin);
       return Response.redirect(target.toString(), 301);
     }
 

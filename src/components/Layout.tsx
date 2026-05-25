@@ -13,8 +13,8 @@ import { Logo } from "@/components/Logo";
 const NAV_ITEMS = [
   { to: "/", label: "Home" },
   { to: "/websites", label: "Websites" },
-  { to: "/home-services", label: "Home Services" },
-  { to: "/local-services", label: "Local Services" },
+  { to: "/marketing", label: "Marketing" },
+  { to: "/why-intent", label: "Why Intent" },
   { to: "/portfolio", label: "Portfolio" },
   { to: "/about", label: "About" },
 ];

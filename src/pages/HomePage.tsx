@@ -95,7 +95,7 @@ export default function HomePage() {
       />
 
       {/* ==================== HERO — single column, no photo.
-           Atmospheric gradient drift matches /websites and /home-services. ==================== */}
+           Atmospheric gradient drift matches /websites and /marketing. ==================== */}
       <section className="section-base relative pt-16 md:pt-24 pb-20 md:pb-28 px-6 md:px-12 lg:px-16 overflow-hidden">
         <div className="gradient-drift" aria-hidden="true" />
         <div className="relative max-w-[1400px] mx-auto">
@@ -118,16 +118,16 @@ export default function HomePage() {
 
             <div className="mt-10 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-5">
               <Link to="/websites" className="btn-primary"><span>I need a <span className="uppercase tracking-wide">website</span> &rarr;</span></Link>
-              <Link to="/home-services" className="btn-outline-accent text-ink-muted">
-                <span>I want to grow my <span className="text-accent-light font-semibold uppercase tracking-wide">home service</span> business &rarr;</span>
-              </Link>
-              <Link to="/local-services" className="btn-outline-accent text-ink-muted">
-                <span>I want to grow my <span className="text-accent-light font-semibold uppercase tracking-wide">local service</span> business &rarr;</span>
+              <Link to="/marketing" className="btn-outline-accent text-ink-muted">
+                <span>I want <span className="text-accent-light font-semibold uppercase tracking-wide">more customers</span> &rarr;</span>
               </Link>
             </div>
-            <div className="mt-6">
+            <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-3">
               <Link to="/portfolio" className="text-ink-quiet hover:text-ink text-sm tracking-wide underline underline-offset-4 decoration-line-strong hover:decoration-ink transition-colors">
                 See what I&apos;ve built &rarr;
+              </Link>
+              <Link to="/why-intent" className="text-ink-quiet hover:text-ink text-sm tracking-wide underline underline-offset-4 decoration-line-strong hover:decoration-ink transition-colors">
+                How I get you found &rarr;
               </Link>
             </div>
 
@@ -160,14 +160,14 @@ export default function HomePage() {
             <WordRevealHeadline
               as="h2"
               lines={[
-                { text: "A site that doesn’t just look good — it brings in real business." },
+                { text: "A good-looking site is the easy part now. I build the kind that brings in business." },
               ]}
-              ariaLabel="A site that doesn't just look good — it brings in real business."
+              ariaLabel="A good-looking site is the easy part now. I build the kind that brings in business."
               staggerMs={70}
               className="display-h2 text-ink text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem]"
             />
             <p className="mt-6 md:mt-8 text-accent-light text-lg md:text-xl leading-relaxed max-w-xl">
-              That&apos;s why I write the code from scratch, not stamp it from a template.
+              Anyone can spin up a pretty site in an afternoon. The part that pays is one built to guide your customer to the call &mdash; and that takes more than a template.
             </p>
           </div>
           <div className="md:col-span-7 md:pt-2 max-w-2xl">
@@ -301,7 +301,7 @@ export default function HomePage() {
                   {[
                     "I'll read your message myself — usually within a few hours.",
                     "I'll reach back out by call or text.",
-                    "If a longer call makes sense, we'll book one.",
+                    "If a longer call makes sense, I'll set one up.",
                   ].map((step, i) => (
                     <li key={i} className="grid grid-cols-[auto_1fr] gap-4 items-start">
                       <span className="font-mono text-xs text-accent pt-1.5">0{i + 1}</span>
@@ -329,7 +329,7 @@ export default function HomePage() {
           </div>
 
           <p className="mt-16 max-w-3xl text-ink-quiet text-base italic leading-relaxed">
-            P.S. — I&apos;d rather tell you we&apos;re not a fit on the first call than waste both our time.
+            P.S. — I&apos;d rather tell you it&apos;s not a fit on the first call than waste both our time.
           </p>
         </div>
       </section>

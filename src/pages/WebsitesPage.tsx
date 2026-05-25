@@ -13,11 +13,11 @@ import { IconPhone, IconMail, IconCheck, IconChevronDown, IconArrowRight } from 
 const faqs = [
   { q: "Do I need my own domain?", a: "If you don't have one, I'll walk you through buying it (about $12/year through GoDaddy, Namecheap, or whichever provider you prefer). You register it in your own account, with your own login. You own it forever — even if we never talk again." },
   { q: "Where will my site be hosted?", a: "On modern hosting that's free for small business sites. Your only ongoing cost is your domain renewal — about $12 a year." },
-  { q: "Can you migrate my existing Wix or Squarespace site?", a: "I'll use your existing copy, photos, and content — anything that's yours, I move over. But I rebuild the site fresh, which gets you a faster, cleaner result than dragging an old template along. Priced like any new build — Starter, Full, or Authority Site, depending on what you need." },
+  { q: "Can you migrate my existing Wix or Squarespace site?", a: "I'll use your existing copy, photos, and content — anything that's yours, I move over. But I rebuild the site fresh, which gets you a faster, cleaner result than dragging an old template along. Priced like any new build — Brochure, Standard, or Custom, depending on what you need." },
   { q: "What if my content isn't ready yet?", a: "That's normal. Most people don't have polished copy or photos lined up before they hire me. I'll write the copy from what you tell me — you just review it. For photos, I'll tell you exactly what I need and help you figure out how to source it." },
-  { q: "What if I want changes after launch?", a: "Two options. Grab the optional dashboard ($59/mo) and edit anything yourself in a few clicks. Or text me for one-off updates — I'll quote each one upfront before I start. If you're going to be making changes regularly, the dashboard usually makes more sense." },
-  { q: "Do I sign a long-term contract?", a: "No. Site-only builds (Starter, Full, or Authority Site) are one-time projects — 50% paid Day 1 to start the build, 50% on launch, no monthly fee, no cancellation fee. The Marketing Bundle includes a monthly marketing tier that kicks in Day 31, billed month-to-month — cancel any month with 72 hours notice before your next bill. The optional dashboard ($59/mo) is also month-to-month with the same 72-hour cancel." },
-  { q: "How and when do I pay?", a: "Site-only builds: 50% paid Day 1 to start the build, 50% on launch. Marketing Bundle: build + setup paid Day 1, non-refundable. Either way — card or Zelle, your call. Invoiced upfront, no hidden fees, no surprise invoices." },
+  { q: "What if I want changes after launch?", a: "Two options. Grab Website Care ($50/mo) and edit your own photos, hours, and text in a few clicks. Or text me for one-off updates — I'll quote each one upfront before I start. If you're going to be making changes regularly, Website Care usually makes more sense." },
+  { q: "Do I sign a long-term contract?", a: "No. Site-only builds (Brochure, Standard, or Custom) are one-time projects — 50% paid Day 1 to start the build, 50% on launch, no monthly fee, no cancellation fee. The Foundation includes The Partnership — my monthly marketing — which begins Day 31 at $950/mo, billed month-to-month, cancel any month with 72 hours notice before your next bill. Website Care ($50/mo) is also month-to-month with the same 72-hour cancel." },
+  { q: "How and when do I pay?", a: "Site-only builds: 50% paid Day 1 to start the build, 50% on launch. The Foundation: paid Day 1, non-refundable. Either way — card or Zelle, your call. Invoiced upfront, no hidden fees, no surprise invoices." },
 ];
 
 const PAGE_TITLE = "Custom Web Design — Deerfield, IL | Sites You Own";
@@ -44,10 +44,10 @@ const SERVICE_SCHEMA = {
   "provider": { "@id": "https://thekhan.io/#localbusiness" },
   "areaServed": ["Chicago metropolitan area", "United States"],
   "offers": [
-    { "@type": "Offer", "name": "Starter Site Build", "price": "750", "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Full Site Build", "price": "1200", "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Authority Site Build", "price": "1800", "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Marketing Bundle", "price": "1699", "priceCurrency": "USD" }
+    { "@type": "Offer", "name": "Brochure Site", "price": "750", "priceCurrency": "USD" },
+    { "@type": "Offer", "name": "Standard Site", "price": "1500", "priceCurrency": "USD" },
+    { "@type": "Offer", "name": "The Foundation", "price": "2100", "priceCurrency": "USD" },
+    { "@type": "Offer", "name": "Website Care", "price": "50", "priceCurrency": "USD" }
   ]
 };
 
@@ -61,7 +61,8 @@ const FAQ_SCHEMA_FOR_HEAD = {
 interface TierProps {
   name: string;
   price: string;
-  was: string;
+  was?: string;
+  priceNote?: string;
   blurb: string;
   features: React.ReactNode[];
   inheritsFrom?: string;
@@ -69,7 +70,7 @@ interface TierProps {
   featured?: boolean;
 }
 
-function Tier({ name, price, was, blurb, features, inheritsFrom, ctaLabel, featured }: TierProps) {
+function Tier({ name, price, was, priceNote, blurb, features, inheritsFrom, ctaLabel, featured }: TierProps) {
   return (
     <a
       href="#contact"
@@ -84,7 +85,8 @@ function Tier({ name, price, was, blurb, features, inheritsFrom, ctaLabel, featu
       <Eyebrow accent className="mb-4">{name}</Eyebrow>
       <div className="flex items-baseline gap-3 mb-3">
         <span className="display-h2 text-5xl md:text-6xl text-ink">{price}</span>
-        <span className="font-mono text-sm text-ink-faint line-through">{was}</span>
+        {was && <span className="font-mono text-sm text-ink-faint line-through">{was}</span>}
+        {priceNote && <span className="font-mono text-xs tracking-widest uppercase text-ink-quiet">{priceNote}</span>}
       </div>
       <p className="text-ink-quiet text-sm italic mb-8">{blurb}</p>
       {inheritsFrom && (
@@ -140,7 +142,7 @@ export default function WebsitesPage() {
           <TldrStrip
             bullets={[
               <>A site built just for you, ready in about 30 days</>,
-              <>3 tiers: <MonoNum>$750</MonoNum>, <MonoNum>$1,200</MonoNum>, or <MonoNum>$1,800</MonoNum> (one-time, Spring 2026 launch pricing)</>,
+              <>Brochure <MonoNum>$750</MonoNum> &middot; Standard <MonoNum>$1,500</MonoNum> &middot; Custom quoted</>,
               <>You own the code &mdash; no contracts, no lock-in</>,
             ]}
             links={[
@@ -189,83 +191,81 @@ export default function WebsitesPage() {
             <Eyebrow accent className="mb-8">What it costs</Eyebrow>
             <DisplayH2 className="mb-8">Pick what fits.</DisplayH2>
             <p className="lede">
-              Same build on every tier. The more pages, the more services people can find you for.
+              One-time builds — pick the size that fits. Even the one-page option isn&apos;t a pretty brochure: it&apos;s fast, clean, and built to guide whoever lands on it toward calling you. More pages, more of your services people can find.
             </p>
           </div>
 
-          <p className="font-mono text-[11px] tracking-widest uppercase text-accent mb-8">
-            Spring 2026 launch pricing — locked through June 30, 2026
-          </p>
-
           <div className="grid md:grid-cols-3 gap-6">
             <Tier
-              name="Starter Site"
+              name="Brochure Site"
               price="$750"
-              was="$1,200"
-              blurb="For a small business that needs a real site, built right, owned in full."
+              blurb="For a business that needs a real, findable home online — one strong page doing all the work."
               features={[
-                <>5 pages — <strong className="text-ink font-semibold">home, about, services, contact, plus one more (gallery or FAQ)</strong></>,
-                <>Fast loading. <strong className="text-ink font-semibold">No template, no monthly platform fee.</strong></>,
-                <>Contact form, click-to-call, map on every page — <strong className="text-ink font-semibold">three ways to reach you.</strong></>,
-                <>Built to rank — <strong className="text-ink font-semibold">pages structured to show up when people search for your services.</strong></>,
-                <>Tracking installed — <strong className="text-ink font-semibold">you see where visitors came from and what they did on the site</strong></>,
-                <>2 rounds of revisions — <strong className="text-ink font-semibold">change what you want, no hourly billing.</strong></>,
-                <>Site, domain, and logins — <strong className="text-ink font-semibold">yours, day one.</strong></>,
+                <>One custom page — <strong className="text-ink font-semibold">services, about, and contact in one clean scroll</strong></>,
+                <>Fast loading, mobile-first — <strong className="text-ink font-semibold">no template, no monthly platform fee.</strong></>,
+                <>Contact form, click-to-call, and map — <strong className="text-ink font-semibold">easy ways to reach you.</strong></>,
+                <>Built to be found — <strong className="text-ink font-semibold">structured so Google can read and rank it.</strong></>,
+                <>Tracking installed — <strong className="text-ink font-semibold">you see where your visitors come from.</strong></>,
+                <>The page, domain, and logins — <strong className="text-ink font-semibold">yours, day one.</strong></>,
               ]}
-              ctaLabel="Start a Starter Site →"
+              ctaLabel="Start a Brochure Site →"
             />
             <Tier
-              name="Full Site"
-              price="$1,200"
-              was="$1,800"
-              blurb="For a business with multiple services, locations, or audiences to cover."
-              inheritsFrom="Starter Site"
+              name="Standard Site"
+              price="$1,500"
+              blurb="The recommended option — room for your services, your proof, and the searches your customers run."
+              inheritsFrom="Brochure Site"
               featured
               features={[
-                <>7–8 pages — <strong className="text-ink font-semibold">2–3 more pages so you show up for more of the searches your customers run</strong></>,
-                <>Expanded copywriting on every page — <strong className="text-ink font-semibold">written to convert visitors, not just fill space</strong></>,
-                <>More design depth on every page — <strong className="text-ink font-semibold">testimonials, FAQs, custom sections that earn the visitor&apos;s trust</strong></>,
-                <>3 rounds of revisions — <strong className="text-ink font-semibold">more time to dial it in before launch</strong></>,
+                <>5 pages — <strong className="text-ink font-semibold">home, about, services, contact, plus one more (gallery or FAQ)</strong></>,
+                <>Copywriting on every page — <strong className="text-ink font-semibold">written to turn visitors into calls, not just fill space</strong></>,
+                <>Testimonials and FAQ sections — <strong className="text-ink font-semibold">earn trust before they reach out</strong></>,
+                <>Your Google Business Profile claimed and set up — <strong className="text-ink font-semibold">so you turn up nearby</strong></>,
+                <>2–3 rounds of revisions — <strong className="text-ink font-semibold">dial it in before launch</strong></>,
               ]}
-              ctaLabel="Start a Full Site →"
+              ctaLabel="Start a Standard Site →"
             />
             <Tier
-              name="Authority Site"
-              price="$1,800"
-              was="$2,300"
-              blurb="For a business with a deep service catalog, multiple locations, or both."
-              inheritsFrom="Full Site"
+              name="Custom"
+              price="Let's talk"
+              blurb="For a deep service catalog, multiple locations, or a build that needs something special."
+              inheritsFrom="Standard Site"
               features={[
-                <>10+ pages — <strong className="text-ink font-semibold">each service or location gets its own page, built for the search that matches it</strong></>,
-                <>Page-by-page plan up front — <strong className="text-ink font-semibold">I map out which pages earn their keep before building.</strong></>,
-                <>More design depth — <strong className="text-ink font-semibold">custom layouts on each page, no two pages feel the same</strong></>,
-                <>4 rounds of revisions — <strong className="text-ink font-semibold">the biggest scope deserves the most refinement before launch</strong></>,
+                <>More pages — <strong className="text-ink font-semibold">a page for every service or location you want found for</strong></>,
+                <>A plan mapped out up front — <strong className="text-ink font-semibold">which pages earn their keep before I build them</strong></>,
+                <>Custom layouts and sections — <strong className="text-ink font-semibold">built around your business, not a template</strong></>,
+                <>Revisions to match the scope — <strong className="text-ink font-semibold">the bigger the build, the more refinement before launch</strong></>,
+                <>Quoted per project — <strong className="text-ink font-semibold">reach out and I&apos;ll scope it with you</strong></>,
               ]}
-              ctaLabel="Start an Authority Site →"
+              ctaLabel="Tell me about it →"
             />
           </div>
 
-          <p className="mt-8 font-mono text-[11px] tracking-widest uppercase text-accent">
-            Need just one page? Landing pages from $300 (was $750).
+          {/* Site-vs-marketing split — make it unmissable */}
+          <p className="max-w-2xl mx-auto mt-20 text-center text-ink-muted text-base md:text-lg leading-relaxed">
+            Brochure, Standard, and Custom are just sites &mdash; yours to keep, no marketing attached. Want your site to be the start of getting found every month? That&apos;s the Foundation.
           </p>
 
-          {/* Marketing Bundle */}
-          <div className="mt-24">
+          {/* The Foundation — where marketing starts */}
+          <div className="mt-8">
             <div className="ed-card max-w-3xl">
-              <Eyebrow accent className="mb-4">Marketing Bundle</Eyebrow>
-              <div className="flex items-baseline gap-3 mb-8 flex-wrap">
-                <span className="display-h2 text-5xl md:text-6xl text-ink">$1,699</span>
-                <span className="font-mono text-sm text-ink-faint line-through">$2,400</span>
-                <span className="text-ink-quiet text-sm italic">after June 30, 2026</span>
+              <Eyebrow accent className="mb-4">Where the marketing starts</Eyebrow>
+              <h3 className="display-h2 text-3xl md:text-4xl text-ink mb-3">The Foundation</h3>
+              <div className="flex items-baseline gap-3 mb-4 flex-wrap">
+                <span className="display-h2 text-5xl md:text-6xl text-ink">$2,100</span>
+                <span className="text-ink-quiet text-sm italic">one-time</span>
               </div>
+              <p className="text-ink-muted text-base leading-relaxed mb-6">
+                This is the one with marketing attached. A custom site plus the setup that starts The Partnership &mdash; my month-to-month marketing &mdash; so you&apos;re not just online, you&apos;re getting found.
+              </p>
               <ul className="space-y-3">
                 {[
-                  <>Full Site (7–8 pages) — <strong className="text-ink font-semibold">fast, mobile, built to rank</strong></>,
-                  <>Google Business Profile set up — <strong className="text-ink font-semibold">you show up on the map for your services and area</strong></>,
+                  <>A custom site, about 8 pages — <strong className="text-ink font-semibold">fast, mobile, built to rank</strong></>,
+                  <>Your Google Business Profile set up and optimized — <strong className="text-ink font-semibold">you show up on the map for your services and area</strong></>,
                   <>Tracking installed — <strong className="text-ink font-semibold">you see where every call and click is coming from</strong></>,
-                  <>Listed where it counts for local search — <strong className="text-ink font-semibold">so customers find you when they&apos;re looking nearby.</strong></>,
-                  <>First SEO pages built and submitted to Google from day one — <strong className="text-ink font-semibold">the foundation that gets you found for the services you offer.</strong></>,
-                  <>Dashboard set up at yourdomain.com/admin — <strong className="text-ink font-semibold">edit anything yourself, anytime</strong></>,
+                  <>Listed across the directories local search trusts — <strong className="text-ink font-semibold">so customers find you when they&apos;re looking nearby.</strong></>,
+                  <>Your first service pages built and submitted to Google from day one — <strong className="text-ink font-semibold">the foundation that gets you found for what you do.</strong></>,
+                  <>A simple dashboard — <strong className="text-ink font-semibold">swap your own photos and update your hours anytime.</strong></>,
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-2.5">
                     <IconCheck className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
@@ -274,10 +274,10 @@ export default function WebsitesPage() {
                 ))}
               </ul>
               <p className="mt-8 text-ink-quiet text-sm italic">
-                Build + setup paid Day 1, non-refundable. Day 31, your monthly tier kicks in.
+                Paid Day 1, non-refundable. Day 31, The Partnership begins at $950/mo — month-to-month.
               </p>
-              <Link to="/home-services" className="btn-primary text-sm mt-8">
-                See marketing tiers &rarr;
+              <Link to="/marketing" className="btn-primary text-sm mt-8">
+                See how the marketing works &rarr;
               </Link>
             </div>
           </div>
@@ -286,16 +286,16 @@ export default function WebsitesPage() {
             <DisplayH2 className="text-3xl md:text-4xl mb-8">The terms, plain.</DisplayH2>
             <div className="space-y-6 text-ink-muted text-base md:text-lg leading-relaxed">
               <p>
-                <span className="text-ink font-semibold">Site-only build (Starter, Full, or Authority Site).</span>{" "}
+                <span className="text-ink font-semibold">Site-only build (Brochure, Standard, or Custom).</span>{" "}
                 50% paid Day 1 to start the build, 50% on launch. Live in about 30 days. One-time project — no monthly fee, no cancellation fee.
               </p>
               <p>
-                <span className="text-ink font-semibold">Marketing Bundle.</span>{" "}
-                Build + setup paid Day 1, non-refundable — that covers the 30-day foundation work. Day 31, your monthly tier kicks in. Then month-to-month — cancel any month with 72 hours notice before your next bill.
+                <span className="text-ink font-semibold">The Foundation.</span>{" "}
+                Paid Day 1, non-refundable — that covers the 30-day foundation work. Day 31, The Partnership begins at $950/mo. Then month-to-month — cancel any month with 72 hours notice before your next bill.
               </p>
               <p>
                 <span className="text-ink font-semibold">Either way.</span>{" "}
-                The site is yours at launch. <strong className="text-accent-light font-semibold">Optional</strong> dashboard ($59/mo, further down) is month-to-month — cancel any month with 72 hours notice before your next bill.
+                The site is yours at launch. <strong className="text-accent-light font-semibold">Optional</strong> Website Care ($50/mo, further down) is month-to-month — cancel any month with 72 hours notice before your next bill.
               </p>
             </div>
           </div>
@@ -332,7 +332,7 @@ export default function WebsitesPage() {
       <section className="section-raised py-24 md:py-32 px-6 lg:px-12 border-t border-line">
         <div className="max-w-4xl mx-auto">
           <div className="mb-20 max-w-3xl">
-            <Eyebrow accent className="mb-8">Optional dashboard</Eyebrow>
+            <Eyebrow accent className="mb-8">Website Care</Eyebrow>
             <DisplayH2 className="mb-8">Edit your site yourself.</DisplayH2>
             <p className="lede">
               Update text, photos, hours, prices — anything — from any device. No code, no HTML, no tech background. Click, change, save.
@@ -341,7 +341,7 @@ export default function WebsitesPage() {
 
           <div className="ed-card space-y-8">
             <div className="flex items-baseline gap-3 flex-wrap">
-              <span className="display-h2 text-5xl md:text-6xl text-ink">$59</span>
+              <span className="display-h2 text-5xl md:text-6xl text-ink">$50</span>
               <span className="text-ink-muted">/month</span>
               <span className="text-ink-quiet text-sm italic ml-2">
                 <strong className="text-accent-light font-semibold not-italic">Optional.</strong>{" "}
@@ -361,7 +361,7 @@ export default function WebsitesPage() {
 
             <p className="text-ink-quiet leading-relaxed">
               <span className="text-ink font-semibold">Skip it if</span>{" "}
-              you set it up once and never touch it. Most small business sites fit that — hours don&apos;t change, services stay the same. Save the $59 and text me when something needs updating.
+              you set it up once and never touch it. Most small business sites fit that — hours don&apos;t change, services stay the same. Save the $50 and text me when something needs updating.
             </p>
           </div>
         </div>
@@ -395,7 +395,7 @@ export default function WebsitesPage() {
 
           <div className="border-l-2 border-accent pl-6 my-12 max-w-2xl">
             <p className="text-ink italic leading-relaxed text-lg">
-              Prefer not to get on a call? Same process, just over text. I&apos;ll send you a form that covers everything I&apos;d ask on a call — fill it out on your own time, and we go from there.
+              Prefer not to get on a call? Same process, just over text. I&apos;ll send you a form that covers everything I&apos;d ask on a call — fill it out on your own time, and I&apos;ll take it from there.
             </p>
           </div>
         </div>
@@ -414,7 +414,7 @@ export default function WebsitesPage() {
 
           <div className="border-t border-line">
             {[
-              { num: "01", title: "Ongoing marketing.", body: <>No ongoing SEO, ads, social, or Google Business Profile management. I build the site. I don&apos;t run your marketing. Want that handled monthly? <Link to="/home-services" className="link">See the monthly tiers &rarr;</Link></> },
+              { num: "01", title: "Ongoing marketing.", body: <>The build gets you found by name and turns visitors into calls. But the steady traffic &mdash; ranking for the searches new customers actually type &mdash; comes from ongoing work, not a one-time site. I build the site; I don&apos;t run your marketing. Want that handled monthly? <Link to="/marketing" className="link">See how the marketing works &rarr;</Link></> },
               { num: "02", title: "Photos and brand assets.", body: <>I&apos;ll write the copy — just tell me anything specific you want included and I&apos;ll draft the rest. Photos, logos, and existing brand materials are on you. If you don&apos;t have a logo yet and need something basic to get started, let me know when you reach out — I can help with that separately.</> },
               { num: "03", title: "Post-launch edits.", body: <>Once the site goes live, it&apos;s yours. Ongoing edits aren&apos;t part of the one-time build — but the optional dashboard (more below) lets you update anything yourself in a few clicks.</> },
               { num: "04", title: "Custom systems.", body: <>Custom systems aren&apos;t part of the base tiers — things like e-commerce backends, booking systems, membership logins, and payment processors. But if you already use something like Stripe, Booksy, or Calendly, I can embed the link on your site for free — quick to set up. Need a custom system built from scratch? Tell me upfront and I&apos;ll quote it as its own project.</> },
@@ -434,7 +434,7 @@ export default function WebsitesPage() {
         <div className="max-w-3xl mx-auto">
           <div className="mb-20">
             <Eyebrow accent className="mb-8">Common questions</Eyebrow>
-            <DisplayH2>What people ask before we start working together.</DisplayH2>
+            <DisplayH2>What people ask before getting started.</DisplayH2>
           </div>
 
           <div className="border-t border-line">

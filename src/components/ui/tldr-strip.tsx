@@ -9,7 +9,7 @@ interface TldrStripProps {
 
 /**
  * TldrStrip — "THE SHORT VERSION" sub-hero strip used on /websites,
- * /home-services, and /about. Renders 3 bullets + a "Skip to:" inline
+ * /marketing, and /about. Renders 3 bullets + a "Skip to:" inline
  * anchor row. Matches editorial system tokens.
  */
 export function TldrStrip({ bullets, links, className = "" }: TldrStripProps) {

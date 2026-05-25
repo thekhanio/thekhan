@@ -20,7 +20,7 @@ const TIMELINE_NODES = [
 const NEXT_STEPS = [
   "I read your message myself — usually within a few hours.",
   "I'll reach back out by call or text.",
-  "If you're interested, we'll set up a time. If not, no pressure.",
+  "If you're interested, I'll set up a time. If not, no pressure.",
 ];
 
 const ABOUT_SCHEMA = {
@@ -197,11 +197,14 @@ export default function AboutPage() {
           <div className="space-y-6 text-ink-muted text-lg leading-relaxed">
             <p>
               I build <Link to="/websites" className="link">custom websites</Link> for businesses that need more than a template.
-              And I run <Link to="/home-services" className="link">monthly marketing for home service and local businesses</Link> who want their phone ringing every week.
+              And I run <Link to="/marketing" className="link">monthly marketing for home service and local businesses</Link> who want more customers coming in.
             </p>
             <p>
               I work with a handful of clients at a time. If your project doesn&apos;t fit those two cleanly,
               reach out anyway — I partner with Velli when a project needs a bigger team.
+            </p>
+            <p>
+              The thread through all of it: I get you in front of people <Link to="/why-intent" className="link">already searching</Link> for what you do &mdash; not strangers I interrupt on Facebook. Think of me as an extension of your business: I handle the heavy lifting online so you can stay focused on the work.
             </p>
           </div>
         </div>
@@ -217,7 +220,7 @@ export default function AboutPage() {
           <div className="space-y-7 text-ink-muted text-lg leading-relaxed">
             <p>The site I build is yours to keep — move it anywhere, anytime.</p>
             <p>You deal with me from day one — no front desk, no runaround, no wondering who&apos;s handling your project. Just one person, start to finish.</p>
-            <p>I&apos;d rather tell you we&apos;re not a fit on the first call than waste both our time. If that sounds right, the form&apos;s below.</p>
+            <p>I&apos;d rather tell you it&apos;s not a fit on the first call than waste both our time. If that sounds right, the form&apos;s below.</p>
           </div>
         </div>
       </section>

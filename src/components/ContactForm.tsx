@@ -7,39 +7,24 @@ interface ContactFormProps {
   subjectPrefix?: string;
   showProjectTypeDropdown?: boolean;
   showTradeDropdown?: boolean;
-  tradeDropdownVariant?: "home-services" | "local-services";
   showPhoneField?: boolean;
   submitText?: string;
 }
 
-const HOME_SERVICES_TRADE_OPTIONS = [
-  "Landscaping / Lawn Care",
-  "Snow Removal",
-  "Roofing",
-  "HVAC",
-  "Plumbing",
-  "Electrical",
-  "Pressure Washing",
-  "Painting",
-  "Cleaning",
-  "Handyman / General Contracting",
+const TRADE_OPTIONS = [
+  "Home / property service (landscaping, roofing, HVAC, cleaning…)",
+  "Real estate",
+  "Health / dental",
+  "Beauty & wellness",
+  "Fitness / gym",
+  "Auto",
+  "Restaurant / hospitality",
+  "Professional services (legal, financial…)",
+  "Pet services",
   "Other",
 ];
 
-const LOCAL_SERVICES_TRADE_OPTIONS = [
-  "Real Estate",
-  "Beauty & Wellness (salons, barbers, med spas)",
-  "Personal Training / Fitness",
-  "Pet Services (groomers, vets)",
-  "Healthcare / Dental",
-  "Financial / Tax",
-  "Tutoring / Education",
-  "Movers / Locksmiths / Other Local Service",
-  "Other",
-];
-
-export function ContactForm({ source, subjectPrefix, showProjectTypeDropdown, showTradeDropdown, tradeDropdownVariant = "home-services", showPhoneField = true, submitText = "Send it →" }: ContactFormProps = {}) {
-  const TRADE_OPTIONS = tradeDropdownVariant === "local-services" ? LOCAL_SERVICES_TRADE_OPTIONS : HOME_SERVICES_TRADE_OPTIONS;
+export function ContactForm({ source, subjectPrefix, showProjectTypeDropdown, showTradeDropdown, showPhoneField = true, submitText = "Send it →" }: ContactFormProps = {}) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",

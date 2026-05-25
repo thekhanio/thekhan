@@ -12,7 +12,7 @@ interface CountUpProps {
 /**
  * CountUp — fires once when the element scrolls into view. Editorial
  * counter, not widget — slow ease-out curve, no loop. Used for the
- * "84 clients" line on /home-services.
+ * "84 clients" line on /marketing.
  */
 export function CountUp({
   to,

@@ -21,19 +21,19 @@ import {
 const BREADCRUMB_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "@id": "https://thekhan.io/local-services#breadcrumb",
+  "@id": "https://thekhan.io/marketing#breadcrumb",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://thekhan.io" },
-    { "@type": "ListItem", "position": 2, "name": "Local Services", "item": "https://thekhan.io/local-services" },
+    { "@type": "ListItem", "position": 2, "name": "Marketing", "item": "https://thekhan.io/marketing" },
   ],
 };
 
-const LOCAL_SERVICES_SCHEMA = {
+const MARKETING_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "@id": "https://thekhan.io/local-services#service",
-  "name": "Local Services Business Marketing",
-  "description": "Websites, Google Ads, and SEO for local services businesses in Chicago — healthcare, dental, real estate, financial, beauty & wellness, pet services, and personal services.",
+  "@id": "https://thekhan.io/marketing#service",
+  "name": "Local Marketing — SEO & Google Ads",
+  "description": "Websites, Google Ads, and SEO that get home service and local businesses found by the people already searching — across the Chicago area.",
   "provider": { "@id": "https://thekhan.io/#localbusiness" },
   "areaServed": [
     { "@type": "City", "name": "Deerfield", "containedInPlace": { "@type": "State", "name": "Illinois" } },
@@ -71,48 +71,44 @@ const LOCAL_SERVICES_SCHEMA = {
     { "@type": "City", "name": "Chicago", "containedInPlace": { "@type": "State", "name": "Illinois" } },
   ],
   "serviceType": [
-    "Local Services Business Marketing",
+    "Local Business Marketing",
+    "Home Service Business Marketing",
     "Website Design",
     "Google Ads Management",
     "Local SEO",
-    "Marketing for Healthcare",
-    "Marketing for Dental Offices",
+    "Answer Engine Optimization",
+    "Marketing for Contractors",
+    "Marketing for Home Services",
+    "Marketing for Dentists",
+    "Marketing for Med Spas",
+    "Marketing for Salons and Barbers",
     "Marketing for Real Estate Agents",
-    "Marketing for Financial Planners",
-    "Marketing for Tax Preparers",
-    "Marketing for Beauty & Wellness",
-    "Marketing for Pet Services",
-    "Marketing for Personal Services",
+    "Marketing for Restaurants",
+    "Marketing for Gyms",
+    "Marketing for Auto Shops",
+    "Marketing for Law Firms",
   ],
 };
 
-const LOCAL_SERVICES_FAQ_SCHEMA = {
+const MARKETING_FAQ_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "@id": "https://thekhan.io/local-services#faq",
+  "@id": "https://thekhan.io/marketing#faq",
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How much does marketing for local services businesses cost?",
+      "name": "How much does your marketing cost?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Three monthly tiers: Foundation ($600/mo), Engine ($1,260/mo — most common), and Partnership ($2,200/mo). Build + setup is a one-time $1,699 (Spring 2026 launch pricing through June 30, 2026; $2,400 after). Your monthly tier kicks in Day 31. Month-to-month — cancel any month with 72 hours notice before your next bill.",
+        "text": "The Partnership is $950/mo — flat, month-to-month, cancel any month with 72 hours notice. It covers your website, Google Business Profile, and ongoing SEO under one brand. The build that starts it, the Foundation, is a one-time $2,100. Want leads right away? Ad Management runs from $500/mo on top, and your ad spend goes straight to Google. Day 31, the monthly plan begins.",
       },
     },
     {
       "@type": "Question",
-      "name": "How long before I see more clients?",
+      "name": "How long before I see more calls or bookings?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Google Ads can start driving calls and inquiries shortly after launch. Local SEO is the long game — it compounds over time. You'll usually start seeing some results around 3 months, real movement on the needle by 6 months, and the full payoff around the 1-year mark. That's why most local services businesses run both: ads bring inquiries right away while SEO builds for the long haul. If you want results now, ads is the play. If you want the long-term win, SEO. Both gets you both. I'll tell you which fits your timeline and budget before we start, not after.",
-      },
-    },
-    {
-      "@type": "Question",
-      "name": "What kinds of local services businesses do you work with?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Healthcare practices, dental offices, real estate agents, financial planners, tax preparers, beauty & wellness, pet services, and personal services — independent local businesses where someone Googles the service in their area and picks one. If your business is LSA-eligible (Local Services Ads through Google) or shows up in the local map pack, the playbook fits.",
+        "text": "Google Ads can start driving calls shortly after launch. SEO is the long game — it compounds over time. You'll usually start seeing some results around 3 months, real movement by 6 months, and the full payoff around the 1-year mark. That's why most businesses run both: ads bring leads right away while SEO builds for the long haul. Want results now? Ads. Want the long-term win? SEO. Both gets you both. I'll tell you which fits your timeline and budget up front, not after.",
       },
     },
     {
@@ -128,7 +124,7 @@ const LOCAL_SERVICES_FAQ_SCHEMA = {
       "name": "What happens if the marketing doesn't work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Month-to-month means you're never locked in. Cancel any month with 72 hours notice before your next bill. I cap myself at a handful of clients per year specifically so I can pay attention to each one — if something isn't working, I find out fast and fix it, not 90 days later when your next invoice hits. Everything stays in your name, so canceling doesn't cost you what we've built.",
+        "text": "Month-to-month means you're never locked in. Cancel any month with 72 hours notice before your next bill. I cap myself at a handful of clients so I can pay attention to each one — if something isn't working, I find out fast and fix it, not 90 days later when your next invoice hits. Everything stays in your name, so canceling doesn't cost you what we've built.",
       },
     },
     {
@@ -136,21 +132,29 @@ const LOCAL_SERVICES_FAQ_SCHEMA = {
       "name": "What Chicago suburbs do you serve?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "I work with local services businesses across the North Shore and Chicagoland — Deerfield, Highland Park, Lake Forest, Northbrook, Glencoe, Winnetka, Bannockburn, Evanston, and the broader Chicago metro area. Remote clients anywhere in the US welcome if the project fits.",
+        "text": "I work with home service and local businesses across the North Shore and Chicagoland — Deerfield, Highland Park, Lake Forest, Northbrook, Glencoe, Winnetka, Bannockburn, Evanston, and the broader Chicago metro area. Remote clients anywhere in the US welcome if the project fits.",
       },
     },
     {
       "@type": "Question",
-      "name": "Do you work with franchise locations?",
+      "name": "Do you offer exclusive territory protection?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. I work with independents — local services businesses where the owner makes the marketing call. If your franchise has corporate-mandated marketing or HQ approval rules, the playbook won't fit. Independents only.",
+        "text": "By default, I won't take on a direct competitor in your service area — that's just how I run. Want it locked in writing? Territory exclusivity is an add-on from $150/city/mo, so a competitor in those cities can't sign with me no matter what they offer.",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work with businesses running multiple brands?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The Partnership covers one brand — one site, one Google profile, one set of reviews. A second brand under a different name gets its own site and profile for +$700/mo. The build for the extra brand is quoted separately based on scope. Running multiple brands? Tell me upfront and I'll lay out what makes sense.",
       },
     },
   ],
 };
 
-export default function LocalServicesPage() {
+export default function MarketingPage() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -159,32 +163,32 @@ export default function LocalServicesPage() {
 
   const painPoints = [
     {
-      title: "People in your area are searching for what you do. They're not finding you.",
-      body: "When someone Googles your service, they see three other businesses first — never yours. You're losing the click before they even know you're there.",
+      title: "People in your area are searching for what you do. They're finding someone else.",
+      body: "Someone Googles your service and sees three other businesses first. You never showed up — so you never got the call.",
     },
     {
-      title: "Your website looks the part. Nobody's reaching out.",
-      body: "Maybe you spent good money on it. Maybe a friend built it. Either way, it's online — but the calls, bookings, and form fills aren't coming. Your site isn't doing the work.",
+      title: "You've got a website. It's just not bringing in work.",
+      body: "Maybe you paid good money for it. Maybe a friend built it. Either way it's online — but the calls and bookings aren't coming. The site isn't doing its job.",
     },
     {
       title: "You pay for ads. You can't tell if they work.",
-      body: "Whether you run them yourself or pay someone, there's a monthly report full of numbers nobody explains. You can't tell if the new client came from the ad, the listing, or a word-of-mouth referral. You just know it's expensive.",
+      body: "Every month there's a report full of numbers nobody explains. You can't tell if the customer came from the ad, the map listing, or a referral. You just know it's expensive.",
     },
     {
       title: "Your competitor keeps showing up first.",
-      body: "Same area. Same service. Similar reviews. But they're at the top of the map and you're on page two. They're getting the customers you should be getting.",
+      body: "Same service, same area, similar reviews. But they're at the top of the map and you're on page two — getting the customers that should be yours.",
     },
   ];
 
   return (
-    <Layout activePath="/local-services" contactHref="#contact">
+    <Layout activePath="/marketing" contactHref="#contact">
       <SEO
-        title="Marketing for Local Services Businesses | TheKhan"
-        description="Local services marketing that brings in real business. Healthcare, dental, real estate, financial, beauty & wellness, pet services. Month-to-month, no contracts."
-        canonical="https://thekhan.io/local-services"
-        ogImage="https://thekhan.io/local-services-og.png"
+        title="Marketing for Home Service & Local Businesses | TheKhan"
+        description="SEO, Google Ads, and Google Business Profile that get you found by people already searching — for home service and local businesses across Chicago. You do the work. I make sure people find you."
+        canonical="https://thekhan.io/marketing"
+        ogImage="https://thekhan.io/og-image.png"
         geo={{ region: "US-IL", placename: "Deerfield", position: "42.1711;-87.8445" }}
-        schema={[BREADCRUMB_SCHEMA, LOCAL_SERVICES_SCHEMA, LOCAL_SERVICES_FAQ_SCHEMA]}
+        schema={[BREADCRUMB_SCHEMA, MARKETING_SCHEMA, MARKETING_FAQ_SCHEMA]}
       />
 
       {/* ==================== HERO (includes micro-strips) ==================== */}
@@ -193,7 +197,7 @@ export default function LocalServicesPage() {
         <div className="relative max-w-[1400px] mx-auto">
           <div className={`transition-all duration-700 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
             <Eyebrow accent className="mb-8">
-              For Local Services
+              Marketing
             </Eyebrow>
 
             <ClipReveal trigger="load">
@@ -205,14 +209,14 @@ export default function LocalServicesPage() {
             </ClipReveal>
 
             <p className="lede mt-10 max-w-2xl">
-              Local services marketing that keeps your calendar full.
+              I get you in front of the people already searching for what you do &mdash; and turn those searches into calls and booked work.
             </p>
 
             <TldrStrip
               bullets={[
-                <>Site, SEO, ads, reviews, reports &mdash; I run all of it</>,
-                <>3 tiers: <MonoNum>$600</MonoNum>, <MonoNum>$1,260</MonoNum>, or <MonoNum>$2,200</MonoNum>/mo</>,
-                <>Month-to-month &mdash; cancel any month with 72 hours notice</>,
+                <>Site, Google profile, SEO, reports &mdash; I run all of it</>,
+                <>The Partnership: <MonoNum>$950</MonoNum>/mo, month-to-month</>,
+                <>Want leads now? Ads from <MonoNum>$500</MonoNum>/mo on top</>,
               ]}
               links={[
                 { label: "Pricing", href: "#pricing" },
@@ -222,57 +226,58 @@ export default function LocalServicesPage() {
             />
 
             <div className="mt-10 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-5">
-              <a href="#contact" className="btn-primary">See if we&apos;re a fit &rarr;</a>
+              <a href="#contact" className="btn-primary">See if it&apos;s a fit &rarr;</a>
               <a href="#pricing" className="btn-outline-accent">See pricing &rarr;</a>
             </div>
 
             {/* Micro-strips — now inside the hero's light section */}
             <div className="mt-14 md:mt-16 space-y-3">
               <p className={`text-ink-quiet text-base md:text-[17px] leading-relaxed opacity-80 transition-all duration-700 delay-[400ms] ${mounted ? 'opacity-80 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                &mdash; I work with a handful of local service businesses at a time.
+                &mdash; I work with a handful of businesses at a time.
               </p>
               <p className={`text-ink-quiet text-base md:text-[17px] leading-relaxed opacity-80 transition-all duration-700 delay-[475ms] ${mounted ? 'opacity-80 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                &mdash; Before TheKhan, I built my own home service company to <CountUp to={84} className="font-mono text-accent-light" /> clients. Closed it in March &mdash; the phone still rings from the SEO work I did &mdash; and those calls now go to the businesses I work with.
+                &mdash; Before TheKhan, I built my own home service company to <CountUp to={84} className="font-mono text-accent-light" /> clients &mdash; and the leads that turned into real work came from people already searching, not ads I pushed at strangers. Now I do that for other businesses.
               </p>
               <p className={`text-ink-quiet text-base md:text-[17px] leading-relaxed opacity-80 transition-all duration-700 delay-[550ms] ${mounted ? 'opacity-80 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                &mdash; Serving local service businesses across Chicagoland &mdash; Deerfield, Highland Park, Lake Forest, Northbrook, Glencoe, Winnetka, Wilmette, Evanston, Skokie, Arlington Heights, Naperville, Oak Park, and the rest of the Chicago metro. Remote clients welcome anywhere in the US.
+                &mdash; Serving home service and local businesses across Chicagoland &mdash; Deerfield, Highland Park, Lake Forest, Northbrook, Glencoe, Winnetka, Wilmette, Evanston, Skokie, Arlington Heights, Naperville, Oak Park, and the rest of the Chicago metro. Remote clients welcome anywhere in the US.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ==================== TEXT MARQUEE — 2-row, categories solid + specific verticals outlined ==================== */}
+      {/* ==================== TEXT MARQUEE — breadth signal: home trades (solid) + local verticals (outlined) ==================== */}
       <section className="section-deep py-8 md:py-10 border-y border-line overflow-hidden space-y-2 md:space-y-3">
         <TextMarquee
           variant="solid"
           durationSec={110}
           items={[
-            "Real Estate",
-            "Personal Services",
-            "Beauty & Wellness",
-            "Pet Services",
-            "Healthcare",
-            "Dental",
-            "Financial Planning",
-            "Tax Services",
+            "Pressure Washing",
+            "Window Cleaning",
+            "Landscaping",
+            "Roofing",
+            "HVAC",
+            "Plumbing",
+            "Electrical",
+            "Painting",
+            "Gutter Cleaning",
+            "Snow Removal",
           ]}
         />
         <TextMarquee
           variant="outlined"
           durationSec={130}
           items={[
-            "Real Estate Agents",
-            "Personal Trainers",
-            "Barbers",
-            "Salons",
-            "Pet Groomers",
-            "Movers",
-            "Locksmiths",
-            "Tutors",
             "Dentists",
+            "Med Spas",
+            "Salons & Barbers",
+            "Real Estate",
+            "Restaurants",
+            "Gyms & Fitness",
+            "Auto",
             "Chiropractors",
-            "Vets",
+            "Law Offices",
+            "Pet Services",
           ]}
         />
       </section>
@@ -306,6 +311,47 @@ export default function LocalServicesPage() {
         </div>
       </section>
 
+      {/* ==================== WHY THIS WORKS — intent vs interruption ==================== */}
+      <section className="section-deep py-24 md:py-36 px-6 relative z-10 border-t border-line">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-12">
+            <ScrollReveal direction="up">
+              <p className="text-accent text-xs sm:text-sm tracking-[0.25em] uppercase font-medium mb-5">
+                Why this works
+              </p>
+              <h2 className="text-2xl md:text-4xl font-semibold text-ink display-h2 leading-tight">
+                I catch people already looking for you.
+              </h2>
+            </ScrollReveal>
+          </div>
+          <ScrollReveal direction="up" delay={0.05}>
+            <p className="text-ink-muted text-lg md:text-xl leading-relaxed text-center max-w-2xl mx-auto mb-12">
+              When someone types &ldquo;[your service] near me,&rdquo; they&apos;re not browsing &mdash; they&apos;re ready to reach out. That&apos;s who I get you in front of: Google, Google Maps, and AI search like ChatGPT. The people already looking for what you do.
+            </p>
+          </ScrollReveal>
+          <div className="grid md:grid-cols-2 gap-6 mb-12">
+            <ScrollReveal direction="up" delay={0.1}>
+              <div className="h-full rounded-2xl border border-line p-7 bg-bg-raised/40">
+                <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-ink-quiet mb-3">Interrupted scrolling</p>
+                <p className="text-ink-muted leading-relaxed">Someone scrolling Facebook who sees your ad wasn&apos;t looking for you. They might glance. They rarely reach out.</p>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal direction="up" delay={0.15}>
+              <div className="h-full rounded-2xl border-2 border-accent p-7 bg-bg-raised">
+                <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent mb-3">Already searching</p>
+                <p className="text-ink-muted leading-relaxed">Someone who just searched your exact service already wants it &mdash; they&apos;re only deciding who to pick. That&apos;s the lane I specialize in.</p>
+              </div>
+            </ScrollReveal>
+          </div>
+          <ScrollReveal direction="up" delay={0.2}>
+            <p className="text-center text-ink-muted text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+              Feed ads have their place. But for most local businesses, the work comes from people actively searching &mdash; so that&apos;s where I put you.{" "}
+              <Link to="/why-intent" className="link">Why I bet on intent &rarr;</Link>
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* ==================== FULL STORY LINK ==================== */}
       <section className="section-deep py-10 md:py-12 px-6 relative z-10 border-y border-line">
         <div className="max-w-3xl mx-auto text-center">
@@ -326,83 +372,43 @@ export default function LocalServicesPage() {
                 What It Costs
               </p>
               <h2 className="text-2xl md:text-4xl font-semibold text-ink mb-6 leading-tight">
-                Three tiers, all month-to-month.
+                One plan. Month-to-month.
               </h2>
               <p className="text-ink-muted text-base md:text-lg leading-relaxed">
-                Build + setup is a one-time $1,699. Your monthly tier kicks in Day 31.
-              </p>
-              <p className="font-mono text-[11px] tracking-widest uppercase text-accent mt-4">
-                <span className="line-through text-ink-faint">$2,400</span> — Spring 2026 launch pricing, locked through June 30, 2026
+                Two ways to get found: own your market the long way, or switch ads on for leads now. Most businesses start with one and add the other when they&apos;re ready.
               </p>
             </ScrollReveal>
           </div>
 
-          {/* Tier cards */}
-          <div className="grid md:grid-cols-3 gap-6 md:items-stretch mb-16 md:mb-24">
-            {/* Foundation */}
+          {/* Two lanes — organic (The Partnership) + paid (Ad Management) */}
+          <div className="grid md:grid-cols-2 gap-6 md:items-stretch mb-10 md:mb-12 max-w-4xl mx-auto">
+            {/* The Partnership — organic lane (anchor) */}
             <ScrollReveal direction="up" delay={0.05}>
-              <a href="#contact" aria-label="See if Foundation is a fit — go to contact form" className="lift md:mt-8 h-full bg-bg-raised rounded-2xl border border-line p-8 flex flex-col cursor-pointer hover:border-accent-line transition-colors">
-                <h3 className="text-sm tracking-[0.25em] uppercase text-ink-muted font-semibold mb-3">
-                  Foundation
-                </h3>
-                <p className="text-3xl md:text-4xl font-bold text-ink mb-1">
-                  $600<span className="text-base font-medium text-ink-quiet">/mo</span>
-                </p>
-                <p className="text-sm text-ink-quiet mb-5">$20 a day</p>
-                <p className="text-ink font-semibold text-lg leading-snug mb-4">
-                  Get found.
-                </p>
-                <p className="text-ink-muted text-sm leading-relaxed mb-5">
-                  For local services businesses still surviving on referrals and repeat customers.
-                </p>
-                <ul className="space-y-3 mt-auto">
-                  {[
-                    <>Site hosted and monitored &mdash; <strong className="text-ink font-semibold">secure, with contact form always working</strong></>,
-                    <>Google Business Profile kept active &mdash; <strong className="text-ink font-semibold">photos and posts published, reviews and edits caught fast</strong></>,
-                    <>Every review replied to in your voice &mdash; <strong className="text-ink font-semibold">typically by next business day</strong></>,
-                    <>One new page every month &mdash; <strong className="text-ink font-semibold">service, city, or FAQ that brings in calls you&apos;re missing</strong></>,
-                    <>Monthly 1-page report in plain English &mdash; <strong className="text-ink font-semibold">traffic, leads, AI-search visibility, what&apos;s next</strong></>,
-                    <>Dashboard to edit your site yourself &mdash; <strong className="text-ink font-semibold">at yourdomain.com/admin</strong></>,
-                    <>Text or email me direct &mdash; <strong className="text-ink font-semibold">next-business-day response, no middlemen</strong></>,
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2.5">
-                      <IconCheck className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
-                      <span className="text-ink-muted text-sm leading-relaxed">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </a>
-            </ScrollReveal>
-
-            {/* Engine — anchor */}
-            <ScrollReveal direction="up" delay={0.1}>
-              <a href="#contact" aria-label="See if Engine is a fit — go to contact form" className="lift relative h-full bg-bg-raised rounded-2xl border-2 border-accent p-8 flex flex-col cursor-pointer transition-colors">
+              <a href="#contact" aria-label="Start with The Partnership — go to contact form" className="lift relative h-full bg-bg-raised rounded-2xl border-2 border-accent p-8 flex flex-col cursor-pointer transition-colors">
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-accent text-ink text-[10px] tracking-[0.2em] uppercase font-semibold whitespace-nowrap">
-                  Most Common
+                  The Long Game
                 </div>
                 <h3 className="text-sm tracking-[0.25em] uppercase text-accent font-semibold mb-3">
-                  Engine
+                  The Partnership
                 </h3>
                 <p className="text-4xl md:text-5xl font-bold text-ink mb-1">
-                  $1,260<span className="text-base font-medium text-ink-quiet">/mo</span>
+                  $950<span className="text-base font-medium text-ink-quiet">/mo</span>
                 </p>
-                <p className="text-sm text-ink-quiet mb-5">$42 a day</p>
+                <p className="text-sm text-ink-quiet mb-5">Month-to-month &middot; cancel any month with 72 hours notice</p>
                 <p className="text-ink font-semibold text-lg leading-snug mb-4">
-                  Make the phone ring.
+                  Own your market.
                 </p>
                 <p className="text-ink-muted text-sm leading-relaxed mb-5">
-                  For local services businesses that want clients coming in every week &mdash; not just busy season.
-                </p>
-                <p className="text-accent text-xs tracking-wide uppercase font-semibold mb-3">
-                  Everything in Foundation, plus:
+                  You show up when people search for what you do, and you own the site for good. The rankings are a spot we hold by keeping the work going.
                 </p>
                 <ul className="space-y-3 mt-auto">
                   {[
-                    <>2&ndash;3 new pages every month &mdash; <strong className="text-ink font-semibold">more services people can find you for across your service area</strong></>,
-                    <>Your Google profile worked every week &mdash; <strong className="text-ink font-semibold">posts, photos, services kept tight</strong></>,
-                    <>Geographic rank tracking &mdash; <strong className="text-ink font-semibold">you see where you rank in every city you serve, every month</strong></>,
-                    <>Directories kept clean &mdash; <strong className="text-ink font-semibold">no conflicting info hurting your rank</strong></>,
-                    <>Fake reviews disputed &mdash; <strong className="text-ink font-semibold">when a competitor posts one, I take the case to Google.</strong></>,
+                    <>A custom site &mdash; <strong className="text-ink font-semibold">fast, mobile, built to turn up when people search</strong></>,
+                    <>Your Google Business Profile actively managed &mdash; <strong className="text-ink font-semibold">reviews replied to, photos and posts kept fresh</strong></>,
+                    <>New pages every month &mdash; <strong className="text-ink font-semibold">more services and more of your area people can find you for</strong></>,
+                    <>A plain-English monthly report &mdash; <strong className="text-ink font-semibold">what you&apos;re ranking for, where the work came from, what&apos;s next</strong></>,
+                    <>A direct line to me by text or email &mdash; <strong className="text-ink font-semibold">answered within a business day</strong></>,
+                    <>You own all of it &mdash; <strong className="text-ink font-semibold">site, domain, logins &mdash; cancel any month with 72 hours notice</strong></>,
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2.5">
                       <IconCheck className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
@@ -413,34 +419,29 @@ export default function LocalServicesPage() {
               </a>
             </ScrollReveal>
 
-            {/* Partnership */}
-            <ScrollReveal direction="up" delay={0.15}>
-              <a href="#contact" aria-label="See if Partnership is a fit — go to contact form" className="lift md:mt-8 h-full bg-bg-raised rounded-2xl border border-line p-8 flex flex-col cursor-pointer hover:border-accent-line transition-colors">
+            {/* Ad Management — paid lane */}
+            <ScrollReveal direction="up" delay={0.1}>
+              <a href="#contact" aria-label="Ask about Ad Management — go to contact form" className="lift md:mt-8 h-full bg-bg-raised rounded-2xl border border-line p-8 flex flex-col cursor-pointer hover:border-accent-line transition-colors">
                 <h3 className="text-sm tracking-[0.25em] uppercase text-ink-muted font-semibold mb-3">
-                  Partnership
+                  Ad Management
                 </h3>
                 <p className="text-3xl md:text-4xl font-bold text-ink mb-1">
-                  $2,200<span className="text-base font-medium text-ink-quiet">/mo</span>
+                  from $500<span className="text-base font-medium text-ink-quiet">/mo</span>
                 </p>
-                <p className="text-sm text-ink-quiet mb-5">$73 a day</p>
+                <p className="text-sm text-ink-quiet mb-5">Add it any time &middot; your first landing page included</p>
                 <p className="text-ink font-semibold text-lg leading-snug mb-4">
-                  Booked weeks out.
+                  Leads now.
                 </p>
                 <p className="text-ink-muted text-sm leading-relaxed mb-5">
-                  For local services businesses ready to lock down their service area and pick which clients to take.
-                </p>
-                <p className="text-accent text-xs tracking-wide uppercase font-semibold mb-3">
-                  Everything in Engine, plus:
+                  While the organic side builds, ads put you in front of people searching today &mdash; and switch off the moment you want.
                 </p>
                 <ul className="space-y-3 mt-auto">
                   {[
-                    <>Up to 8 cities locked to you &mdash; <strong className="text-ink font-semibold">I won&apos;t work with your competitors in those cities</strong></>,
-                    <>4&ndash;6 new pages every month &mdash; <strong className="text-ink font-semibold">you cover more services and cities than competitors can keep up with</strong></>,
-                    <>Overflow leads from my pipeline &mdash; <strong className="text-ink font-semibold">they come to you every month, not split with the next business I sign</strong></>,
-                    <>Full site audit every quarter &mdash; <strong className="text-ink font-semibold">find what&apos;s slipping, double down on what&apos;s working</strong></>,
-                    <>Custom playbook built around how you work &mdash; <strong className="text-ink font-semibold">scripts, templates, systems yours to keep, even if you cancel</strong></>,
-                    <>Multi-round review disputes &mdash; <strong className="text-ink font-semibold">I don&apos;t drop it after one rejection</strong></>,
-                    <>Tool setup help &mdash; <strong className="text-ink font-semibold">call tracking, CRM, scheduling. You pay the tool direct, no markup</strong></>,
+                    <>Google Search + Local Services Ads &mdash; <strong className="text-ink font-semibold">set up and managed end to end</strong></>,
+                    <>A landing page built to turn clicks into calls &mdash; <strong className="text-ink font-semibold">your first one included</strong></>,
+                    <>Keywords, ad copy, and bids tuned every month &mdash; <strong className="text-ink font-semibold">to bring your cost per lead down</strong></>,
+                    <>Your ad spend goes straight to Google on your card &mdash; <strong className="text-ink font-semibold">I never mark it up</strong></>,
+                    <>A monthly report &mdash; <strong className="text-ink font-semibold">what your spend actually brought in</strong></>,
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2.5">
                       <IconCheck className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
@@ -452,23 +453,31 @@ export default function LocalServicesPage() {
             </ScrollReveal>
           </div>
 
-          {/* Setup block */}
+          {/* Ad-spend transparency */}
+          <ScrollReveal direction="up" delay={0.12}>
+            <p className="max-w-3xl mx-auto text-center text-ink-quiet text-sm md:text-base italic leading-relaxed mb-16 md:mb-20">
+              Paid ads need real fuel &mdash; most businesses start around $1,000&ndash;1,500/mo in ad spend, and that goes straight to Google on your card, not to me. I&apos;ll help you dial in the right number for your market on a call.
+            </p>
+          </ScrollReveal>
+
+          {/* The Foundation — the build that starts the Partnership */}
           <ScrollReveal direction="up" delay={0.18}>
             <div className="max-w-3xl mx-auto mb-8 p-6 md:p-8 rounded-2xl bg-bg-raised border border-line">
               <h3 className="text-lg md:text-xl font-semibold text-ink mb-2">
-                What build + setup gets you &mdash; first 30 days
+                The Foundation &mdash; your first 30 days
               </h3>
               <p className="text-accent text-base font-semibold mb-1">
-                One-time $1,699 <span className="text-ink-quiet font-normal text-sm">(<span className="line-through text-ink-faint">$2,400</span> after June 30, 2026)</span>
+                One-time $2,100
               </p>
+              <p className="text-ink-muted text-sm mb-4">The build that gets the Partnership going.</p>
               <ul className="space-y-3 mt-5">
                 {[
-                  <>Website (7&ndash;8 pages) &mdash; <strong className="text-ink font-semibold">fast, mobile, built to rank</strong></>,
-                  <>Google Business Profile set up &mdash; <strong className="text-ink font-semibold">you show up on the map for your services and area</strong></>,
+                  <>A custom site, about 8 pages &mdash; <strong className="text-ink font-semibold">fast, mobile, built to rank</strong></>,
+                  <>Your Google Business Profile set up and optimized &mdash; <strong className="text-ink font-semibold">you show up on the map for your services and area</strong></>,
                   <>Tracking installed &mdash; <strong className="text-ink font-semibold">you see where every call and click is coming from</strong></>,
-                  <>Listed where it counts for local search &mdash; <strong className="text-ink font-semibold">so customers find you when they&apos;re looking nearby.</strong></>,
-                  <>First SEO pages built and submitted to Google from day one &mdash; <strong className="text-ink font-semibold">the foundation that gets you found for the services you offer.</strong></>,
-                  <>Dashboard set up at yourdomain.com/admin &mdash; <strong className="text-ink font-semibold">edit anything yourself, anytime</strong></>,
+                  <>Listed across the directories local search trusts &mdash; <strong className="text-ink font-semibold">so customers find you when they&apos;re looking nearby</strong></>,
+                  <>Your first service pages built and submitted to Google from day one &mdash; <strong className="text-ink font-semibold">the foundation that gets you found for what you do</strong></>,
+                  <>A simple dashboard &mdash; <strong className="text-ink font-semibold">swap your own photos and update your hours anytime</strong></>,
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-2.5">
                     <IconCheck className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
@@ -477,38 +486,26 @@ export default function LocalServicesPage() {
                 ))}
               </ul>
               <p className="mt-5 text-ink-muted text-sm italic">
-                Day 31: your monthly tier kicks in.
+                Day 31, the Partnership begins at $950/mo.
               </p>
             </div>
           </ScrollReveal>
 
-          {/* Add-ons block */}
+          {/* Add-ons */}
           <ScrollReveal direction="up" delay={0.19}>
             <div className="max-w-3xl mx-auto mb-10 px-4">
               <h3 className="text-center text-accent text-xs sm:text-sm tracking-[0.25em] uppercase font-semibold mb-6">
                 Add-ons
               </h3>
-              <div className="space-y-5 text-ink-muted text-sm md:text-base leading-relaxed">
-                <div>
-                  <p className="mb-3">
-                    <span className="text-ink font-semibold">Ad management</span> &mdash; Add-on at any tier.
-                  </p>
-                  <ul className="space-y-2 pl-5 list-disc marker:text-accent">
-                    <li>Bundled (Google Search + LSA) &mdash; <strong className="text-ink font-semibold">$600/mo</strong></li>
-                    <li>Google Search ads only &mdash; <strong className="text-ink font-semibold">$500/mo</strong></li>
-                    <li>LSA only &mdash; <strong className="text-ink font-semibold">$150/mo</strong></li>
-                    <li>Partnership rate (bundled + first landing page included) &mdash; <strong className="text-ink font-semibold">$500/mo</strong></li>
-                    <li>Ad spend goes on your card direct &mdash; <strong className="text-ink font-semibold">zero markup</strong></li>
-                  </ul>
-                </div>
-                <p className="text-ink-quiet text-sm italic">
-                  Engine is the best place to run ads &mdash; the ongoing optimization makes spend compound faster. Foundation + ads still works, just slower organically alongside.
+              <div className="space-y-4 text-ink-muted text-sm md:text-base leading-relaxed">
+                <p>
+                  <span className="text-ink font-semibold">Another brand</span> &mdash; +$700/mo. A second business under a different name gets its own site and Google profile &mdash; two separate brands, run side by side.
                 </p>
                 <p>
-                  <span className="text-ink font-semibold">Custom landing pages</span> &mdash; $300 each through June 30, 2026 ($750 after). Partnership ads bundle includes the first one free; add&apos;l pages run $250 each through June 30, 2026 ($500 after) at the Partnership rate.
+                  <span className="text-ink font-semibold">Locked territory</span> &mdash; from $150/city/mo. I won&apos;t take on a direct competitor in the cities you lock.
                 </p>
                 <p>
-                  <span className="text-ink font-semibold">Multiple service brands</span> &mdash; say you run a med spa, a wellness studio, and a barbershop as separate businesses. Each tier covers one brand. Each additional brand is +$649/mo. Build + setup quoted separately based on scope.
+                  <span className="text-ink font-semibold">Email marketing</span> &mdash; from $300 to set up. Bring past customers back with the occasional campaign.
                 </p>
               </div>
             </div>
@@ -539,7 +536,7 @@ export default function LocalServicesPage() {
                   Your side
                 </p>
                 <p className="text-ink-muted text-base md:text-lg leading-relaxed">
-                  You handle the customer-facing side &mdash; photos from your work, asking happy clients for a Google review, and reaching back out to past clients using scripts I write for you.
+                  You handle the customer-facing side &mdash; photos from your work, asking happy customers for a Google review, and reaching back out to past customers using scripts I write for you.
                 </p>
               </div>
             </div>
@@ -562,17 +559,17 @@ export default function LocalServicesPage() {
         </div>
       </section>
 
-      {/* ==================== WHAT I ACTUALLY DO ==================== */}
+      {/* ==================== WHAT THAT LOOKS LIKE ==================== */}
       <section className="section-deep py-24 md:py-36 px-6 relative z-10">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <ScrollReveal direction="up">
               <h2 className="text-2xl md:text-4xl font-semibold text-ink mb-4 display-h2">
-                What I actually do
+                What that looks like
               </h2>
               <AnimatedUnderline className="w-48 md:w-64 mx-auto mt-6" />
               <p className="text-ink-muted text-base md:text-lg leading-relaxed mt-6">
-                Marketing comes with a lot of acronyms. Here&apos;s what each one does for you:
+                No jargon &mdash; here&apos;s what I&apos;m actually doing to get you found:
               </p>
             </ScrollReveal>
           </div>
@@ -581,37 +578,43 @@ export default function LocalServicesPage() {
             <ScrollReveal direction="up" delay={0.05}>
               <div className="p-6 md:p-7 rounded-xl border border-line bg-bg-raised/60">
                 <p className="text-ink-muted leading-relaxed">
-                  <strong className="text-ink font-semibold">You&apos;re findable in regular Google searches</strong> &mdash; when someone types &quot;[your service] in [your town],&quot; your business is part of the results. That&apos;s <strong className="text-accent">SEO</strong> (search engine optimization). The version that matters most for local services businesses is <strong className="text-accent">local SEO</strong> &mdash; the &quot;near me&quot; and city searches that bring clients.
+                  <strong className="text-ink font-semibold">You show up when people Google your service.</strong> Someone types &quot;[your service] near me&quot; or &quot;[your service] in [your town],&quot; and your business is right there in the results &mdash; the searches that actually bring work.
                 </p>
               </div>
             </ScrollReveal>
             <ScrollReveal direction="up" delay={0.1}>
               <div className="p-6 md:p-7 rounded-xl border border-line bg-bg-raised/60">
                 <p className="text-ink-muted leading-relaxed">
-                  <strong className="text-ink font-semibold">You&apos;re findable when people ask AI tools instead of typing into Google</strong> &mdash; ChatGPT, Google&apos;s AI Overviews, Perplexity. Customers are starting to ask AI things like &quot;best [your service] in [town],&quot; and your business is part of the answer. That&apos;s <strong className="text-accent">AEO</strong> (answer engine optimization), also called <strong className="text-accent">GEO</strong> (generative engine optimization). Same idea, different acronym.
+                  <strong className="text-ink font-semibold">You show up on the map.</strong> When someone nearby searches, your Google profile is right there &mdash; reviews, photos, and a tap-to-call button.
                 </p>
               </div>
             </ScrollReveal>
             <ScrollReveal direction="up" delay={0.15}>
               <div className="p-6 md:p-7 rounded-xl border border-line bg-bg-raised/60">
                 <p className="text-ink-muted leading-relaxed">
-                  <strong className="text-ink font-semibold">Your site is built right under the hood</strong> &mdash; fast, mobile-friendly, structured the way search engines expect. That&apos;s <strong className="text-accent">technical SEO</strong> &mdash; the foundation everything else stands on.
+                  <strong className="text-ink font-semibold">You show up when people ask AI.</strong> More and more customers ask ChatGPT or Google&apos;s AI answers &quot;who&apos;s the best [your service] in [town]&quot; &mdash; and your name is in the answer.
                 </p>
               </div>
             </ScrollReveal>
             <ScrollReveal direction="up" delay={0.2}>
               <div className="p-6 md:p-7 rounded-xl border border-line bg-bg-raised/60">
                 <p className="text-ink-muted leading-relaxed">
-                  <strong className="text-ink font-semibold">The right words on each page, plus the rest of the internet pointing back to you.</strong> That&apos;s <strong className="text-accent">on-page SEO</strong> (content side) and <strong className="text-accent">off-page SEO</strong> (credibility side).
+                  <strong className="text-ink font-semibold">Your site is fast and built right under the hood</strong> &mdash; so all of that can actually happen. A slow, sloppy site doesn&apos;t rank, no matter what else you do.
                 </p>
               </div>
             </ScrollReveal>
             <ScrollReveal direction="up" delay={0.25}>
               <div className="p-6 md:p-7 rounded-xl border border-line bg-bg-raised/60">
                 <p className="text-ink-muted leading-relaxed">
-                  Ads bring calls fast &mdash; but only while you&apos;re paying. SEO takes 3 to 6 months to start, and keeps paying off long after, even when you stop. Run both, and you get the speed of ads plus the longevity of SEO.
+                  <strong className="text-ink font-semibold">Ads bring customers fast &mdash; but only while you&apos;re paying.</strong> Rankings take 3 to 6 months to build and are held by ongoing work. Run both: ads for leads now, the organic side compounding underneath.
                 </p>
               </div>
+            </ScrollReveal>
+            <ScrollReveal direction="up" delay={0.3}>
+              <p className="text-center text-ink-quiet text-sm md:text-base leading-relaxed pt-2">
+                Want the technical version &mdash; the acronyms, the how, the proof?{" "}
+                <Link to="/why-intent" className="link">Why intent wins &rarr;</Link>
+              </p>
             </ScrollReveal>
           </div>
         </div>
@@ -623,7 +626,7 @@ export default function LocalServicesPage() {
           <div className="text-center mb-14">
             <ScrollReveal direction="up">
               <h2 className="text-2xl md:text-4xl font-semibold text-ink mb-4 display-h2">
-                Think we&apos;re a fit?
+                Think it&apos;s a fit?
               </h2>
               <AnimatedUnderline className="w-48 md:w-64 mx-auto mt-6" />
             </ScrollReveal>
@@ -641,7 +644,7 @@ export default function LocalServicesPage() {
                     "You're good at the work but slow months still scare you.",
                     "This is your full-time business — not a side gig.",
                     "You're tired of reports full of numbers nobody explains — and someone telling you \"it's working.\"",
-                    "You can wait 3 to 6 months for SEO to compound — once you're ranking, it takes less work to hold than it did to earn. (My old company closed in March. The phone still rings.)",
+                    "You can wait 3 to 6 months for SEO to compound — once you're ranking, it takes less work to hold than it did to earn.",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <div className="flex-shrink-0 w-6 h-6 rounded-full bg-accent-soft border border-accent flex items-center justify-center mt-0.5">
@@ -662,12 +665,11 @@ export default function LocalServicesPage() {
                 </p>
                 <ul className="space-y-5">
                   {[
-                    "Your budget is under $600/mo.",
-                    "You want me to promise you a specific number of leads or new clients.",
-                    "You're starting from zero — no past customers, no online presence — and need new clients this week.",
-                    "You expect SEO to be driving calls and bookings inside 30 days. Google just doesn't work that way — trust takes 3 to 6 months to build. Wish it were faster.",
-                    "You're running ads and want them at full capacity day one. Ads take 30 to 60 days of real data to optimize — you'll get calls and inquiries in the meantime, just not the full volume yet.",
-                    "You're a franchise location with corporate-mandated marketing. I work with independents — not franchises bound by HQ's rules.",
+                    "Your budget is under $950/mo.",
+                    "You want me to promise you a specific number of leads.",
+                    "You're starting from zero — no past customers, no online presence — and need work this week.",
+                    "You expect SEO to be driving calls inside 30 days. Google just doesn't work that way — trust takes 3 to 6 months to build. Wish it were faster.",
+                    "You're running ads and want them at full capacity day one. Ads take 30 to 60 days of real data to optimize — you'll get calls in the meantime, just not the full volume yet.",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <div className="flex-shrink-0 w-6 h-6 rounded-full bg-white/[0.04] border border-white/[0.1] flex items-center justify-center mt-0.5">
@@ -691,7 +693,7 @@ export default function LocalServicesPage() {
               If that&apos;s you, let&apos;s talk.
             </h2>
             <p className="text-ink-muted text-lg max-w-xl mx-auto">
-              Tell me about your business. If we&apos;re not a fit, I&apos;ll tell you on the first call. No pitch.
+              Tell me about your business. If it&apos;s not a fit, I&apos;ll tell you on the first call. No pitch.
             </p>
           </div>
 
@@ -753,7 +755,7 @@ export default function LocalServicesPage() {
                       </div>
                     </div>
                     <div className="pt-1.5">
-                      <p className="text-ink-muted text-sm leading-relaxed">If it feels right, we&apos;ll get on a longer call to go through where your jobs are coming from, where they&apos;re not, and what I&apos;d change to get the phone ringing more.</p>
+                      <p className="text-ink-muted text-sm leading-relaxed">If it feels right, I&apos;ll set up a longer call to go through where your work is coming from, where it&apos;s not, and what I&apos;d change to bring in more.</p>
                     </div>
                   </div>
                 </div>
@@ -770,11 +772,10 @@ export default function LocalServicesPage() {
             <div className="lg:col-span-3">
               <div className="bg-bg-raised rounded-2xl p-8 border border-line">
                 <ContactForm
-                  source="local-services-page"
-                  subjectPrefix="[Local Services form]"
+                  source="marketing-page"
+                  subjectPrefix="[Marketing form]"
                   showPhoneField
                   showTradeDropdown
-                  tradeDropdownVariant="local-services"
                 />
               </div>
             </div>
