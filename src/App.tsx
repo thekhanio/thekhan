@@ -46,6 +46,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/start" element={<OnboardingPage />} />
+          <Route path="/start/:scopeParam" element={<OnboardingPage />} />
           <Route path="/intake" element={<IntakePage />} />
           <Route path="/marketing" element={<MarketingPage />} />
           <Route path="/websites" element={<WebsitesPage />} />

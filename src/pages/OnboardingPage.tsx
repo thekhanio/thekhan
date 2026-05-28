@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { m, AnimatePresence, useReducedMotion } from "framer-motion";
 import { SEO } from "@/components/SEO";
 import { Logo } from "@/components/Logo";
@@ -248,8 +248,17 @@ type SectionKey = "common" | "website" | "marketing" | "logins";
 
 export default function OnboardingPage() {
   const reduce = useReducedMotion();
-  const [state, dispatch] = useReducer(reducer, initialState);
-  const [openSection, setOpenSection] = useState<SectionKey | null>(null);
+  // Scope can be locked via the link Omair sends: /start/websites|marketing|both.
+  // When locked, the client never sees the scope chooser — it's settled at signing.
+  const { scopeParam } = useParams();
+  const lockedScope: Scope | null =
+    scopeParam === "websites" ? "Websites" :
+    scopeParam === "marketing" ? "Marketing" :
+    scopeParam === "both" ? "Both" : null;
+  const [state, dispatch] = useReducer(reducer, initialState, (s) =>
+    lockedScope ? { ...s, scope: lockedScope } : s
+  );
+  const [openSection, setOpenSection] = useState<SectionKey | null>(lockedScope ? "common" : null);
   const [savedAt, setSavedAt] = useState<number | null>(null);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [resumeDecision, setResumeDecision] = useState<"pending" | "resume" | "fresh">("pending");
@@ -616,7 +625,8 @@ export default function OnboardingPage() {
                   className="absolute left-[-9999px] w-px h-px opacity-0"
                 />
 
-                {/* Scope gate */}
+                {/* Scope gate — hidden when scope is locked via the link */}
+                {!lockedScope && (
                 <section className="ed-card-dark mb-8" aria-labelledby="scope-heading">
                   <h2 id="scope-heading" className="font-mono text-xs uppercase tracking-[0.22em] text-ink-quiet mb-3">
                     Scope
@@ -637,6 +647,7 @@ export default function OnboardingPage() {
                     ))}
                   </div>
                 </section>
+                )}
 
                 {/* Accordion sections */}
                 {state.scope && (
