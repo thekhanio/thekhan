@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { m, AnimatePresence } from "framer-motion";
 import { IconMenu2, IconX } from "@tabler/icons-react";
 import { Logo } from "@/components/Logo";
+import { ChatWidget } from "@/components/ChatWidget";
 
 const NAV_ITEMS = [
   { to: "/", label: "Home" },
@@ -175,6 +176,8 @@ export function Layout({ children, activePath, contactHref = "/#contact" }: Layo
           </div>
         </div>
       </footer>
+
+      <ChatWidget />
     </main>
   );
 }
