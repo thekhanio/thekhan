@@ -82,7 +82,7 @@ function Tier({ name, price, was, priceNote, blurb, features, revisions, inherit
       className={`lift relative h-full flex flex-col p-10 md:p-12 border ${featured ? "border-accent border-2" : "border-line"} bg-bg-raised cursor-pointer transition-colors`}
     >
       {featured && (
-        <p className="absolute -top-3 left-10 bg-accent text-bg px-3 py-1 font-mono text-[10px] tracking-widest uppercase">
+        <p className="absolute -top-3 left-10 bg-accent text-ink px-3 py-1 font-mono text-[10px] tracking-widest uppercase">
           Most common
         </p>
       )}
@@ -369,7 +369,7 @@ export default function WebsitesPage() {
               <ScrollReveal key={step.n} direction="up" delay={i * 0.06}>
                 <div className="flex gap-5">
                   <div className="flex flex-col items-center">
-                    <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-bg font-semibold text-sm flex-shrink-0">
+                    <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-ink font-semibold text-sm flex-shrink-0">
                       {step.n}
                     </div>
                     {i < arr.length - 1 && <AnimatedUnderline vertical className="flex-1 min-h-[36px] my-2" />}
@@ -427,7 +427,7 @@ export default function WebsitesPage() {
                   </div>
                   <div className="flex flex-col pt-1">
                     <span className="eyebrow eyebrow-accent">Call or Text</span>
-                    <span className="text-ink mt-1.5 text-lg group-hover:text-accent transition-colors"><MonoNum>(847) 220-8550</MonoNum></span>
+                    <span className="text-ink mt-1.5 text-lg group-hover:text-accent-light transition-colors"><MonoNum>(847) 220-8550</MonoNum></span>
                   </div>
                 </a>
                 <a href="mailto:omair@thekhan.io" className="flex items-start gap-4 group">
@@ -436,7 +436,7 @@ export default function WebsitesPage() {
                   </div>
                   <div className="flex flex-col pt-1">
                     <span className="eyebrow eyebrow-accent">Email</span>
-                    <span className="text-ink mt-1.5 text-lg group-hover:text-accent transition-colors">Omair@TheKhan.io</span>
+                    <span className="text-ink mt-1.5 text-lg group-hover:text-accent-light transition-colors">Omair@TheKhan.io</span>
                   </div>
                 </a>
               </div>

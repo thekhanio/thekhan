@@ -224,7 +224,7 @@ export default function HomePage() {
               <Link to="/portfolio" className="group flex items-center justify-between gap-4 rounded-2xl border border-line bg-bg-raised/40 p-6 lift">
                 <div>
                   <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-ink-quiet mb-1">The website work</p>
-                  <p className="text-ink text-lg font-semibold group-hover:text-accent transition-colors">See the sites I&apos;ve built</p>
+                  <p className="text-ink text-lg font-semibold group-hover:text-accent-light transition-colors">See the sites I&apos;ve built</p>
                 </div>
                 <IconArrowRight className="w-5 h-5 text-accent flex-shrink-0" />
               </Link>
@@ -276,7 +276,7 @@ export default function HomePage() {
                   </div>
                   <div className="flex flex-col pt-1">
                     <span className="eyebrow eyebrow-accent">Call or Text</span>
-                    <span className="text-ink mt-1.5 text-base group-hover:text-accent transition-colors"><MonoNum>(847) 220-8550</MonoNum></span>
+                    <span className="text-ink mt-1.5 text-base group-hover:text-accent-light transition-colors"><MonoNum>(847) 220-8550</MonoNum></span>
                   </div>
                 </a>
                 <a href="mailto:omair@thekhan.io" className="flex items-start gap-4 group">
@@ -285,7 +285,7 @@ export default function HomePage() {
                   </div>
                   <div className="flex flex-col pt-1">
                     <span className="eyebrow eyebrow-accent">Email</span>
-                    <span className="text-ink mt-1.5 text-base group-hover:text-accent transition-colors">Omair@TheKhan.io</span>
+                    <span className="text-ink mt-1.5 text-base group-hover:text-accent-light transition-colors">Omair@TheKhan.io</span>
                   </div>
                 </a>
               </div>

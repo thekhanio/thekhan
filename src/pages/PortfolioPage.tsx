@@ -216,7 +216,7 @@ function BeforeLightbox({ before, onClose }: { before: BeforeTarget | null; onCl
                 type="button"
                 onClick={onClose}
                 aria-label="Close"
-                className="text-ink-quiet hover:text-accent transition-colors cursor-pointer"
+                className="text-ink-quiet hover:text-accent-light transition-colors cursor-pointer"
               >
                 <IconX className="w-5 h-5" />
               </button>

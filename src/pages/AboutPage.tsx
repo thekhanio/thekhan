@@ -245,7 +245,7 @@ export default function AboutPage() {
                   </div>
                   <div className="flex flex-col pt-1">
                     <span className="eyebrow eyebrow-accent">Call or Text</span>
-                    <span className="text-ink mt-1 group-hover:text-accent transition-colors"><MonoNum>(847) 220-8550</MonoNum></span>
+                    <span className="text-ink mt-1 group-hover:text-accent-light transition-colors"><MonoNum>(847) 220-8550</MonoNum></span>
                   </div>
                 </a>
                 <a href="mailto:omair@thekhan.io" className="flex items-start gap-4 group">
@@ -254,7 +254,7 @@ export default function AboutPage() {
                   </div>
                   <div className="flex flex-col pt-1">
                     <span className="eyebrow eyebrow-accent">Email</span>
-                    <span className="text-ink mt-1 group-hover:text-accent transition-colors">Omair@TheKhan.io</span>
+                    <span className="text-ink mt-1 group-hover:text-accent-light transition-colors">Omair@TheKhan.io</span>
                   </div>
                 </a>
               </div>

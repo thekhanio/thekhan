@@ -157,7 +157,7 @@ export default function WhyIntentPage() {
                   People who find a business through organic search convert at <strong className="text-ink font-semibold">2.7%</strong> &mdash; nearly double social media&apos;s 1.5%.
                 </p>
                 <p className="text-ink-faint text-xs mt-4 font-mono tracking-wide">
-                  <a href="https://www.ruleranalytics.com/blog/insight/conversion-rate-by-industry/" target="_blank" rel="noopener" className="underline decoration-line underline-offset-2 hover:text-accent transition-colors">Ruler Analytics, 2025</a> &middot; 100M+ data points
+                  <a href="https://www.ruleranalytics.com/blog/insight/conversion-rate-by-industry/" target="_blank" rel="noopener" className="underline decoration-line underline-offset-2 hover:text-accent-light transition-colors">Ruler Analytics, 2025</a> &middot; 100M+ data points
                 </p>
               </div>
             </ScrollReveal>
@@ -169,7 +169,7 @@ export default function WhyIntentPage() {
                   People who come from a paid search ad convert at <strong className="text-ink font-semibold">3.2%</strong> &mdash; more than double social media&apos;s 1.5%.
                 </p>
                 <p className="text-ink-faint text-xs mt-4 font-mono tracking-wide">
-                  <a href="https://www.ruleranalytics.com/blog/insight/conversion-rate-by-industry/" target="_blank" rel="noopener" className="underline decoration-line underline-offset-2 hover:text-accent transition-colors">Ruler Analytics, 2025</a> &middot; 100M+ data points
+                  <a href="https://www.ruleranalytics.com/blog/insight/conversion-rate-by-industry/" target="_blank" rel="noopener" className="underline decoration-line underline-offset-2 hover:text-accent-light transition-colors">Ruler Analytics, 2025</a> &middot; 100M+ data points
                 </p>
               </div>
             </ScrollReveal>
@@ -275,7 +275,7 @@ export default function WhyIntentPage() {
                   <IconSearch className="w-5 h-5 text-accent" />
                   <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent">Organic &mdash; the long game</p>
                 </div>
-                <p className="text-ink text-xl font-semibold mb-3 group-hover:text-accent transition-colors">The Partnership</p>
+                <p className="text-ink text-xl font-semibold mb-3 group-hover:text-accent-light transition-colors">The Partnership</p>
                 <p className="text-ink-muted leading-relaxed mb-4">
                   Own your market over time. Your site, your Google profile, and new pages every month so you climb and hold your spot. You own the site for good.
                 </p>
@@ -288,7 +288,7 @@ export default function WhyIntentPage() {
                   <IconBuildingStore className="w-5 h-5 text-accent" />
                   <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-ink-quiet">Paid &mdash; leads now</p>
                 </div>
-                <p className="text-ink text-xl font-semibold mb-3 group-hover:text-accent transition-colors">Ad Management</p>
+                <p className="text-ink text-xl font-semibold mb-3 group-hover:text-accent-light transition-colors">Ad Management</p>
                 <p className="text-ink-muted leading-relaxed mb-4">
                   Switch on Google Search and Local Services Ads to be in front of searchers today &mdash; while your rankings build underneath. On or off whenever you want.
                 </p>

@@ -54,7 +54,7 @@ export function Accordion({
               type="button"
               onClick={() => toggle(i)}
               aria-expanded={isOpen}
-              className="w-full py-6 flex items-center justify-between gap-4 text-left cursor-pointer hover:text-accent transition-colors"
+              className="w-full py-6 flex items-center justify-between gap-4 text-left cursor-pointer hover:text-accent-light transition-colors"
             >
               <span className={cn("text-ink font-medium text-lg md:text-xl", titleClassName)}>
                 {item.title}
