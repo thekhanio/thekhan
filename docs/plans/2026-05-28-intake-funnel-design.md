@@ -1,5 +1,14 @@
 # Intake Funnel Redesign — 2026-05-28
 
+> **SHIPPED (final, supersedes the original plan below):** The design evolved during the build. Final state:
+> - **`/intake`** — gated + branched (pick what you're looking for → tailored questions), with a **conditional ad-budget question** (only shows for Not-sure / Paid ads / Both — never for fixed-price work). Current-website field on every path; site-platform on website paths; grow-type on marketing paths.
+> - **`/start`** — two scope-locked links: **`/start/website`** (Websites) and **`/start/marketing`** (full site + marketing — a marketing client always gets a new build). **Bare `/start` and any unrecognized link = dead-end "incomplete link" message, not a form.** The scope chooser was *removed* entirely; there is **no marketing-only path**.
+> - **Contact-form triage select** — NOT built (left the website contact form as-is).
+> Canonical spec lives in the vault: `Operations/Sales Flow/intake-form-spec.md` + `onboarding-intake-form-spec.md`. Cloudflare version `a600f071`.
+
+---
+
+
 ## Problem
 Four forms with overlapping jobs: website contact form, `/intake`, (proposed) deeper pre-call form, `/start`. The website contact form and the old `/intake` were ~90% the same (name/email/phone + freeform "tell me about your business"), so a website lead who then got sent `/intake` answered the same basics twice.
 
