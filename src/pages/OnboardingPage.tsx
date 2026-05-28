@@ -11,9 +11,6 @@ import {
   IconCheck,
   IconCircleDashed,
   IconCircleDot,
-  IconCode,
-  IconChartLine,
-  IconStack2,
 } from "@tabler/icons-react";
 
 // ============================================================
@@ -99,12 +96,6 @@ const emptyHours = (): Record<DayKey, DayHours> => ({
   sat: { open: "", close: "", closed: true },
   sun: { open: "", close: "", closed: true },
 });
-
-const SCOPE_OPTIONS: Array<{ value: Exclude<Scope, "">; Icon: typeof IconCode; subtitle: string }> = [
-  { value: "Websites", Icon: IconCode, subtitle: "Build, rebuild, or fix what you have." },
-  { value: "Marketing", Icon: IconChartLine, subtitle: "Get found and bring in more business." },
-  { value: "Both", Icon: IconStack2, subtitle: "Site plus everything that drives traffic to it." },
-];
 
 const REGISTRARS = ["GoDaddy", "Namecheap", "Cloudflare", "Google Domains / Squarespace Domains", "Bluehost", "Hover", "Other", "Not sure"];
 const EMAIL_HOSTS = ["Google Workspace", "Microsoft 365 / Outlook", "GoDaddy Email", "cPanel / hosting-provided", "iCloud / Yahoo / Gmail (personal)", "Other", "None", "Not sure"];
@@ -583,7 +574,9 @@ export default function OnboardingPage() {
 
         <main className="relative z-10 px-6 pb-24">
           <AnimatePresence mode="wait" initial={false}>
-            {resumeDecision === "pending" ? (
+            {!lockedScope ? (
+              <IncompleteLinkState key="incomplete" reduce={!!reduce} />
+            ) : resumeDecision === "pending" ? (
               <ResumePrompt
                 key="resume"
                 onResume={handleResume}
@@ -625,30 +618,6 @@ export default function OnboardingPage() {
                   onChange={(e) => dispatch({ type: "SET", field: "honey", value: e.target.value })}
                   className="absolute left-[-9999px] w-px h-px opacity-0"
                 />
-
-                {/* Scope gate — hidden when scope is locked via the link */}
-                {!lockedScope && (
-                <section className="ed-card-dark mb-8" aria-labelledby="scope-heading">
-                  <h2 id="scope-heading" className="font-mono text-xs uppercase tracking-[0.22em] text-ink-quiet mb-3">
-                    Scope
-                  </h2>
-                  <p className="text-ink text-lg md:text-xl mb-6">What's in scope for this engagement?</p>
-                  <div role="radiogroup" aria-labelledby="scope-heading" className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                    {SCOPE_OPTIONS.map((opt) => (
-                      <ScopeCard
-                        key={opt.value}
-                        option={opt}
-                        selected={state.scope === opt.value}
-                        onSelect={() => {
-                          dispatch({ type: "SET", field: "scope", value: opt.value });
-                          if (!openSection) setOpenSection("common");
-                        }}
-                        reduce={!!reduce}
-                      />
-                    ))}
-                  </div>
-                </section>
-                )}
 
                 {/* Accordion sections */}
                 {state.scope && (
@@ -875,46 +844,22 @@ function SuccessState({ reduce }: { reduce: boolean }) {
   );
 }
 
-function ScopeCard({
-  option,
-  selected,
-  onSelect,
-  reduce,
-}: {
-  option: (typeof SCOPE_OPTIONS)[number];
-  selected: boolean;
-  onSelect: () => void;
-  reduce: boolean;
-}) {
-  const { value, subtitle, Icon } = option;
-  const id = `scope-${value.toLowerCase()}`;
+function IncompleteLinkState({ reduce }: { reduce: boolean }) {
   return (
-    <m.label
-      htmlFor={id}
-      whileHover={reduce ? undefined : { y: -2 }}
-      whileTap={reduce ? undefined : { scale: 0.99 }}
-      transition={{ duration: 0.18 }}
-      className={`relative cursor-pointer block p-4 sm:p-5 border transition-colors duration-200 select-none ${
-        selected ? "border-accent-light bg-accent-soft" : "border-line bg-bg-quiet hover:border-accent-line"
-      }`}
+    <m.div
+      key="incomplete-state"
+      initial={reduce ? false : { opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+      className="max-w-xl mx-auto pt-24 md:pt-32 text-center"
     >
-      <input id={id} type="radio" name="scope" value={value} checked={selected} onChange={onSelect} className="sr-only" />
-      <div className="flex items-start gap-3">
-        <Icon className={`w-5 h-5 mt-0.5 shrink-0 transition-colors duration-200 ${selected ? "text-accent-light" : "text-ink-muted"}`} stroke={1.6} />
-        <div>
-          <p className="font-medium text-base text-ink leading-tight">{value}</p>
-          <p className="text-xs sm:text-sm text-ink-muted mt-1 leading-snug">{subtitle}</p>
-        </div>
-      </div>
-      {selected && (
-        <m.span
-          layoutId="scopeSelectedRing"
-          aria-hidden
-          transition={reduce ? { duration: 0 } : { type: "spring", stiffness: 380, damping: 32 }}
-          className="pointer-events-none absolute inset-0 border border-accent-light"
-        />
-      )}
-    </m.label>
+      <p className="font-mono text-xs uppercase tracking-[0.22em] text-accent-light mb-5">Onboarding</p>
+      <h2 className="display-h1 text-4xl md:text-5xl text-ink mb-4">Hang tight.</h2>
+      <p className="text-ink-muted text-base md:text-lg max-w-md mx-auto">
+        This link looks incomplete — I&apos;ll send you the right one. If you already have it, double-check
+        the link I sent and try again.
+      </p>
+    </m.div>
   );
 }
 
