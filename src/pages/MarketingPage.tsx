@@ -377,11 +377,11 @@ export default function MarketingPage() {
           <div className="grid md:grid-cols-2 gap-6 md:items-stretch mb-6 max-w-4xl mx-auto">
             {/* Step 1 — The Foundation (on-ramp) */}
             <ScrollReveal direction="up" delay={0.06}>
-              <a href="#contact" aria-label="Start with The Foundation — go to contact form" className="lift h-full bg-bg-raised rounded-2xl border border-line p-8 flex flex-col cursor-pointer hover:border-accent-line transition-colors">
-                <h3 className="text-sm tracking-[0.25em] uppercase text-ink-muted font-semibold mb-3">
+              <a href="#contact" aria-label="Start with The Foundation — go to contact form" className="group lift h-full bg-bg-raised rounded-2xl border-2 border-accent p-8 flex flex-col cursor-pointer transition-colors">
+                <h3 className="text-sm tracking-[0.25em] uppercase text-ink-muted font-semibold mb-3 transition-colors group-hover:text-accent-light">
                   Step 1 &middot; The Foundation
                 </h3>
-                <p className="text-3xl md:text-4xl font-bold text-ink mb-1">
+                <p className="text-3xl md:text-4xl font-bold text-ink mb-1 transition-colors group-hover:text-accent-light">
                   $2,100<span className="text-base font-medium text-ink-quiet"> one-time</span>
                 </p>
                 <p className="text-ink-muted text-sm leading-relaxed mt-3 mb-5">
@@ -410,11 +410,11 @@ export default function MarketingPage() {
 
             {/* Step 2 — The Partnership (anchor / destination) */}
             <ScrollReveal direction="up" delay={0.1}>
-              <a href="#contact" aria-label="Start with The Partnership — go to contact form" className="lift relative h-full bg-bg-raised rounded-2xl border-2 border-accent p-8 flex flex-col cursor-pointer transition-colors">
-                <h3 className="text-sm tracking-[0.25em] uppercase text-accent font-semibold mb-3">
+              <a href="#contact" aria-label="Start with The Partnership — go to contact form" className="group lift h-full bg-bg-raised rounded-2xl border-2 border-accent p-8 flex flex-col cursor-pointer transition-colors">
+                <h3 className="text-sm tracking-[0.25em] uppercase text-ink-muted font-semibold mb-3 transition-colors group-hover:text-accent-light">
                   Step 2 &middot; The Partnership
                 </h3>
-                <p className="text-4xl md:text-5xl font-bold text-ink mb-1">
+                <p className="text-4xl md:text-5xl font-bold text-ink mb-1 transition-colors group-hover:text-accent-light">
                   $950<span className="text-base font-medium text-ink-quiet">/mo</span>
                 </p>
                 <p className="text-sm text-ink-quiet mb-5">Month-to-month &middot; cancel any month with 72 hours notice before your next bill</p>
@@ -424,7 +424,7 @@ export default function MarketingPage() {
                 <p className="text-ink-muted text-sm leading-relaxed mb-5">
                   You show up when people search for what you do, and you own the site for good. The rankings are a spot I hold by keeping the work going.
                 </p>
-                <ul className="space-y-3 mt-auto">
+                <ul className="space-y-3">
                   {[
                     <>Your site hosted and kept running &mdash; <strong className="text-ink font-semibold">fast, secure, online, and fixed if anything ever breaks</strong></>,
                     <>Your Google Business Profile actively managed &mdash; <strong className="text-ink font-semibold">reviews replied to, photos and posts kept fresh</strong></>,
@@ -461,44 +461,47 @@ export default function MarketingPage() {
             </div>
           </ScrollReveal>
 
-          {/* ===== LANE 2 — Ads (Ad Management), standalone-capable ===== */}
+          {/* ===== STANDALONE SERVICES — Ad Management + Email Marketing ===== */}
           <ScrollReveal direction="up" delay={0.16}>
-            <div className="max-w-4xl mx-auto mb-14 md:mb-16">
-              <div className="text-center mb-6">
-                <p className="font-mono text-[11px] tracking-[0.25em] uppercase text-accent mb-2">Leads now &middot; ads</p>
-              </div>
-              <div className="bg-bg-raised rounded-2xl border border-line p-8 md:p-10">
-                <div className="flex items-baseline justify-between flex-wrap gap-x-4 gap-y-1 mb-4">
-                  <h3 className="text-sm tracking-[0.25em] uppercase text-ink-muted font-semibold">Ad Management</h3>
-                  <p className="text-ink font-semibold text-lg leading-snug">Leads now.</p>
-                </div>
-                <p className="text-ink-muted text-sm md:text-base leading-relaxed mb-6">
-                  Ads put you in front of people searching today, and switch off the moment you want. Already happy with your site and digital foundation and just want ads run? I&apos;ll do that on its own &mdash; or run them alongside the Partnership, leads now while your organic builds.
-                </p>
+            <div className="max-w-4xl mx-auto mb-6 text-center">
+              <p className="font-mono text-[11px] tracking-[0.25em] uppercase text-accent mb-2">Standalone services</p>
+              <p className="text-ink-muted text-sm md:text-base max-w-xl mx-auto">Run on their own, or layered on top of the Partnership.</p>
+            </div>
+          </ScrollReveal>
 
-                {/* Price menu */}
-                <div className="rounded-xl border border-line bg-bg-quiet/40 px-5 py-4 md:px-6 md:py-5 mb-6 space-y-2.5">
-                  <p className="text-ink-muted text-sm md:text-base leading-relaxed">
-                    <span className="text-ink font-semibold">Google Search ads</span> &mdash; $500/mo, or 15% of ad spend, whichever is greater
+          <div className="grid md:grid-cols-2 gap-6 md:items-stretch max-w-4xl mx-auto">
+            {/* Ad Management */}
+            <ScrollReveal direction="up" delay={0.18}>
+              <a href="#contact" aria-label="Start Ad Management &mdash; go to contact form" className="group lift h-full bg-bg-raised rounded-2xl border-2 border-accent p-8 flex flex-col cursor-pointer transition-colors">
+                <h3 className="text-sm tracking-[0.25em] uppercase text-ink-muted font-semibold mb-3 transition-colors group-hover:text-accent-light">
+                  Standalone &middot; Ad Management
+                </h3>
+                <p className="text-3xl md:text-4xl font-bold text-ink mb-1 transition-colors group-hover:text-accent-light">
+                  from $500<span className="text-base font-medium text-ink-quiet">/mo</span>
+                </p>
+                <p className="text-sm text-ink-quiet mb-5">Month-to-month &middot; cancel anytime</p>
+                <p className="text-ink font-semibold text-lg leading-snug mb-4">
+                  Leads now.
+                </p>
+                <p className="text-ink-muted text-sm leading-relaxed mb-5">
+                  Ads put you in front of people searching today, and switch off the moment you want.
+                </p>
+                <div className="rounded-xl border border-line bg-bg-quiet/40 px-4 py-4 mb-5 space-y-2">
+                  <p className="text-ink-muted text-sm leading-relaxed">
+                    <span className="text-ink font-semibold">Google Search</span> &mdash; $500/mo, or 15% of spend (whichever&apos;s greater)
                   </p>
-                  <p className="text-ink-muted text-sm md:text-base leading-relaxed">
+                  <p className="text-ink-muted text-sm leading-relaxed">
                     <span className="text-ink font-semibold">Local Services Ads</span> &mdash; $150/mo flat
                   </p>
-                  <p className="text-ink-muted text-sm md:text-base leading-relaxed">
-                    <span className="text-ink font-semibold">Both</span> &mdash; $600/mo, or 15% of ad spend, whichever is greater
+                  <p className="text-ink-muted text-sm leading-relaxed">
+                    <span className="text-ink font-semibold">Both</span> &mdash; $600/mo, or 15% of spend
                   </p>
                 </div>
-
-                {/* Setup / landing-page block */}
-                <p className="text-ink-muted text-sm leading-relaxed mb-6">
-                  When someone clicks your ad, it takes them to a landing page built to do one thing: get them to call you, or fill out a quick form that lands right in your inbox. Your first one&apos;s included. Want ads on their own? A one-time setup covers building that page and getting your ads up and running &mdash; I&apos;ll quote it on a call. Already on the Partnership? The setup&apos;s included.
-                </p>
-
-                <ul className="space-y-3 mb-6">
+                <ul className="space-y-3">
                   {[
-                    <>Every month I review and adjust your ads <strong className="text-ink font-semibold">to keep them bringing in calls</strong></>,
-                    <>Your ad spend is paid straight to Google from your card &mdash; <strong className="text-ink font-semibold">you see exactly what&apos;s going out, and I never mark it up or take a cut</strong></>,
-                    <>A monthly report &mdash; <strong className="text-ink font-semibold">what you spent, and the leads it brought in</strong></>,
+                    <>Reviewed and adjusted every month <strong className="text-ink font-semibold">to keep calls coming</strong></>,
+                    <>Ad spend paid straight to Google &mdash; <strong className="text-ink font-semibold">no markup, no cut</strong></>,
+                    <>Monthly report &mdash; <strong className="text-ink font-semibold">what you spent, and the leads it brought in</strong></>,
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2.5">
                       <IconCheck className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
@@ -506,21 +509,46 @@ export default function MarketingPage() {
                     </li>
                   ))}
                 </ul>
+                <p className="mt-auto pt-5 border-t border-line text-ink-muted text-sm italic">
+                  Comes with your first landing page. Setup quoted on a call standalone &mdash; included with the Partnership.
+                </p>
+              </a>
+            </ScrollReveal>
 
-                <p className="text-sm text-ink-quiet">On its own or as part of the Partnership &middot; cancel anytime</p>
-              </div>
-            </div>
-          </ScrollReveal>
-
-          {/* ===== EXTRAS — Email marketing (single) ===== */}
-          <ScrollReveal direction="up" delay={0.18}>
-            <div className="max-w-2xl mx-auto text-center">
-              <p className="font-mono text-[11px] tracking-[0.25em] uppercase text-accent mb-3">Extra</p>
-              <p className="text-ink-muted text-sm md:text-base leading-relaxed">
-                <span className="text-ink font-semibold">Email marketing</span> &mdash; $300 to set up, first campaign included. After that, send campaigns yourself anytime at no extra cost, or have me run each one for $150. A simple way to get more repeat work from the customers you already have.
-              </p>
-            </div>
-          </ScrollReveal>
+            {/* Email Marketing */}
+            <ScrollReveal direction="up" delay={0.22}>
+              <a href="#contact" aria-label="Start Email Marketing &mdash; go to contact form" className="group lift h-full bg-bg-raised rounded-2xl border-2 border-accent p-8 flex flex-col cursor-pointer transition-colors">
+                <h3 className="text-sm tracking-[0.25em] uppercase text-ink-muted font-semibold mb-3 transition-colors group-hover:text-accent-light">
+                  Standalone &middot; Email Marketing
+                </h3>
+                <p className="text-3xl md:text-4xl font-bold text-ink mb-1 transition-colors group-hover:text-accent-light">
+                  $300<span className="text-base font-medium text-ink-quiet"> to set up</span>
+                </p>
+                <p className="text-sm text-ink-quiet mb-5">First campaign included</p>
+                <p className="text-ink font-semibold text-lg leading-snug mb-4">
+                  Repeat business.
+                </p>
+                <p className="text-ink-muted text-sm leading-relaxed mb-5">
+                  The simple way to get more repeat work from the customers you already have.
+                </p>
+                <ul className="space-y-3">
+                  {[
+                    <>First campaign included with setup &mdash; <strong className="text-ink font-semibold">ready to send on launch</strong></>,
+                    <>Send your own campaigns anytime &mdash; <strong className="text-ink font-semibold">no extra cost, ever</strong></>,
+                    <>Or have me run each one &mdash; <strong className="text-ink font-semibold">$150 per campaign, fully done for you</strong></>,
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2.5">
+                      <IconCheck className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+                      <span className="text-ink-muted text-sm leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-auto pt-5 border-t border-line text-ink-muted text-sm italic">
+                  On its own, or as part of the Partnership.
+                </p>
+              </a>
+            </ScrollReveal>
+          </div>
 
         </div>
       </section>

@@ -101,6 +101,55 @@ export default function WhyIntentPage() {
         </div>
       </section>
 
+      {/* ==================== REACH & LEVERAGE — why online at all ==================== */}
+      <section className="section-deep py-24 md:py-32 px-6 lg:px-12 border-y border-line">
+        <div className="max-w-4xl mx-auto">
+          <Eyebrow accent className="mb-8">Why online at all</Eyebrow>
+          <DisplayH2 className="mb-10">You can only hand out so many flyers in a day.</DisplayH2>
+          <div className="space-y-6 text-ink-muted text-lg leading-relaxed max-w-3xl">
+            <p>
+              Door-knocking, flyers, signs at community events &mdash; they all work. They just cap out at whatever one person (or one team) can do in a day.
+            </p>
+            <p>
+              Being online doesn&apos;t have that cap. Tonight while you sleep, people are out there searching. By the time you finish your morning coffee, thousands have already looked for what you do. Same effort, way more reach.
+            </p>
+            <p>
+              You don&apos;t replace the flyers. You just stop relying on them to do all the work.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== WHERE PEOPLE LOOK — current behavior, data-anchored ==================== */}
+      <section className="section-base py-24 md:py-32 px-6 lg:px-12 border-t border-line">
+        <div className="max-w-4xl mx-auto">
+          <Eyebrow accent className="mb-8">Where people look for you now</Eyebrow>
+          <DisplayH2 className="mb-10">Almost everybody starts on a phone.</DisplayH2>
+          <div className="space-y-6 text-ink-muted text-lg leading-relaxed max-w-3xl">
+            <p>
+              When somebody needs a roofer, a barber, a dentist, a pizza place &mdash; they pull up Google. Or they ask ChatGPT &ldquo;who&apos;s the best [X] near me.&rdquo; Or they tap a Maps pin while they&apos;re already driving.
+            </p>
+            <ul className="space-y-3 list-none pl-0">
+              <li>
+                <strong className="text-accent-light font-semibold"><MonoNum>97%</MonoNum></strong> read online reviews before choosing a local business
+              </li>
+              <li>
+                <strong className="text-accent-light font-semibold"><MonoNum>71%</MonoNum></strong> pull up Google when they need to find one
+              </li>
+              <li>
+                <strong className="text-accent-light font-semibold"><MonoNum>45%</MonoNum></strong> now ask AI like ChatGPT for local recommendations &mdash; up from 6% the year before
+              </li>
+            </ul>
+            <p className="font-mono text-[11px] tracking-wide text-ink-faint">
+              <a href="https://www.brightlocal.com/research/local-consumer-review-survey/" target="_blank" rel="noopener" className="underline decoration-line underline-offset-2 hover:text-accent-light transition-colors">BrightLocal Local Consumer Review Survey, 2026</a>
+            </p>
+            <p>
+              That&apos;s the shift. The customers are online whether you are or not.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ==================== THE CORE IDEA — intent vs interruption ==================== */}
       <section className="section-deep py-24 md:py-32 px-6 lg:px-12 border-y border-line">
         <div className="max-w-4xl mx-auto">
