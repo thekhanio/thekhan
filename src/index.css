@@ -393,16 +393,27 @@ body {
   box-shadow: 0 18px 40px -20px rgba(26, 20, 16, 0.30);
 }
 
-/* Lift utility for non-card hoverable blocks (gallery cells, link cards) */
+/* Lift utility for non-card hoverable blocks (gallery cells, link cards).
+   On hover: subtle lift + a light-sage GLOW (ring + halo) so any clickable
+   surface clearly signals interactivity on the dark background. The glow
+   uses the theme's --accent-light via color-mix, so it tracks brand color. */
 .lift {
   transition: transform 200ms ease-out, box-shadow 200ms ease-out, border-color 200ms ease-out;
 }
 .lift:hover {
   transform: translateY(-4px);
-  box-shadow: 0 18px 40px -20px rgba(0, 0, 0, 0.55);
+  border-color: var(--accent-light);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--accent-light) 55%, transparent),
+    0 4px 26px -4px color-mix(in srgb, var(--accent-light) 32%, transparent),
+    0 18px 40px -20px rgba(0, 0, 0, 0.55);
 }
+/* On the light cream sections, the dark accent reads better than the light one. */
 .section-cream .lift:hover {
-  box-shadow: 0 18px 40px -20px rgba(26, 20, 16, 0.30);
+  border-color: var(--accent);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--accent) 45%, transparent),
+    0 18px 40px -20px rgba(26, 20, 16, 0.30);
 }
 
 /* Client trust strip — full-color, static, no hover.

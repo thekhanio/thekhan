@@ -1,22 +1,25 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { m, AnimatePresence } from "framer-motion";
 import { ContactForm } from "@/components/ContactForm";
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/Layout";
+import { Accordion } from "@/components/Accordion";
 import { Eyebrow, DisplayH1, DisplayH2, MonoNum } from "@/components/editorial";
 import { TldrStrip } from "@/components/ui/tldr-strip";
 import { TextMarquee } from "@/components/ui/text-marquee";
 import { ClipReveal } from "@/components/ui/clip-reveal";
-import { IconPhone, IconMail, IconCheck, IconChevronDown, IconArrowRight } from "@tabler/icons-react";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { AnimatedUnderline } from "@/components/ui/animated-underline";
+import { IconPhone, IconMail, IconCheck, IconArrowRight } from "@tabler/icons-react";
 
 const faqs = [
   { q: "Do I need my own domain?", a: "If you don't have one, I'll walk you through buying it (about $12/year through GoDaddy, Namecheap, or whichever provider you prefer). You register it in your own account, with your own login. You own it forever — even if we never talk again." },
-  { q: "Where will my site be hosted?", a: "On modern hosting that's free for small business sites. Your only ongoing cost is your domain renewal — about $12 a year." },
+  { q: "Where will my site be hosted?", a: "Your call. If you just want the site built, I set it up on your own account, in your name — you own it outright. If you'd rather I keep it running, that's Website Care ($50/mo): I host it, keep it fast and secure, and you edit it yourself anytime. Either way, every file is yours — move it whenever you want." },
   { q: "Can you migrate my existing Wix or Squarespace site?", a: "I'll use your existing copy, photos, and content — anything that's yours, I move over. But I rebuild the site fresh, which gets you a faster, cleaner result than dragging an old template along. Priced like any new build — Brochure, Standard, or Custom, depending on what you need." },
+  { q: "Why not just use Wix or Squarespace?", a: "Two reasons. First, speed — builders like Wix carry a lot of extra weight, so they load slower; yours is built lean, so it's fast. Second, and bigger: with most builders you can't really take your site with you — you're stuck on their platform, and leaving means rebuilding from scratch. A custom site is different — every file is yours, text and images and all, so you can host it anywhere or hand it to any developer, anytime." },
   { q: "What if my content isn't ready yet?", a: "That's normal. Most people don't have polished copy or photos lined up before they hire me. I'll write the copy from what you tell me — you just review it. For photos, I'll tell you exactly what I need and help you figure out how to source it." },
-  { q: "What if I want changes after launch?", a: "Two options. Grab Website Care ($50/mo) and edit your own photos, hours, and text in a few clicks. Or text me for one-off updates — I'll quote each one upfront before I start. If you're going to be making changes regularly, Website Care usually makes more sense." },
-  { q: "Do I sign a long-term contract?", a: "No. Site-only builds (Brochure, Standard, or Custom) are one-time projects — 50% paid Day 1 to start the build, 50% on launch, no monthly fee, no cancellation fee. The Foundation includes The Partnership — my monthly marketing — which begins Day 31 at $950/mo, billed month-to-month, cancel any month with 72 hours notice before your next bill. Website Care ($50/mo) is also month-to-month with the same 72-hour cancel." },
+  { q: "What do I need to provide?", a: "I write all the copy — and the form I send lets you flag any direction or specifics you want. Photos, your logo, and any brand materials are on you. No logo yet? I can put together something basic for a small added fee — just mention it when you reach out." },
+  { q: "What if I want changes after launch?", a: "Two ways. Website Care ($50/mo) lets you update your own photos, hours, prices, and text anytime — no tech skills needed. Without it, the site's still yours; a bigger change down the road is a quick separate quote. Most small business sites barely change, so plenty of people start without the dashboard and add it later if they need it." },
+  { q: "Do I sign a long-term contract?", a: "No. Site-only builds (Brochure, Standard, or Custom) are one-time projects — 50% paid Day 1 to start the build, 50% on launch, no monthly fee. The Foundation includes The Partnership — my monthly marketing — which begins after the first month at $950/mo, billed month-to-month, cancel any month with 72 hours notice before your next bill. Website Care ($50/mo) is also month-to-month with the same 72-hour cancel." },
   { q: "How and when do I pay?", a: "Site-only builds: 50% paid Day 1 to start the build, 50% on launch. The Foundation: paid Day 1, non-refundable. Either way — card or Zelle, your call. Invoiced upfront, no hidden fees, no surprise invoices." },
 ];
 
@@ -65,12 +68,13 @@ interface TierProps {
   priceNote?: string;
   blurb: string;
   features: React.ReactNode[];
+  revisions?: string;
   inheritsFrom?: string;
   ctaLabel: string;
   featured?: boolean;
 }
 
-function Tier({ name, price, was, priceNote, blurb, features, inheritsFrom, ctaLabel, featured }: TierProps) {
+function Tier({ name, price, was, priceNote, blurb, features, revisions, inheritsFrom, ctaLabel, featured }: TierProps) {
   return (
     <a
       href="#contact"
@@ -94,7 +98,7 @@ function Tier({ name, price, was, priceNote, blurb, features, inheritsFrom, ctaL
           Everything in {inheritsFrom}, plus:
         </p>
       )}
-      <ul className="space-y-3 mb-10 flex-1">
+      <ul className="space-y-3 mb-6">
         {features.map((item, i) => (
           <li key={i} className="flex items-start gap-3 text-ink-muted text-sm leading-relaxed">
             <IconCheck className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
@@ -102,7 +106,13 @@ function Tier({ name, price, was, priceNote, blurb, features, inheritsFrom, ctaL
           </li>
         ))}
       </ul>
-      <span className={featured ? "btn-primary text-sm" : "btn-ghost text-sm"}>
+      {revisions && (
+        <p className="flex items-start gap-3 text-ink-muted text-sm leading-relaxed mb-10">
+          <IconCheck className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+          <span>{revisions}</span>
+        </p>
+      )}
+      <span className={`mt-auto ${featured ? "btn-primary text-sm" : "btn-ghost text-sm"}`}>
         {ctaLabel}
       </span>
     </a>
@@ -110,8 +120,6 @@ function Tier({ name, price, was, priceNote, blurb, features, inheritsFrom, ctaL
 }
 
 export default function WebsitesPage() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-
   return (
     <Layout activePath="/websites" contactHref="#contact">
       <SEO
@@ -132,18 +140,18 @@ export default function WebsitesPage() {
             <DisplayH1 className="max-w-6xl">
               A site you own.
               <br />
-              <span className="text-accent">Built to rank.</span>
+              <span className="text-accent">Built to work for you.</span>
             </DisplayH1>
           </ClipReveal>
           <p className="lede mt-12 max-w-2xl">
-            Live in about <MonoNum>30</MonoNum> days. The site is yours — move it anywhere you want. No monthly fees.
+            A fast, clean site built to guide people toward reaching out — yours to keep, no monthly fees.
           </p>
 
           <TldrStrip
             bullets={[
               <>A site built just for you, ready in about 30 days</>,
-              <>Brochure <MonoNum>$750</MonoNum> &middot; Standard <MonoNum>$1,500</MonoNum> &middot; Custom quoted</>,
-              <>You own the code &mdash; no contracts, no lock-in</>,
+              <><strong className="text-ink font-semibold">Brochure</strong> <MonoNum>$750</MonoNum><span className="text-ink-faint mx-2" aria-hidden="true">&#9474;</span><strong className="text-ink font-semibold">Standard</strong> <MonoNum>$1,500</MonoNum><span className="text-ink-faint mx-2" aria-hidden="true">&#9474;</span><strong className="text-ink font-semibold">Custom</strong> quoted</>,
+              <>Yours to own, not rent &mdash; take it anywhere</>,
             ]}
             links={[
               { label: "Pricing", href: "#pricing" },
@@ -154,13 +162,10 @@ export default function WebsitesPage() {
 
           <div className="mt-12 flex flex-wrap items-center gap-8">
             <a href="#contact" className="btn-primary">Start your build &rarr;</a>
-            <a href="#pricing" className="text-accent-light hover:text-ink text-sm tracking-wide underline underline-offset-4 decoration-accent-line hover:decoration-ink transition-colors">
-              See pricing &darr;
-            </a>
           </div>
           <p className="mt-10">
             <Link to="/portfolio" className="link text-sm">
-              See more work I&apos;ve shipped &rarr;
+              See the sites I&apos;ve built &rarr;
             </Link>
           </p>
         </div>
@@ -191,11 +196,11 @@ export default function WebsitesPage() {
             <Eyebrow accent className="mb-8">What it costs</Eyebrow>
             <DisplayH2 className="mb-8">Pick what fits.</DisplayH2>
             <p className="lede">
-              One-time builds — pick the size that fits. Even the one-page option isn&apos;t a pretty brochure: it&apos;s fast, clean, and built to guide whoever lands on it toward calling you. More pages, more of your services people can find.
+              One-time website builds. A single page can only do a job or two well, so the Brochure stays focused — the essentials, plus an easy way to reach out. But one page only holds so much before it feels crammed, so the more services and details you want prospects and customers to see, the more pages it&apos;ll take. That&apos;s where the Standard Site comes in.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             <Tier
               name="Brochure Site"
               price="$750"
@@ -204,10 +209,10 @@ export default function WebsitesPage() {
                 <>One custom page — <strong className="text-ink font-semibold">services, about, and contact in one clean scroll</strong></>,
                 <>Fast loading, mobile-first — <strong className="text-ink font-semibold">no template, no monthly platform fee.</strong></>,
                 <>Contact form, click-to-call, and map — <strong className="text-ink font-semibold">easy ways to reach you.</strong></>,
-                <>Built to be found — <strong className="text-ink font-semibold">structured so Google can read and rank it.</strong></>,
-                <>Tracking installed — <strong className="text-ink font-semibold">you see where your visitors come from.</strong></>,
-                <>The page, domain, and logins — <strong className="text-ink font-semibold">yours, day one.</strong></>,
+                <>Built to be found — <strong className="text-ink font-semibold">structured so Google can find and understand it.</strong></>,
+                <>The page, domain, and logins — <strong className="text-ink font-semibold">yours from day one.</strong></>,
               ]}
+              revisions="2 rounds of revisions before launch"
               ctaLabel="Start a Brochure Site →"
             />
             <Tier
@@ -219,31 +224,28 @@ export default function WebsitesPage() {
               features={[
                 <>5 pages — <strong className="text-ink font-semibold">home, about, services, contact, plus one more (gallery or FAQ)</strong></>,
                 <>Copywriting on every page — <strong className="text-ink font-semibold">written to turn visitors into calls, not just fill space</strong></>,
-                <>Testimonials and FAQ sections — <strong className="text-ink font-semibold">earn trust before they reach out</strong></>,
-                <>Your Google Business Profile claimed and set up — <strong className="text-ink font-semibold">so you turn up nearby</strong></>,
-                <>2–3 rounds of revisions — <strong className="text-ink font-semibold">dial it in before launch</strong></>,
+                <>Testimonials and FAQ sections — <strong className="text-ink font-semibold">your real reviews, set up to build trust before they reach out</strong></>,
+                <>Booking, payment, or scheduling buttons — <strong className="text-ink font-semibold">send me the link and I&apos;ll build it right into the site</strong></>,
               ]}
+              revisions="3 rounds of revisions before launch"
               ctaLabel="Start a Standard Site →"
             />
-            <Tier
-              name="Custom"
-              price="Let's talk"
-              blurb="For a deep service catalog, multiple locations, or a build that needs something special."
-              inheritsFrom="Standard Site"
-              features={[
-                <>More pages — <strong className="text-ink font-semibold">a page for every service or location you want found for</strong></>,
-                <>A plan mapped out up front — <strong className="text-ink font-semibold">which pages earn their keep before I build them</strong></>,
-                <>Custom layouts and sections — <strong className="text-ink font-semibold">built around your business, not a template</strong></>,
-                <>Revisions to match the scope — <strong className="text-ink font-semibold">the bigger the build, the more refinement before launch</strong></>,
-                <>Quoted per project — <strong className="text-ink font-semibold">reach out and I&apos;ll scope it with you</strong></>,
-              ]}
-              ctaLabel="Tell me about it →"
-            />
+          </div>
+
+          {/* Custom — demoted to a strip below the two cards (not a 3rd equal tier) */}
+          <div className="mt-6 border border-line bg-bg-raised p-8 md:p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div>
+              <p className="font-mono text-[11px] tracking-widest uppercase text-accent mb-2">Custom</p>
+              <p className="text-ink-muted text-base md:text-lg leading-relaxed max-w-2xl">
+                Need something custom? More pages, multiple locations, or something special &mdash; let&apos;s scope it together.
+              </p>
+            </div>
+            <a href="#contact" className="btn-ghost text-sm whitespace-nowrap flex-shrink-0">Reach out &rarr;</a>
           </div>
 
           {/* Site-vs-marketing split — make it unmissable */}
           <p className="max-w-2xl mx-auto mt-20 text-center text-ink-muted text-base md:text-lg leading-relaxed">
-            Brochure, Standard, and Custom are just sites &mdash; yours to keep, no marketing attached. Want your site to be the start of getting found every month? That&apos;s the Foundation.
+            These are just sites &mdash; built once, yours to keep. Getting online is the easy part; showing up when people search, month after month, is marketing &mdash; that&apos;s where the Foundation comes in.
           </p>
 
           {/* The Foundation — where marketing starts */}
@@ -256,7 +258,7 @@ export default function WebsitesPage() {
                 <span className="text-ink-quiet text-sm italic">one-time</span>
               </div>
               <p className="text-ink-muted text-base leading-relaxed mb-6">
-                This is the one with marketing attached. A custom site plus the setup that starts The Partnership &mdash; my month-to-month marketing &mdash; so you&apos;re not just online, you&apos;re getting found.
+                If you want more than a website &mdash; the ongoing marketing that gets you found &mdash; this is it. A custom site plus the setup that starts The Partnership, my month-to-month marketing.
               </p>
               <ul className="space-y-3">
                 {[
@@ -274,7 +276,7 @@ export default function WebsitesPage() {
                 ))}
               </ul>
               <p className="mt-8 text-ink-quiet text-sm italic">
-                Paid Day 1, non-refundable. Day 31, The Partnership begins at $950/mo — month-to-month.
+                Paid Day 1, non-refundable. Day 31, the Partnership begins — $950/mo, month-to-month.
               </p>
               <Link to="/marketing" className="btn-primary text-sm mt-8">
                 See how the marketing works &rarr;
@@ -283,59 +285,33 @@ export default function WebsitesPage() {
           </div>
 
           <div className="max-w-3xl mt-24 pt-16 border-t border-line">
-            <DisplayH2 className="text-3xl md:text-4xl mb-8">The terms, plain.</DisplayH2>
+            <DisplayH2 className="text-3xl md:text-4xl mb-8">How payment works.</DisplayH2>
             <div className="space-y-6 text-ink-muted text-base md:text-lg leading-relaxed">
               <p>
                 <span className="text-ink font-semibold">Site-only build (Brochure, Standard, or Custom).</span>{" "}
-                50% paid Day 1 to start the build, 50% on launch. Live in about 30 days. One-time project — no monthly fee, no cancellation fee.
+                50% paid Day 1 to start the build, 50% on launch. Live in about 30 days. One-time project — no monthly fee.
               </p>
               <p>
                 <span className="text-ink font-semibold">The Foundation.</span>{" "}
-                Paid Day 1, non-refundable — that covers the 30-day foundation work. Day 31, The Partnership begins at $950/mo. Then month-to-month — cancel any month with 72 hours notice before your next bill.
+                Month one is where I build your site and set up the foundation to start the ongoing marketing. After that, the Partnership begins — $950/mo, month-to-month, cancel any month with 72 hours notice before your next bill.
               </p>
               <p>
                 <span className="text-ink font-semibold">Either way.</span>{" "}
-                The site is yours at launch. <strong className="text-accent-light font-semibold">Optional</strong> Website Care ($50/mo, further down) is month-to-month — cancel any month with 72 hours notice before your next bill.
+                The site is yours at launch. <strong className="text-accent-light font-semibold">Optional</strong> Website Care ($50/mo, further down) is month-to-month.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ==================== ON PLATFORMS ==================== */}
-      <section className="section-deep py-24 md:py-32 px-6 lg:px-12 border-t border-line">
-        <div className="max-w-4xl mx-auto">
-          <div className="mb-20 max-w-3xl">
-            <Eyebrow accent className="mb-8">On platforms</Eyebrow>
-            <DisplayH2 className="mb-8">Why I won&apos;t build you a Wix site.</DisplayH2>
-            <p className="lede">
-              Faster pages, real ownership, no lock-in.
-            </p>
-          </div>
-
-          <div className="border-t border-line">
-            {[
-              { num: "01", title: "Faster pages, ranked for YOUR services.", body: <>Template builders cram in code your site doesn&apos;t need. Custom sites load only what&apos;s used — they&apos;re faster, and the pages get built to rank for the searches that bring YOUR customers, not the generic version every Wix user gets.</> },
-              { num: "02", title: "You can't actually own a platform site.", body: <><span>Wix&apos;s own support docs say a Wix site can only run on Wix — you can&apos;t take it anywhere else. Squarespace exports are partial — most content won&apos;t transfer. GoDaddy has no way to export your site&apos;s pages, content, or design. Webflow lets you export HTML/CSS but not your content database.</span><span className="block mt-3">When I build you a custom site, every file is yours — text, images, code, structure. You can leave anytime, take it to any developer, or host it anywhere.</span><span className="block mt-3">Most of your competitors are locked into a platform like Wix or Squarespace. They can&apos;t leave without rebuilding from scratch. With a custom site, you don&apos;t have that problem.</span></> },
-            ].map((item) => (
-              <div key={item.num} className="grid grid-cols-[auto_1fr] gap-x-8 md:gap-x-14 gap-y-3 py-12 border-b border-line">
-                <p className="font-mono text-sm text-accent tracking-widest pt-2">{item.num}</p>
-                <h3 className="display-h2 text-2xl md:text-3xl text-ink">{item.title}</h3>
-                <div className="col-start-2 text-ink-muted leading-relaxed text-base md:text-lg">{item.body}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ==================== OPTIONAL DASHBOARD ==================== */}
+      {/* ==================== WEBSITE CARE ==================== */}
       <section className="section-raised py-24 md:py-32 px-6 lg:px-12 border-t border-line">
         <div className="max-w-4xl mx-auto">
           <div className="mb-20 max-w-3xl">
             <Eyebrow accent className="mb-8">Website Care</Eyebrow>
             <DisplayH2 className="mb-8">Edit your site yourself.</DisplayH2>
             <p className="lede">
-              Update text, photos, hours, prices — anything — from any device. No code, no HTML, no tech background. Click, change, save.
+              Update your own photos, hours, prices, and text anytime — from your phone or computer, no tech skills needed. Tell me what you want to be able to edit, and I&apos;ll set your dashboard up around that.
             </p>
           </div>
 
@@ -349,83 +325,73 @@ export default function WebsitesPage() {
               </span>
             </div>
 
+            <p className="text-ink-muted leading-relaxed">
+              I keep it hosted, fast, secure, and online — and if anything ever breaks, I fix it.
+            </p>
+
             <div className="border-l-2 border-accent pl-6">
-              <p className="text-ink font-semibold mb-2">What makes this different from a Wix subscription:</p>
+              <p className="text-ink font-semibold mb-2">How this is different from Wix:</p>
               <p className="text-ink-muted leading-relaxed">
-                Cancel the dashboard, your site keeps running. The site is still yours, still live — only the edit tool goes away. After that, just text me for changes.
-              </p>
-              <p className="text-ink-muted leading-relaxed mt-3">
-                Cancel Wix or Squarespace? Your site disappears the same day.
+                You own your whole site. Cancel anytime and you keep every file — take it and host it anywhere. Cancel Wix or Squarespace and your site&apos;s gone the same day; you&apos;d start over from scratch.
               </p>
             </div>
 
             <p className="text-ink-quiet leading-relaxed">
-              <span className="text-ink font-semibold">Skip it if</span>{" "}
-              you set it up once and never touch it. Most small business sites fit that — hours don&apos;t change, services stay the same. Save the $50 and text me when something needs updating.
+              <span className="text-ink font-semibold">Don&apos;t need it?</span>{" "}
+              Most small business sites barely change — hours and services stay put. If yours is set-and-forget, you may not need this at all.
             </p>
           </div>
         </div>
       </section>
 
-      {/* ==================== PROCESS ==================== */}
+      {/* ==================== PROCESS — sage numbered timeline, 2-col ==================== */}
       <section id="process" className="section-base py-24 md:py-32 px-6 lg:px-12 border-t border-line scroll-mt-20">
-        <div className="max-w-4xl mx-auto">
-          <div className="mb-20 max-w-3xl">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
+          {/* Left — heading + the prefer-text note */}
+          <div className="md:col-span-5">
             <Eyebrow accent className="mb-8">The process</Eyebrow>
-            <DisplayH2>From first call to live site, in four steps.</DisplayH2>
+            <DisplayH2 className="mb-10">First call to live site, in four steps.</DisplayH2>
+            <div className="border-l-2 border-accent pl-6 max-w-md">
+              <p className="text-ink-muted leading-relaxed">
+                Prefer not to hop on a call? Same process by text — I&apos;ll send a form covering everything I&apos;d ask, fill it out whenever.
+              </p>
+            </div>
           </div>
 
-          <div className="border-t border-line">
+          {/* Right — numbered sage timeline */}
+          <div className="md:col-span-6 md:col-start-7">
             {[
-              { n: "01", title: "Discovery — Day 1", body: "A quick call. Tell me about your business and what you need the site to do. No pitch, just questions.", arrow: "Clear picture of what I'm building." },
-              { n: "02", title: "Proposal — Within 48 hours", body: "Exact scope, timeline, and price — no surprises. Once you approve, I send an intake form. Anything outside the tier, I'll quote separately.", arrow: "Locked plan and start date." },
-              { n: "03", title: "Build — about 30 days", body: "You see progress along the way. I test everything before it goes live. Nothing hidden.", arrow: "Working site, tested and ready." },
-              { n: "04", title: "Launch — Day of", body: "I hand off the site. By launch, every account is in your name — domain, hosting, analytics.", arrow: "Your site, live and yours." },
-            ].map((step) => (
-              <div key={step.n} className="grid grid-cols-[auto_1fr] gap-x-8 md:gap-x-14 gap-y-3 py-12 border-b border-line">
-                <p className="font-mono text-sm text-accent tracking-widest pt-2">{step.n}</p>
-                <h3 className="display-h2 text-2xl md:text-3xl text-ink">{step.title}</h3>
-                <div className="col-start-2 text-ink-muted leading-relaxed text-base md:text-lg">
-                  <p>{step.body}</p>
-                  <p className="mt-3 font-mono text-xs uppercase tracking-widest text-accent">→ {step.arrow}</p>
+              { n: "01", title: "Discovery (Day 1)", body: "A quick call: what your business does, what the site needs to do. No pitch." },
+              { n: "02", title: "Proposal (48–72 hours)", body: "Exact scope, timeline, and price. Approve it, and we're on." },
+              { n: "03", title: "Build (~30 days)", body: "You see progress as it comes together; I test everything before launch." },
+              { n: "04", title: "Launch (day of)", body: "I hand it off — every account in your name: domain, hosting, analytics." },
+            ].map((step, i, arr) => (
+              <ScrollReveal key={step.n} direction="up" delay={i * 0.06}>
+                <div className="flex gap-5">
+                  <div className="flex flex-col items-center">
+                    <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-bg font-semibold text-sm flex-shrink-0">
+                      {step.n}
+                    </div>
+                    {i < arr.length - 1 && <AnimatedUnderline vertical className="flex-1 min-h-[36px] my-2" />}
+                  </div>
+                  <div className="pb-10 pt-1.5">
+                    <p className="text-ink font-semibold text-lg md:text-xl mb-1.5">{step.title}</p>
+                    <p className="text-ink-muted leading-relaxed">{step.body}</p>
+                  </div>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
-          </div>
-
-          <div className="border-l-2 border-accent pl-6 my-12 max-w-2xl">
-            <p className="text-ink italic leading-relaxed text-lg">
-              Prefer not to get on a call? Same process, just over text. I&apos;ll send you a form that covers everything I&apos;d ask on a call — fill it out on your own time, and I&apos;ll take it from there.
-            </p>
           </div>
         </div>
       </section>
 
-      {/* ==================== WHAT'S NOT INCLUDED — relocated to position 6 ==================== */}
+      {/* ==================== HONEST SCOPE — single callout ==================== */}
       <section className="section-base py-24 md:py-32 px-6 lg:px-12 border-t border-line">
-        <div className="max-w-4xl mx-auto">
-          <div className="mb-20 max-w-3xl">
-            <Eyebrow accent className="mb-8">Honest scope</Eyebrow>
-            <DisplayH2 className="mb-8">What I don&apos;t do — on purpose.</DisplayH2>
-            <p className="lede">
-              What&apos;s on your tier&apos;s list is what I build. Everything else is a separate conversation — priced up front, no surprise invoices.
-            </p>
-          </div>
-
-          <div className="border-t border-line">
-            {[
-              { num: "01", title: "Ongoing marketing.", body: <>The build gets you found by name and turns visitors into calls. But the steady traffic &mdash; ranking for the searches new customers actually type &mdash; comes from ongoing work, not a one-time site. I build the site; I don&apos;t run your marketing. Want that handled monthly? <Link to="/marketing" className="link">See how the marketing works &rarr;</Link></> },
-              { num: "02", title: "Photos and brand assets.", body: <>I&apos;ll write the copy — just tell me anything specific you want included and I&apos;ll draft the rest. Photos, logos, and existing brand materials are on you. If you don&apos;t have a logo yet and need something basic to get started, let me know when you reach out — I can help with that separately.</> },
-              { num: "03", title: "Post-launch edits.", body: <>Once the site goes live, it&apos;s yours. Ongoing edits aren&apos;t part of the one-time build — but the optional dashboard (more below) lets you update anything yourself in a few clicks.</> },
-              { num: "04", title: "Custom systems.", body: <>Custom systems aren&apos;t part of the base tiers — things like e-commerce backends, booking systems, membership logins, and payment processors. But if you already use something like Stripe, Booksy, or Calendly, I can embed the link on your site for free — quick to set up. Need a custom system built from scratch? Tell me upfront and I&apos;ll quote it as its own project.</> },
-            ].map((item) => (
-              <div key={item.num} className="grid grid-cols-[auto_1fr] gap-x-8 md:gap-x-14 gap-y-3 py-12 border-b border-line">
-                <p className="font-mono text-sm text-accent tracking-widest pt-2">{item.num}</p>
-                <h3 className="display-h2 text-2xl md:text-3xl text-ink">{item.title}</h3>
-                <div className="col-start-2 text-ink-muted leading-relaxed text-base md:text-lg">{item.body}</div>
-              </div>
-            ))}
-          </div>
+        <div className="max-w-3xl mx-auto">
+          <Eyebrow accent className="mb-8">Honest scope</Eyebrow>
+          <p className="text-ink text-xl md:text-2xl leading-relaxed">
+            What&apos;s on your tier is what I build. Anything else &mdash; ongoing marketing, custom systems, post-launch changes &mdash; is a separate conversation, priced up front. No surprise invoices.
+          </p>
         </div>
       </section>
 
@@ -437,34 +403,7 @@ export default function WebsitesPage() {
             <DisplayH2>What people ask before getting started.</DisplayH2>
           </div>
 
-          <div className="border-t border-line">
-            {faqs.map((faq, i) => (
-              <div key={i} className="border-b border-line">
-                <button
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full py-6 flex items-center justify-between gap-4 text-left cursor-pointer hover:text-accent transition-colors"
-                >
-                  <span className="text-ink font-medium text-lg md:text-xl">{faq.q}</span>
-                  <IconChevronDown
-                    className={`w-5 h-5 text-accent flex-shrink-0 transition-transform duration-300 ${openFaq === i ? "rotate-180" : ""}`}
-                  />
-                </button>
-                <AnimatePresence initial={false}>
-                  {openFaq === i && (
-                    <m.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.25 }}
-                      className="overflow-hidden"
-                    >
-                      <p className="pb-6 text-ink-muted leading-relaxed text-base md:text-lg">{faq.a}</p>
-                    </m.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            ))}
-          </div>
+          <Accordion items={faqs.map((faq) => ({ title: faq.q, content: faq.a }))} />
         </div>
       </section>
 
@@ -475,7 +414,7 @@ export default function WebsitesPage() {
             <Eyebrow accent className="mb-8">Ready to build?</Eyebrow>
             <DisplayH2 className="mb-8">Let&apos;s start your site.</DisplayH2>
             <p className="lede">
-              Tell me about your business. I&apos;ll send a proposal — scope, timeline, price — within 48 hours.
+              Tell me about your business. I&apos;ll send a proposal — scope, timeline, price — within 48–72 hours.
             </p>
           </div>
 
@@ -508,8 +447,8 @@ export default function WebsitesPage() {
                   {[
                     "I read your message myself — usually within a few hours.",
                     "I'll reach back out by call or text.",
-                    "I send a proposal with scope, timeline, and price — usually within 48 hours.",
-                    "If you approve, I send a one-page agreement and the intake form, then I start the build.",
+                    "I send a proposal with scope, timeline, and price — usually within 48–72 hours.",
+                    "If you approve, I send a one-page agreement and a form, then I start the build.",
                   ].map((text, i) => (
                     <li key={i} className="grid grid-cols-[auto_1fr] gap-5 items-start">
                       <span className="font-mono text-xs text-accent pt-1.5">{String(i + 1).padStart(2, "0")}</span>
@@ -523,7 +462,7 @@ export default function WebsitesPage() {
                   </a>
                 </div>
                 <p className="text-ink-faint text-xs italic mt-6 leading-relaxed">
-                  Prefer the form? Fill it out — same inbox.
+                  Prefer the form? Fill it out — it comes straight to me.
                 </p>
               </div>
             </div>
@@ -531,7 +470,7 @@ export default function WebsitesPage() {
               <div className="ed-card-dark">
                 <ContactForm
                   source="websites-page"
-                  subjectPrefix="[/websites] New build inquiry"
+                  subjectPrefix="[Websites form]"
                   showProjectTypeDropdown
                   showPhoneField
                 />

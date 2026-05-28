@@ -4,12 +4,12 @@ import { ContactForm } from "@/components/ContactForm";
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/Layout";
 import { ServiceMarquee } from "@/components/ServiceMarquee";
-import { GoogleBadges } from "@/components/GoogleBadges";
+import { FoundOnRow } from "@/components/FoundOnRow";
 import { ClientTrustStrip } from "@/components/ClientTrustStrip";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { WordRevealHeadline } from "@/components/ui/word-reveal-headline";
-import { Eyebrow, DisplayH1, DisplayH2, MonoNum, PullQuote } from "@/components/editorial";
-import { IconPhone, IconMail, IconArrowRight } from "@tabler/icons-react";
+import { Eyebrow, DisplayH1, DisplayH2, MonoNum } from "@/components/editorial";
+import { IconPhone, IconMail, IconArrowRight, IconSparkles } from "@tabler/icons-react";
 
 const HOME_SCHEMA = {
   "@context": "https://schema.org",
@@ -70,15 +70,10 @@ const ORG_SCHEMA = {
   "sameAs": [
     "https://www.linkedin.com/company/thekhanio",
     "https://www.instagram.com/thekhanio",
+    "https://x.com/thekhanio",
     "https://www.facebook.com/profile.php?id=61584909881446",
   ],
 };
-
-const HOME_GALLERY = [
-  { client: "Premier Partners", industry: "Multi-brand home services", screenshot: "/portfolio/premier-hub-screenshot.jpg" },
-  { client: "MarioScape", industry: "Landscaping", screenshot: "/portfolio/marioscape-screenshot.jpg" },
-  { client: "Nour's Barbershop", industry: "Barbershop", screenshot: "/portfolio/nours-screenshot.jpg" },
-];
 
 export default function HomePage() {
   const [mounted, setMounted] = useState(false);
@@ -113,14 +108,12 @@ export default function HomePage() {
             </DisplayH1>
 
             <p className="lede mt-10 max-w-2xl">
-              I build websites and run the marketing that brings in real business.
+              A nice-looking site isn&apos;t enough &mdash; yours should bring in the customers already searching for what you do.
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-5">
               <Link to="/websites" className="btn-primary"><span>I need a <span className="uppercase tracking-wide">website</span> &rarr;</span></Link>
-              <Link to="/marketing" className="btn-outline-accent text-ink-muted">
-                <span>I want <span className="text-accent-light font-semibold uppercase tracking-wide">more customers</span> &rarr;</span>
-              </Link>
+              <Link to="/marketing" className="btn-primary"><span>I want <span className="uppercase tracking-wide">more customers</span> &rarr;</span></Link>
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-3">
               <Link to="/portfolio" className="text-ink-quiet hover:text-ink text-sm tracking-wide underline underline-offset-4 decoration-line-strong hover:decoration-ink transition-colors">
@@ -132,7 +125,7 @@ export default function HomePage() {
             </div>
 
             <div className="mt-14 md:mt-20">
-              <GoogleBadges />
+              <FoundOnRow />
             </div>
           </div>
         </div>
@@ -173,10 +166,10 @@ export default function HomePage() {
           <div className="md:col-span-7 md:pt-2 max-w-2xl">
             <ul className="space-y-4 text-base md:text-lg leading-relaxed">
               {[
-                "Built to load fast, rank on Google, and bring in calls",
+                "Built to load fast, get found on Google and AI search, and bring in calls",
                 <>Yours from day one &mdash; files, domain, logins, all under your name</>,
                 <>No platform locks &mdash; move it anywhere, anytime</>,
-                <>Month-to-month &mdash; cancel any month with 72 hours notice</>,
+                <>Month-to-month &mdash; cancel any month with 72 hours notice before your next bill</>,
               ].map((b, i) => (
                 <li key={i} className="flex items-start gap-3 opacity-85">
                   <span className="text-accent-light mt-1.5 leading-none flex-shrink-0" aria-hidden="true">·</span>
@@ -191,50 +184,51 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ==================== EDITORIAL CLIENT GALLERY ==================== */}
+      {/* ==================== MARKETING BLOCK ====================
+           Replaces the old homepage website gallery (now lives on /portfolio).
+           Homepage stays a router: a tight intent pitch routing to /marketing
+           and /why-intent, the Volo AI Overview as a TEASE (link only — the full
+           dated screenshot + volatility caveat live on /why-intent), and a
+           "see the work" link to /portfolio so the website door isn't orphaned. */}
       <section className="section-deep py-24 md:py-32 px-6 lg:px-12">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 mb-12 md:mb-16">
-            <div className="md:col-span-4">
-              <Eyebrow accent>Selected work</Eyebrow>
-            </div>
-            <div className="md:col-span-7 md:col-start-6">
-              <DisplayH2>A few sites I&apos;ve shipped.</DisplayH2>
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 md:items-center">
+          <div className="md:col-span-5">
+            <Eyebrow accent className="mb-6">The marketing</Eyebrow>
+            <DisplayH2 className="mb-8">A site is the start. Getting found is the job.</DisplayH2>
+            <p className="text-ink-muted text-lg leading-relaxed max-w-xl mb-8">
+              I get you in front of the people already searching for what you do &mdash; on Google, the map, and AI search like ChatGPT. Not interrupting strangers mid-scroll. The ones already looking for you.
+            </p>
+            <div className="flex flex-wrap gap-x-8 gap-y-3">
+              <Link to="/marketing" className="link">See how the marketing works &rarr;</Link>
+              <Link to="/why-intent" className="link">Why I bet on intent &rarr;</Link>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-12 md:gap-y-0">
-            {HOME_GALLERY.map((entry, i) => (
-              <ScrollReveal key={entry.client} delay={i * 0.12}>
-                <Link
-                  to="/portfolio"
-                  className="group block lift"
-                >
-                  <div className="aspect-[4/3] bg-bg border border-line overflow-hidden mb-5">
-                    <img
-                      src={entry.screenshot}
-                      alt={`${entry.client} website`}
-                      className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-700"
-                    />
-                  </div>
-                  <p className="font-mono text-[10px] tracking-widest uppercase text-accent mb-2">
-                    {String(i + 1).padStart(2, "0")} / Client
-                  </p>
-                  <p className="font-display text-xl md:text-2xl tracking-wider uppercase text-ink group-hover:text-accent transition-colors leading-none">
-                    {entry.client}
-                  </p>
-                  <p className="mt-2 font-mono text-xs tracking-widest uppercase text-ink-quiet">
-                    {entry.industry}
-                  </p>
-                </Link>
-              </ScrollReveal>
-            ))}
-          </div>
+          <div className="md:col-span-6 md:col-start-7 space-y-5">
+            {/* Volo AI Overview — TEASE only (no screenshot; full dated proof lives on /why-intent) */}
+            <ScrollReveal direction="up">
+              <Link to="/why-intent" className="group block rounded-2xl border-2 border-accent bg-bg-raised p-8 lift">
+                <div className="flex items-center gap-3 mb-4">
+                  <IconSparkles className="w-5 h-5 text-accent" />
+                  <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent">Proof</p>
+                </div>
+                <p className="text-ink text-xl md:text-2xl leading-snug font-semibold mb-4">
+                  Google&apos;s AI named a business I run marketing for right in its answer &mdash; and most local businesses aren&apos;t in there yet.
+                </p>
+                <span className="link">See the proof &rarr;</span>
+              </Link>
+            </ScrollReveal>
 
-          <div className="mt-14 text-center">
-            <Link to="/portfolio" className="link text-base">
-              See the full portfolio &rarr;
-            </Link>
+            {/* The website door — keep it from being orphaned now the gallery moved */}
+            <ScrollReveal direction="up" delay={0.08}>
+              <Link to="/portfolio" className="group flex items-center justify-between gap-4 rounded-2xl border border-line bg-bg-raised/40 p-6 lift">
+                <div>
+                  <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-ink-quiet mb-1">The website work</p>
+                  <p className="text-ink text-lg font-semibold group-hover:text-accent transition-colors">See the sites I&apos;ve built</p>
+                </div>
+                <IconArrowRight className="w-5 h-5 text-accent flex-shrink-0" />
+              </Link>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -244,14 +238,15 @@ export default function HomePage() {
         <div className="max-w-[1400px] mx-auto">
           <Eyebrow accent className="mb-10">Who you&apos;re working with</Eyebrow>
           <ScrollReveal>
-            <PullQuote attribution="Omair Khan · Founder, TheKhan">
+            {/* Omair's own statement, stated plainly — not a pulled quote (no quote marks, no testimonial attribution). */}
+            <p className="display-h2 text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.1] tracking-tight max-w-4xl text-ink">
               When you reach out, you reach me. Not a rep, not a project manager.
-            </PullQuote>
+            </p>
           </ScrollReveal>
           <div className="mt-14 grid grid-cols-1 md:grid-cols-12 gap-10">
             <div className="md:col-span-7 md:col-start-2 space-y-5 leading-relaxed text-base md:text-lg max-w-2xl opacity-85">
               <p>
-                I take on a job only if I know I can do it right. Monthly marketing is capped — a handful of clients at a time. Website builds fit around the ongoing work.
+                Monthly marketing is capped at a handful of clients at a time &mdash; so the ones I work with get my full attention. Website builds fit around that work.
               </p>
               <p>
                 <Link to="/about" className="link">How I got here &rarr;</Link>
@@ -299,7 +294,7 @@ export default function HomePage() {
                 <Eyebrow accent className="mb-6">What happens next</Eyebrow>
                 <ol className="space-y-5">
                   {[
-                    "I'll read your message myself — usually within a few hours.",
+                    "I read your message myself — usually within a few hours.",
                     "I'll reach back out by call or text.",
                     "If a longer call makes sense, I'll set one up.",
                   ].map((step, i) => (
@@ -317,7 +312,7 @@ export default function HomePage() {
                   </a>
                 </div>
                 <p className="text-ink-faint text-xs italic mt-6 leading-relaxed">
-                  Prefer the form? Fill it out — same inbox.
+                  Prefer the form? Fill it out — it comes straight to me.
                 </p>
               </div>
             </div>
@@ -329,7 +324,7 @@ export default function HomePage() {
           </div>
 
           <p className="mt-16 max-w-3xl text-ink-quiet text-base italic leading-relaxed">
-            P.S. — I&apos;d rather tell you it&apos;s not a fit on the first call than waste both our time.
+            P.S. — If I&apos;m not the right person to help, I&apos;d rather tell you upfront than waste both our time.
           </p>
         </div>
       </section>

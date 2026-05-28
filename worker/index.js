@@ -39,7 +39,7 @@ const ROUTE_META = {
   },
   "/portfolio": {
     title: "Portfolio — Custom Websites for Small Businesses | TheKhan",
-    description: "Custom websites and marketing for small businesses across Chicago — home services and local services.",
+    description: "Custom websites I've built for small businesses across Chicago and beyond — home service companies, local shops, and nonprofits. Every one is live right now.",
     canonical: "https://thekhan.io/portfolio",
     ogImage: "https://thekhan.io/portfolio-og.png",
     ogType: "website",
@@ -91,7 +91,7 @@ const ROUTE_SCHEMAS = {
           address: { "@type": "PostalAddress", streetAddress: "655 Deerfield Rd, Suite 100, Unit 404", addressLocality: "Deerfield", addressRegion: "IL", postalCode: "60015", addressCountry: "US" },
           geo: { "@type": "GeoCoordinates", latitude: "42.1711", longitude: "-87.8445" },
           areaServed: { "@type": "GeoCircle", geoMidpoint: { "@type": "GeoCoordinates", latitude: "42.1711", longitude: "-87.8445" }, geoRadius: "80000", description: "Chicagoland area and Chicago suburbs" },
-          sameAs: ["https://www.linkedin.com/company/thekhanio", "https://www.instagram.com/thekhanio", "https://www.facebook.com/profile.php?id=61584909881446"],
+          sameAs: ["https://www.linkedin.com/company/thekhanio", "https://www.instagram.com/thekhanio", "https://x.com/thekhanio", "https://www.facebook.com/profile.php?id=61584909881446"],
           hasOfferCatalog: {
             "@type": "OfferCatalog", name: "Digital Services",
             itemListElement: [
@@ -121,7 +121,7 @@ const ROUTE_SCHEMAS = {
       url: "https://thekhan.io",
       logo: "https://thekhan.io/portfolio/logo-white.png",
       founder: { "@type": "Person", name: "Omair Khan" },
-      sameAs: ["https://www.linkedin.com/company/thekhanio", "https://www.instagram.com/thekhanio", "https://www.facebook.com/profile.php?id=61584909881446"],
+      sameAs: ["https://www.linkedin.com/company/thekhanio", "https://www.instagram.com/thekhanio", "https://x.com/thekhanio", "https://www.facebook.com/profile.php?id=61584909881446"],
     },
   ],
   "/websites": [
@@ -131,11 +131,13 @@ const ROUTE_SCHEMAS = {
       "@context": "https://schema.org", "@type": "FAQPage", "@id": "https://thekhan.io/websites#faq",
       mainEntity: [
         { "@type": "Question", name: "Do I need my own domain?", acceptedAnswer: { "@type": "Answer", text: "If you don't have one, I'll walk you through buying it (about $12/year through GoDaddy, Namecheap, or whichever provider you prefer). You register it in your own account, with your own login. You own it forever — even if we never talk again." } },
-        { "@type": "Question", name: "Where will my site be hosted?", acceptedAnswer: { "@type": "Answer", text: "On modern hosting that's free for small business sites. Your only ongoing cost is your domain renewal — about $12 a year." } },
-        { "@type": "Question", name: "Can you migrate my existing Wix or Squarespace site?", acceptedAnswer: { "@type": "Answer", text: "I'll use your existing copy, photos, and content — anything that's yours, I move over. But the site itself gets built from scratch on custom code, which gives you a faster, cleaner result than dragging an old template along. Priced like any new build — Brochure, Standard, or Custom, depending on what you need." } },
+        { "@type": "Question", name: "Where will my site be hosted?", acceptedAnswer: { "@type": "Answer", text: "Your call. If you just want the site built, I set it up on your own account, in your name — you own it outright. If you'd rather I keep it running, that's Website Care ($50/mo): I host it, keep it fast and secure, and you edit it yourself anytime. Either way, every file is yours — move it whenever you want." } },
+        { "@type": "Question", name: "Can you migrate my existing Wix or Squarespace site?", acceptedAnswer: { "@type": "Answer", text: "I'll use your existing copy, photos, and content — anything that's yours, I move over. But I rebuild the site fresh, which gets you a faster, cleaner result than dragging an old template along. Priced like any new build — Brochure, Standard, or Custom, depending on what you need." } },
+        { "@type": "Question", name: "Why not just use Wix or Squarespace?", acceptedAnswer: { "@type": "Answer", text: "Two reasons. First, speed — builders like Wix carry a lot of extra weight, so they load slower; yours is built lean, so it's fast. Second, and bigger: with most builders you can't really take your site with you — you're stuck on their platform, and leaving means rebuilding from scratch. A custom site is different — every file is yours, text and images and all, so you can host it anywhere or hand it to any developer, anytime." } },
         { "@type": "Question", name: "What if my content isn't ready yet?", acceptedAnswer: { "@type": "Answer", text: "That's normal. Most people don't have polished copy or photos lined up before they hire me. I'll write the copy from what you tell me — you just review it. For photos, I'll tell you exactly what I need and help you figure out how to source it." } },
-        { "@type": "Question", name: "What if I want changes after launch?", acceptedAnswer: { "@type": "Answer", text: "Two options. Grab Website Care ($50/mo) and edit your own photos, hours, and text in a few clicks. Or text me for one-off updates — I'll quote each one upfront before I start. If you're going to be making changes regularly, Website Care usually makes more sense." } },
-        { "@type": "Question", name: "Do I sign a long-term contract?", acceptedAnswer: { "@type": "Answer", text: "No. Site-only builds (Brochure, Standard, or Custom) are one-time projects — 50% paid Day 1 to start the build, 50% on launch, no retainer, no cancellation fee. The Foundation includes The Partnership — my monthly marketing — which begins Day 31 at $950/mo, billed month-to-month, cancel any month with 72 hours notice before your next bill. Website Care ($50/mo) is also month-to-month with the same 72-hour cancel." } },
+        { "@type": "Question", name: "What do I need to provide?", acceptedAnswer: { "@type": "Answer", text: "I write all the copy — and the form I send lets you flag any direction or specifics you want. Photos, your logo, and any brand materials are on you. No logo yet? I can put together something basic for a small added fee — just mention it when you reach out." } },
+        { "@type": "Question", name: "What if I want changes after launch?", acceptedAnswer: { "@type": "Answer", text: "Two ways. Website Care ($50/mo) lets you update your own photos, hours, prices, and text anytime — no tech skills needed. Without it, the site's still yours; a bigger change down the road is a quick separate quote. Most small business sites barely change, so plenty of people start without the dashboard and add it later if they need it." } },
+        { "@type": "Question", name: "Do I sign a long-term contract?", acceptedAnswer: { "@type": "Answer", text: "No. Site-only builds (Brochure, Standard, or Custom) are one-time projects — 50% paid Day 1 to start the build, 50% on launch, no monthly fee. The Foundation includes The Partnership — my monthly marketing — which begins after the first month at $950/mo, billed month-to-month, cancel any month with 72 hours notice before your next bill. Website Care ($50/mo) is also month-to-month with the same 72-hour cancel." } },
         { "@type": "Question", name: "How and when do I pay?", acceptedAnswer: { "@type": "Answer", text: "Site-only builds: 50% paid Day 1 to start the build, 50% on launch. The Foundation: paid Day 1, non-refundable. Either way — card or Zelle, your call. Invoiced upfront, no hidden fees, no surprise invoices." } },
       ],
     },
@@ -152,32 +154,40 @@ const ROUTE_SCHEMAS = {
     {
       "@context": "https://schema.org", "@type": "FAQPage", "@id": "https://thekhan.io/marketing#faq",
       mainEntity: [
-        { "@type": "Question", name: "How much does your marketing cost?", acceptedAnswer: { "@type": "Answer", text: "The Partnership is $950/mo — flat, month-to-month, cancel any month with 72 hours notice. It covers your website, Google Business Profile, and ongoing SEO under one brand. The build that starts it, the Foundation, is a one-time $2,100. Want leads right away? Ad Management runs from $500/mo on top, and your ad spend goes straight to Google. Day 31, the monthly plan begins." } },
-        { "@type": "Question", name: "How long before I see more calls or bookings?", acceptedAnswer: { "@type": "Answer", text: "Google Ads can start driving calls shortly after launch. SEO is the long game — it compounds over time. You'll usually start seeing some results around 3 months, real movement by 6 months, and the full payoff around the 1-year mark. That's why most businesses run both: ads bring leads right away while SEO builds for the long haul. I'll tell you which fits your timeline and budget up front, not after." } },
-        { "@type": "Question", name: "Do I own my Google Ads account, or do you?", acceptedAnswer: { "@type": "Answer", text: "You own it. Always. I run your ads under your own Google Ads account with your card on file. If we ever part ways, everything stays with you. Nothing of yours is locked behind me." } },
-        { "@type": "Question", name: "What happens if the marketing doesn't work?", acceptedAnswer: { "@type": "Answer", text: "Month-to-month means you're never locked in. Cancel any month with 72 hours notice before your next bill. I cap myself at a handful of clients so I can pay attention to each one — if something isn't working, I find out fast and fix it, not 90 days later when your next invoice hits. Everything stays in your name, so canceling doesn't cost you what we've built." } },
+        { "@type": "Question", name: "How much does your marketing cost?", acceptedAnswer: { "@type": "Answer", text: "The Partnership is $950/mo — flat, month-to-month, cancel any month with 72 hours notice before your next bill. It covers your website, Google Business Profile, and ongoing SEO under one brand. The build that starts it, the Foundation, is a one-time $2,100. Want leads right away? Ad Management runs from $500/mo on top, and your ad spend goes straight to Google. Then the monthly plan begins." } },
+        { "@type": "Question", name: "Can you guarantee me more leads?", acceptedAnswer: { "@type": "Answer", text: "No — honestly, nobody can guarantee a number. How many leads you get depends on your market, your competition, the season, and your budget — none of which any marketer controls, and anyone promising a specific number is overpromising. What I promise is the work and a real strategy. You're month-to-month the whole way, so give it real time — and if you're not getting the results you wanted, you can walk away, no hard feelings." } },
+        { "@type": "Question", name: "How long until I start seeing results?", acceptedAnswer: { "@type": "Answer", text: "Ads are the fast lane — leads within weeks, though they take a couple weeks to a month to settle in. SEO is the long game — some results around 3 months, real movement by 6, the full payoff around a year. Most do both: ads bring leads now while SEO builds." } },
+        { "@type": "Question", name: "How much should I budget for ads?", acceptedAnswer: { "@type": "Answer", text: "Depends what you're running — Local Services Ads (LSA) are only offered for certain services, so we'll check if your service qualifies. For both, most start around $1,500/mo (about $1,000 for Search ads and $500 for LSA), paid straight to Google, separate from my fee." } },
+        { "@type": "Question", name: "Do I own my Google Ads account, or do you?", acceptedAnswer: { "@type": "Answer", text: "You own it. Always. I run your ads under your own Google Ads account with your card on file. If we ever part ways, everything stays with you. Your ad account's never locked behind me." } },
+        { "@type": "Question", name: "What if it's not working?", acceptedAnswer: { "@type": "Answer", text: "I cap myself at a handful of clients, so I catch problems fast — you're not a number lost in a big agency. If something's off, I find it and fix it. And you're month-to-month the whole way, so you're never stuck." } },
+        { "@type": "Question", name: "If I cancel, do I keep everything?", acceptedAnswer: { "@type": "Answer", text: "Everything's yours — your site, your domain, your content. Want to just take the files and run with them yourself? No problem at all — I'll send it all over and you can get it live on your own. Rather I handle it? That's where a one-time migration service comes in — I'll set everything up on your own hosting and accounts so you're good to go." } },
         { "@type": "Question", name: "What Chicago suburbs do you serve?", acceptedAnswer: { "@type": "Answer", text: "I work with home service and local businesses across the North Shore and Chicagoland — Deerfield, Highland Park, Lake Forest, Northbrook, Glencoe, Winnetka, Bannockburn, Evanston, and the broader Chicago metro area. Remote clients anywhere in the US welcome if the project fits." } },
-        { "@type": "Question", name: "Do you offer exclusive territory protection?", acceptedAnswer: { "@type": "Answer", text: "By default, I won't take on a direct competitor in your service area — that's just how I run. Want it locked in writing? Territory exclusivity is an add-on from $150/city/mo, so a competitor in those cities can't sign with me no matter what they offer." } },
-        { "@type": "Question", name: "Do you work with businesses running multiple brands?", acceptedAnswer: { "@type": "Answer", text: "Yes. The Partnership covers one brand — one site, one Google profile, one set of reviews. A second brand under a different name gets its own site and profile for +$700/mo. The build for the extra brand is quoted separately based on scope. Running multiple brands? Tell me upfront and I'll lay out what makes sense." } },
+        { "@type": "Question", name: "Do you work with businesses running multiple brands?", acceptedAnswer: { "@type": "Answer", text: "Yes. The Partnership covers one brand — one site, one Google profile, one set of reviews. Just running multiple services under one name? That's all included — one brand, one price. A second brand under a different name gets its own site and profile for +$700/mo. The build for the extra brand is quoted separately based on scope. Running multiple brands? Tell me upfront and I'll lay out what makes sense." } },
       ],
     },
   ],
   "/portfolio": [
-    { "@context": "https://schema.org", "@type": "BreadcrumbList", "@id": "https://thekhan.io/portfolio#breadcrumb", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://thekhan.io" }, { "@type": "ListItem", position: 2, name: "The Work", item: "https://thekhan.io/portfolio" }] },
+    { "@context": "https://schema.org", "@type": "BreadcrumbList", "@id": "https://thekhan.io/portfolio#breadcrumb", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://thekhan.io" }, { "@type": "ListItem", position: 2, name: "Portfolio", item: "https://thekhan.io/portfolio" }] },
     {
       "@context": "https://schema.org", "@type": "CollectionPage", "@id": "https://thekhan.io/portfolio#collectionpage",
       name: "Portfolio — Custom Websites for Small Businesses | TheKhan",
-      description: "Custom websites and marketing for small businesses across Chicago — home services and local services.",
+      description: "Custom websites I've built for small businesses across Chicago and beyond — home service companies, local shops, and nonprofits. Every one is live right now.",
       url: "https://thekhan.io/portfolio",
       isPartOf: { "@id": "https://thekhan.io/#website" },
       mainEntity: {
-        "@type": "ItemList", itemListOrder: "https://schema.org/ItemListOrderAscending", numberOfItems: 5,
+        "@type": "ItemList", itemListOrder: "https://schema.org/ItemListOrderAscending", numberOfItems: 11,
         itemListElement: [
-          { "@type": "ListItem", position: 1, item: { "@type": "WebSite", name: "Premier Partners", url: "https://servicesfrompremier.com", about: "Multi-brand home service company serving Cook County, Lake County, and McHenry County" } },
-          { "@type": "ListItem", position: 2, item: { "@type": "WebSite", name: "MarioScape", url: "https://marioscape.com", about: "Landscaping and removal company serving Chicago's North Shore" } },
-          { "@type": "ListItem", position: 3, item: { "@type": "WebSite", name: "Shifa Home Care", url: "https://shifahomecareservices.com", about: "Non-medical home care services serving Will County, Kane County, Cook County, and DuPage County" } },
-          { "@type": "ListItem", position: 4, item: { "@type": "WebSite", name: "Nour's Barbershop", url: "https://noursbarbershop.com", about: "Local barbershop in Morton Grove, IL" } },
-          { "@type": "ListItem", position: 5, item: { "@type": "WebSite", name: "WAF Chicago", url: "https://wafchicago.org", about: "Nonprofit serving Cook County, based in Des Plaines" } },
+          { "@type": "ListItem", position: 1, item: { "@type": "WebSite", name: "Premier Partners", url: "https://servicesfrompremier.com" } },
+          { "@type": "ListItem", position: 2, item: { "@type": "WebSite", name: "Premier Power Washing", url: "https://powerwashingfrompremier.com" } },
+          { "@type": "ListItem", position: 3, item: { "@type": "WebSite", name: "Premier Holiday Lighting", url: "https://lightingfrompremier.com" } },
+          { "@type": "ListItem", position: 4, item: { "@type": "WebSite", name: "Premier Auto Spa", url: "https://detailingfrompremier.com" } },
+          { "@type": "ListItem", position: 5, item: { "@type": "WebSite", name: "Premier Plowing", url: "https://plowingfrompremier.com" } },
+          { "@type": "ListItem", position: 6, item: { "@type": "WebSite", name: "Premier Paver Restoration", url: "https://paversfrompremier.com" } },
+          { "@type": "ListItem", position: 7, item: { "@type": "WebSite", name: "MarioScape", url: "https://marioscape.com" } },
+          { "@type": "ListItem", position: 8, item: { "@type": "WebSite", name: "Simpli Clock", url: "https://simpliclock.com" } },
+          { "@type": "ListItem", position: 9, item: { "@type": "WebSite", name: "Nour's Barbershop", url: "https://noursbarbershop.com" } },
+          { "@type": "ListItem", position: 10, item: { "@type": "WebSite", name: "WAF Chicago", url: "https://wafchicago.org" } },
+          { "@type": "ListItem", position: 11, item: { "@type": "WebSite", name: "Clean Green Property", url: "https://cleangreenproperty.com" } },
         ],
       },
     },
@@ -187,28 +197,28 @@ const ROUTE_SCHEMAS = {
       "@context": "https://schema.org",
       "@graph": [
         { "@type": "BreadcrumbList", "@id": "https://thekhan.io/about#breadcrumb", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://thekhan.io" }, { "@type": "ListItem", position: 2, name: "About", item: "https://thekhan.io/about" }] },
-        { "@type": "AboutPage", "@id": "https://thekhan.io/about#aboutpage", url: "https://thekhan.io/about", name: "About Omair Khan — Founder of TheKhan", description: "The founder story behind TheKhan — how Omair Khan built and scaled his own home service company before pivoting to help other contractors and small businesses grow.", isPartOf: { "@id": "https://thekhan.io/#website" }, mainEntity: { "@id": "https://thekhan.io/about#omair" } },
+        { "@type": "AboutPage", "@id": "https://thekhan.io/about#aboutpage", url: "https://thekhan.io/about", name: "About Omair Khan — Founder of TheKhan", description: "The founder story behind TheKhan — how Omair Khan built and grew his own home service company before pivoting to help other contractors and small businesses grow.", isPartOf: { "@id": "https://thekhan.io/#website" }, mainEntity: { "@id": "https://thekhan.io/about#omair" } },
         {
           "@type": "Person", "@id": "https://thekhan.io/about#omair", name: "Omair Khan", url: "https://thekhan.io/about", image: "https://thekhan.io/omair-portrait.webp", jobTitle: "Founder",
-          description: "Founder of TheKhan, an independent web design and digital marketing studio in Deerfield, Illinois. Before TheKhan, Omair built and scaled his own home service company to 84 clients before pivoting to help other contractors and small businesses grow.",
+          description: "Founder of TheKhan, an independent web design and digital marketing studio in Deerfield, Illinois. Before TheKhan, Omair built and grew his own home service company to 84 clients before pivoting to help other contractors and small businesses grow.",
           worksFor: { "@id": "https://thekhan.io/#localbusiness" },
           address: { "@type": "PostalAddress", addressLocality: "Deerfield", addressRegion: "IL", addressCountry: "US" },
           knowsAbout: ["Web design", "Web development", "SEO", "Google Ads", "Local SEO", "Home service marketing", "Small business marketing"],
-          sameAs: ["https://www.linkedin.com/in/omair-khan-64088a357"],
+          sameAs: ["https://www.linkedin.com/in/omair-khan-64088a357", "https://www.instagram.com/thekhanio", "https://x.com/thekhanio"],
         },
       ],
     },
   ],
   "/why-intent": [
     { "@context": "https://schema.org", "@type": "BreadcrumbList", "@id": "https://thekhan.io/why-intent#breadcrumb", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://thekhan.io" }, { "@type": "ListItem", position: 2, name: "Why Intent", item: "https://thekhan.io/why-intent" }] },
-    { "@context": "https://schema.org", "@type": "Article", "@id": "https://thekhan.io/why-intent#article", headline: "Intent Marketing vs Interruption Marketing", description: "Why I market to people already searching — Google, Maps, and AI like ChatGPT — instead of interrupting them on Facebook.", author: { "@id": "https://thekhan.io/about#omair" }, publisher: { "@id": "https://thekhan.io/#localbusiness" }, isPartOf: { "@id": "https://thekhan.io/#website" }, about: ["Intent marketing", "Demand capture", "Local SEO", "Answer Engine Optimization", "Generative Engine Optimization"] },
+    { "@context": "https://schema.org", "@type": "Article", "@id": "https://thekhan.io/why-intent#article", headline: "Intent Marketing vs Interruption Marketing", description: "Why I market to people already searching — Google, Maps, and AI like ChatGPT — instead of interrupting them on Facebook.", datePublished: "2026-05-25", dateModified: "2026-05-26", author: { "@id": "https://thekhan.io/about#omair" }, publisher: { "@id": "https://thekhan.io/#localbusiness" }, isPartOf: { "@id": "https://thekhan.io/#website" }, about: ["Intent marketing", "Demand capture", "Local SEO", "Answer Engine Optimization", "Generative Engine Optimization"] },
     {
       "@context": "https://schema.org", "@type": "FAQPage", "@id": "https://thekhan.io/why-intent#faq",
       mainEntity: [
         { "@type": "Question", name: "What is intent marketing?", acceptedAnswer: { "@type": "Answer", text: "Intent marketing means reaching people who are already searching for what you sell — on Google, Google Maps, and AI search like ChatGPT — at the exact moment they want it. The industry term is demand capture. It's the opposite of interruption marketing (demand generation), which puts ads in front of people who weren't looking, like Facebook and Instagram feed ads." } },
-        { "@type": "Question", name: "What's the difference between intent marketing and interruption marketing?", acceptedAnswer: { "@type": "Answer", text: "Intent (pull) marketing catches people who are already looking — a search for 'plumber near me' is someone ready to call. Interruption (push) marketing pushes a message at people who weren't looking, hoping to create demand. Seth Godin framed this as permission vs interruption. Both can work, but for local service businesses the people actively searching convert far better — so that's the lane TheKhan specializes in." } },
-        { "@type": "Question", name: "What are AEO and GEO?", acceptedAnswer: { "@type": "Answer", text: "AEO (Answer Engine Optimization) and GEO (Generative Engine Optimization) mean getting your business cited when people ask AI tools — ChatGPT, Google's AI Overviews, Perplexity — instead of typing a search. It's the same goal as SEO (being found), applied to AI answers." } },
-        { "@type": "Question", name: "Does intent marketing convert better than social media ads?", acceptedAnswer: { "@type": "Answer", text: "For most local service businesses, yes. People who find a business through organic search convert at about 2.7%, nearly double social media's 1.5% (Ruler Analytics, 2025). And for home services, Google Search ads convert roughly 40% higher than Facebook ads — 7.3% vs 5.2% (LocaliQ/WordStream, 2025)." } },
+        { "@type": "Question", name: "What's the difference between intent marketing and interruption marketing?", acceptedAnswer: { "@type": "Answer", text: "Intent (pull) marketing catches people who are already looking — a search for 'plumber near me' is someone ready to call. Interruption (push) marketing pushes a message at people who weren't looking, hoping to create demand. Seth Godin framed this as permission vs interruption. Both can work, but for local service businesses the people actively searching convert far better — so that's what TheKhan focuses on." } },
+        { "@type": "Question", name: "What are AEO and GEO?", acceptedAnswer: { "@type": "Answer", text: "AEO (Answer Engine Optimization) and GEO (Generative Engine Optimization) mean getting your business cited when people ask AI — ChatGPT, Google's AI Overviews, Perplexity — instead of typing a search. It's the same goal as SEO (being found), applied to AI answers. As more customers ask AI 'who's the best [service] near me,' showing up in those answers matters as much as ranking on Google." } },
+        { "@type": "Question", name: "Does intent marketing convert better than social media ads?", acceptedAnswer: { "@type": "Answer", text: "For most local service businesses, yes. People who find a business through organic search convert at about 2.7% — nearly double social media's 1.5%. Paid search ads do even better at about 3.2%, more than double. Both come from the same study (Ruler Analytics, 2025). The reason is simple: searchers already want the service." } },
       ],
     },
   ],
@@ -257,6 +267,7 @@ function buildMetaHtml(meta) {
     <meta property="og:site_name" content="TheKhan">
     <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@thekhanio">
     <meta name="twitter:title" content="${title}">
     <meta name="twitter:description" content="${description}">
     <meta name="twitter:image" content="${ogImage}">

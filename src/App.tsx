@@ -52,7 +52,6 @@ export default function App() {
           <Route path="/why-intent" element={<WhyIntentPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/premier" element={<SteveReportPage />} />
           <Route path="/premierpartners" element={<SteveReportPage />} />
           <Route path="/marioscape" element={<MarioReportPage />} />
           <Route path="/crystalclear" element={<CalvinProposalPage />} />

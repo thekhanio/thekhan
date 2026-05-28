@@ -11,18 +11,10 @@ interface ContactFormProps {
   submitText?: string;
 }
 
-const TRADE_OPTIONS = [
-  "Home / property service (landscaping, roofing, HVAC, cleaning…)",
-  "Real estate",
-  "Health / dental",
-  "Beauty & wellness",
-  "Fitness / gym",
-  "Auto",
-  "Restaurant / hospitality",
-  "Professional services (legal, financial…)",
-  "Pet services",
-  "Other",
-];
+// Channels Omair actually runs / hears from. The conditional detail box appears
+// for the three "where exactly?" answers below.
+const HEAR_OPTIONS = ["Google", "Referral", "Word of mouth", "AI search (ChatGPT, etc.)", "Other"];
+const HEAR_DETAIL_OPTIONS = ["Referral", "Word of mouth", "Other"];
 
 export function ContactForm({ source, subjectPrefix, showProjectTypeDropdown, showTradeDropdown, showPhoneField = true, submitText = "Send it →" }: ContactFormProps = {}) {
   const [formData, setFormData] = useState({
@@ -31,11 +23,9 @@ export function ContactForm({ source, subjectPrefix, showProjectTypeDropdown, sh
     phone: "",
     message: "",
     hearAboutUs: "",
-    referralName: "",
-    hearAboutUsOther: "",
+    hearAboutUsDetail: "",
     projectType: "",
     trade: "",
-    tradeOther: "",
     website_url: "", // honeypot
   });
   const [turnstileToken, setTurnstileToken] = useState("");
@@ -54,16 +44,10 @@ export function ContactForm({ source, subjectPrefix, showProjectTypeDropdown, sh
     setIsSubmitting(true);
 
     try {
-      const tradeValue = showTradeDropdown
-        ? formData.trade === "Other"
-          ? formData.tradeOther || "Other"
-          : formData.trade
-        : "";
+      const tradeValue = showTradeDropdown ? formData.trade : "";
       const referralSource =
-        formData.hearAboutUs === "Referral"
-          ? `Referral — ${formData.referralName || "No name given"}`
-          : formData.hearAboutUs === "Other"
-          ? formData.hearAboutUsOther || "Other"
+        HEAR_DETAIL_OPTIONS.includes(formData.hearAboutUs) && formData.hearAboutUsDetail
+          ? `${formData.hearAboutUs} — ${formData.hearAboutUsDetail}`
           : formData.hearAboutUs;
 
       const response = await fetch("https://leads-api.thekhan.io/submit", {
@@ -96,11 +80,9 @@ export function ContactForm({ source, subjectPrefix, showProjectTypeDropdown, sh
           phone: "",
           message: "",
           hearAboutUs: "",
-          referralName: "",
-          hearAboutUsOther: "",
+          hearAboutUsDetail: "",
           projectType: "",
           trade: "",
-          tradeOther: "",
           website_url: "",
         });
       } else {
@@ -132,7 +114,7 @@ export function ContactForm({ source, subjectPrefix, showProjectTypeDropdown, sh
           Message sent.
         </h3>
         <p className="text-ink-muted mb-6">
-          I&apos;ll get back to you within 24 hours.
+          I&apos;ll get back to you within a few hours.
         </p>
         <button
           onClick={() => setSubmitStatus("idle")}
@@ -215,9 +197,10 @@ export function ContactForm({ source, subjectPrefix, showProjectTypeDropdown, sh
             className={cn(inputClasses, "appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill%3D%22%23707070%22%20d%3D%22M6%208L1%203h10z%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[right_16px_center]")}
           >
             <option value="" className="bg-bg-quiet">Select one...</option>
-            <option value="Landing page ($300)" className="bg-bg-quiet">Landing page ($300)</option>
-            <option value="Full website ($550+)" className="bg-bg-quiet">Full website ($550+)</option>
-            <option value="Custom project / not sure" className="bg-bg-quiet">Custom project / not sure</option>
+            <option value="Brochure site — 1 page ($750)" className="bg-bg-quiet">Brochure site — 1 page ($750)</option>
+            <option value="Standard site — 5 pages ($1,500)" className="bg-bg-quiet">Standard site — 5 pages ($1,500)</option>
+            <option value="Custom — let's scope it" className="bg-bg-quiet">Custom — let&apos;s scope it</option>
+            <option value="Not sure yet" className="bg-bg-quiet">Not sure yet</option>
           </select>
         </div>
       )}
@@ -240,31 +223,16 @@ export function ContactForm({ source, subjectPrefix, showProjectTypeDropdown, sh
           <label htmlFor="contact-trade" className="block text-sm text-ink-muted mb-2">
             What do you do? <span className="text-ink-quiet text-xs font-normal">(optional)</span>
           </label>
-          <p className="text-ink-quiet text-xs mb-2">Pick the closest one — or skip it and tell me in the message below.</p>
-          <select
+          <p className="text-ink-quiet text-xs mb-2">Your trade or business — or skip it and tell me in the message below.</p>
+          <input
             id="contact-trade"
             name="trade"
+            type="text"
             value={formData.trade}
-            onChange={(e) => setFormData({ ...formData, trade: e.target.value, tradeOther: e.target.value === "Other" ? formData.tradeOther : "" })}
-            className={cn(inputClasses, "appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill%3D%22%23707070%22%20d%3D%22M6%208L1%203h10z%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[right_16px_center]")}
-          >
-            <option value="" className="bg-bg-quiet">Select one...</option>
-            {TRADE_OPTIONS.map((opt) => (
-              <option key={opt} value={opt} className="bg-bg-quiet">{opt}</option>
-            ))}
-          </select>
-          {formData.trade === "Other" && (
-            <input
-              id="contact-tradeOther"
-              name="tradeOther"
-              type="text"
-              aria-label="Tell me what you do"
-              value={formData.tradeOther}
-              onChange={(e) => setFormData({ ...formData, tradeOther: e.target.value })}
-              className={cn(inputClasses, "mt-3")}
-              placeholder="Tell me what you do"
-            />
-          )}
+            onChange={(e) => setFormData({ ...formData, trade: e.target.value })}
+            className={inputClasses}
+            placeholder="e.g. roofing, dental office, salon…"
+          />
         </div>
       )}
 
@@ -274,40 +242,24 @@ export function ContactForm({ source, subjectPrefix, showProjectTypeDropdown, sh
           id="contact-hearAboutUs"
           name="hearAboutUs"
           value={formData.hearAboutUs}
-          onChange={(e) => setFormData({ ...formData, hearAboutUs: e.target.value, referralName: "", hearAboutUsOther: "" })}
+          onChange={(e) => setFormData({ ...formData, hearAboutUs: e.target.value, hearAboutUsDetail: "" })}
           className={cn(inputClasses, "appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill%3D%22%23707070%22%20d%3D%22M6%208L1%203h10z%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[right_16px_center]")}
         >
           <option value="" className="bg-bg-quiet">Select one...</option>
-          <option value="Google" className="bg-bg-quiet">Google</option>
-          <option value="Instagram" className="bg-bg-quiet">Instagram</option>
-          <option value="Facebook" className="bg-bg-quiet">Facebook</option>
-          <option value="LinkedIn" className="bg-bg-quiet">LinkedIn</option>
-          <option value="Referral" className="bg-bg-quiet">Referral</option>
-          <option value="Word of mouth" className="bg-bg-quiet">Word of mouth</option>
-          <option value="Other" className="bg-bg-quiet">Other</option>
+          {HEAR_OPTIONS.map((opt) => (
+            <option key={opt} value={opt} className="bg-bg-quiet">{opt}</option>
+          ))}
         </select>
-        {formData.hearAboutUs === "Referral" && (
+        {HEAR_DETAIL_OPTIONS.includes(formData.hearAboutUs) && (
           <input
-            id="contact-referralName"
-            name="referralName"
+            id="contact-hearAboutUsDetail"
+            name="hearAboutUsDetail"
             type="text"
-            aria-label="Who referred you"
-            value={formData.referralName}
-            onChange={(e) => setFormData({ ...formData, referralName: e.target.value })}
+            aria-label="Mind sharing who told you, or where you found me?"
+            value={formData.hearAboutUsDetail}
+            onChange={(e) => setFormData({ ...formData, hearAboutUsDetail: e.target.value })}
             className={cn(inputClasses, "mt-3")}
-            placeholder="Who referred you? (name or business)"
-          />
-        )}
-        {formData.hearAboutUs === "Other" && (
-          <input
-            id="contact-hearAboutUsOther"
-            name="hearAboutUsOther"
-            type="text"
-            aria-label="Tell me where you heard about me"
-            value={formData.hearAboutUsOther}
-            onChange={(e) => setFormData({ ...formData, hearAboutUsOther: e.target.value })}
-            className={cn(inputClasses, "mt-3")}
-            placeholder="Tell me where..."
+            placeholder="Mind sharing who told you, or where you found me? (optional)"
           />
         )}
       </div>

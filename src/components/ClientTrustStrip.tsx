@@ -18,12 +18,16 @@ interface ClientLogo {
   kind: "icon" | "wordmark";
 }
 
+// Only current clients appear here (honesty filter — no closed/former clients).
+// Shifa Home Care removed 2026-05 (relationship closed — can't show as live proof).
 const CLIENTS: ClientLogo[] = [
   { name: "Premier Partners", src: "/portfolio/premier-partners-logo.png", kind: "icon" },
   { name: "MarioScape", src: "/portfolio/marioscape-logo.png", kind: "wordmark" },
   { name: "Nour's Barbershop", src: "/portfolio/nours-logo.png", kind: "icon" },
-  { name: "Shifa Home Care", src: "/portfolio/shifa-logo.png", kind: "icon" },
   { name: "WAF Chicago", src: "/portfolio/waf-logo.png", kind: "icon" },
+  // TODO (Omair to provide): add Simpli Clock once the logo asset + site URL are ready.
+  // Drop the logo into /public/portfolio/ and uncomment, with `href` to the Simpli Clock site.
+  // { name: "Simpli Clock", src: "/portfolio/simpli-clock-logo.png", kind: "icon", href: "https://<SIMPLI_CLOCK_URL>" },
 ];
 
 export function ClientTrustStrip({ className = "" }: { className?: string }) {

@@ -7,14 +7,14 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { TldrStrip } from "@/components/ui/tldr-strip";
 import { ClipReveal } from "@/components/ui/clip-reveal";
 import { Eyebrow, DisplayH2, MonoNum } from "@/components/editorial";
-import { IconPhone, IconMail, IconArrowRight } from "@tabler/icons-react";
+import { IconPhone, IconMail } from "@tabler/icons-react";
 
 const TIMELINE_NODES = [
-  { date: "Jun '24", body: "I started Clean & Green Property Care as a cleaning company. My wife and I ran every clean ourselves — move-in/move-out jobs from the city to the burbs. The problem was keeping up with both the marketing and the field work." },
-  { date: "Jan '25", body: "I stopped doing the work myself. Started running everything through subcontractors — added landscaping, power washing, gutter cleaning, and lighting installs. Margins got tighter and the volume got higher. But the business side was finally the only thing on my plate." },
-  { date: "Oct '25", body: "I registered TheKhan, built the first version of the site, took on my first clients, and started running marketing for them on the side. Still a side project — but I was spending more of my week on it than I should have been." },
-  { date: "Late '25", body: "A couple of subcontractors fell through, so I brought the work back myself. I was out in the field again, running two routes that took me 15 to 20 hours straight to finish. The company hit 84 clients at peak — and between the workload and some old injuries, I knew the labor side wasn't my edge." },
-  { date: "Mar '26", body: "I closed Clean & Green Property Care and went all in on TheKhan. The phone still rings from the SEO work I did — and those calls now go to the home service businesses I work with." },
+  { date: "Jun '24", body: "I started my own cleaning company — just me and my wife, doing every job ourselves. The problem was keeping up with both the marketing and the field work." },
+  { date: "Jan '25", body: "I stopped doing the work myself and ran everything through subcontractors — landscaping, power washing, gutter cleaning, lighting installs. Volume went up, margins got tighter. But the business side was finally the only thing I was focused on." },
+  { date: "Oct '25", body: "I started TheKhan on the side — using what I'd learned marketing my own company to help a few other businesses. Still a side project, but it was already eating up more of my week than it should have." },
+  { date: "Late '25", body: "A couple of subcontractors fell through, so I ended up back in the field myself. The company hit 84 clients at its peak around then — but I was doing it on legs I'd had to learn to walk on again after a motorcycle accident years earlier, and it made one thing clear: the labor wasn't really my thing. Growing the business and getting the clients was." },
+  { date: "Mar '26", body: "I closed the company and went all in on TheKhan — the part I was best at, and the part I could actually control." },
 ];
 
 const NEXT_STEPS = [
@@ -39,7 +39,7 @@ const ABOUT_SCHEMA = {
       "@id": "https://thekhan.io/about#aboutpage",
       "url": "https://thekhan.io/about",
       "name": "About Omair Khan — Founder of TheKhan",
-      "description": "The founder story behind TheKhan — how Omair Khan built and scaled his own home service company before pivoting to help other contractors and small businesses grow.",
+      "description": "The founder story behind TheKhan — how Omair Khan built and grew his own home service company before pivoting to help other contractors and small businesses grow.",
       "isPartOf": { "@id": "https://thekhan.io/#website" },
       "mainEntity": { "@id": "https://thekhan.io/about#omair" },
     },
@@ -50,11 +50,11 @@ const ABOUT_SCHEMA = {
       "url": "https://thekhan.io/about",
       "image": "https://thekhan.io/omair-portrait.webp",
       "jobTitle": "Founder",
-      "description": "Founder of TheKhan, an independent web design and digital marketing studio in Deerfield, Illinois.",
+      "description": "Founder of TheKhan, an independent web design and digital marketing studio in Deerfield, Illinois. Before TheKhan, Omair built and grew his own home service company to 84 clients before pivoting to help other contractors and small businesses grow.",
       "worksFor": { "@id": "https://thekhan.io/#localbusiness" },
       "address": { "@type": "PostalAddress", "addressLocality": "Deerfield", "addressRegion": "IL", "addressCountry": "US" },
       "knowsAbout": ["Web design", "Web development", "SEO", "Google Ads", "Local SEO", "Home service marketing", "Small business marketing"],
-      "sameAs": ["https://www.linkedin.com/in/omair-khan-64088a357"],
+      "sameAs": ["https://www.linkedin.com/in/omair-khan-64088a357", "https://www.instagram.com/thekhanio", "https://x.com/thekhanio"],
     },
   ],
 };
@@ -95,7 +95,7 @@ export default function AboutPage() {
               className="block text-2xl sm:text-3xl md:text-4xl text-ink-muted mb-8 md:mb-10"
               style={staggerStyle(0)}
             >
-              Every business has two jobs.
+              Every business comes down to two jobs.
             </span>
             <span className="flex items-center justify-center gap-6 sm:gap-10 md:gap-14 mb-8 md:mb-10 text-sm sm:text-base md:text-lg uppercase tracking-[0.2em] font-mono">
               <span className="text-ink-muted" style={staggerStyle(200)}>
@@ -121,7 +121,7 @@ export default function AboutPage() {
             <TldrStrip
               bullets={[
                 <>I&apos;m Omair &mdash; based in Deerfield, IL</>,
-                <>Before TheKhan I built my own home service company to <MonoNum>84</MonoNum> clients before closing it</>,
+                <>Before TheKhan, I built my own home service company to <MonoNum>84</MonoNum> clients, then closed it to do this full-time</>,
                 <>Now I run the marketing for other home service and local businesses &mdash; so they can focus on the work</>,
               ]}
               links={[
@@ -154,9 +154,9 @@ export default function AboutPage() {
             <Eyebrow accent className="mb-5">Who you&apos;re working with</Eyebrow>
             <DisplayH2 className="mb-8">Hi — I&apos;m Omair.</DisplayH2>
             <div className="space-y-5 text-ink-muted leading-relaxed text-lg">
-              <p>I&apos;m based in the Deerfield area. At my desk most days — and usually forgetting to check the clock.</p>
+              <p>I&apos;m based in the Deerfield area, at my desk most days, running marketing for my clients. I keep up with how people find businesses these days — whether they&apos;re Googling it or asking whichever AI they&apos;re using now — so my clients stay right in front of the people looking for them.</p>
               <p>
-                I treat every business I work with like my own — because before this, I was running Clean &amp; Green Property Care, a home service business right here on the North Shore.
+                I treat every business I work with like my own — because before this, I ran my own home service company right here on the North Shore.
               </p>
             </div>
           </div>
@@ -169,7 +169,7 @@ export default function AboutPage() {
           <div className="mb-16">
             <Eyebrow accent className="mb-5">How I got here</Eyebrow>
             <DisplayH2 className="mb-6">
-              I scaled a home service company to 84 clients before I shut it down.
+              I grew a home service company to 84 clients before I shut it down.
             </DisplayH2>
             <p className="lede max-w-2xl">Here&apos;s why.</p>
           </div>
@@ -196,15 +196,15 @@ export default function AboutPage() {
           <DisplayH2 className="mb-10">I do two things.</DisplayH2>
           <div className="space-y-6 text-ink-muted text-lg leading-relaxed">
             <p>
-              I build <Link to="/websites" className="link">custom websites</Link> for businesses that need more than a template.
+              I build <Link to="/websites" className="link">custom websites</Link> for businesses that need more than a template &mdash; a site that actually brings in business.
               And I run <Link to="/marketing" className="link">monthly marketing for home service and local businesses</Link> who want more customers coming in.
             </p>
             <p>
               I work with a handful of clients at a time. If your project doesn&apos;t fit those two cleanly,
-              reach out anyway — I partner with Velli when a project needs a bigger team.
+              reach out anyway — I&apos;ve got people in my network I can try to connect you with.
             </p>
             <p>
-              The thread through all of it: I get you in front of people <Link to="/why-intent" className="link">already searching</Link> for what you do &mdash; not strangers I interrupt on Facebook. Think of me as an extension of your business: I handle the heavy lifting online so you can stay focused on the work.
+              Either way, I get you in front of people <Link to="/why-intent" className="link">already searching</Link> for exactly what you do or offer &mdash; not strangers I interrupt on Facebook. Think of me as an extension of your business: I handle the heavy lifting online so you can stay focused on the work.
             </p>
           </div>
         </div>
@@ -215,12 +215,12 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto">
           <Eyebrow accent className="mb-5">How I work</Eyebrow>
           <DisplayH2 className="mb-10">
-            Code will always outperform a template.
+            A custom site beats a template every time.
           </DisplayH2>
           <div className="space-y-7 text-ink-muted text-lg leading-relaxed">
             <p>The site I build is yours to keep — move it anywhere, anytime.</p>
-            <p>You deal with me from day one — no front desk, no runaround, no wondering who&apos;s handling your project. Just one person, start to finish.</p>
-            <p>I&apos;d rather tell you it&apos;s not a fit on the first call than waste both our time. If that sounds right, the form&apos;s below.</p>
+            <p>You work with me from day one — no front desk, no runaround, no wondering who&apos;s handling your project.</p>
+            <p>If I&apos;m not the right person for what you need, I&apos;d rather let you know upfront than waste both our time. The form&apos;s below if you&apos;re interested.</p>
           </div>
         </div>
       </section>
@@ -229,10 +229,10 @@ export default function AboutPage() {
       <section id="contact" className="section-raised py-24 md:py-32 px-6 border-t border-line scroll-mt-20">
         <div className="max-w-6xl mx-auto">
           <div className="mb-16 max-w-3xl">
-            <Eyebrow accent className="mb-5">Sounds like a fit?</Eyebrow>
+            <Eyebrow accent className="mb-5">Interested in working together?</Eyebrow>
             <DisplayH2 className="mb-6">Let&apos;s talk.</DisplayH2>
             <p className="lede">
-              Fill out the form, or reach out by call or text.
+              Fill out the form, or reach out by call, text, or email.
             </p>
           </div>
 
@@ -269,13 +269,8 @@ export default function AboutPage() {
                     </li>
                   ))}
                 </ol>
-                <div className="mt-8">
-                  <a href="tel:8472208550" className="cta-orbit">
-                    Tell me about your business &nbsp;<IconArrowRight className="w-4 h-4" />
-                  </a>
-                </div>
                 <p className="text-ink-quiet text-xs italic mt-6 leading-relaxed">
-                  Prefer the form? Fill it out — same inbox.
+                  Prefer the form? Fill it out — it comes straight to me.
                 </p>
               </div>
             </div>

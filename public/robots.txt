@@ -1,7 +1,57 @@
 User-agent: *
 Allow: /
-Disallow: /form
 Disallow: /premierpartners
 Disallow: /marioscape
+Disallow: /crystalclear
+Disallow: /intake
+Disallow: /start
+
+# Welcome AI citation / search crawlers (named bots ignore the * group,
+# so the private-page disallows are repeated under each).
+User-agent: GPTBot
+Allow: /
+Disallow: /premierpartners
+Disallow: /marioscape
+Disallow: /crystalclear
+Disallow: /intake
+Disallow: /start
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /premierpartners
+Disallow: /marioscape
+Disallow: /crystalclear
+Disallow: /intake
+Disallow: /start
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /premierpartners
+Disallow: /marioscape
+Disallow: /crystalclear
+Disallow: /intake
+Disallow: /start
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /premierpartners
+Disallow: /marioscape
+Disallow: /crystalclear
+Disallow: /intake
+Disallow: /start
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /premierpartners
+Disallow: /marioscape
+Disallow: /crystalclear
+Disallow: /intake
+Disallow: /start
+
+# Block training-only / bulk scrapers
+User-agent: CCBot
+Disallow: /
+User-agent: cohere-ai
+Disallow: /
 
 Sitemap: https://thekhan.io/sitemap.xml
