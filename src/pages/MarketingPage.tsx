@@ -172,7 +172,7 @@ export default function MarketingPage() {
         title="Marketing for Home Service & Local Businesses | TheKhan"
         description="SEO, Google Ads, and Google Business Profile that get you found by people already searching — for home service and local businesses across Chicago. You do the work. I make sure people find you."
         canonical="https://thekhan.io/marketing"
-        ogImage="https://thekhan.io/og-image.png"
+        ogImage="https://thekhan.io/marketing-og.jpg"
         geo={{ region: "US-IL", placename: "Deerfield", position: "42.1711;-87.8445" }}
         schema={[BREADCRUMB_SCHEMA, MARKETING_SCHEMA, MARKETING_FAQ_SCHEMA]}
       />

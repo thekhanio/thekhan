@@ -12,7 +12,7 @@ const PAGE_TITLE = "Intent Marketing vs Interruption Marketing | TheKhan";
 const PAGE_DESC =
   "Why I market to people already searching — Google, Maps, and AI like ChatGPT — instead of interrupting them on Facebook. The idea behind everything I do, plus the numbers.";
 const PAGE_URL = "https://thekhan.io/why-intent";
-const OG_IMAGE = "https://thekhan.io/og-image.png";
+const OG_IMAGE = "https://thekhan.io/why-intent-og.jpg";
 
 const BREADCRUMB_SCHEMA = {
   "@context": "https://schema.org",

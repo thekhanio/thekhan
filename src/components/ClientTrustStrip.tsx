@@ -23,11 +23,10 @@ interface ClientLogo {
 const CLIENTS: ClientLogo[] = [
   { name: "Premier Partners", src: "/portfolio/premier-partners-logo.png", kind: "icon" },
   { name: "MarioScape", src: "/portfolio/marioscape-logo.png", kind: "wordmark" },
+  { name: "Clean Green Property", src: "/portfolio/cleangreen-logo.png", kind: "icon" },
+  { name: "Simpli Clock", src: "/portfolio/simpli-logo.png", kind: "icon" },
   { name: "Nour's Barbershop", src: "/portfolio/nours-logo.png", kind: "icon" },
   { name: "WAF Chicago", src: "/portfolio/waf-logo.png", kind: "icon" },
-  // TODO (Omair to provide): add Simpli Clock once the logo asset + site URL are ready.
-  // Drop the logo into /public/portfolio/ and uncomment, with `href` to the Simpli Clock site.
-  // { name: "Simpli Clock", src: "/portfolio/simpli-clock-logo.png", kind: "icon", href: "https://<SIMPLI_CLOCK_URL>" },
 ];
 
 export function ClientTrustStrip({ className = "" }: { className?: string }) {
@@ -35,7 +34,7 @@ export function ClientTrustStrip({ className = "" }: { className?: string }) {
     <div className={className}>
       <p className="eyebrow eyebrow-accent mb-10 md:mb-12">Businesses that trust me</p>
       <ul
-        className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-row md:flex-wrap md:items-center md:justify-between gap-x-12 md:gap-x-14 gap-y-10 md:gap-y-0"
+        className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-row md:flex-wrap md:items-center md:justify-center gap-x-12 md:gap-x-14 gap-y-10 md:gap-y-12"
         aria-label="Clients I work with"
       >
         {CLIENTS.map((c) => {

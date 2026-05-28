@@ -27,14 +27,14 @@ const ROUTE_META = {
     title: "Custom Web Design — Deerfield, IL | Sites You Own",
     description: "Custom websites built from scratch in about 30 days. You own every file, the domain, the logins. No retainer, no lock-in. Deerfield, IL.",
     canonical: "https://thekhan.io/websites",
-    ogImage: "https://thekhan.io/websites-og.png",
+    ogImage: "https://thekhan.io/websites-og.jpg",
     ogType: "website",
   },
   "/marketing": {
     title: "Marketing for Home Service & Local Businesses | TheKhan",
     description: "SEO, Google Ads, and Google Business Profile that get you found by people already searching — for home service and local businesses across Chicago. You do the work. I make sure people find you.",
     canonical: "https://thekhan.io/marketing",
-    ogImage: "https://thekhan.io/og-image.png",
+    ogImage: "https://thekhan.io/marketing-og.jpg",
     ogType: "website",
   },
   "/portfolio": {
@@ -55,7 +55,7 @@ const ROUTE_META = {
     title: "Intent Marketing vs Interruption Marketing | TheKhan",
     description: "Why I market to people already searching — Google, Maps, and AI like ChatGPT — instead of interrupting them on Facebook. The idea behind everything I do, plus the numbers.",
     canonical: "https://thekhan.io/why-intent",
-    ogImage: "https://thekhan.io/og-image.png",
+    ogImage: "https://thekhan.io/why-intent-og.jpg",
     ogType: "article",
   },
 };

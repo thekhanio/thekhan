@@ -26,7 +26,7 @@ const faqs = [
 const PAGE_TITLE = "Custom Web Design — Deerfield, IL | Sites You Own";
 const PAGE_DESC = "Custom websites built from scratch in about 30 days. You own every file, the domain, the logins. No retainer, no lock-in. Deerfield, IL.";
 const PAGE_URL = "https://thekhan.io/websites";
-const OG_IMAGE = "https://thekhan.io/websites-og.png";
+const OG_IMAGE = "https://thekhan.io/websites-og.jpg";
 
 const BREADCRUMB_SCHEMA = {
   "@context": "https://schema.org",
