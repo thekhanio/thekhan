@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { m, AnimatePresence } from "framer-motion";
-import { IconMessageCircle, IconX, IconArrowLeft, IconPhone } from "@tabler/icons-react";
+import { IconMessageCircle, IconX, IconArrowLeft, IconPhone, IconMail } from "@tabler/icons-react";
 
 // Routes where the widget should NOT render (internal/private pages).
 const HIDDEN_PATHS = ["/start", "/intake", "/premierpartners", "/marioscape", "/crystalclear"];
@@ -137,16 +137,26 @@ export function ChatWidget() {
               )}
             </div>
 
-            {/* Footer — phone fallback */}
-            <a
-              href="tel:8472208550"
-              className="flex items-center gap-2.5 px-5 py-4 border-t border-line text-ink-muted hover:text-accent-light text-sm transition-colors group"
-            >
-              <IconPhone className="w-4 h-4 text-accent flex-shrink-0" />
-              <span>
-                Still need to talk? <span className="text-ink group-hover:text-accent-light transition-colors">Text or call (847) 220-8550</span>
-              </span>
-            </a>
+            {/* Footer — direct contact options */}
+            <div className="border-t border-line px-5 py-4">
+              <p className="text-ink-quiet text-xs tracking-wide mb-3">Need more info?</p>
+              <div className="space-y-2.5">
+                <a
+                  href="tel:8472208550"
+                  className="flex items-center gap-2.5 text-ink-muted text-sm transition-colors group"
+                >
+                  <IconPhone className="w-4 h-4 text-accent flex-shrink-0" />
+                  <span className="group-hover:text-accent-light transition-colors">Call/text (847) 220-8550</span>
+                </a>
+                <a
+                  href="mailto:omair@thekhan.io"
+                  className="flex items-center gap-2.5 text-ink-muted text-sm transition-colors group"
+                >
+                  <IconMail className="w-4 h-4 text-accent flex-shrink-0" />
+                  <span className="group-hover:text-accent-light transition-colors">Omair@TheKhan.io</span>
+                </a>
+              </div>
+            </div>
           </m.div>
         )}
       </AnimatePresence>
