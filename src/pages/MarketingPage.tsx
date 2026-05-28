@@ -4,6 +4,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/Layout";
 import { Accordion } from "@/components/Accordion";
+import { FoundOnRow } from "@/components/FoundOnRow";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { AnimatedUnderline } from "@/components/ui/animated-underline";
 import { TldrStrip } from "@/components/ui/tldr-strip";
@@ -214,6 +215,10 @@ export default function MarketingPage() {
             <div className="mt-10 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-5">
               <a href="#contact" className="btn-primary">See if it&apos;s a fit &rarr;</a>
               <a href="#pricing" className="btn-outline-accent">See pricing &rarr;</a>
+            </div>
+
+            <div className="mt-14 md:mt-20">
+              <FoundOnRow />
             </div>
           </div>
         </div>

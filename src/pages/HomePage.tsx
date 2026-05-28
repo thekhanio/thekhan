@@ -98,7 +98,7 @@ export default function HomePage() {
             className={`transition-all duration-700 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
           >
             <Eyebrow accent className="mb-8">
-              Local business growth · Month-to-month
+              For local businesses · Month-to-month
             </Eyebrow>
 
             <DisplayH1 className="max-w-5xl">
