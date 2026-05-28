@@ -44,6 +44,13 @@ const LEAD_SOURCES = [
 const ENOUGH = ["Enough for now", "Need more"];
 const TIMELINE = ["ASAP", "Soon — next month or so", "Long game, no rush"];
 const DECISION = ["Just me", "Me + a partner / spouse"];
+const BUDGET_OPTIONS = [
+  "Not sure yet",
+  "Under $1,000/mo",
+  "$1,000–$2,000/mo",
+  "$2,000–$4,000/mo",
+  "$4,000+/mo",
+];
 
 type FormData = {
   serviceWanted: string;
@@ -65,6 +72,8 @@ type FormData = {
   priorMarketing: string;
   // Not sure
   mainThing: string;
+  // Budget — only shown when ads / uncertainty are in play
+  budget: string;
   // Common tail
   areas: string;
   timeline: string;
@@ -109,6 +118,7 @@ export default function IntakePage() {
     enough: "",
     priorMarketing: "",
     mainThing: "",
+    budget: "",
     areas: "",
     timeline: "",
     decisionMaker: "",
@@ -149,6 +159,9 @@ export default function IntakePage() {
   const isWebsite = data.serviceWanted === "Websites" || data.serviceWanted === "Both";
   const isMarketing = data.serviceWanted === "Marketing" || data.serviceWanted === "Both";
   const isNotSure = data.serviceWanted === "Not sure";
+  // Budget only matters where there's a variable to size (ad spend) or no plan yet.
+  // Fixed-price work (website, organic-only) doesn't need it.
+  const adsBudget = ["Paid ads", "Both", "Not sure"].includes(data.growthType);
 
   const validate = (): Array<keyof FormData> =>
     REQUIRED.filter((f) => (data[f] as string).trim() === "");
@@ -200,6 +213,7 @@ export default function IntakePage() {
           enough_or_need_more: isMarketing ? data.enough || "—" : "n/a",
           prior_marketing: isMarketing ? data.priorMarketing.trim() || "—" : "n/a",
           main_thing: isNotSure ? data.mainThing.trim() || "—" : "n/a",
+          monthly_budget: isNotSure || adsBudget ? data.budget || "—" : "n/a",
           service_areas: data.areas.trim() || "—",
           timeline: data.timeline || "—",
           decision_maker: data.decisionMaker || "—",
@@ -473,6 +487,14 @@ export default function IntakePage() {
                               />
                             </div>
 
+                            {adsBudget && (
+                              <BudgetBlock
+                                value={data.budget}
+                                onSelect={(v) => set("budget", v)}
+                                reduce={!!reduce}
+                              />
+                            )}
+
                             <div>
                               <SelectLabel
                                 text="Where do most of your jobs come from now?"
@@ -524,7 +546,7 @@ export default function IntakePage() {
 
                         {/* ---- Not sure branch ---- */}
                         {isNotSure && (
-                          <div className="border-t border-line pt-8">
+                          <div className="space-y-8 border-t border-line pt-8">
                             <Field
                               label="What's the main thing you're trying to fix or grow?"
                               htmlFor="intake-main-thing"
@@ -538,6 +560,11 @@ export default function IntakePage() {
                                 placeholder="e.g. Phone's gone quiet — not sure if it's the site, Google, or what."
                               />
                             </Field>
+                            <BudgetBlock
+                              value={data.budget}
+                              onSelect={(v) => set("budget", v)}
+                              reduce={!!reduce}
+                            />
                           </div>
                         )}
 
@@ -786,6 +813,28 @@ function ChipRow({
           </m.button>
         );
       })}
+    </div>
+  );
+}
+
+function BudgetBlock({
+  value,
+  onSelect,
+  reduce,
+}: {
+  value: string;
+  onSelect: (v: string) => void;
+  reduce: boolean;
+}) {
+  return (
+    <div>
+      <span className="block text-sm text-ink-muted mb-1">
+        Roughly what&apos;s your monthly budget for this?
+      </span>
+      <p className="text-xs text-ink-quiet mb-3">
+        Give me a ballpark and I can put together a clear plan for you.
+      </p>
+      <ChipRow options={BUDGET_OPTIONS} value={value} onSelect={onSelect} reduce={reduce} />
     </div>
   );
 }

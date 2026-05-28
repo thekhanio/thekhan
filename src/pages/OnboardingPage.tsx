@@ -251,10 +251,11 @@ export default function OnboardingPage() {
   // Scope can be locked via the link Omair sends: /start/websites|marketing|both.
   // When locked, the client never sees the scope chooser — it's settled at signing.
   const { scopeParam } = useParams();
+  // A marketing client always gets a new site built, so /start/marketing collects
+  // site + marketing ("Both"). /start/website is the standalone-build path.
   const lockedScope: Scope | null =
-    scopeParam === "websites" ? "Websites" :
-    scopeParam === "marketing" ? "Marketing" :
-    scopeParam === "both" ? "Both" : null;
+    scopeParam === "website" || scopeParam === "websites" ? "Websites" :
+    scopeParam === "marketing" || scopeParam === "both" ? "Both" : null;
   const [state, dispatch] = useReducer(reducer, initialState, (s) =>
     lockedScope ? { ...s, scope: lockedScope } : s
   );
