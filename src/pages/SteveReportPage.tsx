@@ -40,7 +40,7 @@ const steveReport: ReportConfig = {
         total: { value: 53, label: "unique customer leads in May" },
       },
       measurementNote:
-        "These 53 are the leads I can confirm — website forms, ad leads, and LSA calls. On top of them, your sites and Google profiles logged about 40 tap-to-calls in May — real phone interest I can see but can't tie to a specific job, so it's not counted here. The 53 is the floor, not the ceiling.",
+        "These 53 are exactly what I can count — website forms, ad leads, and LSA calls. On top of those, your sites and Google profiles logged about 40 tap-to-calls in May. Those are real, but a phone call can't be tied back to a specific job, so I don't count it in the 53.",
     },
 
     gbpProfiles: [
@@ -73,7 +73,7 @@ const steveReport: ReportConfig = {
       "All organic — earned, not paid for. Rankings are holding at the top across your money sites, and the foundation pages are already showing on the others. Note: several of these #1 spots sit just under the Google map pack, so the clicks go to whoever's in the map.",
 
     seoWins: [
-      { query: "power washing", rank: "#1", site: "Power Washing site", detail: "Still #1 for the biggest, highest-volume term in the whole category — 452 impressions in May." },
+      { query: "power washing", rank: "#1", site: "Power Washing site", detail: "#1 for the main \"power washing\" term across your service area — the biggest term in the category. This is the average across local searches; the exact spot shifts depending on which city someone's searching from." },
       { query: "power wash house near me", rank: "#1", site: "Power Washing site" },
       { query: "concrete driveway cleaning near me", rank: "#1", site: "Power Washing site" },
       { query: "home power washing", rank: "#1", site: "Power Washing site" },
@@ -83,7 +83,7 @@ const steveReport: ReportConfig = {
       { query: "paver installation near me", rank: "#3", site: "Paver site" },
       { query: "permanent christmas lights installation near me", rank: "#1", site: "Lighting site", detail: "Holiday lighting already ranking #1 — in the off-season." },
       { query: "[suburb] permanent roofline lighting", rank: "#7–9", site: "Lighting site", detail: "6 Chicago suburbs already on page 1 — months before fall demand." },
-      { query: "interior car cleaning near me", rank: "#1", site: "Auto Spa site", detail: "The service you're not even focused on, ranking #1 on its own." },
+      { query: "interior car cleaning near me", rank: "#1", site: "Auto Spa site" },
     ],
 
     adsCampaigns: [
@@ -112,7 +112,7 @@ const steveReport: ReportConfig = {
         cpl: "$288 / lead",
         status: "active",
         detail:
-          "Brand-new, still in Google's learning window — the high cost is normal for a fresh campaign and settles as data builds. Already winning ~65% of its auction.",
+          "Brand-new, so you're paying more per lead right now. As the auction catches up and the budget settles, the cost comes down — exactly how it worked for pavers. Already winning ~65% of its auction.",
       },
     ],
 
@@ -124,9 +124,9 @@ const steveReport: ReportConfig = {
           "6 new pages — driveway, house washing, deck & patio, fence, gutter, commercial — so each service ranks on its own. Site's now 55 pages, all submitted to Google.",
       },
       {
-        title: "Launched a Power Washing search campaign",
+        title: "Website editing dashboard — live",
         status: "done",
-        detail: "New campaign live and ramping — already winning ~65% of its auction.",
+        detail: "Your Sanity dashboard is live across the sites — edit photos, services, and gallery from your phone anytime.",
       },
       {
         title: "Added Microsoft Clarity",
@@ -134,19 +134,19 @@ const steveReport: ReportConfig = {
         detail: "Heatmaps and session recordings show how visitors use your pages, so I can sharpen the path to a quote.",
       },
       {
+        title: "Launched a Power Washing search campaign",
+        status: "done",
+        detail: "New campaign live and ramping — already winning ~65% of its auction.",
+      },
+      {
         title: "Managed all three ad campaigns",
         status: "done",
         detail: "25 paid leads across the month — each campaign's cost broken out above.",
       },
       {
-        title: "Kept all 5 profiles + 6 sites live and tracked",
+        title: "Fixed bugs across the sites",
         status: "done",
-        detail: "Every profile and site stayed live, tracked, and indexed.",
-      },
-      {
-        title: "Monthly reporting",
-        status: "done",
-        detail: "This report — same format every month.",
+        detail: "Cleaned up issues across the 6 sites and kept everything indexed.",
       },
     ],
 
@@ -155,7 +155,7 @@ const steveReport: ReportConfig = {
         title: "Email campaign to your customer list",
         highlight: "26% avg open",
         detail:
-          "Set up and ran a 6-part campaign to your ~290 past customers — 26% avg open (first send hit 55%), above the ~20% norm. Wasn't in scope; yours to keep running.",
+          "Ran a 6-part email campaign to your ~290 past customers — 26% average open (first send hit 55%, industry norm is ~20%). This wasn't in the scope; I did it as an extra.",
       },
     ],
 
@@ -190,19 +190,17 @@ const steveReport: ReportConfig = {
               "Already ranking page 1 in 6 suburbs (above). Keep building so fall demand lands on pages that are ready, not a cold start.",
           },
           {
-            title: "Detailing + Snow — in the background",
-            detail: "Holding their rankings and still pulling free leads at zero extra spend.",
+            title: "Detailing + Snow",
+            detail: "Just holding their rankings so you don't lose traction.",
           },
         ],
       },
     ],
 
     outlook: {
-      heading: "Where this is headed",
+      heading: "What's coming next",
       intro:
-        "Leads are up 33% and organic is now your single biggest source — the SEO is taking pressure off the ad budget exactly like it should.",
-      closing:
-        "The one gap is reviews. Get those flowing and the map rankings follow — that's the whole game heading into summer.",
+        "Leads are up 33% and organic is now your biggest source. The next couple months are about the new service and city pages climbing in search, and getting your review count moving.",
     },
   },
   priorMonths: [
