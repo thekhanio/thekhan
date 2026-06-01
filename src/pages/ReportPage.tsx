@@ -338,7 +338,7 @@ function LeadTransparencySection({ data }: { data: LeadTransparency }) {
   const useFreeform = !data.math && !!data.body;
   return (
     <section className="report-subsection report-lead-transparency rounded-xl border border-white/[0.08] bg-[#2A251F] p-6 md:p-8 mb-10">
-      <SectionLabel>How April leads were counted</SectionLabel>
+      <SectionLabel>How your leads were counted</SectionLabel>
       {data.intro && (
         <p className="text-[#F5F1EB] text-sm md:text-base leading-relaxed font-[family-name:var(--font-body)] mb-6">
           {data.intro}
