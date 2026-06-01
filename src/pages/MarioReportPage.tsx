@@ -218,8 +218,6 @@ const marioReport: ReportConfig = {
     ],
 
     leadTransparency: {
-      intro:
-        "May was the first month your own website carried its weight — all 3 of your direct leads came straight from Google search, no forwarding needed. Two more came in through the CGP channel on top. No junk, no duplicates this month. Here's the full count.",
       math: {
         rows: [
           { operator: "+", value: 3, label: "leads from your own site (all from Google search)", tone: "positive" },
@@ -227,19 +225,17 @@ const marioReport: ReportConfig = {
         ],
         total: { value: 5, label: "customer leads in May" },
       },
-      closing:
-        "This counts website forms and Google profile activity. Phone calls aren't tracked, so anyone who called you directly isn't counted here — the real number's likely higher.",
+      measurementNote:
+        "these 5 are the leads I can confirm — website forms and forwarded leads. A call to your phone, even one from your Google listing, can't be tied back to a lead, so it's not counted here.",
     },
 
     gbpProfiles: [
       {
         name: "MarioScape",
         views: 171,
-        calls: 0,
-        directions: "no data yet",
-        websiteClicks: 0,
+        interactions: 2,
         newReviews: 0,
-        note: "Google now reports a single combined \"interactions\" total instead of splitting calls, clicks, and directions — May logged 2 total interactions. Profile views (171) is the number that stays comparable month to month (it was 278 in April). Months bounce around this early; the new service and city pages just went live, and they're what compound your visibility from here.",
+        note: "This is your Google listing — separate from your website below. \"Interactions\" is anyone who tapped to call, get directions, or visit your site straight from Google. A call to your phone from your listing counts here, not on your website. (171 views in May, 278 in April.)",
       },
     ],
 
@@ -320,7 +316,7 @@ const marioReport: ReportConfig = {
 
     actionItems: {
       heading: "What I need from you this month",
-      intro: "Two things — the only two that need you. Everything else, I handle.",
+      intro: "Two things:",
       items: [
         {
           title: "More Google reviews",

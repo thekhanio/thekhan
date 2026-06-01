@@ -59,6 +59,9 @@ export interface LeadTransparency {
   customerLeads?: number;
   exclusions?: string[];
   closing?: string;
+  /** Highlighted callout rendered at the bottom of the section — used for a
+   *  scannable measurement caveat (e.g. "phone calls aren't tracked"). */
+  measurementNote?: string;
 }
 
 export interface LeadSource {
@@ -92,12 +95,16 @@ export interface RevenueBreakdown {
 export interface GBPProfileRow {
   name: string;
   views: number;
-  calls: number;
+  calls?: number;
   /** Numeric value, or a string like "no data yet" when GBP hasn't surfaced
    *  the metric for the profile. Strings render muted/italic and are
    *  excluded from the totals row. */
-  directions: number | string;
-  websiteClicks: number;
+  directions?: number | string;
+  websiteClicks?: number;
+  /** When set on any row, the table renders a single combined "Interactions"
+   *  column (Google's merged calls + directions + site-clicks metric) instead
+   *  of the three separate columns. Use when Google no longer splits them. */
+  interactions?: number;
   newReviews: number;
   note?: string;
 }
@@ -455,6 +462,14 @@ function LeadTransparencySection({ data }: { data: LeadTransparency }) {
           )}
         </>
       )}
+      {data.measurementNote && (
+        <div className="report-measurement-note mt-6 rounded-lg border border-[#9BC4A8]/30 bg-[#9BC4A8]/[0.07] p-4 md:p-5">
+          <p className="text-sm md:text-base text-[#F5F1EB] leading-relaxed font-[family-name:var(--font-body)]">
+            <span className="font-semibold text-[#9BC4A8]">Note on phone calls — </span>
+            {data.measurementNote}
+          </p>
+        </div>
+      )}
     </section>
   );
 }
@@ -605,16 +620,21 @@ function RevenueBreakdownSection({ data }: { data: RevenueBreakdown }) {
 }
 
 function GBPProfilesSection({ rows }: { rows: GBPProfileRow[] }) {
+  // When Google reports a single merged "interactions" metric (no longer split
+  // into calls/directions/site-clicks), render one Interactions column instead
+  // of three — avoids showing contradictory 0s next to a combined total.
+  const useInteractions = rows.some((r) => r.interactions !== undefined);
   const totals = rows.reduce(
     (acc, r) => ({
       views: acc.views + r.views,
-      calls: acc.calls + r.calls,
+      calls: acc.calls + (r.calls ?? 0),
       directions:
         acc.directions + (typeof r.directions === "number" ? r.directions : 0),
-      websiteClicks: acc.websiteClicks + r.websiteClicks,
+      websiteClicks: acc.websiteClicks + (r.websiteClicks ?? 0),
+      interactions: acc.interactions + (r.interactions ?? 0),
       newReviews: acc.newReviews + r.newReviews,
     }),
-    { views: 0, calls: 0, directions: 0, websiteClicks: 0, newReviews: 0 },
+    { views: 0, calls: 0, directions: 0, websiteClicks: 0, interactions: 0, newReviews: 0 },
   );
   // Single-row tables don't need a totals row — it just duplicates the row.
   const showTotals = rows.length > 1;
@@ -632,24 +652,35 @@ function GBPProfilesSection({ rows }: { rows: GBPProfileRow[] }) {
                   showed up in search
                 </span>
               </th>
-              <th className="px-3 py-3 text-right font-medium">
-                Calls
-                <span className="block normal-case tracking-normal text-[10px] text-[#9E9A95] italic font-normal mt-1 max-w-[14ch] ml-auto">
-                  tapped to call
-                </span>
-              </th>
-              <th className="px-3 py-3 text-right font-medium">
-                Directions
-                <span className="block normal-case tracking-normal text-[10px] text-[#9E9A95] italic font-normal mt-1 max-w-[16ch] ml-auto">
-                  tapped for directions
-                </span>
-              </th>
-              <th className="px-3 py-3 text-right font-medium">
-                Site clicks
-                <span className="block normal-case tracking-normal text-[10px] text-[#9E9A95] italic font-normal mt-1 max-w-[14ch] ml-auto">
-                  tapped to website
-                </span>
-              </th>
+              {useInteractions ? (
+                <th className="px-3 py-3 text-right font-medium">
+                  Interactions
+                  <span className="block normal-case tracking-normal text-[10px] text-[#9E9A95] italic font-normal mt-1 max-w-[18ch] ml-auto">
+                    calls, directions, or site clicks
+                  </span>
+                </th>
+              ) : (
+                <>
+                  <th className="px-3 py-3 text-right font-medium">
+                    Calls
+                    <span className="block normal-case tracking-normal text-[10px] text-[#9E9A95] italic font-normal mt-1 max-w-[14ch] ml-auto">
+                      tapped to call
+                    </span>
+                  </th>
+                  <th className="px-3 py-3 text-right font-medium">
+                    Directions
+                    <span className="block normal-case tracking-normal text-[10px] text-[#9E9A95] italic font-normal mt-1 max-w-[16ch] ml-auto">
+                      tapped for directions
+                    </span>
+                  </th>
+                  <th className="px-3 py-3 text-right font-medium">
+                    Site clicks
+                    <span className="block normal-case tracking-normal text-[10px] text-[#9E9A95] italic font-normal mt-1 max-w-[14ch] ml-auto">
+                      tapped to website
+                    </span>
+                  </th>
+                </>
+              )}
               <th className="px-3 py-3 text-right font-medium">New reviews</th>
             </tr>
           </thead>
@@ -663,17 +694,23 @@ function GBPProfilesSection({ rows }: { rows: GBPProfileRow[] }) {
                   )}
                 </td>
                 <td className="px-3 py-3 text-[#F5F1EB] tabular-nums text-right">{r.views}</td>
-                <td className="px-3 py-3 text-[#F5F1EB] tabular-nums text-right">{r.calls}</td>
-                <td className="px-3 py-3 text-[#F5F1EB] tabular-nums text-right">
-                  {typeof r.directions === "number" ? (
-                    r.directions
-                  ) : (
-                    <span className="text-[#9E9A95] italic text-xs font-normal normal-case tracking-normal">
-                      {r.directions}
-                    </span>
-                  )}
-                </td>
-                <td className="px-3 py-3 text-[#F5F1EB] tabular-nums text-right">{r.websiteClicks}</td>
+                {useInteractions ? (
+                  <td className="px-3 py-3 text-[#F5F1EB] tabular-nums text-right">{r.interactions ?? 0}</td>
+                ) : (
+                  <>
+                    <td className="px-3 py-3 text-[#F5F1EB] tabular-nums text-right">{r.calls ?? 0}</td>
+                    <td className="px-3 py-3 text-[#F5F1EB] tabular-nums text-right">
+                      {typeof r.directions === "number" ? (
+                        r.directions
+                      ) : (
+                        <span className="text-[#9E9A95] italic text-xs font-normal normal-case tracking-normal">
+                          {r.directions ?? "—"}
+                        </span>
+                      )}
+                    </td>
+                    <td className="px-3 py-3 text-[#F5F1EB] tabular-nums text-right">{r.websiteClicks ?? 0}</td>
+                  </>
+                )}
                 <td className="px-3 py-3 text-[#F5F1EB] tabular-nums text-right">{r.newReviews}</td>
               </tr>
             ))}
@@ -681,9 +718,15 @@ function GBPProfilesSection({ rows }: { rows: GBPProfileRow[] }) {
               <tr className="border-t-2 border-white/[0.15] bg-white/[0.03]">
                 <td className="px-4 py-3 text-[#F5F1EB] font-semibold uppercase tracking-wider text-xs">Total</td>
                 <td className="px-3 py-3 text-[#F5F1EB] font-bold tabular-nums text-right">{totals.views}</td>
-                <td className="px-3 py-3 text-[#F5F1EB] font-bold tabular-nums text-right">{totals.calls}</td>
-                <td className="px-3 py-3 text-[#F5F1EB] font-bold tabular-nums text-right">{totals.directions}</td>
-                <td className="px-3 py-3 text-[#F5F1EB] font-bold tabular-nums text-right">{totals.websiteClicks}</td>
+                {useInteractions ? (
+                  <td className="px-3 py-3 text-[#F5F1EB] font-bold tabular-nums text-right">{totals.interactions}</td>
+                ) : (
+                  <>
+                    <td className="px-3 py-3 text-[#F5F1EB] font-bold tabular-nums text-right">{totals.calls}</td>
+                    <td className="px-3 py-3 text-[#F5F1EB] font-bold tabular-nums text-right">{totals.directions}</td>
+                    <td className="px-3 py-3 text-[#F5F1EB] font-bold tabular-nums text-right">{totals.websiteClicks}</td>
+                  </>
+                )}
                 <td className="px-3 py-3 text-[#F5F1EB] font-bold tabular-nums text-right">{totals.newReviews}</td>
               </tr>
             )}
