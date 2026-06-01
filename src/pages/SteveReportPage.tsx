@@ -118,10 +118,22 @@ const steveReport: ReportConfig = {
 
     deliverables: [
       {
+        title: "Split Power Washing into dedicated service pages",
+        status: "done",
+        detail:
+          "Instead of one catch-all page, I built each power washing service its own dedicated page — Driveway & Sidewalk, House & Siding Washing, Deck & Patio, Fence Cleaning, Gutter Cleaning, and Commercial. Each one is set up to rank on its own for that specific service, on top of the 47 city pages already live. Your Power Washing site is now 55 pages deep, all submitted to Google — more ways for customers to find you, at no extra cost.",
+      },
+      {
         title: "Launched a Power Washing search campaign",
         status: "done",
         detail:
           "New 'NW Corridor' Google Search campaign for power washing went live and ramped through May — 852 impressions, 40 clicks, and roughly a 65% share of its auction (every competitor under 10%). Still in its learning window, so cost per lead will come down as it optimizes.",
+      },
+      {
+        title: "Added Microsoft Clarity across the sites",
+        status: "done",
+        detail:
+          "Free heatmaps and session recordings now show exactly how visitors move through your pages — where they click, scroll, and drop off. It tells us where to tighten the path from visit to quote.",
       },
       {
         title: "Managed all three ad campaigns daily",
@@ -139,6 +151,15 @@ const steveReport: ReportConfig = {
         title: "Monthly reporting",
         status: "done",
         detail: "This report — same format every month.",
+      },
+    ],
+
+    bonuses: [
+      {
+        title: "Email campaign to your customer list",
+        highlight: "26% avg open rate",
+        detail:
+          "This wasn't in scope — I set up and ran a 6-part email campaign to your ~290 past customers across late May. It averaged a 26% open rate (industry average is ~20%), and the first send hit 55%. A simple way to wake up past customers and keep Premier top of mind heading into the busy season. Yours to keep running.",
       },
     ],
 

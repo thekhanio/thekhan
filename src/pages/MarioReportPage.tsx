@@ -243,7 +243,7 @@ const marioReport: ReportConfig = {
 
     reviews: {
       total: 0,
-      note: "No new Google reviews in May. Your rating holds at 5.0 stars across 41 reviews — and Google removed the 3 fake one-stars from April.",
+      note: "No new Google reviews in May. Your rating holds at a clean 5.0 across 41 reviews.",
     },
 
     websiteTraffic: {
@@ -289,6 +289,12 @@ const marioReport: ReportConfig = {
         detail:
           "Shows how visitors use your site so I can sharpen the pages.",
       },
+      {
+        title: "Got April's 3 fake reviews removed",
+        status: "done",
+        detail:
+          "Flagged and escalated them with Google last month — got all 3 taken down. Your rating's back to a clean 5.0.",
+      },
     ],
 
     bonuses: [
@@ -328,6 +334,7 @@ const marioReport: ReportConfig = {
     },
 
     outlook: {
+      heading: "What's coming next",
       intro:
         "May built the foundation — 14 pages and 4 city pages, all submitted to Google. The next couple months are about those pages climbing in search and your review count growing ahead of snow season.",
     },

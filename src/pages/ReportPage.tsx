@@ -189,6 +189,8 @@ export interface OutlookGoal {
 }
 
 export interface OutlookSection {
+  /** Section heading. Defaults to "Where this is headed". */
+  heading?: string;
   intro: string;
   goalsIntro?: string;
   goals?: OutlookGoal[];
@@ -1054,7 +1056,7 @@ function NextStepsSection({ groups }: { groups: NextStepsGroup[] }) {
 function OutlookSectionBlock({ data }: { data: OutlookSection }) {
   return (
     <section className="report-subsection rounded-xl border border-white/[0.08] bg-[#2A251F] p-6 md:p-8 mb-10">
-      <SectionLabel>Where this is headed</SectionLabel>
+      <SectionLabel>{data.heading || "Where this is headed"}</SectionLabel>
       <p className="text-[#F5F1EB] text-sm md:text-base leading-relaxed font-[family-name:var(--font-body)] mb-5">
         {data.intro}
       </p>
