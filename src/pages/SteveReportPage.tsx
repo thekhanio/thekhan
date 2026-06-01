@@ -31,7 +31,7 @@ const steveReport: ReportConfig = {
 
     leadTransparency: {
       intro:
-        "Every May lead checked out as a real customer — no test submissions or spam to filter out this month, unlike April. The only adjustment was collapsing two duplicate inquiries where the same person reached out twice.",
+        "Clean month — every lead was a real customer, no spam or tests to filter out. The only adjustment was two duplicate inquiries.",
       math: {
         rows: [
           { operator: "+", value: 55, label: "leads logged across forms, search ads & LSA", tone: "muted" },
@@ -39,6 +39,8 @@ const steveReport: ReportConfig = {
         ],
         total: { value: 53, label: "unique customer leads in May" },
       },
+      measurementNote:
+        "These 53 are the leads I can confirm — website forms, ad leads, and LSA calls. On top of them, your sites and Google profiles logged about 40 tap-to-calls in May — real phone interest I can see but can't tie to a specific job, so it's not counted here. The 53 is the floor, not the ceiling.",
     },
 
     gbpProfiles: [
@@ -52,7 +54,7 @@ const steveReport: ReportConfig = {
     reviews: {
       total: 0,
       note:
-        "No new reviews came in this May, and one false 1-star landed on the Power Washing profile — I've already filed the removal request with Google. Reviews are the one area that needs your team, not mine: I can drive the leads, but the 5-star reviews come from your crew asking each customer right after the job. With 53 leads worth of completed work this month, that's the single biggest missed opportunity — and reviews move your Google map ranking more than almost anything else. It's the #1 priority in the next-steps section below.",
+        "No new reviews in May, and one false 1-star on Power Washing — already reported to Google for removal. Getting reviews is the single biggest lever on your map ranking, and it's the #1 thing I need from you this month (below).",
     },
 
     websiteTraffic: {
@@ -68,7 +70,7 @@ const steveReport: ReportConfig = {
     },
 
     seoIntro:
-      "All organic — earned, not paid for. Rankings are holding strong at the top across your money sites, and the foundation work is already showing on the others. One thing hiding in these numbers: several of your #1 organic spots sit just below the Google map pack, so the clicks go to whoever's in the map. That's won with reviews — which is exactly why reviews are the June priority below.",
+      "All organic — earned, not paid for. Rankings are holding at the top across your money sites, and the foundation pages are already showing on the others. Note: several of these #1 spots sit just under the Google map pack, so the clicks go to whoever's in the map.",
 
     seoWins: [
       { query: "power washing", rank: "#1", site: "Power Washing site", detail: "Still #1 for the biggest, highest-volume term in the whole category — 452 impressions in May." },
@@ -80,7 +82,7 @@ const steveReport: ReportConfig = {
       { query: "paver restoration near me", rank: "#3", site: "Paver site", detail: "Your most valuable paver search term — sitting in the top 3." },
       { query: "paver installation near me", rank: "#3", site: "Paver site" },
       { query: "permanent christmas lights installation near me", rank: "#1", site: "Lighting site", detail: "Holiday lighting already ranking #1 — in the off-season." },
-      { query: "[suburb] permanent roofline lighting", rank: "#7–9", site: "Lighting site", detail: "6 Chicago suburbs (Lake Bluff, Crystal Lake, Schaumburg, Hawthorne Woods, Hoffman Estates + more) already on page 1 for permanent lighting — months before fall demand. The foundation you asked for is already taking root." },
+      { query: "[suburb] permanent roofline lighting", rank: "#7–9", site: "Lighting site", detail: "6 Chicago suburbs already on page 1 — months before fall demand." },
       { query: "interior car cleaning near me", rank: "#1", site: "Auto Spa site", detail: "The service you're not even focused on, ranking #1 on its own." },
     ],
 
@@ -92,8 +94,7 @@ const steveReport: ReportConfig = {
         cpl: "$36 / lead",
         status: "active",
         detail:
-          "Your most efficient paid channel. 7 leads (5 phone + 2 message), and you only pay when a real customer connects. CPL dropped from $43 in April to $36 — more leads, lower cost.",
-        note: "Plenty of budget headroom. No change needed.",
+          "Your most efficient channel — you only pay when a real customer connects. CPL dropped from $43 to $36.",
       },
       {
         name: "Paver Restoration — Search Ads",
@@ -102,7 +103,7 @@ const steveReport: ReportConfig = {
         cpl: "$127 / lead",
         status: "active",
         detail:
-          "16 paver leads and a 40% share of the paver ad auction — your nearest competitor sits at 25%, with Angi, Unilock, and Amazon all under 10%. At ~2.5% of a $5,000+ paver job, this is strong ROI. CPL rose from $87 because spend doubled into peak season when clicks cost more — expected, and worth it for the volume.",
+          "40% share of the paver auction (nearest competitor 25%). At ~2.5% of a $5,000+ job, strong ROI. CPL rose from $87 because spend doubled into peak season — expected, worth it.",
       },
       {
         name: "Power Washing — Search Ads (new)",
@@ -111,8 +112,7 @@ const steveReport: ReportConfig = {
         cpl: "$288 / lead",
         status: "active",
         detail:
-          "Brand-new campaign, launched end of April. It's still in Google's learning window, so the cost per lead is high right now — that's completely normal for a fresh campaign and it settles as the data builds. Already winning ~65% of its auction. I'm watching it closely.",
-        note: "Don't read into the $288 — it's a starting number, not a steady-state one.",
+          "Brand-new, still in Google's learning window — the high cost is normal for a fresh campaign and settles as data builds. Already winning ~65% of its auction.",
       },
     ],
 
@@ -121,31 +121,27 @@ const steveReport: ReportConfig = {
         title: "Split Power Washing into dedicated service pages",
         status: "done",
         detail:
-          "Instead of one catch-all page, I built each power washing service its own dedicated page — Driveway & Sidewalk, House & Siding Washing, Deck & Patio, Fence Cleaning, Gutter Cleaning, and Commercial. Each one is set up to rank on its own for that specific service, on top of the 47 city pages already live. Your Power Washing site is now 55 pages deep, all submitted to Google — more ways for customers to find you, at no extra cost.",
+          "6 new pages — driveway, house washing, deck & patio, fence, gutter, commercial — so each service ranks on its own. Site's now 55 pages, all submitted to Google.",
       },
       {
         title: "Launched a Power Washing search campaign",
         status: "done",
-        detail:
-          "New 'NW Corridor' Google Search campaign for power washing went live and ramped through May — 852 impressions, 40 clicks, and roughly a 65% share of its auction (every competitor under 10%). Still in its learning window, so cost per lead will come down as it optimizes.",
+        detail: "New campaign live and ramping — already winning ~65% of its auction.",
       },
       {
-        title: "Added Microsoft Clarity across the sites",
+        title: "Added Microsoft Clarity",
         status: "done",
-        detail:
-          "Free heatmaps and session recordings now show exactly how visitors move through your pages — where they click, scroll, and drop off. It tells us where to tighten the path from visit to quote.",
+        detail: "Heatmaps and session recordings show how visitors use your pages, so I can sharpen the path to a quote.",
       },
       {
-        title: "Managed all three ad campaigns daily",
+        title: "Managed all three ad campaigns",
         status: "done",
-        detail:
-          "Paver Search, Power Washing Search, and Power Washing LSA — monitored spend, keywords, and lead flow across the month. 25 paid leads delivered at a blended $114, but broken out so you can see each one: LSA $36, Paver $127, new PW Search $288 (learning).",
+        detail: "25 paid leads across the month — each campaign's cost broken out above.",
       },
       {
         title: "Kept all 5 profiles + 6 sites live and tracked",
         status: "done",
-        detail:
-          "Every Business Profile and website stayed live, tracked, and indexed across the network — 1,275 profile views and 53 leads flowed through in May. Detailing and Snow held their rankings in the background with no extra spend.",
+        detail: "Every profile and site stayed live, tracked, and indexed.",
       },
       {
         title: "Monthly reporting",
@@ -157,97 +153,56 @@ const steveReport: ReportConfig = {
     bonuses: [
       {
         title: "Email campaign to your customer list",
-        highlight: "26% avg open rate",
+        highlight: "26% avg open",
         detail:
-          "This wasn't in scope — I set up and ran a 6-part email campaign to your ~290 past customers across late May. It averaged a 26% open rate (industry average is ~20%), and the first send hit 55%. A simple way to wake up past customers and keep Premier top of mind heading into the busy season. Yours to keep running.",
+          "Set up and ran a 6-part campaign to your ~290 past customers — 26% avg open (first send hit 55%), above the ~20% norm. Wasn't in scope; yours to keep running.",
       },
     ],
 
+    actionItems: {
+      heading: "What I need from you this month",
+      intro: "Two things — both bigger levers on your Google ranking than anything I can do from my end:",
+      items: [
+        {
+          title: "Reviews",
+          detail:
+            "Ask every customer for a Google review right after the job. None came in this month, and it's the #1 driver of your map ranking — even a couple a month moves it.",
+        },
+        {
+          title: "During-the-work photos",
+          detail:
+            "The paver pics you've been sending are great — keep them coming, plus a few mid-job action shots. Fresh photos rank, and in-progress shots build the most trust.",
+        },
+      ],
+    },
+
     nextSteps: [
-      {
-        heading: "What I need from you in June",
-        intro:
-          "Everything on the marketing side is running. Two things only your team can supply — and they're the two biggest levers on your Google map rankings:",
-        items: [
-          {
-            title: "Reviews — the #1 priority",
-            detail:
-              "No new reviews came in this month, and reviews move your map ranking more than anything I can do from my end. The fix is simple: ask every customer for a Google review right after the job's done. With 53 leads worth of completed work in May, even a fraction saying yes changes where you rank. The ask system is already built into your Playbook.",
-          },
-          {
-            title: "During-the-work photos",
-            detail:
-              "The paver restoration pics you've been sending are great — keep those coming. What'd help even more: a few during-the-work action shots (crew mid-job, before/during/after). Google rewards fresh photos, and in-progress shots build the most trust with the person deciding who to call.",
-          },
-        ],
-      },
       {
         heading: "Where the focus stays",
         items: [
           {
             title: "Power Washing + Pavers",
-            detail:
-              "Your money makers stay front and center — full ad and SEO attention through peak season. That's where the leads and the dollars are.",
+            detail: "Your money makers — full attention through peak season.",
           },
           {
             title: "Lighting — building the foundation",
             detail:
-              "It's already working: 6 Chicago suburbs are ranking page 1 for permanent roofline lighting, and \"permanent christmas lights installation near me\" is already #1 — all in the dead off-season. The profile's also the only one trending up year over year (views +12%, directions +77%). The plan is simple — keep building so fall demand lands on pages that are already ranking, instead of scrambling to start in October.",
+              "Already ranking page 1 in 6 suburbs (above). Keep building so fall demand lands on pages that are ready, not a cold start.",
           },
           {
-            title: "Detailing + Snow — running in the background",
-            detail:
-              "Detailing pulled 6 free organic leads and your single biggest profile-view jump (427) with zero ad spend. Snow sits idle off-season. Both holding their rankings for whenever you want them — no extra cost, no wasted effort.",
-          },
-        ],
-      },
-      {
-        heading: "Ads — where each dollar is going",
-        intro:
-          "Broken out so you can see exactly which campaign is efficient and which is still ramping — no blended average hiding the picture:",
-        items: [
-          {
-            title: "Power Washing LSA — $36 / lead",
-            detail:
-              "Your most efficient paid channel, and pay-only-when-a-customer-connects. 7 leads in May. Budget has room to grow.",
-          },
-          {
-            title: "Paver Search — $127 / lead",
-            detail:
-              "16 leads and a 40% share of the paver auction (nearest competitor 25%). At ~2.5% of a paver job's value, strong ROI. In-season priority.",
-          },
-          {
-            title: "Power Washing Search — $288 / lead (new)",
-            detail:
-              "Just launched, still in Google's learning window, so the cost is high for now — totally normal for a new campaign. It'll settle as the data builds. The number to watch over the next 30–60 days, not to worry about today.",
+            title: "Detailing + Snow — in the background",
+            detail: "Holding their rankings and still pulling free leads at zero extra spend.",
           },
         ],
       },
     ],
 
     outlook: {
+      heading: "Where this is headed",
       intro:
-        "Leads are up 33% over April, and organic search is now your single biggest source — 27 of 53 leads at $0 each. The SEO is doing exactly what it's built to do: take pressure off the ad budget. The one gap this month is reviews, and that's the lever we turn next.",
-      goalsIntro: "Heading into summer, the goals are:",
-      goals: [
-        {
-          highlight: "Get the review engine running",
-          detail:
-            "turn completed jobs into a steady stream of 5-star reviews — the #1 driver of map-pack ranking, and the one thing the marketing can't manufacture on its own",
-        },
-        {
-          highlight: "Power Washing + Pavers as the lead engine",
-          detail:
-            "keep both fully funded and optimized through peak season, where the volume and the dollars are",
-        },
-        {
-          highlight: "Lighting foundation ranking by fall",
-          detail:
-            "site and profile indexed and climbing now, so fall lighting demand lands on a page that's already on page 1",
-        },
-      ],
+        "Leads are up 33% and organic is now your single biggest source — the SEO is taking pressure off the ad budget exactly like it should.",
       closing:
-        "Strong month on leads. Get the review flow going and the map rankings follow — that's the whole game heading into summer.",
+        "The one gap is reviews. Get those flowing and the map rankings follow — that's the whole game heading into summer.",
     },
   },
   priorMonths: [
