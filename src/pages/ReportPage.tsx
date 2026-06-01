@@ -170,6 +170,19 @@ export interface NextStepsGroup {
   items?: NextStepItem[];
 }
 
+export interface ActionItem {
+  title: string;
+  detail: string;
+}
+
+/** Highlighted "what the client needs to do" section — sage-accented so it
+ *  visually pops as the client's part, distinct from the muted info sections. */
+export interface ActionItems {
+  heading?: string;
+  intro?: string;
+  items: ActionItem[];
+}
+
 export interface OutlookGoal {
   highlight: string;
   detail: string;
@@ -200,6 +213,8 @@ export interface MonthReport {
   adsCampaigns?: AdCampaign[];
   deliverables?: DeliverableItem[];
   bonuses?: BonusItem[];
+  /** Highlighted client action items — rendered with sage accent after bonuses. */
+  actionItems?: ActionItems;
   whatsNext?: string[];
   /** Richer alternative to whatsNext — supports sub-groups, intros,
    *  and items that auto-layout as cards (with title) or bullets (without). */
@@ -995,6 +1010,34 @@ function NextStepsGroupBlock({ group }: { group: NextStepsGroup }) {
   );
 }
 
+function ActionItemsSection({ data }: { data: ActionItems }) {
+  return (
+    <section className="report-subsection report-action-items rounded-xl border border-[#9BC4A8]/40 bg-gradient-to-br from-[#9BC4A8]/10 to-[#2D4A3E]/10 p-6 md:p-8 mb-10">
+      <SectionLabel>{data.heading || "What I need from you this month"}</SectionLabel>
+      {data.intro && (
+        <p className="text-[#F5F1EB] text-sm md:text-base leading-relaxed font-[family-name:var(--font-body)] mb-5">
+          {data.intro}
+        </p>
+      )}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        {data.items.map((item, i) => (
+          <div
+            key={i}
+            className="report-action-card rounded-lg border border-[#9BC4A8]/30 bg-[#1F1B17]/60 p-5"
+          >
+            <p className="text-[#F5F1EB] font-semibold text-base md:text-lg font-[family-name:var(--font-body)] mb-2">
+              {item.title}
+            </p>
+            <p className="text-sm md:text-base text-[#F5F1EB]/80 leading-relaxed font-[family-name:var(--font-body)]">
+              {item.detail}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function NextStepsSection({ groups }: { groups: NextStepsGroup[] }) {
   return (
     <section className="report-subsection rounded-xl border border-white/[0.08] bg-[#2A251F] p-6 md:p-8 mb-10">
@@ -1063,6 +1106,7 @@ function MonthBody({ data }: { data: MonthReport }) {
       {data.adsCampaigns && data.adsCampaigns.length > 0 && <AdsCampaignsSection campaigns={data.adsCampaigns} />}
       {data.deliverables && data.deliverables.length > 0 && <DeliverablesSection items={data.deliverables} />}
       {data.bonuses && data.bonuses.length > 0 && <BonusesSection items={data.bonuses} />}
+      {data.actionItems && data.actionItems.items.length > 0 && <ActionItemsSection data={data.actionItems} />}
       {data.nextSteps && data.nextSteps.length > 0 ? (
         <NextStepsSection groups={data.nextSteps} />
       ) : (

@@ -243,12 +243,7 @@ const marioReport: ReportConfig = {
 
     reviews: {
       total: 0,
-      fiveStar: 0,
-      breakdown: [
-        "No new reviews came in during May — none positive, none negative.",
-        "April's 3 fake one-stars are still flagged with Google pending removal.",
-      ],
-      note: "Your 40 migrated reviews plus April's real five-star hold steady — 41 real reviews at 5.0 stars. May was quiet on reviews because outreach paused while the site rebuild took priority. The review push to past clients restarts in June, aiming to cross 50 before next snow season — review velocity is the single strongest signal Google uses to rank you in the map.",
+      note: "No new Google reviews in May. Your rating holds at 5.0 stars across 41 reviews — and Google removed the 3 fake one-stars from April.",
     },
 
     websiteTraffic: {
@@ -258,47 +253,41 @@ const marioReport: ReportConfig = {
       paidPercent: "0%",
       organicPercent: "100%",
       intro:
-        "126 visits in May, every one of them earned — still zero ad spend.",
+        "126 visits in May — right in line with April's 123, still no ad spend.",
       closing:
-        "70% came direct (people typing the URL after meeting you or a referral), 25% from Google search, 6% from social. Nearly identical to April's 123 visits — steady and all organic. The new service and city pages went live late May, so the search share should start climbing as Google indexes them over the summer.",
+        "70% came direct, 25% from Google search, 6% from social. The new service and city pages should start showing up in search results over the next 60 days as Google indexes them.",
     },
 
     deliverables: [
       {
-        title: "Your site went from 1 page to 14",
+        title: "Your site went from 1 page to 14 pages",
         status: "done",
         detail:
-          "The biggest piece of the month. Every service now has its own dedicated page — Landscape Design, Lawn Care, Seasonal Cleanups, Landscaping & Installation, Drainage & Ground Work, Tree & Shrub Care, Hauling & Delivery, Outdoor Lighting, and Snow Removal. Each one targets the exact search a homeowner types, so \"snow removal Wilmette\" lands on your snow page instead of a generic homepage.",
+          "9 SEO service pages — one for each service you offer — so people searching a specific service land on the right page.",
       },
       {
-        title: "4 city pages submitted to Google",
+        title: "4 city pages created for SEO and submitted to Google",
         status: "done",
         detail:
-          "Dedicated pages for your priority North Shore cities, submitted to Google for indexing. These take 3–6 months to climb the rankings — getting them live now means they're working for you by peak season.",
+          "One page per priority North Shore city, submitted to Google for indexing.",
       },
       {
         title: "Website editing dashboard — live",
         status: "done",
         detail:
-          "Finished and in your hands. You can change your photos, services, and gallery right from your phone whenever you want, no need to go through me.",
+          "Change your photos, services, and gallery from your phone anytime.",
       },
       {
         title: "Bing Places — approved",
         status: "done",
         detail:
-          "Approved and live as of May 6. Reaches the older homeowner audience Google misses — over a billion searches a month, and most competitors ignore it.",
+          "Live as of May 6 — reaches the older homeowners Google misses.",
       },
       {
         title: "Microsoft Clarity installed",
         status: "done",
         detail:
-          "Shows exactly how visitors move through your site — what they click, how far they scroll. Helps me fine-tune the pages that turn visitors into calls.",
-      },
-      {
-        title: "Business email — decided",
-        status: "done",
-        detail:
-          "You opted to keep marioscapellc@gmail.com rather than stand up a branded info@marioscape.com. Closed out — no action needed.",
+          "Shows how visitors use your site so I can sharpen the pages.",
       },
     ],
 
@@ -307,94 +296,40 @@ const marioReport: ReportConfig = {
         title: "CGP channel still sending leads your way",
         highlight: "2 leads in May",
         detail:
-          "Every inbound lead through the legacy CGP channel still gets forwarded straight to you — no referral fee, no markup. 2 came through in May, on top of the 3 your own site earned.",
+          "Leads through the legacy CGP channel still get forwarded straight to you — no fee, no markup.",
       },
       {
         title: "Markate transfer handled",
         detail:
-          "Moved your Markate account over — a real lift that took some back-and-forth to get right. Your customer and job data is now where it should be, fully yours.",
+          "Moved your Markate account over — your customer and job data is now fully yours.",
       },
       {
         title: "Digital Guide delivered",
         detail:
-          "Your self-serve guide for posting to Facebook, Instagram, and Nextdoor — sent over so you can keep your social presence active on your own schedule, no extra cost.",
+          "Your self-serve guide for posting to Facebook, Instagram, and Nextdoor.",
       },
     ],
 
-    nextSteps: [
-      {
-        heading: "What I need from you this month",
-        intro:
-          "Two things — and they're the two only you can do. Everything else below, I handle.",
-        items: [
-          {
-            title: "More Google reviews",
-            detail:
-              "When a customer's happy on the job, ask them to leave a quick Google review. This is the single biggest lever for your map ranking — every review pushes you up ahead of snow season. Even one or two a month adds up fast.",
-          },
-          {
-            title: "Keep sending photos",
-            detail:
-              "Before/after shots and completed jobs, straight from your phone. They feed your gallery and your Google profile — fresh photos move rankings, and they're what makes a homeowner pick you over the next guy.",
-          },
-        ],
-      },
-      {
-        heading: "What I'm handling next",
-        items: [
-          { detail: "Review push restarts — outreach to past clients to start climbing toward 50 before snow season" },
-          { detail: "GBP photo refresh + posting rhythm — fresh before/after shots and completed jobs (photo and review velocity move map rankings more than anything else)" },
-          { detail: "Watch the new service + city pages index — first ranking movement should show in the June/July reports" },
-          { detail: "Google search-query data should finally populate now that the profile's been active a full month" },
-        ],
-      },
-      {
-        heading: "SEO Expansion (summer rollout)",
-        intro:
-          "The foundation is now built — 14 pages live, 4 city pages submitted. Next phase is depth: more cities, internal linking, and watching the rankings climb.",
-        items: [
-          {
-            title: "More city pages",
-            detail:
-              "Expand beyond the first 4 to cover the rest of the North Shore corridor — Winnetka, Highland Park, Glencoe, and out. One page per city, each capturing \"landscaper [city]\" searches.",
-          },
-          {
-            title: "Service + city ranking watch",
-            detail:
-              "As Google indexes the new pages, track which service+city combos start ranking and double down on the ones gaining traction.",
-          },
-          {
-            title: "Review velocity to 50+",
-            detail:
-              "Keep the review engine running — it's the single strongest signal Google uses to rank you in the map results, and it matters most heading into snow season.",
-          },
-        ],
-      },
-    ],
+    actionItems: {
+      heading: "What I need from you this month",
+      intro: "Two things — the only two that need you. Everything else, I handle.",
+      items: [
+        {
+          title: "More Google reviews",
+          detail:
+            "When a customer's happy on the job, ask them to leave a quick Google review. It's the single biggest lever for your map ranking — even one or two a month adds up.",
+        },
+        {
+          title: "Keep sending photos",
+          detail:
+            "Before/after shots and completed jobs from your phone. They feed your gallery and your Google profile, and fresh photos move rankings.",
+        },
+      ],
+    },
 
     outlook: {
       intro:
-        "May was the build month. Your site went from a single page to a real 14-page presence with service pages and city pages submitted to Google — the foundation that turns \"a website\" into \"a site that ranks.\" Bing's live, the editing dashboard is in your hands, and your own site is already producing organic leads without leaning on forwarding. The next three months are about ranking that foundation and stacking reviews.",
-      goalsIntro: "By end of summer, the goal is:",
-      goals: [
-        {
-          highlight: "Service + city pages ranking on page 1",
-          detail:
-            "for \"landscaper [city]\" and \"[service] [city]\" across the North Shore — one page doing the work of dozens of searches",
-        },
-        {
-          highlight: "50+ Google reviews",
-          detail:
-            "snowballing your map ranking ahead of snow season — you're sitting at 41 real reviews now",
-        },
-        {
-          highlight: "Organic search as your primary lead source",
-          detail:
-            "May proved it works — all 3 of your own leads came from search. The goal is steady weekly volume from search alone, with CGP forwarding as a bonus on top",
-        },
-      ],
-      closing:
-        "Still zero ad spend. The plan holds: win on search first, layer in paid only if there's a specific seasonal push worth it.",
+        "May built the foundation — 14 pages and 4 city pages, all submitted to Google. The next couple months are about those pages climbing in search and your review count growing ahead of snow season.",
     },
   },
   priorMonths: [aprilReport],
