@@ -227,6 +227,8 @@ const marioReport: ReportConfig = {
         ],
         total: { value: 5, label: "customer leads in May" },
       },
+      closing:
+        "This counts website forms and Google profile activity. Phone calls aren't tracked, so anyone who called you directly isn't counted here — the real number's likely higher.",
     },
 
     gbpProfiles: [
