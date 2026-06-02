@@ -40,7 +40,7 @@ const steveReport: ReportConfig = {
         total: { value: 53, label: "unique customer leads in May" },
       },
       measurementNote:
-        "These 53 are exactly what I can count — website forms, ad leads, and LSA calls. On top of those, your sites and Google profiles logged about 40 tap-to-calls in May. Those are real, but a phone call can't be tied back to a specific job, so I don't count it in the 53.",
+        "These 53 are exactly what I can count — website forms, ad leads, and LSA calls. On top of those, your Google profiles logged 19 call-taps in May (in the table below) and your websites about 20 more — roughly 40 in all. A tap-to-call can't be tied to a specific job, so none are counted in the 53.",
     },
 
     gbpProfiles: [
@@ -54,7 +54,7 @@ const steveReport: ReportConfig = {
     reviews: {
       total: 0,
       note:
-        "No new reviews in May, and one false 1-star on Power Washing — already reported to Google for removal. Getting reviews is the single biggest lever on your map ranking, and it's the #1 thing I need from you this month (below).",
+        "No new reviews in May. One false 1-star on Power Washing — already reported to Google for removal.",
     },
 
     websiteTraffic: {
@@ -70,19 +70,14 @@ const steveReport: ReportConfig = {
     },
 
     seoIntro:
-      "All organic — earned, not paid for. Rankings are holding at the top across your money sites, and the foundation pages are already showing on the others. Note: several of these #1 spots sit just under the Google map pack, so the clicks go to whoever's in the map.",
+      "All organic — earned, not paid for. Your top terms are holding #1 across the money sites, plus 5 more on page 1 beyond the ones below. (A few #1 spots sit just under the Google map pack, so the click can go to whoever's in the map.)",
 
     seoWins: [
-      { query: "power washing", rank: "#1", site: "Power Washing site", detail: "#1 for the main \"power washing\" term across your service area — the biggest term in the category. This is the average across local searches; the exact spot shifts depending on which city someone's searching from." },
+      { query: "power washing", rank: "#1", site: "Power Washing site", detail: "The biggest term in the category — averaged across your service area." },
       { query: "power wash house near me", rank: "#1", site: "Power Washing site" },
-      { query: "concrete driveway cleaning near me", rank: "#1", site: "Power Washing site" },
-      { query: "home power washing", rank: "#1", site: "Power Washing site" },
+      { query: "paver restoration near me", rank: "#3", site: "Paver site", detail: "Your most valuable paver term — sitting top 3." },
       { query: "patio restoration near me", rank: "#1", site: "Paver site" },
-      { query: "paver cleaning and sealing near me", rank: "#1", site: "Paver site" },
-      { query: "paver restoration near me", rank: "#3", site: "Paver site", detail: "Your most valuable paver search term — sitting in the top 3." },
-      { query: "paver installation near me", rank: "#3", site: "Paver site" },
-      { query: "permanent christmas lights installation near me", rank: "#1", site: "Lighting site", detail: "Holiday lighting already ranking #1 — in the off-season." },
-      { query: "[suburb] permanent roofline lighting", rank: "#7–9", site: "Lighting site", detail: "6 Chicago suburbs already on page 1 — months before fall demand." },
+      { query: "permanent christmas lights installation near me", rank: "#1", site: "Lighting site", detail: "Ranking #1 in the off-season — ahead of fall demand." },
       { query: "interior car cleaning near me", rank: "#1", site: "Auto Spa site" },
     ],
 
@@ -176,31 +171,10 @@ const steveReport: ReportConfig = {
       ],
     },
 
-    nextSteps: [
-      {
-        heading: "Where the focus stays",
-        items: [
-          {
-            title: "Power Washing + Pavers",
-            detail: "Your money makers — full attention through peak season.",
-          },
-          {
-            title: "Lighting — building the foundation",
-            detail:
-              "Already ranking page 1 in 6 suburbs (above). Keep building so fall demand lands on pages that are ready, not a cold start.",
-          },
-          {
-            title: "Detailing + Snow",
-            detail: "Just holding their rankings so you don't lose traction.",
-          },
-        ],
-      },
-    ],
-
     outlook: {
       heading: "What's coming next",
       intro:
-        "Leads are up 33% and organic is now your biggest source. The next couple months are about the new service and city pages climbing in search, and getting your review count moving.",
+        "Leads are up 33% and organic is now your biggest source. The next couple months are about the new service and city pages climbing in search — Power Washing and Pavers stay the priority through peak season.",
     },
   },
   priorMonths: [
