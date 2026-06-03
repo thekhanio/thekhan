@@ -66,7 +66,7 @@ const steveReport: ReportConfig = {
       intro:
         "Across your 5 service sites, here's where May's visits came from. (Your main Premier hub site — the front door that routes people to the right service — added another 4,200 page views on top of these.)",
       closing:
-        "64% of visits came from non-paid sources — nearly 2x your paid traffic, at $0 per click. Ads bring the in-season volume while organic keeps compounding underneath it.",
+        "64% of visits came from non-paid sources — nearly 2x your paid traffic, at $0 per click. Ads bring the busy-season volume, and your free Google traffic keeps growing on top.",
     },
 
     seoIntro:
@@ -174,7 +174,7 @@ const steveReport: ReportConfig = {
     outlook: {
       heading: "What's coming next",
       intro:
-        "Leads are up 33% and organic is now your biggest source. The next couple months are about the new service and city pages climbing in search — Power Washing and Pavers stay the priority through peak season.",
+        "Leads are up 33% and organic is now your biggest source. The next couple months are about the new pages moving up on Google — Power Washing and Pavers stay the priority through peak season.",
     },
   },
   priorMonths: [

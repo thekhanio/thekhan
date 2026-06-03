@@ -334,7 +334,7 @@ const marioReport: ReportConfig = {
     outlook: {
       heading: "What's coming next",
       intro:
-        "May built the foundation — 14 pages and 4 city pages, all submitted to Google. The next couple months are about those pages climbing in search and your review count growing ahead of fall.",
+        "May built the foundation — 14 pages and 4 city pages, all submitted to Google. The next couple months are about those pages moving up on Google and getting more reviews in before fall.",
     },
   },
   priorMonths: [aprilReport],
