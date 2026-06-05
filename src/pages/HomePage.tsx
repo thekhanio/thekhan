@@ -66,6 +66,9 @@ const ORG_SCHEMA = {
   "name": "TheKhan",
   "url": "https://thekhan.io",
   "logo": "https://thekhan.io/portfolio/logo-white.png",
+  "description": "TheKhan is the web design and marketing partner for home service contractors and small businesses — building custom websites and running local marketing (SEO, Local SEO, Google Ads, and Google Business Profile) that brings in more calls and jobs.",
+  "knowsAbout": ["Web design", "Web development", "SEO", "Local SEO", "Google Ads", "Google Business Profile", "Home service marketing", "Small business marketing"],
+  "areaServed": { "@type": "Country", "name": "United States" },
   "founder": { "@type": "Person", "name": "Omair Khan" },
   "sameAs": [
     "https://www.linkedin.com/company/thekhanio",
